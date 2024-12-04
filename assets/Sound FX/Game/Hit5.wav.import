@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d11yl38bnqoqn"
+path="res://.godot/imported/Hit5.wav-1b1639b5ae2924db75c7d4413694e9fe.sample"
+
+[deps]
+
+source_file="res://assets/Sound FX/Game/Hit5.wav"
+dest_files=["res://.godot/imported/Hit5.wav-1b1639b5ae2924db75c7d4413694e9fe.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bfie74bc3gh6r"
+path="res://.godot/imported/Pixel 7.wav-fb18ffdd44a704b96d935bd61e0ba150.sample"
+
+[deps]
+
+source_file="res://assets/Musics/Background Music 1/Wav/Pixel 7.wav"
+dest_files=["res://.godot/imported/Pixel 7.wav-fb18ffdd44a704b96d935bd61e0ba150.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

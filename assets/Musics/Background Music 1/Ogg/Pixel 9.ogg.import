@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dw5wjwpn4l518"
+path="res://.godot/imported/Pixel 9.ogg-044c721d83259c43604fcc5d3515fbd2.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/Musics/Background Music 1/Ogg/Pixel 9.ogg"
+dest_files=["res://.godot/imported/Pixel 9.ogg-044c721d83259c43604fcc5d3515fbd2.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

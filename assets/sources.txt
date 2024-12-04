@@ -1,0 +1,17 @@
+heroes: https://anokolisa.itch.io/dungeon-crawler-pixel-art-asset-pack
+
+enemies:
+https://elthen.itch.io/2d-pixel-art-minotaur-sprites
+
+
+green tileset: https://cainos.itch.io/pixel-art-top-down-basic
+
+dungeon tileset: https://rekkimaru.itch.io/dungeon-rpg-tileset
+
+lava tileset: https://beyonderboy.itch.io/top-down-lava-tileset-16x16
+
+sound fx and music: https://pixel-boy.itch.io/ninja-adventure-asset-pack
+
+icons and ui: 
+
+https://free-game-assets.itch.io/48-free-swordsman-skills-icons-pixel-art

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cnd8up3uk4wpa"
+path="res://.godot/imported/Voice2.wav-2d41948485de84532f02f1e64bdfaec0.sample"
+
+[deps]
+
+source_file="res://assets/Sound FX/Game/Voice2.wav"
+dest_files=["res://.godot/imported/Voice2.wav-2d41948485de84532f02f1e64bdfaec0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

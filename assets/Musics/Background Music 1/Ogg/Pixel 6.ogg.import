@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c4874uunrly4e"
+path="res://.godot/imported/Pixel 6.ogg-e9bf3c54b4dda1e8ff29145369f9f15a.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/Musics/Background Music 1/Ogg/Pixel 6.ogg"
+dest_files=["res://.godot/imported/Pixel 6.ogg-e9bf3c54b4dda1e8ff29145369f9f15a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ti64ehmsvp7e"
+path="res://.godot/imported/Pixel 3.mp3-fe3d78026b626f3803041e9cde6b4d45.mp3str"
+
+[deps]
+
+source_file="res://assets/Musics/Background Music 1/mp3/Pixel 3.mp3"
+dest_files=["res://.godot/imported/Pixel 3.mp3-fe3d78026b626f3803041e9cde6b4d45.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
