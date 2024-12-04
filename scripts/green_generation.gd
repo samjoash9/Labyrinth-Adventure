@@ -47,6 +47,8 @@ func _init_maze():
 			stack.append(current)
 			var dir = next - current
 			print("direction: ", dir)
+			
+			# 1 ra pirme makuha sa get_cell_source_id kay wala may tiles 
 			var current_walls = get_cell_source_id(current) - cell_walls[dir/PATTERN_SIZE]
 			var next_walls = get_cell_source_id(next) - cell_walls[-dir/PATTERN_SIZE] 
 

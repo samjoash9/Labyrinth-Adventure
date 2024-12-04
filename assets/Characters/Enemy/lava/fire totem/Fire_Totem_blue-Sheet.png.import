@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqeog3opsv146"
-path="res://.godot/imported/Cacodaemon Sprite Sheet.png-3767e0895030376ac71df7bafdfbfc9a.ctex"
+uid="uid://cdca0viyu78e2"
+path="res://.godot/imported/Fire_Totem_blue-Sheet.png-6c3eb9a394a3ed95e6fad126de7557af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Characters/Enemy/lava/Cacodaemon Sprite Sheet.png"
-dest_files=["res://.godot/imported/Cacodaemon Sprite Sheet.png-3767e0895030376ac71df7bafdfbfc9a.ctex"]
+source_file="res://assets/Characters/Enemy/lava/fire totem/Fire_Totem_blue-Sheet.png"
+dest_files=["res://.godot/imported/Fire_Totem_blue-Sheet.png-6c3eb9a394a3ed95e6fad126de7557af.ctex"]
 
 [params]
 

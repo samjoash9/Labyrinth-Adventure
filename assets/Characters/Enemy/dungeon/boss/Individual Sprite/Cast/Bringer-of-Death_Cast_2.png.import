@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqeog3opsv146"
-path="res://.godot/imported/Cacodaemon Sprite Sheet.png-3767e0895030376ac71df7bafdfbfc9a.ctex"
+uid="uid://pif6xs5sji6m"
+path="res://.godot/imported/Bringer-of-Death_Cast_2.png-85a68f2ffb9816e065dd96b4f8724469.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Characters/Enemy/lava/Cacodaemon Sprite Sheet.png"
-dest_files=["res://.godot/imported/Cacodaemon Sprite Sheet.png-3767e0895030376ac71df7bafdfbfc9a.ctex"]
+source_file="res://assets/Characters/Enemy/dungeon/boss/Individual Sprite/Cast/Bringer-of-Death_Cast_2.png"
+dest_files=["res://.godot/imported/Bringer-of-Death_Cast_2.png-85a68f2ffb9816e065dd96b4f8724469.ctex"]
 
 [params]
 

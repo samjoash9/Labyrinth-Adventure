@@ -1,0 +1,40 @@
+lava: 
+
+https://craftpix.net/freebies/free-lava-fields-level-map-2d-backgrounds/?num=1&count=21&sq=lava&pos=9
+
+enemies:
+
+green:
+slimes and orc: https://craftpix.net/download/70521/
+
+twig: https://elthen.itch.io/2d-pixel-art-twig-blight
+
+leaf man: https://elthen.itch.io/leafy-le
+
+goblin boss: https://elthen.itch.io/2d-pixel-art-goblin-mech-rider-sprites
+
+dungeon:
+akaname:https://elthen.itch.io/2d-pixel-art-akaname/download/eyJpZCI6MTUyNjU2MiwiZXhwaXJlcyI6MTczMzI3NzMxMH0%3d.xwiR1Kw%2fxqnJGImE90%2f6VWsWi8M%3d
+
+rat: https://elthen.itch.io/2d-pixel-art-ratfolk-necromancer-sprites
+
+ghoul: https://elthen.itch.io/2d-pixel-art-ghoul-sprites
+
+brain mole: https://elthen.itch.io/2d-pixel-art-brain-mole-monarch-sprites
+
+skeleton: https://astrobob.itch.io/animated-pixel-art-skeleton
+
+dungeon boss: https://elthen.itch.io/2d-pixel-art-shardsoul-slayer-sprites
+
+
+lava:
+
+imp: https://elthen.itch.io/2d-pixel-art-imp-sprites
+
+minotaur: https://elthen.itch.io/2d-pixel-art-minotaur-sprites
+
+fire totem: https://creativekind.itch.io/fire-totem-free
+
+eye: https://elthen.itch.io/2d-pixel-art-cacodaemon-sprites
+
+lava boss: https://clembod.itch.io/bringer-of-death-free
