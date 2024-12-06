@@ -1,8 +1,7 @@
 extends TileMapLayer
 
-
 const PATTERN_SIZE = 16
-const mapSize = 3 * PATTERN_SIZE
+const mapSize = 10 * PATTERN_SIZE
 
 const N = 1 
 const E = 2
@@ -18,21 +17,24 @@ var cell_walls = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_init_maze()
+	#_init_maze()
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
 func _init_maze():
-	mazeOutline()
+	#mazeOutline()
 	
+	var patterns = {}
 	var unvisited = []
 	var stack = []
 	for x in range(0 , mapSize, PATTERN_SIZE):
 		for y in range(0 , mapSize, PATTERN_SIZE):
 			unvisited.append(Vector2i(x,y))
-	print("unvisited: ", unvisited)
+			var key = Vector2i(x, y)
+			patterns[key] = 15
 	
 	var current = Vector2i(0,0)
 	unvisited.erase(current)
@@ -40,19 +42,16 @@ func _init_maze():
 	while unvisited:
 		var adjacent_cells = check_adjacent(current, unvisited)
 		
-		print(adjacent_cells)
-		
 		if adjacent_cells.size()>0:
 			var next = adjacent_cells[randi() % adjacent_cells.size()]
 			stack.append(current)
 			var dir = next - current
-			print("direction: ", dir)
+			 
+			var current_walls = patterns.get(current) - cell_walls[dir/PATTERN_SIZE]
+			var next_walls = patterns.get(next) - cell_walls[-dir/PATTERN_SIZE] 
 			
-			# 1 ra pirme makuha sa get_cell_source_id kay wala may tiles 
-			var current_walls = get_cell_source_id(current) - cell_walls[dir/PATTERN_SIZE]
-			var next_walls = get_cell_source_id(next) - cell_walls[-dir/PATTERN_SIZE] 
-
-			print(get_cell_atlas_coords(Vector2i(0, 0)))
+			patterns[current] = current_walls
+			patterns[next] = next_walls
 
 			apply_pattern_by_index(current, current_walls)
 			apply_pattern_by_index(next, next_walls)
@@ -72,7 +71,6 @@ func mazeOutline():
 func apply_pattern_by_index(pos: Vector2i, pattern_index: int):
 	var pattern = TileMapPattern.new()
 	pattern = tile_set.get_pattern(pattern_index)
-	print(pattern_index)
 	set_pattern(pos, pattern)
 	
 func check_adjacent(cell, unvisited):

@@ -1,22 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://dq7lxal2r15p3"]
+[gd_scene load_steps=8 format=3 uid="uid://dq7lxal2r15p3"]
 
 [ext_resource type="PackedScene" uid="uid://8sotrcyxx4a5" path="res://scenes/dungeon.tscn" id="1_2nhks"]
 [ext_resource type="Script" path="res://scripts/dungeon_tile_generate.gd" id="1_qnw78"]
 [ext_resource type="Script" path="res://scripts/dungeon_generate.gd" id="3_r43mr"]
 [ext_resource type="PackedScene" uid="uid://dwyhebwkim47x" path="res://scenes/green.tscn" id="4_0m8v2"]
 [ext_resource type="Script" path="res://scripts/green_generation.gd" id="5_vimqe"]
+[ext_resource type="PackedScene" uid="uid://dy8sft451d5yl" path="res://scenes/lava.tscn" id="6_vi7vf"]
+[ext_resource type="Script" path="res://scenes/lava_generation.gd" id="7_6umdd"]
 
 [node name="Dungeon_Tile_Generate" type="Node2D"]
 script = ExtResource("1_qnw78")
 
-[node name="TileMapLayer" parent="." instance=ExtResource("1_2nhks")]
+[node name="TileMapLayerDungeon" parent="." instance=ExtResource("1_2nhks")]
 tile_map_data = PackedByteArray()
 script = ExtResource("3_r43mr")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(573, 311)
-zoom = Vector2(0.3, 0.3)
-
-[node name="TileMapLayer2" parent="." instance=ExtResource("4_0m8v2")]
+[node name="TileMapLayer2Green" parent="." instance=ExtResource("4_0m8v2")]
 tile_map_data = PackedByteArray()
 script = ExtResource("5_vimqe")
+
+[node name="TileMapLayerLava" parent="." instance=ExtResource("6_vi7vf")]
+position = Vector2(382, -929)
+tile_map_data = PackedByteArray()
+script = ExtResource("7_6umdd")
