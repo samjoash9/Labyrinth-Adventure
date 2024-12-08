@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3qhh1jl3wepx"]
+
+[ext_resource type="PackedScene" uid="uid://dwyhebwkim47x" path="res://scenes/game_modes/tilesets/green.tscn" id="1_yruxq"]
+[ext_resource type="Script" path="res://scripts/game_modes/green_mode.gd" id="2_d72fy"]
+
+[node name="green_mode" type="Node2D"]
+
+[node name="green_tile_set" parent="." instance=ExtResource("1_yruxq")]
+tile_map_data = PackedByteArray()
+script = ExtResource("2_d72fy")

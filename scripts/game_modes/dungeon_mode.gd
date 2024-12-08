@@ -1,7 +1,8 @@
 extends TileMapLayer
 
 const PATTERN_SIZE = 16
-const mapSize = 10 * PATTERN_SIZE
+const mapSize = 3 * PATTERN_SIZE
+const atlas_id = 0
 
 const N = 1 
 const E = 2
@@ -15,9 +16,29 @@ var cell_walls = {
 	Vector2i(-1,0): W
 }
 
+var noise_tiles = [
+	Vector2i(0, 9),
+	Vector2i(1, 9),
+	Vector2i(2, 9),
+	Vector2i(0, 10),
+	Vector2i(1, 10),
+	Vector2i(2, 10),
+	Vector2i(1, 11),
+	Vector2(0, 11),
+	Vector2i(1, 11),
+	Vector2i(2, 11),
+	Vector2(1, 0),
+	Vector2i(9, 8),
+	Vector2i(11, 8),
+	Vector2(11, 9),
+	Vector2i(10, 11),
+	Vector2i(10, 11),
+]
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#_init_maze()
+	apply_noise()
+	_init_maze()
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,7 +47,7 @@ func _process(delta: float) -> void:
 
 func _init_maze():
 	#mazeOutline()
-	
+
 	var patterns = {}
 	var unvisited = []
 	var stack = []
@@ -52,9 +73,9 @@ func _init_maze():
 			
 			patterns[current] = current_walls
 			patterns[next] = next_walls
-
-			apply_pattern_by_index(current, current_walls)
+			
 			apply_pattern_by_index(next, next_walls)
+			apply_pattern_by_index(current, current_walls)
 			current = next
 			unvisited.erase(current)
 		else:
@@ -67,6 +88,11 @@ func mazeOutline():
 	for x in range(-1*PATTERN_SIZE, mapSize + PATTERN_SIZE, PATTERN_SIZE):
 		for y in range(-1*PATTERN_SIZE, mapSize + PATTERN_SIZE, PATTERN_SIZE):
 			apply_pattern_by_index(Vector2i(x,y), N|E|S|W)
+
+func apply_noise():
+	for x in range(mapSize):
+		for y in range(mapSize):
+			set_cell(Vector2i(x, y), atlas_id, noise_tiles[randi_range(0, len(noise_tiles)-1)])
 
 func apply_pattern_by_index(pos: Vector2i, pattern_index: int):
 	var pattern = TileMapPattern.new()

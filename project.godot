@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Labyrinth Adventure"
-run/main_scene="res://scenes/dungeon.tscn"
+run/main_scene="res://scenes/game_modes/tilesets/dungeon.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://assets/Game Icon.png"
 

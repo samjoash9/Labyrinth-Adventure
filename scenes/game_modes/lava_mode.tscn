@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8be05dxp7d2g"]
+
+[ext_resource type="PackedScene" uid="uid://dy8sft451d5yl" path="res://scenes/game_modes/tilesets/lava.tscn" id="1_yim8d"]
+[ext_resource type="Script" path="res://scripts/game_modes/lava_mode.gd" id="2_d12yb"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMapLayer" parent="." instance=ExtResource("1_yim8d")]
+tile_map_data = PackedByteArray()
+script = ExtResource("2_d12yb")
