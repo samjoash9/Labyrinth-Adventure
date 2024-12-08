@@ -18,24 +18,29 @@ var cell_walls = {
 
 var noise_tiles = [
 	Vector2i(1, 2),
+	Vector2i(4, 2),
 	Vector2i(2, 2),
+	Vector2i(4, 2),
+	Vector2i(4, 2),
 	Vector2i(4, 1),
+	Vector2i(4, 2),
 	Vector2i(5, 1),
+	Vector2i(4, 2),
+	Vector2i(4, 2),
 	Vector2i(4, 2),
 ]
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	_init_maze()
-	pass
+#func _ready() -> void:
+	##init_maze()
+	#pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+## Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta: float) -> void:
+	#pass
 
-func _init_maze():
+func init_maze():
 	apply_noise()
-	#mazeOutline()
 
 	var patterns = {}
 	var unvisited = []
