@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://djbxdml5ekblm"]
+[gd_scene load_steps=2 format=3 uid="uid://djbxdml5ekblm"]
+
+[ext_resource type="PackedScene" uid="uid://c3qhh1jl3wepx" path="res://scenes/game_modes/green_mode.tscn" id="1_fmjqs"]
 
 [node name="game" type="Node2D"]
+
+[node name="green_mode" parent="." instance=ExtResource("1_fmjqs")]
