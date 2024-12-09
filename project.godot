@@ -15,6 +15,10 @@ run/main_scene="res://scenes/game_modes/tilesets/dungeon.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://assets/Game Icon.png"
 
+[autoload]
+
+GameManager="*res://globals/GameManager.gd"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

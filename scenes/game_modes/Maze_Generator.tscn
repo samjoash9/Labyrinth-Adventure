@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://gntrd0281yiq"]
+
+[ext_resource type="Script" path="res://scripts/game_modes/maze_generator.gd" id="1_85poh"]
+
+[node name="Maze_Generator" type="TileMapLayer"]
+script = ExtResource("1_85poh")

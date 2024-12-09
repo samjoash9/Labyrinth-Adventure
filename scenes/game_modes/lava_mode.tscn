@@ -1,18 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8be05dxp7d2g"]
+[gd_scene load_steps=5 format=3 uid="uid://yhvsiy1ljk60"]
 
-[ext_resource type="Script" path="res://scripts/game_modes/lava_manager.gd" id="1_di5oo"]
-[ext_resource type="PackedScene" uid="uid://dy8sft451d5yl" path="res://scenes/game_modes/tilesets/lava.tscn" id="1_yim8d"]
-[ext_resource type="Script" path="res://scripts/game_modes/tileset/lava_mode.gd" id="2_d12yb"]
-[ext_resource type="PackedScene" uid="uid://blqeerixjf327" path="res://scenes/game_modes/objects/lava_objects.tscn" id="2_pjbjf"]
-[ext_resource type="Script" path="res://scripts/game_modes/objects/lava_objects.gd" id="3_rht1c"]
+[ext_resource type="Script" path="res://scripts/game_modes/lava_mode.gd" id="1_x8wrf"]
+[ext_resource type="PackedScene" uid="uid://blqeerixjf327" path="res://scenes/game_modes/objects/lava_objects.tscn" id="2_iasd5"]
+[ext_resource type="PackedScene" uid="uid://gntrd0281yiq" path="res://scenes/game_modes/Maze_Generator.tscn" id="2_tiiur"]
+[ext_resource type="PackedScene" uid="uid://dy8sft451d5yl" path="res://scenes/game_modes/tilesets/lava.tscn" id="3_dpmro"]
 
-[node name="lava_mode" type="Node2D"]
-script = ExtResource("1_di5oo")
+[node name="Lava_mode" type="Node2D"]
+script = ExtResource("1_x8wrf")
 
-[node name="lava_maze" parent="." instance=ExtResource("1_yim8d")]
+[node name="Maze_Generator" parent="." node_paths=PackedStringArray("wall_patterns", "maze_object_patterns") instance=ExtResource("2_tiiur")]
+scale = Vector2(-0.414325, -1.34627)
+wall_patterns = NodePath("../lava_walls")
+maze_object_patterns = NodePath("../lava_objects")
+mode = 3
+
+[node name="lava_objects" parent="." instance=ExtResource("2_iasd5")]
 tile_map_data = PackedByteArray()
-script = ExtResource("2_d12yb")
 
-[node name="lava_objects" parent="." instance=ExtResource("2_pjbjf")]
+[node name="lava_walls" parent="." instance=ExtResource("3_dpmro")]
 tile_map_data = PackedByteArray()
-script = ExtResource("3_rht1c")

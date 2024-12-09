@@ -1,20 +1,19 @@
 [gd_scene load_steps=5 format=3 uid="uid://gpo24n2hi45r"]
 
-[ext_resource type="Script" path="res://scripts/game_modes/green_mode.gd" id="1_jhivi"]
+[ext_resource type="Script" path="res://green_mode.gd" id="1_jw8dm"]
 [ext_resource type="PackedScene" uid="uid://dwyhebwkim47x" path="res://scenes/game_modes/tilesets/green.tscn" id="1_ocduj"]
-[ext_resource type="PackedScene" uid="uid://gntrd0281yiq" path="res://scenes/game_modes/Maze_Generator.tscn" id="1_ql1b5"]
+[ext_resource type="PackedScene" uid="uid://gntrd0281yiq" path="res://Maze_Generator.tscn" id="1_ql1b5"]
 [ext_resource type="PackedScene" uid="uid://br1vuxb82exst" path="res://scenes/game_modes/objects/green_objects.tscn" id="2_2y7qd"]
 
 [node name="Green_Mode" type="Node2D"]
-script = ExtResource("1_jhivi")
+script = ExtResource("1_jw8dm")
 
 [node name="Maze_Generator" parent="." node_paths=PackedStringArray("wall_patterns", "maze_object_patterns") instance=ExtResource("1_ql1b5")]
 wall_patterns = NodePath("../green_walls")
 maze_object_patterns = NodePath("../green_objects")
-mode = 1
-
-[node name="green_objects" parent="." instance=ExtResource("2_2y7qd")]
-tile_map_data = PackedByteArray()
 
 [node name="green_walls" parent="." instance=ExtResource("1_ocduj")]
+tile_map_data = PackedByteArray()
+
+[node name="green_objects" parent="." instance=ExtResource("2_2y7qd")]
 tile_map_data = PackedByteArray()
