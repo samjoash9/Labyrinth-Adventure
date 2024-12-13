@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=4 uid="uid://bfkhq2vf0a3gf"]
+[gd_scene load_steps=14 format=4 uid="uid://bfkhq2vf0a3gf"]
 
 [ext_resource type="Texture2D" uid="uid://dmibqs7ant8f6" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetFloor.png" id="1_4m24w"]
 [ext_resource type="Texture2D" uid="uid://oo6x4w6aivsb" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetElement.png" id="2_hdupt"]
 [ext_resource type="Texture2D" uid="uid://dwkvh4s6mb3pn" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetHouse.png" id="2_qw0b5"]
 [ext_resource type="Texture2D" uid="uid://b8d3w08gyrd8k" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetNature.png" id="3_lfukg"]
 [ext_resource type="PackedScene" uid="uid://dm62q6y08fg8o" path="res://scenes/portals/central_hub_portal.tscn" id="5_wo05u"]
+[ext_resource type="PackedScene" uid="uid://cfsxr23f07rxu" path="res://scenes/npcs/Weapons_Dealer/Weapons_Dealer_onNode.tscn" id="8_jx01w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iitm3"]
 texture = ExtResource("1_4m24w")
@@ -1683,5 +1684,9 @@ scale = Vector2(0.5, 0.5)
 autoplay = "default"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(246, -5)
-zoom = Vector2(6, 6)
+position = Vector2(248, 86)
+zoom = Vector2(4, 4)
+
+[node name="weapons_dealer" parent="." instance=ExtResource("8_jx01w")]
+position = Vector2(171, 142)
+scale = Vector2(0.09, 0.09)

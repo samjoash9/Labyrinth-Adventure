@@ -1267,9 +1267,10 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 60.0
+"speed": 12.0
 }]
 
 [node name="central_hub_portal" type="AnimatedSprite2D"]
+position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_yq5dj")
-frame_progress = 0.374072
+frame_progress = 0.191218
