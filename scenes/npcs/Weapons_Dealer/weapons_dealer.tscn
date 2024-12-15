@@ -66,6 +66,33 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="Animation" id="Animation_qc7dj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-25, -187)]
+}
+
 [sub_resource type="Animation" id="Animation_j77pb"]
 resource_name = "idle"
 length = 2.0
@@ -108,33 +135,6 @@ tracks/2/keys = {
 "values": [Vector2(-16, -181), Vector2(14, -181), Vector2(44, -181), Vector2(74, -181), Vector2(65, -181), Vector2(86, -181), Vector2(107, -181), Vector2(129, -181)]
 }
 
-[sub_resource type="Animation" id="Animation_qc7dj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-25, -187)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2mteo"]
 _data = {
 "RESET": SubResource("Animation_qc7dj"),
@@ -163,8 +163,6 @@ libraries = {
 "": SubResource("AnimationLibrary_2mteo")
 }
 autoplay = "idle"
-
-[node name="Node2D" type="Node2D" parent="."]
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_th7il")
