@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2a1noocimp4x"]
+[gd_scene load_steps=10 format=3 uid="uid://b2a1noocimp4x"]
 
 [ext_resource type="Texture2D" uid="uid://b07q2ti7l0swm" path="res://assets/Characters/Enemy/dungeon/boss/SpriteSheet/Bringer-of-Death-SpritSheet.png" id="1_uoq27"]
 [ext_resource type="Script" path="res://scripts/Characters/Enemies/Dungeon/dungeon_boss.gd" id="2_c7gij"]
+[ext_resource type="PackedScene" uid="uid://dmbf0vrpon3k0" path="res://scenes/Characters/Enemies/common/enemy_path_find_component.tscn" id="3_cx00i"]
 
 [sub_resource type="Animation" id="Animation_kys8n"]
 resource_name = "RESET"
@@ -101,3 +102,5 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(112, -24)
 shape = SubResource("CapsuleShape2D_gtn3i")
+
+[node name="EnemyPathFindComponent" parent="." instance=ExtResource("3_cx00i")]

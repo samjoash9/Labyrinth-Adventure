@@ -1,11 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0yo518eo4sjj"]
+[gd_scene load_steps=2 format=3 uid="uid://d0yo518eo4sjj"]
 
 [ext_resource type="Script" path="res://scripts/Characters/Properties/hurtbox_component.gd" id="1_ipch5"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yuj0n"]
-
-[node name="Area2D" type="Area2D"]
+[node name="HurtBoxComponent" type="Area2D"]
 script = ExtResource("1_ipch5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_yuj0n")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://duabb452e70q"]
+
+[ext_resource type="PackedScene" uid="uid://ddepfsyxnoo5i" path="res://scenes/Characters/Heroes/knight.tscn" id="1_35kaa"]
+[ext_resource type="PackedScene" uid="uid://cgtge0leu72ds" path="res://scenes/game_modes/dungeon_mode.tscn" id="2_t0280"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Knight" parent="." instance=ExtResource("1_35kaa")]
+scale = Vector2(0.5, 0.5)
+
+[node name="Dungeon_Mode" parent="." instance=ExtResource("2_t0280")]

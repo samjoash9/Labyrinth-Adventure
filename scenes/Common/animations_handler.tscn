@@ -1,0 +1,174 @@
+[gd_scene load_steps=30 format=3 uid="uid://blx7b0wd1tijc"]
+
+[ext_resource type="Script" path="res://scripts/Common/animations_handler.gd" id="1_d7h3r"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a4cxv"]
+animation = &"attackleft"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rge8r"]
+animation = &"attackright"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_gjwtn"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_a4cxv")
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_rge8r")
+blend_point_1/pos = 1.0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nuoma"]
+animation = &"deathleft"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hic1u"]
+animation = &"deathright"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_apu3n"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_nuoma")
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_hic1u")
+blend_point_1/pos = 1.0
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6gq5m"]
+animation = &"hurtleft"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5albx"]
+animation = &"hurtright"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_c4foi"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_6gq5m")
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_5albx")
+blend_point_1/pos = 1.0
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2hld2"]
+animation = &"idleright"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_naucx"]
+animation = &"idleleft"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_6ibjg"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_2hld2")
+blend_point_0/pos = 1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_naucx")
+blend_point_1/pos = -1.0
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gicix"]
+animation = &"moveleft"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d666l"]
+animation = &"moveright"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_na0gc"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_gicix")
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_d666l")
+blend_point_1/pos = 1.0
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qeeli"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_la6uf"]
+states/Attack/node = SubResource("AnimationNodeBlendSpace1D_gjwtn")
+states/Attack/position = Vector2(771, 165)
+states/Death/node = SubResource("AnimationNodeBlendSpace1D_apu3n")
+states/Death/position = Vector2(583, 185)
+states/Hurt/node = SubResource("AnimationNodeBlendSpace1D_c4foi")
+states/Hurt/position = Vector2(596, 91)
+states/Idle/node = SubResource("AnimationNodeBlendSpace1D_6ibjg")
+states/Idle/position = Vector2(377, 66)
+states/Move/node = SubResource("AnimationNodeBlendSpace1D_na0gc")
+states/Move/position = Vector2(373, 165)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_qeeli")]
+
+[sub_resource type="Animation" id="Animation_xq5qs"]
+resource_name = "idleleft"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_n4spi"]
+resource_name = "idleright"
+
+[sub_resource type="Animation" id="Animation_i0khm"]
+resource_name = "moveleft"
+
+[sub_resource type="Animation" id="Animation_hk47q"]
+resource_name = "moveright"
+
+[sub_resource type="Animation" id="Animation_80goq"]
+resource_name = "hurtleft"
+
+[sub_resource type="Animation" id="Animation_8juso"]
+resource_name = "hurtright"
+
+[sub_resource type="Animation" id="Animation_hubf5"]
+resource_name = "attackleft"
+
+[sub_resource type="Animation" id="Animation_yfjmf"]
+resource_name = "attackright"
+
+[sub_resource type="Animation" id="Animation_qdnv7"]
+resource_name = "deathleft"
+
+[sub_resource type="Animation" id="Animation_tjcv3"]
+resource_name = "deathright"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ibt5"]
+_data = {
+"attackleft": SubResource("Animation_hubf5"),
+"attackright": SubResource("Animation_yfjmf"),
+"deathleft": SubResource("Animation_qdnv7"),
+"deathright": SubResource("Animation_tjcv3"),
+"hurtleft": SubResource("Animation_80goq"),
+"hurtright": SubResource("Animation_8juso"),
+"idleleft": SubResource("Animation_xq5qs"),
+"idleright": SubResource("Animation_n4spi"),
+"moveleft": SubResource("Animation_i0khm"),
+"moveright": SubResource("Animation_hk47q")
+}
+
+[node name="AnimationsHandler" type="Node2D"]
+script = ExtResource("1_d7h3r")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+deterministic = false
+tree_root = SubResource("AnimationNodeStateMachine_la6uf")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Attack/blend_position = 0
+parameters/Death/blend_position = 0
+parameters/Hurt/blend_position = 0
+parameters/Idle/blend_position = 0
+parameters/Move/blend_position = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8ibt5")
+}
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+animation = &"idle"

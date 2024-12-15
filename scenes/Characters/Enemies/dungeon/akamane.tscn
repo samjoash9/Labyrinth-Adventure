@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://dg758m347qbbc"]
+
+[ext_resource type="Script" path="res://scripts/Characters/Enemies/akamane.gd" id="1_5d0os"]
+[ext_resource type="PackedScene" uid="uid://cuifh3hsptjs2" path="res://scenes/Common/hitbox_component.tscn" id="2_hd620"]
+[ext_resource type="PackedScene" uid="uid://dmbf0vrpon3k0" path="res://scenes/Characters/Enemies/common/enemy_path_find_component.tscn" id="2_oc3nb"]
+[ext_resource type="PackedScene" uid="uid://cy5bxnxrpb5xs" path="res://scenes/Common/health_component.tscn" id="5_5b1lr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l7ac8"]
+
+[node name="Akamane" type="CharacterBody2D"]
+script = ExtResource("1_5d0os")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("2_hd620")]
+damage = 10.0
+
+[node name="CollisionShape2D" parent="HitboxComponent" index="0"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_l7ac8")
+
+[node name="EnemyPathFindComponent" parent="." node_paths=PackedStringArray("bodyReference") instance=ExtResource("2_oc3nb")]
+radius = 5.0
+Speed = 20.0
+bodyReference = NodePath("..")
+
+[node name="HealthComponent" parent="." instance=ExtResource("5_5b1lr")]
+HitPoints = 100.0
+
+[editable path="HitboxComponent"]
