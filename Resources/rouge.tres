@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=3 format=3 uid="uid://b8xah5vnen3qf"]
+
+[ext_resource type="PackedScene" uid="uid://i4lc3jovslrd" path="res://scenes/Characters/Heroes/Animations/rouge_animations_component.tscn" id="1_1g6ks"]
+[ext_resource type="Script" path="res://scripts/resources/characterResource.gd" id="2_whahg"]
+
+[resource]
+script = ExtResource("2_whahg")
+characterClass = 1
+movementSpeed = 300.0
+maxHealth = 80.0
+animations = ExtResource("1_1g6ks")

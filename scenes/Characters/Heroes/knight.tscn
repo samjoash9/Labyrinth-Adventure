@@ -506,6 +506,7 @@ position = Vector2(0, -17)
 sprite_frames = SubResource("SpriteFrames_asfvc")
 animation = &"Idle"
 frame = 1
+flip_h = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

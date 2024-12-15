@@ -5,12 +5,6 @@ var inputDir
 var mouseDir
 
 func _physics_process(delta: float) -> void:
-	mouseDir = (get_global_mouse_position() - global_position).normalized().x
-	rouge_animations.direction = mouseDir
-	if velocity:
-		rouge_animations.state = 1
-	else:
-		rouge_animations.state = 0
 	updateMovement(delta)
 	move_and_slide()
 	

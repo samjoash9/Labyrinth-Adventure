@@ -1,14 +1,13 @@
-extends Node2D
+extends CharacterBody2D
 
-const characterClass : Dictionary = {
-	"Knight": preload("res://scenes/Characters/Heroes/knight.tscn"),
-	"Rouge" : preload("res://scenes/Characters/player.tscn")
-}
+@export var characterResource : CharacterResource
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	add_child(characterClass["Knight"].instantiate())
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	add_child(characterResource.animations.instantiate())
+	
 func _process(delta: float) -> void:
-	pass
+	var inputDir = Input.get_vector("left", "right", "up", "down").normalized()
+	velocity = inputDir * characterResource.movementSpeed * 100 * delta
+	velocity.normalized()
+	move_and_slide()
+	
