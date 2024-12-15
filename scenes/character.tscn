@@ -10,3 +10,4 @@ script = ExtResource("1_hjemq")
 characterResource = ExtResource("2_3xs0o")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
