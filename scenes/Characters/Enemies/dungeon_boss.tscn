@@ -83,11 +83,12 @@ radius = 17.0
 height = 52.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
-position = Vector2(-115, -2)
+position = Vector2(-1027, -159)
+scale = Vector2(10, 10)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(77, -44)
+position = Vector2(148, 35.5)
 texture = ExtResource("1_uoq27")
 hframes = 8
 vframes = 8
@@ -99,5 +100,5 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(112, -24)
+position = Vector2(183, 55.5)
 shape = SubResource("CapsuleShape2D_gtn3i")
