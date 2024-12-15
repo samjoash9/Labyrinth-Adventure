@@ -1,8 +1,16 @@
 extends CharacterBody2D
 
-@export var characterResource : CharacterResource
+@onready var characterResource : CharacterResource
+
 
 func _ready() -> void:
+	var selected = 0
+	match selected:
+		0:
+			characterResource = load("res://Resources/knight.tres")
+		1: 
+			characterResource = load("res://Resources/rouge.tres")
+		
 	add_child(characterResource.animations.instantiate())
 	
 func _process(delta: float) -> void:
@@ -10,4 +18,3 @@ func _process(delta: float) -> void:
 	velocity = inputDir * characterResource.movementSpeed * 100 * delta
 	velocity.normalized()
 	move_and_slide()
-	

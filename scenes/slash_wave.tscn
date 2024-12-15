@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://gir52m81gof7"]
+
+[ext_resource type="PackedScene" uid="uid://cuifh3hsptjs2" path="res://scenes/Common/hitbox_component.tscn" id="1_1rcsw"]
+[ext_resource type="Script" path="res://scenes/slash_wave.gd" id="1_sufvr"]
+[ext_resource type="Texture2D" uid="uid://bx1pxixm6qej0" path="res://assets/Characters/combat FX/SlashFx/SlashCurved/SpriteSheet.png" id="2_jbil7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qe4l4"]
+radius = 7.0
+
+[node name="SlashWave" type="Node2D"]
+top_level = true
+scale = Vector2(2, 2)
+script = ExtResource("1_sufvr")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("1_1rcsw")]
+damage = 10.0
+
+[node name="CollisionShape2D" parent="HitboxComponent" index="0"]
+position = Vector2(5, 0)
+shape = SubResource("CapsuleShape2D_qe4l4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0.992157, 1, 0.658824)
+position = Vector2(-4.76837e-07, 0)
+rotation = -0.785398
+texture = ExtResource("2_jbil7")
+hframes = 4
+frame = 1
+
+[editable path="HitboxComponent"]
