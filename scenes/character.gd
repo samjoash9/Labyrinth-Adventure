@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 func _ready() -> void:
 	add_child(characterResource.animations.instantiate())
+	pass
 	
 func _process(delta: float) -> void:
 	var inputDir = Input.get_vector("left", "right", "up", "down").normalized()
