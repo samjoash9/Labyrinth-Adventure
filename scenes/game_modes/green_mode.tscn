@@ -18,7 +18,3 @@ tile_map_data = PackedByteArray()
 
 [node name="green_walls" parent="." instance=ExtResource("1_ocduj")]
 tile_map_data = PackedByteArray()
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1172, 924)
-zoom = Vector2(0.3, 0.3)
