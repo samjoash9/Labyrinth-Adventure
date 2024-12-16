@@ -6,6 +6,5 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	maze_generator.init_maze()
-	var start_tile = Vector2(0, 0)
-	var startPoint = maze_generator.map_to_local(start_tile) + Vector2(200, 200)
-	character.position = startPoint
+	var start_tile = Vector2(200, 200)
+	character.position = start_tile
