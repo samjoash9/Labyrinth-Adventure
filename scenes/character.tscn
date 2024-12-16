@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxvwn4yqm4mp0"]
+[gd_scene load_steps=4 format=3 uid="uid://dxvwn4yqm4mp0"]
 
 [ext_resource type="Script" path="res://scenes/character.gd" id="1_hjemq"]
 [ext_resource type="Resource" uid="uid://b8xah5vnen3qf" path="res://Resources/rouge.tres" id="2_3xs0o"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n3wyx"]
+radius = 6.0
+height = 16.0
 
 [node name="Character" type="CharacterBody2D"]
 position = Vector2(1, 0)
@@ -11,3 +15,6 @@ characterResource = ExtResource("2_3xs0o")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_n3wyx")
