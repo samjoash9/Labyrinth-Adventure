@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://ca1skrvapimxr"]
+[gd_scene load_steps=9 format=3 uid="uid://ca1skrvapimxr"]
 
+[ext_resource type="Script" path="res://scenes/parallax_intro/main_menu.gd" id="6_b72wo"]
 [ext_resource type="Script" path="res://scenes/parallax_intro/parallax_background_2.gd" id="11_fqqts"]
 [ext_resource type="Texture2D" uid="uid://beinwgqigjt80" path="res://assets/parallax/nature_3/1.png" id="11_ovt07"]
 [ext_resource type="Texture2D" uid="uid://c05h8t16tnfv" path="res://assets/parallax/nature_3/2.png" id="12_epdvq"]
@@ -12,70 +13,6 @@
 Button/styles/normal = SubResource("StyleBoxFlat_pd3vl")
 
 [node name="game_start" type="Node2D"]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Control" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_fck21")
-
-[node name="exit_button_container" type="HBoxContainer" parent="CanvasLayer/Control"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -40.0
-offset_right = 106.0
-grow_vertical = 0
-size_flags_horizontal = 0
-
-[node name="exit_button" type="Button" parent="CanvasLayer/Control/exit_button_container"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-text = "EXIT"
-
-[node name="start_button_container" type="VBoxContainer" parent="CanvasLayer/Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -53.0
-offset_top = -20.0
-offset_right = 53.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="start_button" type="Button" parent="CanvasLayer/Control/start_button_container"]
-layout_mode = 2
-text = "START GAME
-"
-
-[node name="settings_button_container" type="VBoxContainer" parent="CanvasLayer/Control"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -74.0
-offset_top = -23.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="settings_button" type="Button" parent="CanvasLayer/Control/settings_button_container"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-text = "SETTINGS"
 
 [node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
 scale = Vector2(2.2, 2.2)
@@ -109,3 +46,90 @@ motion_mirroring = Vector2(576, 0)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer4"]
 texture = ExtResource("14_pe7xg")
 centered = false
+
+[node name="main_menu" type="CanvasLayer" parent="."]
+script = ExtResource("6_b72wo")
+
+[node name="main_menu_control" type="Control" parent="main_menu"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_fck21")
+
+[node name="exit_button_container" type="HBoxContainer" parent="main_menu/main_menu_control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 106.0
+grow_vertical = 0
+size_flags_horizontal = 0
+
+[node name="exit_button" type="Button" parent="main_menu/main_menu_control/exit_button_container"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "EXIT"
+
+[node name="start_button_container" type="VBoxContainer" parent="main_menu/main_menu_control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -20.0
+offset_right = 53.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="start_button" type="Button" parent="main_menu/main_menu_control/start_button_container"]
+layout_mode = 2
+text = "START GAME
+"
+
+[node name="settings_button_container" type="VBoxContainer" parent="main_menu/main_menu_control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -74.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="settings_button" type="Button" parent="main_menu/main_menu_control/settings_button_container"]
+layout_mode = 2
+text = "SETTINGS
+"
+
+[node name="about_button" type="Button" parent="main_menu/main_menu_control/settings_button_container"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "ABOUT
+"
+
+[node name="Label" type="Label" parent="main_menu/main_menu_control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "VER. 1.0.0 - I_WONT_LET_YOU_GO"
+
+[connection signal="pressed" from="main_menu/main_menu_control/exit_button_container/exit_button" to="main_menu" method="_on_exit_button_pressed"]
