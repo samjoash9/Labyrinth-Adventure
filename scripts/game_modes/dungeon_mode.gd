@@ -7,4 +7,5 @@ extends Node2D
 func _ready() -> void:
 	maze_generator.init_maze()
 	var start_tile = Vector2(200, 200)
-	character.position = start_tile
+	#character.position = start_tile
+	

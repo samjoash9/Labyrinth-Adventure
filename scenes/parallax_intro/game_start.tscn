@@ -133,3 +133,4 @@ grow_vertical = 0
 text = "VER. 1.0.0 - I_WONT_LET_YOU_GO"
 
 [connection signal="pressed" from="main_menu/main_menu_control/exit_button_container/exit_button" to="main_menu" method="_on_exit_button_pressed"]
+[connection signal="pressed" from="main_menu/main_menu_control/settings_button_container/settings_button" to="main_menu" method="_on_settings_button_pressed"]

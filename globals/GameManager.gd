@@ -2,7 +2,7 @@ extends Node
 
 # MAP VARIABLES ==============================
 const PATTERN_SIZE = 27
-const map_rooms = 3
+const map_rooms = 10
 const mapSize = map_rooms * PATTERN_SIZE
 const object_map_size = mapSize - PATTERN_SIZE
 

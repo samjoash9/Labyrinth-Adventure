@@ -6,11 +6,8 @@
 [sub_resource type="Resource" id="Resource_a6jbf"]
 script = ExtResource("1_ydard")
 Hitpoints = 100.0
-Armor = 20.0
 Movespeed = 1500
 Recovery = 10.0
-AttackPower = 20.0
-AttackSpeed = 10.0
 
 [resource]
 script = ExtResource("2_87l2g")

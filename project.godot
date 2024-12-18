@@ -18,11 +18,16 @@ config/icon="res://assets/Game Icon.png"
 [autoload]
 
 GameManager="*res://globals/GameManager.gd"
+SceneManager="*res://addons/scene_manager/SceneManager.tscn"
 
 [display]
 
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/scene_manager/plugin.cfg")
 
 [global_group]
 
