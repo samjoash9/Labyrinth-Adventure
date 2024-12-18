@@ -12,7 +12,7 @@ var state = IDLE
 
 var SELECTED_CLASS : CharacterResource
 
-var selected : String = "trial"
+var selected : String = "knight"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SELECTED_CLASS  = load("res://resources/jobs/%s.tres" % selected)

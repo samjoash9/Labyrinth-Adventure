@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=8 format=3 uid="uid://dgdpft1dyt08v"]
+
+[ext_resource type="PackedScene" uid="uid://bak2s8uahb430" path="res://characters/knight/knight_animations.tscn" id="1_bbu54"]
+[ext_resource type="Script" path="res://resources/Scripts/baseStats.gd" id="2_e5q1n"]
+[ext_resource type="Script" path="res://resources/Scripts/Character.gd" id="3_0y8pi"]
+[ext_resource type="Script" path="res://resources/Scripts/weapon.gd" id="4_70iyi"]
+[ext_resource type="PackedScene" uid="uid://2a68nu4ljqrf" path="res://weapons/sword_animations.tscn" id="5_33u2y"]
+
+[sub_resource type="Resource" id="Resource_ohw8u"]
+script = ExtResource("2_e5q1n")
+Hitpoints = 1009.0
+Movespeed = 150
+Recovery = 231.0
+
+[sub_resource type="Resource" id="Resource_gwjml"]
+script = ExtResource("4_70iyi")
+name = "231"
+attackPower = 1231.0
+attackSpeed = 1.0
+critChance = 2312.0
+critDamage = 123.0
+weaponAnimations = ExtResource("5_33u2y")
+
+[resource]
+script = ExtResource("3_0y8pi")
+jobName = "Knight"
+jobDescription = "kshajkdhask"
+basicStats = SubResource("Resource_ohw8u")
+animationComponent = ExtResource("1_bbu54")
+weapon = SubResource("Resource_gwjml")
