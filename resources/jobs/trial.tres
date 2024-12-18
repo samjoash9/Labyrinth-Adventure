@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=8 format=3 uid="uid://dfuy6o8y7kqd6"]
+
+[ext_resource type="PackedScene" uid="uid://bo58ix0qyjqn4" path="res://characters/rouge/rouge_animations.tscn" id="1_dm4wa"]
+[ext_resource type="Script" path="res://resources/Scripts/baseStats.gd" id="2_10k6e"]
+[ext_resource type="Script" path="res://resources/Scripts/Character.gd" id="3_3s36j"]
+[ext_resource type="Script" path="res://resources/Scripts/weapon.gd" id="4_e33d7"]
+[ext_resource type="PackedScene" uid="uid://2a68nu4ljqrf" path="res://weapons/sword_animations.tscn" id="5_nihe5"]
+
+[sub_resource type="Resource" id="Resource_viqao"]
+script = ExtResource("2_10k6e")
+Hitpoints = 100.0
+Movespeed = 100
+Recovery = 20.0
+
+[sub_resource type="Resource" id="Resource_dxn8o"]
+script = ExtResource("4_e33d7")
+name = "Sword"
+attackPower = 10.0
+attackSpeed = 1.0
+critChance = 12.0
+critDamage = 12.0
+weaponAnimations = ExtResource("5_nihe5")
+
+[resource]
+script = ExtResource("3_3s36j")
+jobName = "Knight"
+jobDescription = "Trial Knight"
+basicStats = SubResource("Resource_viqao")
+animationComponent = ExtResource("1_dm4wa")
+weapon = SubResource("Resource_dxn8o")

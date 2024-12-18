@@ -1,9 +1,9 @@
 [gd_scene load_steps=43 format=3 uid="uid://htqe76nr6mvu"]
 
-[ext_resource type="Texture2D" uid="uid://bqokogwwyd6tv" path="res://assets/Characters/Heroes/Rogue/Idle/Idle-Sheet.png" id="1_gjvpm"]
+[ext_resource type="Texture2D" uid="uid://bqokogwwyd6tv" path="res://characters/rouge/sprites/Idle/Idle-Sheet.png" id="1_gjvpm"]
 [ext_resource type="Script" path="res://scenes/Characters/Heroes/Animations/rouge_animations.gd" id="1_oam1m"]
-[ext_resource type="Texture2D" uid="uid://bcpx7qbdpimlt" path="res://assets/Characters/Heroes/Rogue/Death/Death-Sheet.png" id="1_pruhu"]
-[ext_resource type="Texture2D" uid="uid://ditlhk5fewnoq" path="res://assets/Characters/Heroes/Rogue/Run/Run-Sheet.png" id="2_nicvx"]
+[ext_resource type="Texture2D" uid="uid://bcpx7qbdpimlt" path="res://characters/rouge/sprites/Death/Death-Sheet.png" id="1_pruhu"]
+[ext_resource type="Texture2D" uid="uid://ditlhk5fewnoq" path="res://characters/rouge/sprites/Run/Run-Sheet.png" id="2_nicvx"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nu5kk"]
 animation = &"DeathLeft"

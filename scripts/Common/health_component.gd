@@ -2,9 +2,9 @@ class_name healthComponent
 extends Node2D
 
 @export var HitPoints: float
-@export var hurtDirection: pathFinder
 
 func attacked(damage: float):
+	print(HitPoints)
 	if HitPoints-damage > 0: 
 		HitPoints-= damage
 	else:

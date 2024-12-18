@@ -7,10 +7,14 @@ const SLASH_WAVE = preload("res://scenes/slash_wave.tscn")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("click"):
-		animation_player.play("Attack")
-		cool_down.start()
-		set_process(false)
-
+		playAttackAnim()
+		
+func playAttackAnim():
+	animation_player.play("Attack")
+	cool_down.start()
+	set_process(false)
+	
+	
 func _on_cool_down_timeout() -> void:
 	set_process(true)
 	

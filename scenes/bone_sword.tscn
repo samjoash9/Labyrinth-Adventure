@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://7eau6st5wqsw"]
+[gd_scene load_steps=17 format=3 uid="uid://7eau6st5wqsw"]
 
-[ext_resource type="Texture2D" uid="uid://8a6k3ywnjnrw" path="res://assets/Characters/Weapons/Bone/Bone.png" id="1_uarvj"]
+[ext_resource type="Texture2D" uid="uid://8a6k3ywnjnrw" path="res://weapons/sprites/Bone.png" id="1_uarvj"]
 [ext_resource type="Script" path="res://scenes/bone_sword.gd" id="1_xq1u3"]
 [ext_resource type="Texture2D" uid="uid://bx1pxixm6qej0" path="res://assets/Characters/combat FX/SlashFx/SlashCurved/SpriteSheet.png" id="2_iaeit"]
+[ext_resource type="PackedScene" uid="uid://cuifh3hsptjs2" path="res://scenes/Common/hitbox_component.tscn" id="4_rsdh0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aqgc7"]
 atlas = ExtResource("1_uarvj")
@@ -268,8 +269,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4a2n"]
+
 [node name="BoneSword" type="Area2D"]
 position = Vector2(125, 81)
+collision_layer = 2
+collision_mask = 4
 script = ExtResource("1_xq1u3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -299,4 +304,19 @@ one_shot = true
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(53, 0)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="HitboxComponent" parent="." instance=ExtResource("4_rsdh0")]
+collision_layer = 2
+collision_mask = 4
+damage = 10.0
+
+[node name="CollisionShape2D" parent="HitboxComponent" index="0"]
+position = Vector2(24, 4.76837e-07)
+rotation = 1.57079
+scale = Vector2(-0.289288, 1.72852)
+shape = SubResource("CapsuleShape2D_g4a2n")
+
 [connection signal="timeout" from="CoolDown" to="." method="_on_cool_down_timeout"]
+
+[editable path="HitboxComponent"]

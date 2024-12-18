@@ -1,7 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://djbxdml5ekblm"]
+[gd_scene load_steps=3 format=3 uid="uid://djbxdml5ekblm"]
 
-[ext_resource type="PackedScene" uid="uid://cgtge0leu72ds" path="res://scenes/game_modes/Dungeon_mode.tscn" id="1_mlg7j"]
+[ext_resource type="PackedScene" uid="uid://cgtge0leu72ds" path="res://scenes/game_modes/dungeon_mode.tscn" id="1_mlg7j"]
+[ext_resource type="PackedScene" uid="uid://c7ofqdsl5bpcl" path="res://knight_class.tscn" id="2_e1jwy"]
 
 [node name="game" type="Node2D"]
 
 [node name="Dungeon_Mode" parent="." instance=ExtResource("1_mlg7j")]
+
+[node name="KnightClass" parent="." instance=ExtResource("2_e1jwy")]

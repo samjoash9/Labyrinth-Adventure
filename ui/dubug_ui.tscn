@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://xeirdp6lg8yr"]
+
+[node name="DubugHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Player Stats Container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 221.0
+grow_vertical = 2
+
+[node name="Header" type="Label" parent="Player Stats Container"]
+layout_mode = 2
+text = "Player Stats"
+
+[node name="Hitpoints" type="Label" parent="Player Stats Container"]
+layout_mode = 2
+text = "HP"
+
+[node name="Armor" type="Label" parent="Player Stats Container"]
+layout_mode = 2
+text = "Armor"
+
+[node name="Movespeed" type="Label" parent="Player Stats Container"]
+layout_mode = 2
+text = "Movespeed
+"
+
+[node name="Recovery" type="Label" parent="Player Stats Container"]
+layout_mode = 2
+text = "Recovery
+"
+
+[node name="Recovery2" type="Label" parent="Player Stats Container"]
+layout_mode = 2
+text = "Unique CD
+"
+
+[node name="Player Stats Container2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = 180.0
+offset_right = 105.0
+offset_bottom = 180.0
+grow_vertical = 2
+
+[node name="Header" type="Label" parent="Player Stats Container2"]
+layout_mode = 2
+text = "Wepons Stats
+"
+
+[node name="Attackpower" type="Label" parent="Player Stats Container2"]
+layout_mode = 2
+text = "Attack power"
+
+[node name="Attackspeed" type="Label" parent="Player Stats Container2"]
+layout_mode = 2
+text = "Attackspeed
+"
+
+[node name="Player Stats Container3" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 296.0
+offset_right = 106.0
+offset_bottom = 296.0
+grow_vertical = 2
+
+[node name="Header" type="Label" parent="Player Stats Container3"]
+layout_mode = 2
+text = "Enemies
+"
+
+[node name="Attackpower" type="Label" parent="Player Stats Container3"]
+layout_mode = 2
+text = "Count
+"
