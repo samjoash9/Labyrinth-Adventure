@@ -1,7 +1,7 @@
 extends NavigationAgent2D
 class_name pathFinder
 @export var Speed : float = 20
-@onready var playerReference: CharacterBody2D = get_node("../../Player")
+@onready var playerReference: CharacterBody2D = get_node("../../KnightClass")
 @export var bodyReference: CharacterBody2D
 
 var canMove = true

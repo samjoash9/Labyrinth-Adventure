@@ -56,11 +56,10 @@ func init_maze():
 			patterns[key] = 15
 	
 	var current = Vector2i(0,0)
-	unvisited.erase(current)
 	
 	while unvisited:
+		print(current)
 		var adjacent_cells = check_adjacent(current, unvisited)
-		
 		if adjacent_cells.size()>0:
 			var next = adjacent_cells[randi() % adjacent_cells.size()]
 			stack.append(current)

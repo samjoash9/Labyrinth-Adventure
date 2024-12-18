@@ -1,6 +1,7 @@
 extends Node2D
 
+@onready var sword_animations: Node2D = $SwordAnimations
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _process(delta: float) -> void:
+	sword_animations.look_at((get_global_mouse_position() - sword_animations.global_position.normalized()))
+	

@@ -1,0 +1,21 @@
+Character Resources:
+	Base Stats:
+		Hitpoints
+		Armor
+		Movespeed
+		Recovery
+		
+	Animations:
+		AnimationComponent
+	
+	Weapons:
+		 Attack Power
+		Attack Speed
+		WeaponsComponent
+
+	Unique Skill:
+		Cooldown
+		Uniqueskill Component
+		
+		
+		

@@ -1,13 +1,33 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxvwn4yqm4mp0"]
+[gd_scene load_steps=2 format=3 uid="uid://bxvejekc0sjsf"]
 
-[ext_resource type="Script" path="res://scenes/character.gd" id="1_hjemq"]
-[ext_resource type="Resource" uid="uid://b8xah5vnen3qf" path="res://Resources/rouge.tres" id="2_3xs0o"]
+[sub_resource type="GDScript" id="GDScript_25ncp"]
+script/source = "extends CharacterBody2D
+
+@onready var characterResource : CharacterResource
+
+
+func _ready() -> void:
+	var selected = 0
+	match selected:
+		0:
+			characterResource = load(\"res://Resources/knight.tres\")
+		1: 
+			characterResource = load(\"res://Resources/rouge.tres\")
+		
+	add_child(characterResource.animations.instantiate())
+	
+func _process(delta: float) -> void:
+	var inputDir = Input.get_vector(\"left\", \"right\", \"up\", \"down\").normalized()
+	velocity = inputDir * characterResource.movementSpeed * 100 * delta
+	velocity.normalized()
+	move_and_slide()
+"
 
 [node name="Character" type="CharacterBody2D"]
 position = Vector2(1, 0)
 input_pickable = true
-script = ExtResource("1_hjemq")
-characterResource = ExtResource("2_3xs0o")
+script = SubResource("GDScript_25ncp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

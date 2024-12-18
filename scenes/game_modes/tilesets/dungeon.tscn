@@ -229,6 +229,7 @@ texture = ExtResource("1_5byx7")
 
 [sub_resource type="TileSet" id="TileSet_lmjwo"]
 terrain_set_0/mode = 0
+navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_lksfk")
 pattern_0 = SubResource("TileMapPattern_hyrk0")
 pattern_1 = SubResource("TileMapPattern_d2d4m")

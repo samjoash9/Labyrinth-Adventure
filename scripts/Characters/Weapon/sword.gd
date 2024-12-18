@@ -1,6 +1,8 @@
 extends Area2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+func _process(delta: float) -> void:
+	look_at((get_global_mouse_position() - global_position).normalized())
 
 func playAttack(dir):
 	if dir > 0 :
