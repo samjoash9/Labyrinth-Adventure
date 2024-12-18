@@ -19,6 +19,11 @@ config/icon="res://assets/Game Icon.png"
 
 GameManager="*res://globals/GameManager.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
 [global_group]
 
 attack=""
