@@ -14,7 +14,6 @@ maze_object_patterns = NodePath("../dungeon_objects")
 mode = 2
 
 [node name="dungeon_walls" parent="." instance=ExtResource("3_ddod5")]
-scale = Vector2(1, 1)
 tile_map_data = PackedByteArray()
 
 [node name="dungeon_objects" parent="." instance=ExtResource("4_d0f5w")]

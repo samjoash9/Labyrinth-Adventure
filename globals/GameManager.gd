@@ -34,7 +34,7 @@ const DUNGEON = {
 	"ground_tiles": [ # tiles for ground
 		Vector2i(0, 9),
 		Vector2i(1, 9),
-		Vector2i(2, 9),
+		Vector2i(2, 9), 
 		Vector2i(0, 10),
 		Vector2i(1, 10),
 		Vector2i(2, 10),

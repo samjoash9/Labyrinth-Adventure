@@ -97,8 +97,8 @@ func check_adjacent(cell, unvisited):
 
 func init_objects():
 	var prev = 0
-	for x in range(-1*PATTERN_SIZE, object_map_size + PATTERN_SIZE, PATTERN_SIZE):
-		for y in range(-1*PATTERN_SIZE, object_map_size + PATTERN_SIZE, PATTERN_SIZE):
+	for x in range(0, object_map_size + PATTERN_SIZE, PATTERN_SIZE):
+		for y in range(0, object_map_size + PATTERN_SIZE, PATTERN_SIZE):
 			var pos = Vector2i(x, y)
 			var pattern_index = generate_random_index(prev)
 			prev = pattern_index
