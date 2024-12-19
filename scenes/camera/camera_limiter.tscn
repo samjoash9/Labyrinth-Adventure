@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpxflij4yb018"]
+
+[ext_resource type="Script" path="res://scenes/camera/camera_limiter.gd" id="1_hlpv4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vq6gk"]
+size = Vector2(201.469, 210)
+
+[node name="camera_limiter" type="Area2D"]
+script = ExtResource("1_hlpv4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -95)
+shape = SubResource("RectangleShape2D_vq6gk")
+
+[node name="limit_position" type="Marker2D" parent="."]
+position = Vector2(0, -136)

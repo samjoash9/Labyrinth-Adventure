@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://ddepfsyxnoo5i"]
+[gd_scene load_steps=45 format=3 uid="uid://ddepfsyxnoo5i"]
 
 [ext_resource type="Script" path="res://scenes/Characters/Heroes/knight.gd" id="1_q7ghi"]
 [ext_resource type="PackedScene" uid="uid://s1lbtkqcrp27" path="res://scenes/Weapons/weapon.tscn" id="2_b0ig0"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://d2ytn7mh0ttxn" path="res://assets/Characters/Heroes/Knight/Run/Run-Sheet.png" id="4_l4g1f"]
 [ext_resource type="PackedScene" uid="uid://s4um51873xxx" path="res://scenes/Common/hurt_box_component.tscn" id="7_yck4o"]
 [ext_resource type="PackedScene" uid="uid://cy5bxnxrpb5xs" path="res://scenes/Common/health_component.tscn" id="8_635y0"]
+[ext_resource type="PackedScene" uid="uid://ceuqk7m3pwijx" path="res://scenes/Common/area_interaction.tscn" id="9_v3egc"]
+[ext_resource type="PackedScene" uid="uid://duy862lqhv10t" path="res://scenes/Common/player_camera.tscn" id="10_0s7au"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dfxv0"]
 atlas = ExtResource("2_e58oh")
@@ -520,12 +522,6 @@ parameters/conditions/is_moving = false
 parameters/Idle/blend_position = 0.504876
 parameters/Move/blend_position = -0.780597
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
-position_smoothing_speed = 1.0
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-
 [node name="Weapon" parent="." instance=ExtResource("2_b0ig0")]
 z_index = 1
 position = Vector2(7, -10)
@@ -542,5 +538,9 @@ shape = SubResource("CapsuleShape2D_08ymy")
 
 [node name="HealthComponent" parent="." instance=ExtResource("8_635y0")]
 HitPoints = 100.0
+
+[node name="player_interaction_area" parent="." instance=ExtResource("9_v3egc")]
+
+[node name="camera" parent="." instance=ExtResource("10_0s7au")]
 
 [editable path="HurtBoxComponent"]

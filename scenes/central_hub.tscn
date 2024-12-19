@@ -1,13 +1,15 @@
-[gd_scene load_steps=17 format=4 uid="uid://bfkhq2vf0a3gf"]
+[gd_scene load_steps=19 format=4 uid="uid://bfkhq2vf0a3gf"]
 
 [ext_resource type="Texture2D" uid="uid://dmibqs7ant8f6" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetFloor.png" id="1_4m24w"]
 [ext_resource type="PackedScene" uid="uid://ddepfsyxnoo5i" path="res://scenes/Characters/Heroes/knight.tscn" id="1_d1bmc"]
+[ext_resource type="Script" path="res://scenes/central_hub.gd" id="1_jfdxu"]
 [ext_resource type="Texture2D" uid="uid://oo6x4w6aivsb" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetElement.png" id="2_hdupt"]
 [ext_resource type="Texture2D" uid="uid://dwkvh4s6mb3pn" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetHouse.png" id="2_qw0b5"]
 [ext_resource type="Texture2D" uid="uid://b8d3w08gyrd8k" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetNature.png" id="3_lfukg"]
 [ext_resource type="PackedScene" uid="uid://dm62q6y08fg8o" path="res://scenes/portals/central_hub_portal.tscn" id="5_wo05u"]
 [ext_resource type="PackedScene" uid="uid://daxxv2b8obm6d" path="res://scenes/npcs/black_smith_onNode.tscn" id="7_hv86f"]
 [ext_resource type="PackedScene" uid="uid://cfsxr23f07rxu" path="res://scenes/npcs/Weapons_Dealer/Weapons_Dealer_onNode.tscn" id="8_jx01w"]
+[ext_resource type="PackedScene" uid="uid://dpxflij4yb018" path="res://scenes/camera/camera_limiter.tscn" id="9_d6gfe"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_44doa"]
 radius = 8.0
@@ -2312,6 +2314,7 @@ texture = ExtResource("1_4m24w")
 sources/0 = SubResource("TileSetAtlasSource_iitm3")
 
 [node name="mini_village" type="Node2D"]
+script = ExtResource("1_jfdxu")
 
 [node name="central_hub_portal" parent="." instance=ExtResource("5_wo05u")]
 z_index = 100
@@ -2319,12 +2322,12 @@ position = Vector2(246, -46)
 scale = Vector2(0.5, 0.5)
 autoplay = "default"
 
-[node name="Knight" parent="." instance=ExtResource("1_d1bmc")]
+[node name="Player" parent="." instance=ExtResource("1_d1bmc")]
 z_index = 10
 position = Vector2(251, 125)
 scale = Vector2(0.5, 0.5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Knight"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(0, -16)
 shape = SubResource("CapsuleShape2D_44doa")
 
@@ -2347,6 +2350,31 @@ position = Vector2(171, 142)
 scale = Vector2(0.09, 0.09)
 
 [node name="Node2D" parent="." instance=ExtResource("7_hv86f")]
-visible = false
 position = Vector2(312, 139)
 scale = Vector2(0.1, 0.1)
+
+[node name="CameraLimiters" type="Node" parent="."]
+
+[node name="camera_limiter_leftBottom" parent="CameraLimiters" instance=ExtResource("9_d6gfe")]
+position = Vector2(1, 1)
+limit_x = 1
+limit_y = 2
+
+[node name="CollisionShape2D" parent="CameraLimiters/camera_limiter_leftBottom" index="0"]
+position = Vector2(151, 167)
+
+[node name="limit_position" parent="CameraLimiters/camera_limiter_leftBottom" index="1"]
+position = Vector2(62, 300)
+
+[node name="camera_limiter_rightBottom" parent="CameraLimiters" instance=ExtResource("9_d6gfe")]
+limit_x = 2
+limit_y = 2
+
+[node name="CollisionShape2D" parent="CameraLimiters/camera_limiter_rightBottom" index="0"]
+position = Vector2(352, 160)
+
+[node name="limit_position" parent="CameraLimiters/camera_limiter_rightBottom" index="1"]
+position = Vector2(480, 296)
+
+[editable path="CameraLimiters/camera_limiter_leftBottom"]
+[editable path="CameraLimiters/camera_limiter_rightBottom"]

@@ -1,6 +1,9 @@
 extends CharacterBody2D
-@onready var animation_tree: AnimationTree = $AnimationTree
 
+class_name Player
+
+@onready var animation_tree: AnimationTree = $AnimationTree
+@onready var camera: Camera = $camera
 @onready var weapon: Node2D = $Weapon
 
 var inputDir = Vector2.ZERO
