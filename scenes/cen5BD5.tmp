@@ -2343,19 +2343,17 @@ scale = Vector2(0.1, 0.1)
 [node name="CameraLimiters" type="Node" parent="."]
 
 [node name="camera_limiter_leftBottom" parent="CameraLimiters" instance=ExtResource("9_d6gfe")]
-visible = false
 position = Vector2(1, 1)
 limit_x = 1
 limit_y = 2
 
 [node name="CollisionShape2D" parent="CameraLimiters/camera_limiter_leftBottom" index="0"]
-position = Vector2(144, 161)
+position = Vector2(151, 167)
 
 [node name="limit_position" parent="CameraLimiters/camera_limiter_leftBottom" index="1"]
 position = Vector2(62, 300)
 
 [node name="camera_limiter_rightBottom" parent="CameraLimiters" instance=ExtResource("9_d6gfe")]
-visible = false
 limit_x = 2
 limit_y = 2
 

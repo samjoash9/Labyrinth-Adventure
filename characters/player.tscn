@@ -9,11 +9,6 @@ height = 16.0
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_mk0d3")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_6ptk8")
