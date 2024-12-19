@@ -1,12 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://bakcqeqs0mi0e"]
+[gd_scene load_steps=9 format=3 uid="uid://bakcqeqs0mi0e"]
 
 [ext_resource type="Script" path="res://scenes/UI/main_menu.gd" id="1_fuaji"]
-[ext_resource type="Theme" uid="uid://iivwh67cjc1k" path="res://scenes/UI/base_theme.tres" id="1_k1gf0"]
 [ext_resource type="Script" path="res://scenes/UI/parallax_background.gd" id="2_1ioq1"]
 [ext_resource type="Texture2D" uid="uid://beinwgqigjt80" path="res://assets/parallax/nature_3/1.png" id="3_pnsbh"]
 [ext_resource type="Texture2D" uid="uid://c05h8t16tnfv" path="res://assets/parallax/nature_3/2.png" id="4_n4foe"]
 [ext_resource type="Texture2D" uid="uid://b2i8bon21174h" path="res://assets/parallax/nature_3/3.png" id="5_c6s8y"]
 [ext_resource type="Texture2D" uid="uid://hy01yidxcfdt" path="res://assets/parallax/nature_3/4.png" id="6_ehm65"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pd3vl"]
+
+[sub_resource type="Theme" id="Theme_rxlx6"]
+Button/styles/normal = SubResource("StyleBoxFlat_pd3vl")
 
 [node name="main_menu_control" type="Control"]
 layout_mode = 3
@@ -15,7 +19,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_k1gf0")
 script = ExtResource("1_fuaji")
 
 [node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
@@ -60,7 +63,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_k1gf0")
+theme = SubResource("Theme_rxlx6")
 
 [node name="exit_button_container" type="HBoxContainer" parent="main_menu/main_menu_control"]
 layout_mode = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://bfkhq2vf0a3gf"]
+[gd_scene load_steps=17 format=4 uid="uid://bfkhq2vf0a3gf"]
 
 [ext_resource type="Texture2D" uid="uid://dmibqs7ant8f6" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetFloor.png" id="1_4m24w"]
 [ext_resource type="Script" path="res://scenes/central_hub.gd" id="1_jfdxu"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://dm62q6y08fg8o" path="res://scenes/portals/central_hub_portal.tscn" id="5_wo05u"]
 [ext_resource type="PackedScene" uid="uid://daxxv2b8obm6d" path="res://scenes/npcs/black_smith_onNode.tscn" id="7_hv86f"]
 [ext_resource type="PackedScene" uid="uid://cfsxr23f07rxu" path="res://scenes/npcs/Weapons_Dealer/Weapons_Dealer_onNode.tscn" id="8_jx01w"]
-[ext_resource type="PackedScene" uid="uid://dpxflij4yb018" path="res://scenes/camera/camera_limiter.tscn" id="9_d6gfe"]
 [ext_resource type="PackedScene" uid="uid://ve2cvvfk14kv" path="res://characters/player.tscn" id="10_be00a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_alg65"]
@@ -2340,32 +2339,14 @@ scale = Vector2(0.09, 0.09)
 position = Vector2(312, 139)
 scale = Vector2(0.1, 0.1)
 
-[node name="CameraLimiters" type="Node" parent="."]
-
-[node name="camera_limiter_leftBottom" parent="CameraLimiters" instance=ExtResource("9_d6gfe")]
-visible = false
-position = Vector2(1, 1)
-limit_x = 1
-limit_y = 2
-
-[node name="CollisionShape2D" parent="CameraLimiters/camera_limiter_leftBottom" index="0"]
-position = Vector2(144, 161)
-
-[node name="limit_position" parent="CameraLimiters/camera_limiter_leftBottom" index="1"]
-position = Vector2(62, 300)
-
-[node name="camera_limiter_rightBottom" parent="CameraLimiters" instance=ExtResource("9_d6gfe")]
-visible = false
-limit_x = 2
-limit_y = 2
-
-[node name="CollisionShape2D" parent="CameraLimiters/camera_limiter_rightBottom" index="0"]
-position = Vector2(352, 160)
-
-[node name="limit_position" parent="CameraLimiters/camera_limiter_rightBottom" index="1"]
-position = Vector2(480, 296)
-
 [node name="Player" parent="." instance=ExtResource("10_be00a")]
+position = Vector2(312, 139)
+scale = Vector2(0.5, 0.5)
 
-[editable path="CameraLimiters/camera_limiter_leftBottom"]
-[editable path="CameraLimiters/camera_limiter_rightBottom"]
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(4, 4)
+limit_left = -32
+limit_top = -192
+limit_right = 528
+limit_bottom = 416
+editor_draw_limits = true

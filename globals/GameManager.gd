@@ -6,6 +6,29 @@ const map_rooms = 10
 const mapSize = map_rooms * PATTERN_SIZE
 const object_map_size = mapSize - PATTERN_SIZE
 
+var user_prefs: UserPreferences
+const defaultSize: Vector2i = Vector2i(640*2,360*2)
+var maindisplaysize : Vector2i = DisplayServer.screen_get_size(0)
+
+func _ready() -> void:
+	user_prefs = UserPreferences.load_or_create()
+	var bus_index_music = AudioServer.get_bus_index("Music")
+	var bus_index_sound = AudioServer.get_bus_index("SoundFX")
+	
+	AudioServer.set_bus_volume_db(bus_index_music,linear_to_db(user_prefs.music_audio_level))
+	AudioServer.set_bus_volume_db(bus_index_sound,linear_to_db(user_prefs.music_audio_level))
+
+	match user_prefs.displaymode:
+		2:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+		0:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			DisplayServer.window_set_size(defaultSize)
+			DisplayServer.window_set_position((maindisplaysize-defaultSize)/2)
+		1: 
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
+
+
 # SPECIFIC MAP TYPES
 # GREEN 
 const GREEN = {
@@ -71,7 +94,3 @@ const LAVA = {
 	],
 	"object_pattern_count": 8
 }
-
-
-func _ready() -> void:
-	print(get_tree().get_nodes_in_group("player"))
