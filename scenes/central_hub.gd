@@ -7,6 +7,4 @@ class_name central_hub
 @onready var player: playerCharacter = $Player
 
 func _ready() -> void:
-	#player.camera.camera_limit_manager.set_limiter(initial_camera_limiter, false)
-	#player.camera.camera_limit_manager.set_limiter(camera2, false)
 	pass
