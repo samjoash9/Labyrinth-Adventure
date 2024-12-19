@@ -1,4 +1,0 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://t6q2nlhgs5i7"]
-
-[resource]
-bus/0/send = &"SFX"

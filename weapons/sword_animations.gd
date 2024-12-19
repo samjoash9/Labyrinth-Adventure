@@ -3,10 +3,9 @@ extends WeaponClass
 @onready var marker_2d: Marker2D = $Marker2D
 
 const SLASH_WAVE = preload("res://weapons/slash_wave.tscn")
-func useAttack():
-	animation_player.play("Attack")
 
 func slash():
+
 	var slash = SLASH_WAVE.instantiate()
 	slash.global_position = marker_2d.global_position
 	slash.global_rotation = marker_2d.global_rotation

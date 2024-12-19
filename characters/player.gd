@@ -22,7 +22,7 @@ func _ready() -> void:
 		add_child(player)
 		add_child(weapon)
 		weapon.position = Vector2(0,-9)
-		weapon.get_node("AnimationPlayer").speed_scale = SELECTED_CLASS.weapon.attackSpeed
+		#weapon.get_node("AnimationPlayer").speed_scale = SELECTED_CLASS.weapon.attackSpeed
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
@@ -39,4 +39,7 @@ func _process(delta: float) -> void:
 				move_and_slide()
 		else : 
 			state = DEAD
+
+func setCurrentClass():
+	pass
 	

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjm0dba7aiam1"]
+
+[ext_resource type="Texture2D" uid="uid://8a6k3ywnjnrw" path="res://weapons/sprites/Bone.png" id="1_cea8x"]
+[ext_resource type="Script" path="res://weapons/staff_animations.gd" id="1_xdbdi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ceni"]
+atlas = ExtResource("1_cea8x")
+region = Rect2(79, 0, 28, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fwiuf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ceni")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="StaffAnimations" type="Node2D"]
+script = ExtResource("1_xdbdi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(99, 79)
+sprite_frames = SubResource("SpriteFrames_fwiuf")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(113, 79)

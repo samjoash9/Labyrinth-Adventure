@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=8 format=3 uid="uid://burc587610t21"]
+
+[ext_resource type="PackedScene" uid="uid://baw6fwiawb41d" path="res://characters/wizard/wizard_animations.tscn" id="1_ocnf8"]
+[ext_resource type="Script" path="res://resources/Scripts/baseStats.gd" id="2_8txem"]
+[ext_resource type="Script" path="res://resources/Scripts/Character.gd" id="3_laagq"]
+[ext_resource type="Script" path="res://resources/Scripts/weapon.gd" id="4_0poc7"]
+[ext_resource type="PackedScene" uid="uid://bjm0dba7aiam1" path="res://weapons/staff_animations.tscn" id="5_4gvyf"]
+
+[sub_resource type="Resource" id="Resource_5nvo0"]
+script = ExtResource("2_8txem")
+Hitpoints = 100.0
+Movespeed = 500
+Recovery = 20.0
+
+[sub_resource type="Resource" id="Resource_cjt5t"]
+script = ExtResource("4_0poc7")
+name = "Staff "
+attackPower = 100.0
+attackSpeed = 100.0
+critChance = 100.0
+critDamage = 100.0
+weaponAnimations = ExtResource("5_4gvyf")
+
+[resource]
+script = ExtResource("3_laagq")
+jobName = "Wizard"
+jobDescription = "Wizard"
+basicStats = SubResource("Resource_5nvo0")
+animationComponent = ExtResource("1_ocnf8")
+weapon = SubResource("Resource_cjt5t")

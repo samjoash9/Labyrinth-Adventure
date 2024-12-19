@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://bvkxbkgdn3yjb"]
+
+[ext_resource type="Script" path="res://weapons/magic_bullet.gd" id="1_vlfy5"]
+[ext_resource type="Texture2D" uid="uid://dx3m2w7ryyids" path="res://weapons/sprites/EnergyBall.png" id="2_iliog"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82lkd"]
+atlas = ExtResource("2_iliog")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8i4nn"]
+atlas = ExtResource("2_iliog")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6j1a"]
+atlas = ExtResource("2_iliog")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_od8i5"]
+atlas = ExtResource("2_iliog")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_86vdc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82lkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8i4nn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6j1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_od8i5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="MagicBullet" type="Node2D"]
+top_level = true
+script = ExtResource("1_vlfy5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(7, 0)
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_86vdc")
+autoplay = "default"
+frame_progress = 0.784162
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(7, -1.19209e-07)
+scale = Vector2(0.8, 0.8)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
