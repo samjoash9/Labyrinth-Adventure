@@ -1,3 +1,8 @@
 extends Resource
 
-@export var AvailableUpgrades: Array[UpgradeResource]
+@export var AvailableUpgrades: Array[Resource]
+
+
+
+func get_random():
+	AvailableUpgrades.pick_random()
