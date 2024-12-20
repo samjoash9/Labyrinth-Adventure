@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://d22qntanl6lep"]
+[gd_scene load_steps=11 format=3 uid="uid://d22qntanl6lep"]
 
 [ext_resource type="Theme" uid="uid://iivwh67cjc1k" path="res://scenes/UI/base_theme.tres" id="1_b6oyx"]
+[ext_resource type="Script" path="res://ui/player_profile.gd" id="1_d8cig"]
 [ext_resource type="Texture2D" uid="uid://cov8uyxyjkdf2" path="res://assets/Images/button UI.png" id="1_gnac8"]
 [ext_resource type="Texture2D" uid="uid://ebf4xxnh2lyn" path="res://assets/Images/rogue.jpg" id="3_oly0a"]
 [ext_resource type="Texture2D" uid="uid://bnff21cfunewx" path="res://assets/Ninja Adventure - Asset Pack/Ui/Icon/Spell/AttackUpgrade.png" id="4_gsfqw"]
@@ -16,6 +17,7 @@ region_rect = Rect2(64, 64, 16, 16)
 Button/styles/normal = SubResource("StyleBoxTexture_5d3ft")
 
 [node name="player_profile" type="CanvasLayer"]
+script = ExtResource("1_d8cig")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -61,7 +63,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="Button" type="Button" parent="Control/Panel/PanelContainer/VBoxContainer/Header"]
+[node name="invisible" type="Button" parent="Control/Panel/PanelContainer/VBoxContainer/Header"]
 layout_mode = 2
 size_flags_horizontal = 2
 text = " "
@@ -73,7 +75,7 @@ size_flags_horizontal = 6
 localize_numeral_system = false
 text = "PROFILE"
 
-[node name="Button3" type="Button" parent="Control/Panel/PanelContainer/VBoxContainer/Header"]
+[node name="exit" type="Button" parent="Control/Panel/PanelContainer/VBoxContainer/Header"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme = SubResource("Theme_6nfm4")
@@ -145,3 +147,5 @@ size_flags_horizontal = 3
 position = Vector2(15, 83)
 scale = Vector2(0.42, 0.42)
 texture = ExtResource("7_nb8s4")
+
+[connection signal="pressed" from="Control/Panel/PanelContainer/VBoxContainer/Header/exit" to="." method="_on_exit_pressed"]

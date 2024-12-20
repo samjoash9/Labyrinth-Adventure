@@ -1,14 +1,19 @@
-[gd_scene load_steps=17 format=4 uid="uid://bfkhq2vf0a3gf"]
+[gd_scene load_steps=20 format=4 uid="uid://bfkhq2vf0a3gf"]
 
 [ext_resource type="Texture2D" uid="uid://dmibqs7ant8f6" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetFloor.png" id="1_4m24w"]
 [ext_resource type="Script" path="res://scenes/central_hub.gd" id="1_jfdxu"]
 [ext_resource type="Texture2D" uid="uid://oo6x4w6aivsb" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetElement.png" id="2_hdupt"]
 [ext_resource type="Texture2D" uid="uid://dwkvh4s6mb3pn" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetHouse.png" id="2_qw0b5"]
 [ext_resource type="Texture2D" uid="uid://b8d3w08gyrd8k" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetNature.png" id="3_lfukg"]
+[ext_resource type="Script" path="res://scenes/portals/central_hub_portal.gd" id="4_0a0v4"]
 [ext_resource type="PackedScene" uid="uid://dm62q6y08fg8o" path="res://scenes/portals/central_hub_portal.tscn" id="5_wo05u"]
 [ext_resource type="PackedScene" uid="uid://daxxv2b8obm6d" path="res://scenes/npcs/black_smith_onNode.tscn" id="7_hv86f"]
 [ext_resource type="PackedScene" uid="uid://cfsxr23f07rxu" path="res://scenes/npcs/Weapons_Dealer/Weapons_Dealer_onNode.tscn" id="8_jx01w"]
 [ext_resource type="PackedScene" uid="uid://ve2cvvfk14kv" path="res://characters/player.tscn" id="10_be00a"]
+[ext_resource type="PackedScene" uid="uid://bwrn0w7b76a46" path="res://ui/central_hub_hud.tscn" id="10_nyvvm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o37wm"]
+radius = 50.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_alg65"]
 texture = ExtResource("2_hdupt")
@@ -2326,9 +2331,15 @@ editor_draw_limits = true
 
 [node name="central_hub_portal" parent="." instance=ExtResource("5_wo05u")]
 z_index = 100
-position = Vector2(246, -46)
+position = Vector2(248, -43)
 scale = Vector2(0.5, 0.5)
 autoplay = "default"
+script = ExtResource("4_0a0v4")
+
+[node name="Area2D" type="Area2D" parent="central_hub_portal"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="central_hub_portal/Area2D"]
+shape = SubResource("CircleShape2D_o37wm")
 
 [node name="objects" type="TileMapLayer" parent="."]
 z_index = 11
@@ -2351,5 +2362,9 @@ scale = Vector2(0.09, 0.09)
 [node name="Node2D" parent="." instance=ExtResource("7_hv86f")]
 position = Vector2(308, 144)
 scale = Vector2(0.1, 0.1)
+
+[node name="central_hub_hud" parent="." instance=ExtResource("10_nyvvm")]
+
+[connection signal="body_entered" from="central_hub_portal/Area2D" to="central_hub_portal" method="_on_area_2d_body_entered"]
 
 [editable path="Player"]

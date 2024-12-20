@@ -28,6 +28,8 @@ func _ready() -> void:
 		1: 
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
 
+# CENTRAL HUB LAST POSITION
+var central_hub_last_position: Vector2i
 
 # SPECIFIC MAP TYPES
 # GREEN 
