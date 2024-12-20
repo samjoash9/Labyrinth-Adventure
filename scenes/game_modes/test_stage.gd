@@ -1,4 +1,9 @@
 extends Node2D
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
+const AKANAME = preload("res://enemies/dungeon/akaname/akaname.tscn")
+
+func _on_timer_timeout() -> void:
+	add_child(AKANAME.instantiate())
+
+
+func _on_look_timer_timeout() -> void:
+	pass # Replace with function body.

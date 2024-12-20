@@ -71,7 +71,3 @@ const LAVA = {
 	],
 	"object_pattern_count": 8
 }
-
-
-func _ready() -> void:
-	print(get_tree().get_nodes_in_group("player"))

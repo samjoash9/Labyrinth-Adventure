@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://3xwq7hpb3wqp"]
+
+[ext_resource type="Script" path="res://upgrades/plant_spike_upgrade.gd" id="1_vh85n"]
+[ext_resource type="Texture2D" uid="uid://cm0qffktqqx08" path="res://assets/Characters/combat FX/Projectile/PlantSpike.png" id="2_yyyw1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsnqi"]
+atlas = ExtResource("2_yyyw1")
+region = Rect2(0, 0, 24, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kywms"]
+atlas = ExtResource("2_yyyw1")
+region = Rect2(24, 0, 24, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68t2w"]
+atlas = ExtResource("2_yyyw1")
+region = Rect2(48, 0, 24, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ws8a1"]
+atlas = ExtResource("2_yyyw1")
+region = Rect2(72, 0, 24, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7bp2d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bsnqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kywms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68t2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ws8a1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="PlantSpikeUpgrade" type="Node2D"]
+script = ExtResource("1_vh85n")
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(25, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(12, 0)
+sprite_frames = SubResource("SpriteFrames_7bp2d")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

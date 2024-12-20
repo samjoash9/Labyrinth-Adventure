@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfww7mh5mk5ku"
-path="res://.godot/imported/Ghoul Sprite Sheet.png-f44303d11bb9a085ec7e69ff88677e28.ctex"
+uid="uid://catf2dcnwdx08"
+path="res://.godot/imported/SpriteSheetOrange.png-267934cd0516d88ed2e58080bedb8371.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/dungeon/Ghoul Sprite Sheet.png"
-dest_files=["res://.godot/imported/Ghoul Sprite Sheet.png-f44303d11bb9a085ec7e69ff88677e28.ctex"]
+source_file="res://common/fx/SpriteSheetOrange.png"
+dest_files=["res://.godot/imported/SpriteSheetOrange.png-267934cd0516d88ed2e58080bedb8371.ctex"]
 
 [params]
 

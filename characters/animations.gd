@@ -11,7 +11,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if playerNode:
 #		SET BLENDING OF 1D NODE IN ANIMATION TREE BASED ON THE MOUSE POSITION RELATIVE TO THE PLAYER
 #		MAKES THE SPRITE LOOK AT WHERE THE MOUSE IS

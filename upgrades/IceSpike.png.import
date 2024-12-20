@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://catf2dcnwdx08"
-path="res://.godot/imported/SpriteSheetOrange.png-8588fd0428d2947edca8a81843e75c70.ctex"
+uid="uid://ci3nxhnfg7obq"
+path="res://.godot/imported/IceSpike.png-5db2eb2707bb7581498289ad8872abff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Characters/combat FX/Magic/Circle/SpriteSheetOrange.png"
-dest_files=["res://.godot/imported/SpriteSheetOrange.png-8588fd0428d2947edca8a81843e75c70.ctex"]
+source_file="res://upgrades/IceSpike.png"
+dest_files=["res://.godot/imported/IceSpike.png-5db2eb2707bb7581498289ad8872abff.ctex"]
 
 [params]
 

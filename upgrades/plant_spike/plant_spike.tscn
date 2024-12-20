@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://buny7s4hjo46e"]
+
+[ext_resource type="Script" path="res://upgrades/plant_spike/plant_spike.gd" id="1_3a76y"]
+[ext_resource type="Script" path="res://resources/Scripts/upgrades.gd" id="2_eox01"]
+[ext_resource type="Texture2D" uid="uid://cm0qffktqqx08" path="res://assets/Characters/combat FX/Projectile/PlantSpike.png" id="3_coywb"]
+
+[sub_resource type="Resource" id="Resource_n4ywh"]
+script = ExtResource("2_eox01")
+name = "Plant Spike"
+description = Array[String](["Summon a drill of plants that peirces enemies and inflicts poison "])
+level = 2
+is_piercing = true
+attackSpeed = 2.0
+attackCoolDown = 1.0
+dependencies = Array[String]([])
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4byk"]
+atlas = ExtResource("3_coywb")
+region = Rect2(0, 0, 24, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owouk"]
+atlas = ExtResource("3_coywb")
+region = Rect2(24, 0, 24, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myb7m"]
+atlas = ExtResource("3_coywb")
+region = Rect2(48, 0, 24, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mox5"]
+atlas = ExtResource("3_coywb")
+region = Rect2(72, 0, 24, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iga1u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4byk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owouk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myb7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mox5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="PlantSpike" type="Node2D"]
+script = ExtResource("1_3a76y")
+upgradeInfo = SubResource("Resource_n4ywh")
+
+[node name="projectileSpawnPoint" type="Marker2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_iga1u")
+autoplay = "default"
+frame_progress = 0.201695

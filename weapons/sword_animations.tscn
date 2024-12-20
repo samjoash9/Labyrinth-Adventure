@@ -236,9 +236,11 @@ flip_v = true
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(36, 0)
 
-[node name="hitBoxComponent" parent="." groups=["attack"] instance=ExtResource("4_bdy8o")]
+[node name="hitBoxComponent" parent="." instance=ExtResource("4_bdy8o")]
 collision_layer = 2
 collision_mask = 4
+damage = 10.0
+knockback = 100.0
 
 [node name="hitboxshape" parent="hitBoxComponent" index="0"]
 position = Vector2(24.5, 0)
