@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfvrmx5qyca3x"
-path="res://.godot/imported/Fire.png-8dfc718fd8c76dfc948cce9d710689b6.ctex"
+uid="uid://c4sricbwvja15"
+path="res://.godot/imported/SpriteSheetFlake.png-e3f5e51e203728867d3bcee4d3b1d081.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Characters/combat FX/Particle/Fire.png"
-dest_files=["res://.godot/imported/Fire.png-8dfc718fd8c76dfc948cce9d710689b6.ctex"]
+source_file="res://assets/Characters/combat FX/Elemental/Plant/SpriteSheetFlake.png"
+dest_files=["res://.godot/imported/SpriteSheetFlake.png-e3f5e51e203728867d3bcee4d3b1d081.ctex"]
 
 [params]
 

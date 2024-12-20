@@ -2,14 +2,13 @@ extends Node2D
 class_name Upgrade
 
 @export var upgradeInfo : UpgradeResource
-
+@onready var projectileSpawnPoint: Marker2D = $projectileSpawnPoint
 @onready var scanner : EnemyScanner = get_tree().get_first_node_in_group("scanner")
-@onready var projectileSpawnPoint : Marker2D = $projectileSpawnPoint
 @onready var attack_timer: Timer = Timer.new()
 @onready var target = scanner.get_target()
 
 func _ready() -> void:
-	
+	z_index = 5
 	attack_timer.timeout.connect(onCooldown)
 	attack_timer.wait_time = upgradeInfo.attackCoolDown
 	attack_timer.autostart = true

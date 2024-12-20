@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci3nxhnfg7obq"
-path="res://.godot/imported/IceSpike.png-5db2eb2707bb7581498289ad8872abff.ctex"
+uid="uid://b6gvbgdeeox6v"
+path="res://.godot/imported/Kunai.png-6daa1b2d41e48dda242b665ec53d2d42.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://upgrades/IceSpike.png"
-dest_files=["res://.godot/imported/IceSpike.png-5db2eb2707bb7581498289ad8872abff.ctex"]
+source_file="res://upgrades/kunai/Kunai.png"
+dest_files=["res://.godot/imported/Kunai.png-6daa1b2d41e48dda242b665ec53d2d42.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6gvbgdeeox6v"
-path="res://.godot/imported/Kunai.png-3a6511ac6b09a2ed17b35864f4bd81dc.ctex"
+uid="uid://dy1nfq5cg74o0"
+path="res://.godot/imported/fantasy_weapons_pack1_noglow.png-32b0e085e37faa6e4798da96a2a23ebe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Characters/combat FX/Projectile/Kunai.png"
-dest_files=["res://.godot/imported/Kunai.png-3a6511ac6b09a2ed17b35864f4bd81dc.ctex"]
+source_file="res://upgrades/melee/fantasy_weapons_pack1_noglow.png"
+dest_files=["res://.godot/imported/fantasy_weapons_pack1_noglow.png-32b0e085e37faa6e4798da96a2a23ebe.ctex"]
 
 [params]
 

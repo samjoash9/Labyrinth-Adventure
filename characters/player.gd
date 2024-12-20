@@ -20,16 +20,14 @@ var SELECTED_CLASS : CharacterResource
 @onready var upgrade_pos_7: Marker2D = $UpgradePos7
 @onready var upgrade_pos_8: Marker2D = $UpgradePos8
 @onready var upgrade_pos_4: Marker2D = $UpgradePos4
-@onready var plant_spike: Node2D = $PlantSpike
-
 
 var selected : String = "knight"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SELECTED_CLASS  = load("res://resources/jobs/%s.tres" % selected)
-	plant_spike.global_position = upgrade_pos_1.global_position
 
+	
 	if SELECTED_CLASS: 
 		var player = SELECTED_CLASS.animationComponent.instantiate()
 		#var weapon = SELECTED_CLASS.weapon.weaponAnimations.instantiate()

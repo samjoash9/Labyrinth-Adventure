@@ -1,24 +1,24 @@
 [gd_scene load_steps=12 format=3 uid="uid://l2ykhmnrjbm4"]
 
-[ext_resource type="Script" path="res://upgrades/plant_spike.gd" id="1_smrxo"]
-[ext_resource type="Texture2D" uid="uid://cm0qffktqqx08" path="res://assets/Characters/combat FX/Projectile/PlantSpike.png" id="2_aqm2c"]
-[ext_resource type="PackedScene" uid="uid://bimjj863atx4q" path="res://common/hitbox/hit_box_component.tscn" id="3_vo7xm"]
-[ext_resource type="AudioStream" uid="uid://d11yl38bnqoqn" path="res://assets/Sound FX/Game/Hit5.wav" id="4_17q85"]
+[ext_resource type="Script" path="res://upgrades/projectileUp.gd" id="1_on8y8"]
+[ext_resource type="Texture2D" uid="uid://cm0qffktqqx08" path="res://assets/Characters/combat FX/Projectile/PlantSpike.png" id="2_r3mxu"]
+[ext_resource type="PackedScene" uid="uid://bimjj863atx4q" path="res://common/hitbox/hit_box_component.tscn" id="3_qw440"]
+[ext_resource type="AudioStream" uid="uid://d11yl38bnqoqn" path="res://assets/Sound FX/Game/Hit5.wav" id="4_1shyn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bsnqi"]
-atlas = ExtResource("2_aqm2c")
+atlas = ExtResource("2_r3mxu")
 region = Rect2(0, 0, 24, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kywms"]
-atlas = ExtResource("2_aqm2c")
+atlas = ExtResource("2_r3mxu")
 region = Rect2(24, 0, 24, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_68t2w"]
-atlas = ExtResource("2_aqm2c")
+atlas = ExtResource("2_r3mxu")
 region = Rect2(48, 0, 24, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ws8a1"]
-atlas = ExtResource("2_aqm2c")
+atlas = ExtResource("2_r3mxu")
 region = Rect2(72, 0, 24, 20)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aqb65"]
@@ -49,14 +49,14 @@ size = Vector2(20, 10)
 
 [node name="PlantSpike" type="Node2D"]
 top_level = true
-script = ExtResource("1_smrxo")
+script = ExtResource("1_on8y8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_aqb65")
 autoplay = "default"
 frame_progress = 0.369561
 
-[node name="hitBoxComponent" parent="." instance=ExtResource("3_vo7xm")]
+[node name="hitBoxComponent" parent="." instance=ExtResource("3_qw440")]
 collision_layer = 2
 collision_mask = 4
 damage = 10.0
@@ -65,7 +65,7 @@ damage = 10.0
 shape = SubResource("RectangleShape2D_gq3dj")
 
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_17q85")
+stream = ExtResource("4_1shyn")
 
 [node name="Boundary" type="Area2D" parent="."]
 collision_mask = 5

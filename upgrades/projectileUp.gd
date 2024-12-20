@@ -6,12 +6,16 @@ class_name Projectile
 @onready var speed: float = 500
 @onready var is_peircing : bool  = true
 @onready var parent : Upgrade = get_parent()
+@onready var hit_box_component: hitBoxComponent = $hitBoxComponent
+
 const  SPEEDMULTIPLIER = 100
 var direction 
 var angle
 var target
 
 func _ready() -> void:
+	top_level = true
+	hit_box_component.damage = parent.upgradeInfo.attackDamage
 	if parent.upgradeInfo.is_piercing != null:
 		is_peircing = parent.upgradeInfo.is_piercing
 	if parent.upgradeInfo.attackSpeed != null:
@@ -25,7 +29,7 @@ func _ready() -> void:
 		
 func _physics_process(delta: float) -> void:
 	position += angle * speed * SPEEDMULTIPLIER * delta
-
+	
 func onscreenExit() -> void:
 	queue_free()
 

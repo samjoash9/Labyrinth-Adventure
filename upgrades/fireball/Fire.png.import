@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4sricbwvja15"
-path="res://.godot/imported/SpriteSheetFlake.png-f3880518008f5328053fd6d15284d683.ctex"
+uid="uid://bfvrmx5qyca3x"
+path="res://.godot/imported/Fire.png-c8f4804c80cb377ddd5c0dac5da428ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Characters/combat FX/Elemental/Ice/SpriteSheetFlake.png"
-dest_files=["res://.godot/imported/SpriteSheetFlake.png-f3880518008f5328053fd6d15284d683.ctex"]
+source_file="res://upgrades/fireball/Fire.png"
+dest_files=["res://.godot/imported/Fire.png-c8f4804c80cb377ddd5c0dac5da428ca.ctex"]
 
 [params]
 

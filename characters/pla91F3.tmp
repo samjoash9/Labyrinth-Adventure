@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://ve2cvvfk14kv"]
+[gd_scene load_steps=8 format=3 uid="uid://ve2cvvfk14kv"]
 
 [ext_resource type="Script" path="res://characters/player.gd" id="1_mk0d3"]
-[ext_resource type="PackedScene" uid="uid://crdqwmeuv1q8b" path="res://upgrades/kunai/kunai.tscn" id="2_hbctm"]
 [ext_resource type="PackedScene" uid="uid://ca5a5uyk7dnt" path="res://common/hurtbox/hurt_box.tscn" id="2_uxgyh"]
 [ext_resource type="PackedScene" uid="uid://s5diqyt5yw74" path="res://common/item_magnet/item_magnet.tscn" id="3_0127m"]
 [ext_resource type="PackedScene" uid="uid://c72nfn8f33v6g" path="res://common/scanner/enemy_scanner.tscn" id="4_v0a7a"]
@@ -70,8 +69,6 @@ position = Vector2(-18.3333, 11.6667)
 
 [node name="UpgradePos8" type="Marker2D" parent="."]
 position = Vector2(18.3333, 11.6667)
-
-[node name="Kunai" parent="." instance=ExtResource("2_hbctm")]
 
 [editable path="HurtBox"]
 [editable path="EnemyScanner"]

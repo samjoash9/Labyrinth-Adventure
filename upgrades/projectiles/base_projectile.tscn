@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfvb0jhs3absn"]
+
+[ext_resource type="Script" path="res://upgrades/projectiles/base_projectile.gd" id="1_f7al5"]
+[ext_resource type="PackedScene" uid="uid://bimjj863atx4q" path="res://common/hitbox/hit_box_component.tscn" id="2_evwn7"]
+[ext_resource type="AudioStream" uid="uid://d11yl38bnqoqn" path="res://assets/Sound FX/Game/Hit5.wav" id="3_mn7nb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1rp24"]
+size = Vector2(20, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ru3l5"]
+size = Vector2(20, 10)
+
+[node name="BaseProjectile" type="Node2D"]
+script = ExtResource("1_f7al5")
+
+[node name="hitBoxComponent" parent="." instance=ExtResource("2_evwn7")]
+top_level = true
+collision_layer = 2
+collision_mask = 4
+damage = 10.0
+
+[node name="hitboxshape" parent="hitBoxComponent" index="0"]
+shape = SubResource("RectangleShape2D_1rp24")
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mn7nb")
+
+[node name="Boundary" type="Area2D" parent="."]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary"]
+shape = SubResource("RectangleShape2D_ru3l5")
+
+[node name="Screen" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(1, 0.5)
+
+[editable path="hitBoxComponent"]

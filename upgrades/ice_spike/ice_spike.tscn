@@ -1,0 +1,79 @@
+[gd_scene load_steps=13 format=3 uid="uid://dgrw7udqairja"]
+
+[ext_resource type="Script" path="res://upgrades/ice_spike/ice_spike.gd" id="1_jb331"]
+[ext_resource type="PackedScene" uid="uid://c5ssmvfahbkje" path="res://upgrades/classes/base_projectile.tscn" id="1_xm1r3"]
+[ext_resource type="Texture2D" uid="uid://ci3nxhnfg7obq" path="res://upgrades/ice_spike/IceSpike.png" id="3_6fccc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eowgp"]
+atlas = ExtResource("3_6fccc")
+region = Rect2(0, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8h4n"]
+atlas = ExtResource("3_6fccc")
+region = Rect2(18, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2wv6"]
+atlas = ExtResource("3_6fccc")
+region = Rect2(36, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypxl0"]
+atlas = ExtResource("3_6fccc")
+region = Rect2(54, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mn38h"]
+atlas = ExtResource("3_6fccc")
+region = Rect2(72, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n62wb"]
+atlas = ExtResource("3_6fccc")
+region = Rect2(90, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkcoy"]
+atlas = ExtResource("3_6fccc")
+region = Rect2(108, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogmmu"]
+atlas = ExtResource("3_6fccc")
+region = Rect2(126, 0, 18, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ap63"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eowgp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8h4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2wv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypxl0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mn38h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n62wb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkcoy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogmmu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="IceSpike" instance=ExtResource("1_xm1r3")]
+script = ExtResource("1_jb331")
+
+[node name="projectileSpawnPoint" parent="." index="0"]
+position = Vector2(8, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_8ap63")
+frame_progress = 0.950755
