@@ -76,15 +76,10 @@ func on_attack_area_entered(body: Node2D) -> void:
 		state = states.ATTACKING
 
 func spawnEXP():
-	const EXP_ORB_NEW = preload("res://environment/exp_orb_new.tscn")
+	var EXP_ORB_NEW = load("res://environment/exp_orb_new.tscn")
 	var expOrbInstance = EXP_ORB_NEW.instantiate()
-	if (expOrbInstance == null):
-		print("ORB")
-	else: 
-		print("Body")
-
-	#expOrbInstance.global_position = global_position
-	#add_sibling(expOrbInstance)
+	expOrbInstance.global_position = global_position
+	add_sibling(expOrbInstance)
 	
 func spawnDeathEffect():
 	const DEATH_EFFECT = preload("res://common/death_effect.tscn")

@@ -88,9 +88,9 @@ func levelUP():
 	LevelExpCap += LevelExpCap*.2
 	level += 1
 
-# Character Selection Function
 
-var selected : String = "rouge"
+# Character Selection Function
+var selected : String = "knight"
 
 func get_selected_character():
 	return ("res://resources/jobs/%s.tres" % selected)
