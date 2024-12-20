@@ -1,13 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://ve2cvvfk14kv"]
+[gd_scene load_steps=9 format=3 uid="uid://ve2cvvfk14kv"]
 
 [ext_resource type="Script" path="res://characters/player.gd" id="1_mk0d3"]
 [ext_resource type="PackedScene" uid="uid://ca5a5uyk7dnt" path="res://common/hurtbox/hurt_box.tscn" id="2_uxgyh"]
 [ext_resource type="PackedScene" uid="uid://s5diqyt5yw74" path="res://common/item_magnet/item_magnet.tscn" id="3_0127m"]
 [ext_resource type="PackedScene" uid="uid://c72nfn8f33v6g" path="res://common/scanner/enemy_scanner.tscn" id="4_v0a7a"]
 [ext_resource type="PackedScene" uid="uid://crtt1brniq2vs" path="res://upgrades/axe/axe.tscn" id="5_fumck"]
-[ext_resource type="PackedScene" uid="uid://dgrw7udqairja" path="res://upgrades/ice_spike/ice_spike.tscn" id="6_gdp5v"]
-[ext_resource type="PackedScene" uid="uid://bwpbkm51g513h" path="res://upgrades/melee/spear.tscn" id="6_p72rf"]
-[ext_resource type="PackedScene" uid="uid://brojgt1qer5ie" path="res://upgrades/fireball/fire_ball.tscn" id="7_ktybo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ptk8"]
 radius = 5.0
@@ -76,11 +73,6 @@ position = Vector2(18.3333, 11.6667)
 
 [node name="Axe" parent="." instance=ExtResource("5_fumck")]
 
-[node name="Spear" parent="." instance=ExtResource("6_p72rf")]
-
-[node name="FireBall" parent="." instance=ExtResource("7_ktybo")]
-
-[node name="IceSpike" parent="." instance=ExtResource("6_gdp5v")]
-
 [editable path="HurtBox"]
+[editable path="Item_Magnet"]
 [editable path="EnemyScanner"]

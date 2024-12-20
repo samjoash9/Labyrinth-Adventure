@@ -11,7 +11,7 @@ script = ExtResource("3_v30gh")
 attackDamage = 10.0
 movementSpeed = 10.0
 attackRadius = 10
-hitPoints = 10.0
+hitPoints = 100.0
 knockBack = 10.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0carv"]
@@ -980,9 +980,6 @@ script = ExtResource("2_mx8w7")
 basicStats = SubResource("Resource_6viy6")
 state = 1
 
-[node name="InvulnirableTimer" parent="HurtBox" index="1"]
-wait_time = 0.044
-
 [node name="hitboxshape" parent="hitBoxComponent" index="0"]
 position = Vector2(10, -10)
 
@@ -1004,7 +1001,7 @@ anim_player = NodePath("../Animations")
 parameters/Attack/blend_position = 0
 parameters/Dead/blend_position = 0
 parameters/Hurt/blend_position = -0.734051
-parameters/Idle/blend_position = 0
+parameters/Idle/blend_position = -0.35588
 parameters/Move/blend_position = 0
 
 [editable path="HurtBox"]

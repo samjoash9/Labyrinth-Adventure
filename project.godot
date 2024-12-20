@@ -39,6 +39,7 @@ attack=""
 hurtboxes=""
 player=""
 scanner=""
+UIHUD=""
 
 [input]
 

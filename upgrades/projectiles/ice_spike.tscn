@@ -87,6 +87,7 @@ damage = 10.0
 
 [node name="hitboxshape" parent="hitBoxComponent" index="0"]
 shape = SubResource("RectangleShape2D_jatln")
+debug_color = Color(0.483333, 1, 0, 1)
 
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_wvske")

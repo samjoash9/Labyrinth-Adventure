@@ -239,7 +239,7 @@ position = Vector2(36, 0)
 [node name="hitBoxComponent" parent="." instance=ExtResource("4_bdy8o")]
 collision_layer = 2
 collision_mask = 4
-damage = 10.0
+damage = 1000.0
 knockback = 100.0
 
 [node name="hitboxshape" parent="hitBoxComponent" index="0"]

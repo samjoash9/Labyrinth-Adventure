@@ -12,4 +12,5 @@ func _process(delta: float) -> void:
 	 
 func _on_body_entered(body: Node2D) -> void:
 	if is_instance_of(body, playerCharacter):
+		GameManager.ExpPoints += 20
 		queue_free()

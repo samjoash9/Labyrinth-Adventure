@@ -6,6 +6,10 @@ const map_rooms = 10
 const mapSize = map_rooms * PATTERN_SIZE
 const object_map_size = mapSize - PATTERN_SIZE
 
+var ExpPoints: float = 0
+var LevelExpCap : float = 100
+var level: int = 0
+
 # SPECIFIC MAP TYPES
 # GREEN 
 const GREEN = {
@@ -71,3 +75,8 @@ const LAVA = {
 	],
 	"object_pattern_count": 8
 }
+
+func levelUP():
+	ExpPoints -= LevelExpCap
+	LevelExpCap += LevelExpCap*.2
+	level += 1

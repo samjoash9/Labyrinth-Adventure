@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Enemy
+
 const EXP_ORB = preload("res://environment/exp_orb.tscn")
+
 enum states{
 	IDLE,
 	MOVING,
@@ -62,6 +64,7 @@ func _process(_delta: float) -> void:
 	
 
 func on_hurt(hurtDirection: Variant, knockback: Variant):
+	print(hurt_box.HITPOINTS)
 	if !is_processing():
 		set_process(true)
 	state = states.HURT
