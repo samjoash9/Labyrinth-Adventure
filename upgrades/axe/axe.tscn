@@ -1,0 +1,178 @@
+[gd_scene load_steps=12 format=3 uid="uid://crtt1brniq2vs"]
+
+[ext_resource type="PackedScene" uid="uid://c5ssmvfahbkje" path="res://upgrades/classes/base_projectile.tscn" id="1_ovrat"]
+[ext_resource type="Script" path="res://upgrades/axe/axe.gd" id="2_6yyny"]
+[ext_resource type="Script" path="res://resources/Scripts/upgrades.gd" id="3_ckcwr"]
+[ext_resource type="Texture2D" uid="uid://dy1nfq5cg74o0" path="res://upgrades/melee/fantasy_weapons_pack1_noglow.png" id="3_djag1"]
+[ext_resource type="PackedScene" uid="uid://bimjj863atx4q" path="res://common/hitbox/hit_box_component.tscn" id="5_pjgbe"]
+
+[sub_resource type="Resource" id="Resource_ofw7l"]
+script = ExtResource("3_ckcwr")
+name = "Axe"
+description = Array[String]([])
+level = 1
+is_piercing = false
+is_projectile = false
+attackSpeed = 12.0
+attackDamage = 12.0
+attackCoolDown = 0.5
+dependencies = Array[String]([])
+
+[sub_resource type="Animation" id="Animation_gk6it"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.916958]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -9.53674e-07)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hitBoxComponent/hitboxshape:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -16)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("hitBoxComponent/hitboxshape:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_o0qch"]
+resource_name = "attack"
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.392292, 0.466517),
+"update": 0,
+"values": [0.0, 62.8319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.26, 0.94),
+"transitions": PackedFloat32Array(0.0824694, 9.18957, 0.0490366),
+"update": 0,
+"values": [Vector2(0, -9.53674e-07), Vector2(115, 0), Vector2(0, -9.53674e-07)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hitBoxComponent/hitboxshape:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.26, 0.94),
+"transitions": PackedFloat32Array(0.0824694, 9.18957, 0.0490366),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(115, 0), Vector2(0, -9.53674e-07)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("hitBoxComponent/hitboxshape:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.26, 0.32, 0.379361, 0.439361, 0.5, 0.56, 0.88),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_ws6n0"]
+resource_name = "idle"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_84g37"]
+_data = {
+"RESET": SubResource("Animation_gk6it"),
+"attack": SubResource("Animation_o0qch"),
+"idle": SubResource("Animation_ws6n0")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4pfa5"]
+radius = 29.0172
+
+[node name="Axe" instance=ExtResource("1_ovrat")]
+script = ExtResource("2_6yyny")
+upgradeInfo = SubResource("Resource_ofw7l")
+
+[node name="projectileSpawnPoint" parent="." index="0"]
+position = Vector2(14, -14)
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+position = Vector2(0, -9.53674e-07)
+rotation = -0.916958
+texture = ExtResource("3_djag1")
+offset = Vector2(13, -13)
+flip_h = true
+hframes = 10
+vframes = 5
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_84g37")
+}
+
+[node name="hitBoxComponent" parent="." index="3" instance=ExtResource("5_pjgbe")]
+
+[node name="hitboxshape" parent="hitBoxComponent" index="0"]
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_4pfa5")
+
+[editable path="hitBoxComponent"]

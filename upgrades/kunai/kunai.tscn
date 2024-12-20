@@ -12,8 +12,8 @@ level = 1
 is_piercing = true
 is_projectile = true
 attackSpeed = 2.0
-attackDamage = 10.0
-attackCoolDown = 0.1
+attackDamage = 1.0
+attackCoolDown = 1.0
 dependencies = Array[String]([])
 
 [node name="Kunai" type="Node2D"]

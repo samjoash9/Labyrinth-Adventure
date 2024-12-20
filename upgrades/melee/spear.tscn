@@ -1,0 +1,121 @@
+[gd_scene load_steps=11 format=3 uid="uid://bwpbkm51g513h"]
+
+[ext_resource type="PackedScene" uid="uid://c5ssmvfahbkje" path="res://upgrades/classes/base_projectile.tscn" id="1_d5fr5"]
+[ext_resource type="Script" path="res://upgrades/spear/spear.gd" id="2_j7uds"]
+[ext_resource type="Texture2D" uid="uid://1i46qww4gvll" path="res://upgrades/melee/32x32_PixelWeapons_Free.png" id="3_47bfx"]
+[ext_resource type="Script" path="res://resources/Scripts/upgrades.gd" id="3_aamk8"]
+[ext_resource type="PackedScene" uid="uid://bimjj863atx4q" path="res://common/hitbox/hit_box_component.tscn" id="5_jc2jn"]
+
+[sub_resource type="Resource" id="Resource_3y8ii"]
+script = ExtResource("3_aamk8")
+name = "Spear"
+description = Array[String]([])
+level = 1
+is_piercing = false
+is_projectile = false
+attackSpeed = 1.0
+attackDamage = 20.0
+attackCoolDown = 1.0
+dependencies = Array[String]([])
+
+[sub_resource type="Animation" id="Animation_04ax8"]
+resource_name = "attack1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.533333, 1),
+"transitions": PackedFloat32Array(3.36358, 7.21001, 4.14106, 3.36358),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-111, 0), Vector2(250, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hitBoxComponent/hitboxshape:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.533333, 1),
+"transitions": PackedFloat32Array(1, 7.21001, 4.43828, 3.36358),
+"update": 0,
+"values": [Vector2(16, 0), Vector2(-95, 0), Vector2(266, 0), Vector2(16, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hitBoxComponent/hitboxshape:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.533333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_65ld6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(609, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hitBoxComponent/hitboxshape:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vrvr8"]
+_data = {
+"RESET": SubResource("Animation_65ld6"),
+"attack1": SubResource("Animation_04ax8")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cy1s5"]
+size = Vector2(41, 12)
+
+[node name="Spear" instance=ExtResource("1_d5fr5")]
+script = ExtResource("2_j7uds")
+upgradeInfo = SubResource("Resource_3y8ii")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+position = Vector2(609, 0)
+rotation = 0.785398
+scale = Vector2(0.949259, 0.949259)
+texture = ExtResource("3_47bfx")
+offset = Vector2(13, -13)
+hframes = 14
+vframes = 14
+frame = 113
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_vrvr8")
+}
+
+[node name="hitBoxComponent" parent="." index="3" instance=ExtResource("5_jc2jn")]
+
+[node name="hitboxshape" parent="hitBoxComponent" index="0"]
+position = Vector2(16, 0)
+shape = SubResource("RectangleShape2D_cy1s5")
+
+[editable path="hitBoxComponent"]

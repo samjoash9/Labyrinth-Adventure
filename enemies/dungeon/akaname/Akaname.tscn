@@ -1,17 +1,17 @@
 [gd_scene load_steps=47 format=3 uid="uid://dqq0d5x5x5c0g"]
 
 [ext_resource type="PackedScene" uid="uid://fawsiwox2mr2" path="res://enemies/base_enemy/basic_enemy.tscn" id="1_uo4as"]
-[ext_resource type="Script" path="res://enemies/dungeon/akaname/akaname.gd" id="2_cddxb"]
+[ext_resource type="Script" path="res://enemies/Enemy.gd" id="2_mx8w7"]
 [ext_resource type="Texture2D" uid="uid://pdocf2kqwvi3" path="res://enemies/dungeon/akaname/Akaname Sprite Sheet.png" id="3_ak5na"]
 [ext_resource type="Script" path="res://resources/Scripts/enemyBaseStats.gd" id="3_v30gh"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://dcpya0l56v5f4" path="res://AnimationStates.tres" id="5_jkq65"]
 
-[sub_resource type="Resource" id="Resource_eacmi"]
+[sub_resource type="Resource" id="Resource_6viy6"]
 script = ExtResource("3_v30gh")
-attackDamage = 5000.0
-movementSpeed = 150.0
-attackRadius = 15
-hitPoints = 100.0
+attackDamage = 10.0
+movementSpeed = 10.0
+attackRadius = 10
+hitPoints = 10.0
 knockBack = 10.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0carv"]
@@ -976,8 +976,8 @@ _data = {
 
 [node name="Akaname" instance=ExtResource("1_uo4as")]
 collision_layer = 4
-script = ExtResource("2_cddxb")
-basicStats = SubResource("Resource_eacmi")
+script = ExtResource("2_mx8w7")
+basicStats = SubResource("Resource_6viy6")
 state = 1
 
 [node name="InvulnirableTimer" parent="HurtBox" index="1"]

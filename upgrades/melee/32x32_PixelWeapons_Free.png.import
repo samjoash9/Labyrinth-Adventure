@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2sfdqvqc5vro"
-path="res://.godot/imported/SpriteSheet.png-2f68fa6c8b01a979cfded79f372410fb.ctex"
+uid="uid://1i46qww4gvll"
+path="res://.godot/imported/32x32_PixelWeapons_Free.png-0e6b5b3c82b0fec7b1c09db4e50d893a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Characters/combat FX/SlashFx/CircularSlash/SpriteSheet.png"
-dest_files=["res://.godot/imported/SpriteSheet.png-2f68fa6c8b01a979cfded79f372410fb.ctex"]
+source_file="res://upgrades/melee/32x32_PixelWeapons_Free.png"
+dest_files=["res://.godot/imported/32x32_PixelWeapons_Free.png-0e6b5b3c82b0fec7b1c09db4e50d893a.ctex"]
 
 [params]
 

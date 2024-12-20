@@ -1,8 +1,21 @@
-[gd_scene load_steps=13 format=3 uid="uid://dgrw7udqairja"]
+[gd_scene load_steps=15 format=3 uid="uid://dgrw7udqairja"]
 
 [ext_resource type="Script" path="res://upgrades/ice_spike/ice_spike.gd" id="1_jb331"]
 [ext_resource type="PackedScene" uid="uid://c5ssmvfahbkje" path="res://upgrades/classes/base_projectile.tscn" id="1_xm1r3"]
 [ext_resource type="Texture2D" uid="uid://ci3nxhnfg7obq" path="res://upgrades/ice_spike/IceSpike.png" id="3_6fccc"]
+[ext_resource type="Script" path="res://resources/Scripts/upgrades.gd" id="3_xm3q6"]
+
+[sub_resource type="Resource" id="Resource_b3djs"]
+script = ExtResource("3_xm3q6")
+name = "Ice Spike"
+description = Array[String]([])
+level = 1
+is_piercing = true
+is_projectile = true
+attackSpeed = 2.0
+attackDamage = 10.0
+attackCoolDown = 1.0
+dependencies = Array[String]([])
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eowgp"]
 atlas = ExtResource("3_6fccc")
@@ -70,6 +83,7 @@ animations = [{
 
 [node name="IceSpike" instance=ExtResource("1_xm1r3")]
 script = ExtResource("1_jb331")
+upgradeInfo = SubResource("Resource_b3djs")
 
 [node name="projectileSpawnPoint" parent="." index="0"]
 position = Vector2(8, 0)
