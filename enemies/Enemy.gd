@@ -1,8 +1,6 @@
 extends CharacterBody2D
 class_name Enemy
 
-const EXP_ORB = preload("res://environment/exp_orb.tscn")
-
 enum states{
 	IDLE,
 	MOVING,
@@ -62,9 +60,7 @@ func _process(_delta: float) -> void:
 					state = states.IDLE
 	move_and_slide()
 	
-
 func on_hurt(hurtDirection: Variant, knockback: Variant):
-	print(hurt_box.HITPOINTS)
 	if !is_processing():
 		set_process(true)
 	state = states.HURT
@@ -80,9 +76,15 @@ func on_attack_area_entered(body: Node2D) -> void:
 		state = states.ATTACKING
 
 func spawnEXP():
-	var expOrbInstance = EXP_ORB.instantiate()
-	expOrbInstance.global_position = global_position
-	add_sibling(expOrbInstance)
+	const EXP_ORB_NEW = preload("res://environment/exp_orb_new.tscn")
+	var expOrbInstance = EXP_ORB_NEW.instantiate()
+	if (expOrbInstance == null):
+		print("ORB")
+	else: 
+		print("Body")
+
+	#expOrbInstance.global_position = global_position
+	#add_sibling(expOrbInstance)
 	
 func spawnDeathEffect():
 	const DEATH_EFFECT = preload("res://common/death_effect.tscn")

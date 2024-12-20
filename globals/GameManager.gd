@@ -6,9 +6,7 @@ const map_rooms = 10
 const mapSize = map_rooms * PATTERN_SIZE
 const object_map_size = mapSize - PATTERN_SIZE
 
-var ExpPoints: float = 0
-var LevelExpCap : float = 100
-var level: int = 0
+
 
 # SPECIFIC MAP TYPES
 # GREEN 
@@ -76,7 +74,23 @@ const LAVA = {
 	"object_pattern_count": 8
 }
 
+
+# Player Manager
+
+# Level Up Function
+
+var ExpPoints: float = 0
+var LevelExpCap : float = 100
+var level: int = 0
+
 func levelUP():
 	ExpPoints -= LevelExpCap
 	LevelExpCap += LevelExpCap*.2
 	level += 1
+
+# Character Selection Function
+
+var selected : String = "rouge"
+
+func get_selected_character():
+	return ("res://resources/jobs/%s.tres" % selected)

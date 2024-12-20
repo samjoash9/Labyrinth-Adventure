@@ -8,9 +8,7 @@ var HITPOINTS: float
 signal hurt(hurtDirection, knockback)
 signal dead()
 
-
 func _on_area_entered(area: Area2D) -> void:
-	
 	if area.is_in_group("attack"):
 		hurt_shape.call_deferred("set", "disabled" , true)
 		invulnirable_timer.start()

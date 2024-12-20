@@ -1,6 +1,11 @@
 extends Node2D
 const AKANAME = preload("res://enemies/dungeon/akaname/akaname.tscn")
 
+@export var upgradeInfo: UpgradeInfo = preload("res://resources/upgrades/Fireball.tres")
+
+func _ready() -> void:
+	print(upgradeInfo.levelDescriptions)
+
 func _on_timer_timeout() -> void:
 	add_child(AKANAME.instantiate())
 
