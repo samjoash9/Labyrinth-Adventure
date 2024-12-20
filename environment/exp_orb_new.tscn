@@ -74,6 +74,6 @@ shape = SubResource("CircleShape2D_robbo")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_5b4ep")
 autoplay = "default"
-frame_progress = 0.384254
+frame_progress = 0.242211
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

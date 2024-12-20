@@ -16,11 +16,9 @@ enum states{
 var state = states.IDLE
 var SPEED : float = 0
 var SELECTED_CLASS : CharacterResource
-const ICE_SPIKE = preload("res://upgrades/ice_spike/ice_spike.tscn")
 func _ready() -> void:
 #	Load Selected Class Resource
 	SELECTED_CLASS  = load(GameManager.get_selected_character())
-	add_upgrade(ICE_SPIKE.instantiate())
 #	Create Instances Of the Class Body, Primary weapon, and Unique Skill
 	if SELECTED_CLASS: 
 		instancePlayerAnimations()
