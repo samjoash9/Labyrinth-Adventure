@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwrn0w7b76a46"]
+
+[ext_resource type="Texture2D" uid="uid://chxm33cij47bg" path="res://assets/UI/wood_pack_icons/MenusIcons_34x34.png" id="1_pxv3j"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_652na"]
+texture = ExtResource("1_pxv3j")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(40, 3, 22, 27)
+
+[sub_resource type="Theme" id="Theme_tnhjy"]
+Button/styles/normal = SubResource("StyleBoxTexture_652na")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7id80"]
+texture = ExtResource("1_pxv3j")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(4, 4, 24, 24)
+
+[sub_resource type="Theme" id="Theme_xwca6"]
+Button/styles/normal = SubResource("StyleBoxTexture_7id80")
+
+[node name="central_hub_hud" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 35.0
+offset_bottom = 68.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="Control/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_tnhjy")
+text = "    "
+
+[node name="Map" type="Button" parent="Control/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_xwca6")
+text = "     "

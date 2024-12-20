@@ -1,0 +1,204 @@
+[gd_scene load_steps=11 format=3 uid="uid://d3f6vqf4ulcsg"]
+
+[ext_resource type="Theme" uid="uid://iivwh67cjc1k" path="res://scenes/UI/base_theme.tres" id="1_ubp1y"]
+[ext_resource type="Texture2D" uid="uid://cov8uyxyjkdf2" path="res://assets/Images/button UI.png" id="2_5utmp"]
+[ext_resource type="Texture2D" uid="uid://bnff21cfunewx" path="res://assets/Ninja Adventure - Asset Pack/Ui/Icon/Spell/AttackUpgrade.png" id="2_51g7l"]
+[ext_resource type="Texture2D" uid="uid://bflr18if7opsj" path="res://assets/Images/swiftness.png" id="3_3b2p6"]
+[ext_resource type="Texture2D" uid="uid://fw7nnjk48sem" path="res://assets/Ninja Adventure - Asset Pack/Ui/Icon/Spell/Heal.png" id="3_43fr6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ejmsw"]
+texture = ExtResource("2_5utmp")
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(48, 0, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_em783"]
+texture = ExtResource("2_5utmp")
+region_rect = Rect2(48, 0, 16, 16)
+
+[sub_resource type="Theme" id="Theme_txft4"]
+Button/styles/normal = SubResource("StyleBoxTexture_ejmsw")
+button/styles/normal_mirrored = SubResource("StyleBoxTexture_em783")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5wwqv"]
+texture = ExtResource("2_5utmp")
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(64, 64, 16, 16)
+
+[sub_resource type="Theme" id="Theme_pl5h6"]
+Button/styles/normal = SubResource("StyleBoxTexture_5wwqv")
+Button/styles/normal_mirrored = null
+
+[node name="upgrade_stats" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme = ExtResource("1_ubp1y")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/Panel/PanelContainer"]
+layout_mode = 2
+
+[node name="header" type="HBoxContainer" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="RESET BUTTON" type="Button" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer/header"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = SubResource("Theme_txft4")
+text = " "
+
+[node name="STATS_LABEL" type="Label" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer/header"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+text = "STATS"
+
+[node name="X BUTTON2" type="Button" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer/header"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = SubResource("Theme_pl5h6")
+text = " "
+
+[node name="icons" type="HBoxContainer" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Attack" type="Sprite2D" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer/icons"]
+position = Vector2(61, -4.76837e-06)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_51g7l")
+
+[node name="Health" type="Sprite2D" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer/icons"]
+position = Vector2(192, -4.29153e-06)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_43fr6")
+
+[node name="Agility" type="Sprite2D" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer/icons"]
+position = Vector2(324, 0)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("3_3b2p6")
+
+[node name="stat_numbers" type="HBoxContainer" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="attack" type="Label" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer/stat_numbers"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "69"
+
+[node name="health" type="Label" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer/stat_numbers"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "99"
+
+[node name="agility" type="Label" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer/stat_numbers"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "13
+"
+
+[node name="plus_minus_container" type="HBoxContainer" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="attack" type="HBoxContainer" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer/plus_minus_container"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Button2" type="Button" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer/plus_minus_container/attack"]
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 4
+text = "+"
+
+[node name="Button" type="Button" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer/plus_minus_container/attack"]
+layout_mode = 2
+text = "-"
+
+[node name="health" type="HBoxContainer" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer/plus_minus_container"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Button" type="Button" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer/plus_minus_container/health"]
+layout_mode = 2
+text = "+"
+
+[node name="Button2" type="Button" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer/plus_minus_container/health"]
+layout_mode = 2
+text = "-"
+
+[node name="agility" type="HBoxContainer" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer/plus_minus_container"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Button" type="Button" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer/plus_minus_container/agility"]
+layout_mode = 2
+text = "+"
+
+[node name="Button2" type="Button" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer/plus_minus_container/agility"]
+layout_mode = 2
+text = "-
+"
+
+[node name="footer" type="HBoxContainer" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="save_container" type="HBoxContainer" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer/footer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="save" type="Button" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer/footer/save_container"]
+layout_mode = 2
+text = " SAVE "
+
+[node name="cancel_container" type="HBoxContainer" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer/footer"]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="cancel" type="Button" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer/footer/cancel_container"]
+layout_mode = 2
+text = "CANCEL
+"

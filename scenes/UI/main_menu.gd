@@ -3,7 +3,6 @@ signal loaded
 
 const OPTIONS = preload("res://scenes/UI/options.tscn")
 const EXIT_MODAL = preload("res://ui/exit_modal.tscn")
-const MAIN = preload("res://Main.tscn")
 @onready var main_menu: CanvasLayer = $main_menu
 @onready var parallax_background_2: ParallaxBackground = $ParallaxBackground2
 
