@@ -9,7 +9,7 @@
 script = ExtResource("3_xm3q6")
 name = "Ice Spike"
 description = Array[String]([])
-level = 1
+level = 5
 is_piercing = true
 is_projectile = true
 attackSpeed = 2.0

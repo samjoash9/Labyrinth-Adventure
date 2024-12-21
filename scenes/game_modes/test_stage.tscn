@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://tsgcl1bb1j7b"]
+[gd_scene load_steps=9 format=4 uid="uid://tsgcl1bb1j7b"]
 
 [ext_resource type="Script" path="res://scenes/game_modes/test_stage.gd" id="1_0jhx5"]
 [ext_resource type="Texture2D" uid="uid://cqduagm0niyk4" path="res://assets/Environment/Dungeon/Dungeon 2/Dungeon tileset.png" id="2_xmj3q"]
 [ext_resource type="PackedScene" uid="uid://ve2cvvfk14kv" path="res://characters/player.tscn" id="3_h06nx"]
-[ext_resource type="PackedScene" uid="uid://b7c3is6brl4pf" path="res://ui/game_hud.tscn" id="4_wj0h4"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_rtc4i"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -299,10 +298,5 @@ tile_set = SubResource("TileSet_lcwbi")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 5
-
-[node name="GameHUD" parent="CanvasLayer" instance=ExtResource("4_wj0h4")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

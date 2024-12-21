@@ -1,5 +1,4 @@
 extends Node2D
-class_name Upgrade
 
 @export var upgradeInfo : UpgradeResource
 @onready var projectileSpawnPoint: Marker2D = $projectileSpawnPoint

@@ -7,29 +7,28 @@ enum states{
 	DEAD,
 	HURT
 }
+
 @onready var hurt_shape: CollisionShape2D = $HurtBox/HurtShape
 @onready var hurt_box: HurtBox = $HurtBox
 @onready var enemy_scanner: EnemyScanner = $EnemyScanner
 @onready var magnet_area: CollisionShape2D = $Item_Magnet/MagnetArea
 @onready var upgrade_slots: Node2D = $UpgradeSlots
+@onready var applied_upgrades: Node2D = $AppliedUpgrades
 
 var state = states.IDLE
 var SPEED : float = 0
 var SELECTED_CLASS : CharacterResource
+
 func _ready() -> void:
 #	Load Selected Class Resource
 	SELECTED_CLASS  = load(GameManager.get_selected_character())
+	
 #	Create Instances Of the Class Body, Primary weapon, and Unique Skill
 	if SELECTED_CLASS: 
 		instancePlayerAnimations()
 		#instanceWeaponAnimations()
 		instanceUniqueAnimations()
-		setBasicStatsForSession()
 
-func setBasicStatsForSession():
-	hurt_box.HITPOINTS = SELECTED_CLASS.basicStats.Hitpoints
-	SPEED = SELECTED_CLASS.basicStats.Movespeed
-	
 func instancePlayerAnimations():
 	if SELECTED_CLASS.animationComponent:
 		var player = SELECTED_CLASS.animationComponent.instantiate()
@@ -61,7 +60,6 @@ func set_position_to_random_slot(upgradeItem : Upgrade):
 
 func add_upgrade(upgradeItem : Upgrade):
 	if upgrade_slots.get_child_count() > 0:
-		$AppliedUpgrades.add_child(upgradeItem)
 		set_position_to_random_slot(upgradeItem)
 	else:
 		return

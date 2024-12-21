@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://baasc0rn4n1hs" path="res://imgs/SpellIcons/fire_spell.png" id="1_1ntev"]
 [ext_resource type="Script" path="res://resources/Scripts/upgradeInfo.gd" id="2_6d7f8"]
-[ext_resource type="PackedScene" uid="uid://brojgt1qer5ie" path="res://upgrades/fireball/fire_ball.tscn" id="3_ygyhk"]
+[ext_resource type="PackedScene" uid="uid://brojgt1qer5ie" path="res://upgrades/fire_ball.tscn" id="3_ygyhk"]
 
 [resource]
 script = ExtResource("2_6d7f8")

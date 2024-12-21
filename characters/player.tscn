@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://ve2cvvfk14kv"]
+[gd_scene load_steps=11 format=3 uid="uid://ve2cvvfk14kv"]
 
 [ext_resource type="Script" path="res://characters/player.gd" id="1_mk0d3"]
 [ext_resource type="PackedScene" uid="uid://ca5a5uyk7dnt" path="res://common/hurtbox/hurt_box.tscn" id="2_uxgyh"]
 [ext_resource type="PackedScene" uid="uid://s5diqyt5yw74" path="res://common/item_magnet/item_magnet.tscn" id="3_0127m"]
 [ext_resource type="PackedScene" uid="uid://c72nfn8f33v6g" path="res://common/scanner/enemy_scanner.tscn" id="4_v0a7a"]
 [ext_resource type="PackedScene" uid="uid://ba8cvy25ooxfr" path="res://common/CameraSpawner.tscn" id="4_xqis1"]
+[ext_resource type="PackedScene" uid="uid://b7c3is6brl4pf" path="res://ui/game_hud.tscn" id="11_kxkty"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_71gxf"]
 radius = 4.0
@@ -16,6 +17,9 @@ radius = 563.355
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ptk8"]
 radius = 5.0
 height = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sw3w7"]
+radius = 16.6667
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 4
@@ -52,23 +56,13 @@ shape = SubResource("CapsuleShape2D_6ptk8")
 
 [node name="AppliedUpgrades" type="Node2D" parent="."]
 
-[node name="UpgradeSlots" type="Node2D" parent="."]
+[node name="GameHud" type="CanvasLayer" parent="."]
 
-[node name="Slot1" type="Marker2D" parent="UpgradeSlots"]
+[node name="GameHUD" parent="GameHud" instance=ExtResource("11_kxkty")]
 
-[node name="Slot2" type="Marker2D" parent="UpgradeSlots"]
-
-[node name="Slot3" type="Marker2D" parent="UpgradeSlots"]
-
-[node name="Slot4" type="Marker2D" parent="UpgradeSlots"]
-
-[node name="Slot5" type="Marker2D" parent="UpgradeSlots"]
-
-[node name="Slot6" type="Marker2D" parent="UpgradeSlots"]
-
-[node name="Slot7" type="Marker2D" parent="UpgradeSlots"]
-
-[node name="Slot8" type="Marker2D" parent="UpgradeSlots"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8.33333)
+shape = SubResource("CircleShape2D_sw3w7")
 
 [editable path="HurtBox"]
 [editable path="Item_Magnet"]
