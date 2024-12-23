@@ -6,8 +6,8 @@ extends TileMapLayer
 
 var atlas_id = 0
 const PATTERN_SIZE = GameManager.PATTERN_SIZE
-const mapSize = GameManager.mapSize
-const object_map_size = GameManager.object_map_size
+var mapSize = GameManager.mapSize
+var object_map_size = GameManager.object_map_size
 var noise_tiles = []
 var object_pattern_count = 0
 
@@ -49,34 +49,45 @@ func init_maze():
 	var patterns = {}
 	var unvisited = []
 	var stack = []
-	for x in range(0 , mapSize, PATTERN_SIZE):
-		for y in range(0 , mapSize, PATTERN_SIZE):
-			unvisited.append(Vector2i(x,y))
+
+	# Initialize patterns and unvisited list
+	for x in range(0, mapSize, PATTERN_SIZE):
+		for y in range(0, mapSize, PATTERN_SIZE):
+			unvisited.append(Vector2i(x, y))
 			var key = Vector2i(x, y)
 			patterns[key] = 15
-	
-	var current = Vector2i(0,0)
-	
-	while unvisited:
-		print(current)
+
+	var current = Vector2i(0, 0)
+	unvisited.erase(current) 
+
+	while unvisited.size() > 0:
 		var adjacent_cells = check_adjacent(current, unvisited)
-		if adjacent_cells.size()>0:
+		
+		if adjacent_cells.size() > 0:
+			# Choose a random adjacent cell
 			var next = adjacent_cells[randi() % adjacent_cells.size()]
-			stack.append(current)
-			var dir = next - current
-			 
-			var current_walls = patterns.get(current) - cell_walls[dir/PATTERN_SIZE]
-			var next_walls = patterns.get(next) - cell_walls[-dir/PATTERN_SIZE] 
+			stack.append(current)  # Push current to stack
 			
+			# Calculate direction and update walls
+			var dir = (next - current) / PATTERN_SIZE
+			var current_walls = patterns.get(current) - cell_walls[dir]
+			var next_walls = patterns.get(next) - cell_walls[-dir]
+
+			# Apply wall updates
 			patterns[current] = current_walls
 			patterns[next] = next_walls
-			
-			apply_pattern_by_index(next, next_walls)
 			apply_pattern_by_index(current, current_walls)
+			apply_pattern_by_index(next, next_walls)
+
+			# Move to the next cell
 			current = next
-			unvisited.erase(current)
+			unvisited.erase(current)  
 		else:
-			current = stack.pop_back()
+			# Backtrack
+			if stack.size() > 0:
+				current = stack.pop_back()
+			else:
+				break 
 
 func apply_noise():
 	for x in range(mapSize):

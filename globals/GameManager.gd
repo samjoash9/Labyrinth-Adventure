@@ -2,9 +2,9 @@ extends Node
 
 # MAP VARIABLES ==============================
 const PATTERN_SIZE = 27
-const map_rooms = 5
-const mapSize = map_rooms * PATTERN_SIZE
-const object_map_size = mapSize - PATTERN_SIZE
+var map_rooms = 10
+var mapSize = map_rooms * PATTERN_SIZE
+var object_map_size = mapSize - PATTERN_SIZE
 
 var user_prefs: UserPreferences
 const defaultSize: Vector2i = Vector2i(640*2,360*2)
