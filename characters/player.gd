@@ -26,7 +26,7 @@ var weapon: Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 #	Load Selected Class Resource
-	SELECTED_CLASS  = load(GameManager.get_selected_character())
+	SELECTED_CLASS  = load("res://resources/jobs/%s.tres" % GameManager.selected_hero)
 	
 #	Create Instances Of the Class Body, Primary weapon, and Unique Skill
 	if SELECTED_CLASS: 

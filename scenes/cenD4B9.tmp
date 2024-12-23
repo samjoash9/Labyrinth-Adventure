@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://bfkhq2vf0a3gf"]
+[gd_scene load_steps=26 format=4 uid="uid://bfkhq2vf0a3gf"]
 
 [ext_resource type="Texture2D" uid="uid://dmibqs7ant8f6" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetFloor.png" id="1_4m24w"]
 [ext_resource type="Script" path="res://scenes/central_hub.gd" id="1_jfdxu"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://dm62q6y08fg8o" path="res://scenes/portals/central_hub_portal.tscn" id="5_wo05u"]
 [ext_resource type="PackedScene" uid="uid://daxxv2b8obm6d" path="res://scenes/npcs/black_smith_onNode.tscn" id="7_hv86f"]
 [ext_resource type="PackedScene" uid="uid://cfsxr23f07rxu" path="res://scenes/npcs/Weapons_Dealer/Weapons_Dealer_onNode.tscn" id="8_jx01w"]
-[ext_resource type="PackedScene" uid="uid://ve2cvvfk14kv" path="res://characters/player.tscn" id="10_be00a"]
 [ext_resource type="PackedScene" uid="uid://bwrn0w7b76a46" path="res://ui/central_hub_hud.tscn" id="10_nyvvm"]
 [ext_resource type="PackedScene" uid="uid://cg7d8v6yxy0jw" path="res://scenes/portals/wizard_stone.tscn" id="12_8xpxx"]
 [ext_resource type="PackedScene" uid="uid://vdg8vmh50ss2" path="res://scenes/portals/knight_stone.tscn" id="13_hlbhr"]
@@ -2321,16 +2320,6 @@ radius = 60.208
 [node name="mini_village" type="Node2D"]
 script = ExtResource("1_jfdxu")
 
-[node name="Player" parent="." instance=ExtResource("10_be00a")]
-z_index = 10
-position = Vector2(217, 29)
-scale = Vector2(0.5, 0.5)
-
-[node name="Camera2D" parent="Player" index="4" groups=["player_camera"]]
-
-[node name="CollisionShape2D" parent="Player" index="6"]
-position = Vector2(0, -10)
-
 [node name="central_hub_portal" parent="." instance=ExtResource("5_wo05u")]
 z_index = 100
 position = Vector2(248, -43)
@@ -2408,8 +2397,3 @@ shape = SubResource("CircleShape2D_tk2kj")
 [connection signal="body_exited" from="wizard_stone/Area2D2" to="wizard_stone" method="_on_area_2d_2_body_exited"]
 [connection signal="body_entered" from="knight_stone/Area2D" to="knight_stone" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="knight_stone/Area2D" to="knight_stone" method="_on_area_2d_body_exited"]
-
-[editable path="Player"]
-[editable path="Player/HurtBox"]
-[editable path="Player/Item_Magnet"]
-[editable path="Player/EnemyScanner"]
