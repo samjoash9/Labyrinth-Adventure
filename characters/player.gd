@@ -15,8 +15,9 @@ enum states{
 @onready var upgrade_slots: Node2D = $UpgradeSlots
 @onready var applied_upgrades: Node2D = $AppliedUpgrades
 
+
+
 var state = states.IDLE
-var SPEED : float = 0
 var SELECTED_CLASS : CharacterResource
 
 func _ready() -> void:
@@ -48,18 +49,6 @@ func _process(_delta: float) -> void:
 	if SELECTED_CLASS:
 		if SELECTED_CLASS.basicStats.Hitpoints > 0:
 				var inputDir = Input.get_vector("left", "right", "up", "down").normalized()
-				velocity = inputDir * SPEED
+				velocity = inputDir * SELECTED_CLASS.basicStats.moveSpeed
 				velocity.normalized()
 				move_and_slide()
-
-func set_position_to_random_slot(upgradeItem : Upgrade):
-	if upgrade_slots.get_child_count() > 0:
-		upgradeItem.global_position = upgrade_slots.get_children().pick_random().global_position
-	else:
-		return
-
-func add_upgrade(upgradeItem : Upgrade):
-	if upgrade_slots.get_child_count() > 0:
-		set_position_to_random_slot(upgradeItem)
-	else:
-		return

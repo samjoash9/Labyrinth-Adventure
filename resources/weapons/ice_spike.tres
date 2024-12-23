@@ -1,0 +1,55 @@
+[gd_resource type="Resource" script_class="SingleShot" load_steps=10 format=3 uid="uid://dmunod6tlyx52"]
+
+[ext_resource type="PackedScene" uid="uid://c248m75ja0ojv" path="res://core/Weapons/icespike/ice_spike_projectile.tscn" id="1_5v00x"]
+[ext_resource type="Texture2D" uid="uid://b0tnigvrvhcyd" path="res://imgs/SpellIcons/ice_spell.png" id="1_aojcy"]
+[ext_resource type="Script" path="res://resources/scripts/upgrade.gd" id="1_hb3kx"]
+[ext_resource type="Script" path="res://resources/scripts/weapons/singleShot.gd" id="1_nwfre"]
+[ext_resource type="PackedScene" uid="uid://do5iqcp38dabd" path="res://core/Weapons/icespike/ice_spike.tscn" id="4_2xaju"]
+
+[sub_resource type="Resource" id="Resource_n6dca"]
+script = ExtResource("1_hb3kx")
+attackPower = 0.0
+coolDown = 0.0
+attackSpeed = 0.0
+description = "Ice Go Brrrrt
+"
+
+[sub_resource type="Resource" id="Resource_d0ain"]
+script = ExtResource("1_hb3kx")
+attackPower = 0.0
+coolDown = -0.2
+attackSpeed = 0.0
+description = "-0.2 Cooldown"
+
+[sub_resource type="Resource" id="Resource_5s2hl"]
+script = ExtResource("1_hb3kx")
+attackPower = 0.0
+coolDown = 0.0
+attackSpeed = 100.0
+description = "+100 Attack Speed
+"
+
+[sub_resource type="Resource" id="Resource_eghnv"]
+script = ExtResource("1_hb3kx")
+attackPower = 0.0
+coolDown = -0.7
+attackSpeed = 1000.0
+description = "+500 Attack Speed
+-0.4 Cooldown"
+
+[resource]
+script = ExtResource("1_nwfre")
+projectile = ExtResource("1_5v00x")
+weaponType = 1
+upgrades = Array[ExtResource("1_hb3kx")]([SubResource("Resource_n6dca"), SubResource("Resource_d0ain"), SubResource("Resource_5s2hl"), SubResource("Resource_eghnv")])
+attackPower = 2.0
+attackSpeed = 500.0
+coolDown = 1.0
+critChance = 10.0
+critDamage = 30.0
+knockBack = 1.0
+weaponNode = ExtResource("4_2xaju")
+name = "Ice Spike"
+description = ""
+icon = ExtResource("1_aojcy")
+level = 1

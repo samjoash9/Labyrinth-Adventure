@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://c248m75ja0ojv"]
+
+[ext_resource type="Script" path="res://core/Weapons/icespike/ice_spike_projectile.gd" id="1_15sa3"]
+[ext_resource type="Texture2D" uid="uid://ci3nxhnfg7obq" path="res://upgrades/IceSpike.png" id="2_ewjju"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5lo7"]
+atlas = ExtResource("2_ewjju")
+region = Rect2(0, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgbes"]
+atlas = ExtResource("2_ewjju")
+region = Rect2(18, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mo0lg"]
+atlas = ExtResource("2_ewjju")
+region = Rect2(36, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3avo"]
+atlas = ExtResource("2_ewjju")
+region = Rect2(54, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64fte"]
+atlas = ExtResource("2_ewjju")
+region = Rect2(72, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2td1p"]
+atlas = ExtResource("2_ewjju")
+region = Rect2(90, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5y5f0"]
+atlas = ExtResource("2_ewjju")
+region = Rect2(108, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2e2k"]
+atlas = ExtResource("2_ewjju")
+region = Rect2(126, 0, 18, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4cxws"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5lo7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgbes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mo0lg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3avo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64fte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2td1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5y5f0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2e2k")
+}],
+"loop": true,
+"name": &"default ",
+"speed": 12.0
+}]
+
+[node name="IceSpikeProjectile" type="Area2D"]
+top_level = true
+script = ExtResource("1_15sa3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4cxws")
+animation = &"default "
+autoplay = "default "
+frame_progress = 0.223376
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

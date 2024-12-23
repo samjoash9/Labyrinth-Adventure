@@ -1,30 +1,26 @@
-[gd_resource type="Resource" script_class="CharacterResource" load_steps=8 format=3 uid="uid://ectapytrdbkt"]
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=6 format=3 uid="uid://ectapytrdbkt"]
 
 [ext_resource type="PackedScene" uid="uid://bak2s8uahb430" path="res://characters/knight/knight_animations.tscn" id="1_51vhl"]
-[ext_resource type="Script" path="res://resources/Scripts/baseStats.gd" id="2_e5q1n"]
-[ext_resource type="Script" path="res://resources/Scripts/Character.gd" id="3_0y8pi"]
-[ext_resource type="Script" path="res://resources/Scripts/weapon.gd" id="4_uovxa"]
-[ext_resource type="PackedScene" uid="uid://2a68nu4ljqrf" path="res://weapons/sword_animations.tscn" id="5_t225p"]
+[ext_resource type="Script" path="res://resources/scripts/baseStats.gd" id="2_e5q1n"]
+[ext_resource type="Script" path="res://resources/scripts/Character.gd" id="3_0y8pi"]
+[ext_resource type="Texture2D" uid="uid://bpgr4o3jjy1dt" path="res://imgs/5.jpg" id="3_hscd4"]
 
 [sub_resource type="Resource" id="Resource_icw5h"]
 script = ExtResource("2_e5q1n")
-Hitpoints = 150.0
-Movespeed = 300
-Recovery = 20.0
-
-[sub_resource type="Resource" id="Resource_elna1"]
-script = ExtResource("4_uovxa")
-name = "Sword"
-attackPower = 150.0
-attackSpeed = 1.0
-critChance = 15.0
-critDamage = 20.0
-weaponAnimations = ExtResource("5_t225p")
+description = ""
+hitPoints = 100.0
+maxHitpoints = 100.0
+moveSpeed = 100.0
+might = 1.0
+armor = 10.0
+magnetArea = 1.0
+areaMultiplier = 1.0
+growth = 1.0
 
 [resource]
 script = ExtResource("3_0y8pi")
 jobName = "Knight"
 jobDescription = "Knight"
+characterPortrait = ExtResource("3_hscd4")
 basicStats = SubResource("Resource_icw5h")
 animationComponent = ExtResource("1_51vhl")
-weapon = SubResource("Resource_elna1")

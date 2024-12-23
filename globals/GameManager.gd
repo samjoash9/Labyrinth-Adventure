@@ -2,11 +2,9 @@ extends Node
 
 # MAP VARIABLES ==============================
 const PATTERN_SIZE = 27
-const map_rooms = 10
+const map_rooms = 16
 const mapSize = map_rooms * PATTERN_SIZE
 const object_map_size = mapSize - PATTERN_SIZE
-
-
 
 # SPECIFIC MAP TYPES
 # GREEN 
@@ -99,7 +97,6 @@ var upgrades: Dictionary = {
 }
 
 var availableUpgrades := ["ice_spike", "fire_ball" , "plant_spike" , "kunai"]
-
 # Character Selection Function
 var selected : String = "knight"
 

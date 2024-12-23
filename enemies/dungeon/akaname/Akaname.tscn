@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://fawsiwox2mr2" path="res://enemies/base_enemy/basic_enemy.tscn" id="1_uo4as"]
 [ext_resource type="Script" path="res://enemies/Enemy.gd" id="2_mx8w7"]
 [ext_resource type="Texture2D" uid="uid://pdocf2kqwvi3" path="res://enemies/dungeon/akaname/Akaname Sprite Sheet.png" id="3_ak5na"]
-[ext_resource type="Script" path="res://resources/Scripts/enemyBaseStats.gd" id="3_v30gh"]
+[ext_resource type="Script" path="res://resources/scripts/enemyBaseStats.gd" id="3_v30gh"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://dcpya0l56v5f4" path="res://AnimationStates.tres" id="5_jkq65"]
 
 [sub_resource type="Resource" id="Resource_6viy6"]

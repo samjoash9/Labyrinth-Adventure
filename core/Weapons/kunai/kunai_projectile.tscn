@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cku3vifs68idm"]
+
+[ext_resource type="Script" path="res://core/Weapons/kunai/kunai_projectile.gd" id="1_ug432"]
+[ext_resource type="Texture2D" uid="uid://d3todiiqwf2xt" path="res://assets/Ninja Adventure - Asset Pack/Ui/Kunai.png" id="2_0m0u1"]
+
+[node name="kunai_projectile" type="Area2D"]
+top_level = true
+script = ExtResource("1_ug432")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 0.817683
+texture = ExtResource("2_0m0u1")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -15,7 +15,9 @@ maze_object_patterns = NodePath("../lava_objects")
 mode = 3
 
 [node name="lava_objects" parent="." instance=ExtResource("2_iasd5")]
+self_modulate = Color(0.8, 1, 1, 1)
 tile_map_data = PackedByteArray()
 
 [node name="lava_walls" parent="." instance=ExtResource("3_dpmro")]
+self_modulate = Color(0.8, 1, 0.98, 1)
 tile_map_data = PackedByteArray()

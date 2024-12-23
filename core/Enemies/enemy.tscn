@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://dcga1ldlgos1l"]
+
+[ext_resource type="Script" path="res://core/Enemies/enemy.gd" id="1_rsld4"]
+[ext_resource type="Texture2D" uid="uid://bwwkupcq1hrx5" path="res://assets/Characters/Enemy/green/Twig Blight Sprite Sheet.png" id="2_7jqtq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wdv6"]
+atlas = ExtResource("2_7jqtq")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5e63n"]
+atlas = ExtResource("2_7jqtq")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_coj1u"]
+atlas = ExtResource("2_7jqtq")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phjfx"]
+atlas = ExtResource("2_7jqtq")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8anl4"]
+atlas = ExtResource("2_7jqtq")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qipte"]
+atlas = ExtResource("2_7jqtq")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jftue"]
+atlas = ExtResource("2_7jqtq")
+region = Rect2(192, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vx2g"]
+atlas = ExtResource("2_7jqtq")
+region = Rect2(224, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ort2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wdv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5e63n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_coj1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phjfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8anl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qipte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jftue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vx2g")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 12.0
+}]
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_rsld4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4ort2")
+animation = &"Idle"
+frame_progress = 0.240711
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

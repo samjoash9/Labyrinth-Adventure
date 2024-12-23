@@ -1,6 +1,8 @@
 extends Resource
 class_name Stats
 
+@export_multiline var description: String
+
 @export var hitPoints : float
 @export var maxHitpoints: float
 @export var moveSpeed : float
@@ -8,6 +10,5 @@ class_name Stats
 @export var armor: float
 @export var magnetArea : float
 @export var areaMultiplier: float
-@export var revival: int
 @export var growth: float
 		 

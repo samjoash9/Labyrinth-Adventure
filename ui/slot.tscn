@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://pgbdho2yu1br"]
+
+[ext_resource type="Script" path="res://ui/slot.gd" id="1_blrw3"]
+
+[node name="Slot" type="PanelContainer"]
+custom_minimum_size = Vector2(40, 40)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_blrw3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Cooldown" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 2
+size_flags_vertical = 1
+fill_mode = 3
+show_percentage = false
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

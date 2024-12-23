@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="SingleShot" load_steps=7 format=3 uid="uid://b0esph3vx2kk7"]
+
+[ext_resource type="Texture2D" uid="uid://d3todiiqwf2xt" path="res://assets/Ninja Adventure - Asset Pack/Ui/Kunai.png" id="1_f58ws"]
+[ext_resource type="PackedScene" uid="uid://cku3vifs68idm" path="res://core/Weapons/kunai/kunai_projectile.tscn" id="2_ssgu3"]
+[ext_resource type="Script" path="res://resources/scripts/weapons/singleShot.gd" id="3_rgw3e"]
+[ext_resource type="Script" path="res://resources/scripts/upgrade.gd" id="4_uq4g3"]
+[ext_resource type="PackedScene" uid="uid://87sbjw5uemhv" path="res://core/Weapons/kunai/kunai.tscn" id="5_v6eak"]
+
+[sub_resource type="Resource" id="Resource_erfo3"]
+script = ExtResource("4_uq4g3")
+attackPower = 10.0
+coolDown = 5.0
+attackSpeed = 5.0
+description = ""
+
+[resource]
+script = ExtResource("3_rgw3e")
+projectile = ExtResource("2_ssgu3")
+weaponType = 1
+upgrades = Array[ExtResource("4_uq4g3")]([SubResource("Resource_erfo3")])
+attackPower = 3213.0
+attackSpeed = 23.0
+coolDown = 23.0
+critChance = 2323.0
+critDamage = 23.0
+knockBack = 2.0
+weaponNode = ExtResource("5_v6eak")
+name = "Kunai"
+description = "asdasdwqaeasdaw"
+icon = ExtResource("1_f58ws")
+level = 1

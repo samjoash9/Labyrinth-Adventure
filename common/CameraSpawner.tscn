@@ -16,8 +16,9 @@ script = ExtResource("1_6sf28")
 curve = SubResource("Curve2D_gseci")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(-508.333, -298.333)
-rotation = 0.00165773
+position = Vector2(496.996, -235.66)
+rotation = 1.56541
+progress = 1066.02
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5

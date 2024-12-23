@@ -1,7 +1,6 @@
 extends Node2D
 const TEST_STAGE = preload("res://scenes/game_modes/test_stage.tscn")
 const GAME_START = preload("res://scenes/UI/game_start.tscn")
-const OPTIONS = preload("res://scenes/UI/options.tscn")
 const CENTRAL_HUB = preload("res://scenes/central_hub.tscn") 
 
 var currentSceneInstance

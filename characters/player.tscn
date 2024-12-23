@@ -21,7 +21,7 @@ height = 16.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_sw3w7"]
 radius = 16.6667
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="Player" type="CharacterBody2D"]
 z_index = 4
 scale = Vector2(0.6, 0.6)
 collision_layer = 2
@@ -53,8 +53,6 @@ position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_6ptk8")
 
 [node name="Camera2D" parent="." instance=ExtResource("4_xqis1")]
-
-[node name="AppliedUpgrades" type="Node2D" parent="."]
 
 [node name="GameHud" type="CanvasLayer" parent="."]
 

@@ -15,7 +15,6 @@ class_name CharacterResource
 
 @export_category("Character Weapon Upgrades")
 @export var weapon : Weapon
-@export var WeaponSlots: Array[Vector2] = [Vector2(0,5),Vector2(0,-15),Vector2(10,-5),Vector2(-10,-5),Vector2(7,-12), Vector2(-7,-12),Vector2(-7,2), Vector2(7,2)]
 
 @export_category("Character Item Upgrades")
 @export var itemUpgrades: Resource

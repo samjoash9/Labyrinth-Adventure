@@ -1,4 +1,4 @@
-extends Resource
+extends Item
 class_name Weapon
 
 enum weaponTypes {
@@ -7,11 +7,8 @@ enum weaponTypes {
 	MAGIC,
 	SUMMON
 }
-var level = 1
+
 @export_category("Weapon Description")
-@export var name : String
-@export_multiline var weaponDescription: String
-@export var weaponIcon : Texture2D
 @export var weaponType: weaponTypes
 @export var upgrades: Array[Upgrade]
 
@@ -22,7 +19,7 @@ var level = 1
 @export var critChance : float
 @export var critDamage : float
 @export var knockBack: float
-@export var weaponAnimations : Resource
+@export var weaponNode : PackedScene
 
 func activate():
 	pass
@@ -32,12 +29,16 @@ func is_upgradable() ->bool:
 		return true
 	return false
 	
-
 func upgrade_item():
 	if not is_upgradable():
 		return
 	upgradeFunction()
-	level+= 1
 
 func upgradeFunction():
-	pass
+	var upgrade = upgrades[level-1]
+	attackPower += upgrade.attackPower
+	coolDown += upgrade.coolDown
+	attackSpeed += upgrade.attackSpeed
+	level+= 1
+	
+	

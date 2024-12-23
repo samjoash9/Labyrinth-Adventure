@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://enemies/Enemy.gd" id="1_t2dbt"]
 [ext_resource type="PackedScene" uid="uid://ca5a5uyk7dnt" path="res://common/hurtbox/hurt_box.tscn" id="2_otedn"]
-[ext_resource type="Script" path="res://resources/Scripts/enemyBaseStats.gd" id="2_r8nef"]
+[ext_resource type="Script" path="res://resources/scripts/enemyBaseStats.gd" id="2_r8nef"]
 [ext_resource type="PackedScene" uid="uid://bimjj863atx4q" path="res://common/hitbox/hit_box_component.tscn" id="3_2aysa"]
 [ext_resource type="Texture2D" uid="uid://bfww7mh5mk5ku" path="res://enemies/dungeon/ghoul/Ghoul Sprite Sheet.png" id="4_hjghd"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://cmwmk1amdyeea" path="res://resources/EnemyAnimationTree.tres" id="5_x8yix"]
