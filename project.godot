@@ -21,6 +21,10 @@ buses/default_bus_layout="res://assets/Bus_Layout.tres"
 
 [autoload]
 
+<<<<<<< Updated upstream
+=======
+GameManager="*res://globals/gameManager.gd"
+>>>>>>> Stashed changes
 SceneManager="*res://addons/scene_manager/SceneManager.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 GameManager="*res://globals/gameManager.gd"
