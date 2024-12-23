@@ -15,8 +15,6 @@ enum states{
 @onready var upgrade_slots: Node2D = $UpgradeSlots
 @onready var applied_upgrades: Node2D = $AppliedUpgrades
 
-
-
 var state = states.IDLE
 var SELECTED_CLASS : CharacterResource
 var player: Node2D
@@ -26,7 +24,7 @@ var weapon: Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 #	Load Selected Class Resource
-	SELECTED_CLASS  = load(GameManager.get_selected_character())
+	SELECTED_CLASS  = load("res://resources/jobs/knight.tres")
 	
 #	Create Instances Of the Class Body, Primary weapon, and Unique Skill
 	if SELECTED_CLASS: 
@@ -38,9 +36,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func instantiate_player():
 	player = SELECTED_CLASS.animationComponent.instantiate()
-	weapon = SELECTED_CLASS.weapon.weaponAnimations.instantiate()
+	#weapon = SELECTED_CLASS.weapon.weaponAnimations.instantiate()
 	add_child(player)
-	weapon.position = Vector2(0,-9)
+	#weapon.position = Vector2(0,-9)
 
 func reselect_character():
 	player.queue_free()

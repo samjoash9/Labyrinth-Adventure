@@ -76,3 +76,5 @@ animation = &"Idle"
 frame_progress = 0.240711
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
