@@ -1,5 +1,8 @@
 extends TileMapLayer
 
+@onready var loading_screen: CanvasLayer = $"../loading_screen"
+@onready var progress_bar: ProgressBar = $"../loading_screen/Control/Panel/VBoxContainer/ProgressBar"
+
 @export var wall_patterns: TileMapLayer
 @export var maze_object_patterns: TileMapLayer
 @export var mode: int
@@ -10,6 +13,12 @@ var mapSize = GameManager.mapSize
 var object_map_size = GameManager.object_map_size
 var noise_tiles = []
 var object_pattern_count = 0
+
+signal map_loaded
+
+# THREADS
+var thread1: Thread
+var thread2: Thread
 
 func _ready() -> void:
 	match mode:
@@ -30,6 +39,19 @@ func _ready() -> void:
 			noise_tiles = 0
 			object_pattern_count = 0
 
+	thread1 = Thread.new()
+	thread2 = Thread.new()
+	
+	thread1.start(apply_noise)
+	thread2.start(init_objects)
+	
+	thread1.wait_to_finish()
+	thread2.wait_to_finish()
+	
+	await init_maze()
+	progress_bar.value = 100
+	emit_signal("map_loaded")
+
 const N = 1 
 const E = 2
 const S = 4
@@ -43,9 +65,6 @@ var cell_walls = {
 }
 
 func init_maze():
-	apply_noise()
-	init_objects()
-
 	var patterns = {}
 	var unvisited = []
 	var stack = []
@@ -56,6 +75,9 @@ func init_maze():
 			unvisited.append(Vector2i(x, y))
 			var key = Vector2i(x, y)
 			patterns[key] = 15
+	
+	var iterations = len(unvisited) + 1
+	var i = 0
 
 	var current = Vector2i(0, 0)
 	unvisited.erase(current) 
@@ -88,17 +110,20 @@ func init_maze():
 				current = stack.pop_back()
 			else:
 				break 
+		i += 1
+		progress_bar.value = ((float(i) / iterations) * 100)
 
 func apply_noise():
+	var length = len(noise_tiles) - 1 
 	for x in range(mapSize):
 		for y in range(mapSize):
-			wall_patterns.set_cell(Vector2i(x, y), atlas_id, noise_tiles[randi_range(0, len(noise_tiles)-1)])
+			wall_patterns.set_cell(Vector2i(x, y), atlas_id, noise_tiles[randi_range(0, length)])
 
 func apply_pattern_by_index(pos: Vector2i, pattern_index: int):
 	var pattern = TileMapPattern.new()
 	pattern = wall_patterns.tile_set.get_pattern(pattern_index)
 	wall_patterns.set_pattern(pos, pattern)
-	
+
 func check_adjacent(cell, unvisited):
 	var available_cells = []
 	for dir in cell_walls.keys():

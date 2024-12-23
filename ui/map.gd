@@ -38,15 +38,15 @@ func _on_confirm_pressed() -> void:
 		"green":
 			SceneManager.change_scene(
 			"res://scenes/game_modes/Green_Mode.tscn",
-		  { "pattern": "scribbles", "pattern_leave": "scribbles"})
+		  { "pattern": "horizontal", "pattern_leave": "scribbles"})
 		"dungeon":
 			SceneManager.change_scene(
 			"res://scenes/game_modes/Dungeon_mode.tscn",
-		  { "pattern": "scribbles", "pattern_leave": "scribbles"})
+		  { "pattern": "horizontal", "pattern_leave": "scribbles"})
 		"lava":
 			SceneManager.change_scene(
 			"res://scenes/game_modes/Lava_mode.tscn",
-		  { "pattern": "scribbles", "pattern_leave": "scribbles"})
+		  { "pattern": "horizontal", "pattern_leave": "scribbles"})
 
 func _on_cancel_pressed() -> void:
 	map_confirm.visible = false
@@ -59,29 +59,31 @@ func _on_level_2_pressed() -> void:
 	confirmation("green", 2)
 
 func _on_level_3_pressed() -> void:
-	confirmation("green", 3)
+	confirmation("green", 2)
 
 func _on_level_4_pressed() -> void:
-	confirmation("green", 4)
+	confirmation("green", 3)
 
 func _on_level_5_pressed() -> void:
-	confirmation("green", 5)
+	confirmation("green", 4)
 
 func _on_level_6_pressed() -> void:
-	confirmation("dungeon", 6)
+	confirmation("dungeon", 4)
 
 func _on_level_7_pressed() -> void:
-	confirmation("dungeon", 7)
+	confirmation("dungeon", 5)
 
 func _on_level_8_pressed() -> void:
-	confirmation("dungeon", 8)
+	confirmation("dungeon", 5)
 
 func _on_level_9_pressed() -> void:
-	confirmation("dungeon", 9)
+	confirmation("dungeon", 6)
 	
 func _on_level_10_pressed() -> void:
-	confirmation("dungeon", 10)
-	
+	confirmation("dungeon", 7)
+
+# COMMING SOON...
+
 func _on_level_11_pressed() -> void:
 	confirmation("dungeon", 11)
 

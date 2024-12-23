@@ -15,7 +15,14 @@ maze_object_patterns = NodePath("../lava_objects")
 mode = 3
 
 [node name="lava_objects" parent="." instance=ExtResource("2_iasd5")]
+modulate = Color(0.8, 0.8, 1, 1)
+self_modulate = Color(0.8, 0.8, 1, 1)
 tile_map_data = PackedByteArray()
 
 [node name="lava_walls" parent="." instance=ExtResource("3_dpmro")]
+modulate = Color(0.8, 0.8, 1, 1)
+self_modulate = Color(0.8, 0.8, 1, 1)
 tile_map_data = PackedByteArray()
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(574, 293)

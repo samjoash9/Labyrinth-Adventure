@@ -2170,6 +2170,7 @@ tile_set = SubResource("TileSet_kx2qq")
 z_index = 10
 layout_mode = 3
 anchors_preset = 0
+theme = ExtResource("6_0frc0")
 
 [node name="level1" type="Button" parent="Control"]
 layout_mode = 0
@@ -2280,6 +2281,7 @@ offset_bottom = -951.0
 scale = Vector2(1.6, 1.6)
 theme = ExtResource("8_3fsb7")
 text = "11"
+flat = true
 
 [node name="level12" type="Button" parent="Control"]
 layout_mode = 0
@@ -2289,6 +2291,7 @@ offset_right = 824.0
 offset_bottom = -1160.0
 scale = Vector2(1.6, 1.6)
 theme = ExtResource("8_3fsb7")
+disabled = true
 text = "12"
 
 [node name="level13" type="Button" parent="Control"]
@@ -2299,6 +2302,7 @@ offset_right = 280.0
 offset_bottom = -905.0
 scale = Vector2(1.6, 1.6)
 theme = ExtResource("8_3fsb7")
+disabled = true
 text = "13"
 
 [node name="level14" type="Button" parent="Control"]
@@ -2309,6 +2313,7 @@ offset_right = 136.0
 offset_bottom = -1195.0
 scale = Vector2(1.6, 1.6)
 theme = ExtResource("8_3fsb7")
+disabled = true
 text = "14"
 
 [node name="level15" type="Button" parent="Control"]
@@ -2319,7 +2324,28 @@ offset_right = 554.0
 offset_bottom = -1335.0
 scale = Vector2(1.5, 1.5)
 theme = ExtResource("9_q38vj")
+disabled = true
 text = "15"
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 392.0
+offset_top = -1176.0
+offset_right = 792.0
+offset_bottom = -1076.0
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/Panel/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "COMMING SOON..."
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(577, 326)
