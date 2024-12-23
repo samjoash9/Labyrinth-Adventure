@@ -1,14 +1,13 @@
 extends Resource
 class_name CharacterResource
 
-
 @export_category("Character Data")
 @export var jobName : String
 @export_multiline var jobDescription : String
 @export var characterPortrait: Texture2D
 
 @export_category("Character Stats")
-@export var basicStats : Stats
+@export var basicStats : BasicStats
 
 @export_category("Character Animations")
 @export var animationComponent : Resource

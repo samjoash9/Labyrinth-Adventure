@@ -81,7 +81,7 @@ var character : CharacterResource:
 func _ready() -> void:
 	exp = 0
 	expCap = 10
-	character = load(GameManager.get_selected_character())
+	character = load("res://resources/jobs/knight.tres")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

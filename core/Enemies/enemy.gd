@@ -1,9 +1,6 @@
 extends CharacterBody2D
 
-@export var target: Node2D:
-	set(value):
-		target = value
-		pathfinder.target_position = target.global_position
+@export var target: Node2D
 @onready var pathfinder: NavigationAgent2D = $NavigationAgent2D
 var movementSpeed: float = 100
 var direction

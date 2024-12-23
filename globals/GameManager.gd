@@ -34,6 +34,7 @@ var central_hub_last_position: Vector2i = Vector2(216, 24)
 # SELECTED HERO
 var selected_hero = "rogue"
 
+
 # SPECIFIC MAP TYPES
 # GREEN 
 const GREEN = {

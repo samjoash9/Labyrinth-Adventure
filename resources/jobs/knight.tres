@@ -1,26 +1,26 @@
 [gd_resource type="Resource" script_class="CharacterResource" load_steps=6 format=3 uid="uid://ectapytrdbkt"]
 
 [ext_resource type="PackedScene" uid="uid://bak2s8uahb430" path="res://characters/knight/knight_animations.tscn" id="1_51vhl"]
-[ext_resource type="Script" path="res://resources/scripts/baseStats.gd" id="2_e5q1n"]
+[ext_resource type="Script" path="res://resources/scripts/base_stats.gd" id="2_shbol"]
 [ext_resource type="Script" path="res://resources/scripts/Character.gd" id="3_0y8pi"]
 [ext_resource type="Texture2D" uid="uid://bpgr4o3jjy1dt" path="res://imgs/5.jpg" id="3_hscd4"]
 
-[sub_resource type="Resource" id="Resource_icw5h"]
-script = ExtResource("2_e5q1n")
-description = ""
-hitPoints = 100.0
-maxHitpoints = 100.0
-moveSpeed = 100.0
-might = 1.0
-armor = 10.0
-magnetArea = 1.0
-areaMultiplier = 1.0
-growth = 1.0
+[sub_resource type="Resource" id="Resource_5ppsa"]
+script = ExtResource("2_shbol")
+description = "asd"
+hitPoints = 12.0
+maxHitpoints = 1212.0
+moveSpeed = 121.0
+might = 2.0
+armor = 2.0
+magnetArea = 12.0
+areaMultiplier = 12.0
+growth = 2.0
 
 [resource]
 script = ExtResource("3_0y8pi")
 jobName = "Knight"
 jobDescription = "Knight"
 characterPortrait = ExtResource("3_hscd4")
-basicStats = SubResource("Resource_icw5h")
+basicStats = SubResource("Resource_5ppsa")
 animationComponent = ExtResource("1_51vhl")

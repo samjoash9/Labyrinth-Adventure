@@ -1,7 +1,7 @@
 extends Item
 class_name Passives
 
-@export var upgrades: Array[Stats]
+@export var upgrades: Array[BasicStats]
 var player_reference
 
 func is_upgradable() -> bool:

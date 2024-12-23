@@ -1,5 +1,5 @@
 extends Resource
-class_name Stats
+class_name BasicStats
 
 @export_multiline var description: String
 

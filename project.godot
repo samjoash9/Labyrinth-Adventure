@@ -21,17 +21,17 @@ buses/default_bus_layout="res://assets/Bus_Layout.tres"
 
 [autoload]
 
-GameManager="*res://globals/GameManager.gd"
 SceneManager="*res://addons/scene_manager/SceneManager.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+GameManager="*res://globals/gameManager.gd"
 
 [dialogic]
 
 directories/dch_directory={
 "Knight Stone": "res://addons/dialogic/characters and styles/Knight Stone.dch",
 "Rogue Stone": "res://addons/dialogic/characters and styles/Rogue Stone.dch",
-"characters and styles/wizard_stone_character": "res://addons/dialogic/characters and styles/wizard_stone_character.dch",
-"wizard_stone_character": "res://assets/Images/Stones/wizard_stone_character.dch"
+"Stones/wizard_stone_character": "res://assets/Images/Stones/wizard_stone_character.dch",
+"wizard_stone_character": "res://addons/dialogic/characters and styles/wizard_stone_character.dch"
 }
 directories/dtl_directory={
 "Knight Stone": "res://addons/dialogic/characters and styles/Knight Stone.dtl",

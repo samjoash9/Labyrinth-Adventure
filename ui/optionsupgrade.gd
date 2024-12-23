@@ -41,7 +41,6 @@ func show_option():
 		
 	for slot in get_children():
 			slot.queue_free()
-	
 
 	var available = get_equiped_item()
 	

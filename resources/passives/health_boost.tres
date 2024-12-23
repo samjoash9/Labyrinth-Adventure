@@ -1,49 +1,25 @@
-[gd_resource type="Resource" script_class="Passives" load_steps=7 format=3 uid="uid://cx2067640im3w"]
+[gd_resource type="Resource" script_class="Passives" load_steps=5 format=3 uid="uid://cx2067640im3w"]
 
 [ext_resource type="Texture2D" uid="uid://b8odpjv4siphu" path="res://imgs/SpellIcons/healing_spell.png" id="1_3sqrw"]
 [ext_resource type="Script" path="res://resources/scripts/passiveItem.gd" id="2_rdxde"]
-[ext_resource type="Script" path="res://resources/scripts/baseStats.gd" id="3_xf0cp"]
+[ext_resource type="Script" path="res://resources/scripts/base_stats.gd" id="3_ofn7l"]
 
-[sub_resource type="Resource" id="Resource_3o2go"]
-script = ExtResource("3_xf0cp")
-description = "+100 Hitpoints
-"
-hitPoints = 1.0
+[sub_resource type="Resource" id="Resource_c7yml"]
+script = ExtResource("3_ofn7l")
+description = "12	21	2"
+hitPoints = 121.0
 maxHitpoints = 1.0
-moveSpeed = 1.0
-might = 1.0
-armor = 1.0
-magnetArea = 1.0
-areaMultiplier = 1.0
-growth = 1.0
-
-[sub_resource type="Resource" id="Resource_rwxrx"]
-script = ExtResource("3_xf0cp")
-description = "+200 Hit Points"
-hitPoints = 10.0
-maxHitpoints = 10.0
-moveSpeed = 10.0
-might = 10.0
-armor = 10.0
-magnetArea = 10.0
-areaMultiplier = 10.0
-growth = 10.0
-
-[sub_resource type="Resource" id="Resource_quex2"]
-script = ExtResource("3_xf0cp")
-description = "+300 Hit Points"
-hitPoints = 100.0
-maxHitpoints = 100.0
-moveSpeed = 100.0
-might = 100.0
-armor = 100.0
-magnetArea = 100.0
-areaMultiplier = 100.0
-growth = 100.0
+moveSpeed = 12.0
+might = 121.0
+armor = 212.0
+magnetArea = 2.0
+areaMultiplier = 21.0
+growth = 2.0
 
 [resource]
 script = ExtResource("2_rdxde")
-upgrades = Array[ExtResource("3_xf0cp")]([SubResource("Resource_3o2go"), SubResource("Resource_rwxrx"), SubResource("Resource_quex2")])
+upgrades = Array[ExtResource("3_ofn7l")]([SubResource("Resource_c7yml")])
 name = "Health Boost"
 description = "Max Health Increase"
 icon = ExtResource("1_3sqrw")
+level = 1

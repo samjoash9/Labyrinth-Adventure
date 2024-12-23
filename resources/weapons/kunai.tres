@@ -16,7 +16,7 @@ description = ""
 [resource]
 script = ExtResource("3_rgw3e")
 projectile = ExtResource("2_ssgu3")
-weaponType = 1
+weaponType = 0
 upgrades = Array[ExtResource("4_uq4g3")]([SubResource("Resource_erfo3")])
 attackPower = 3213.0
 attackSpeed = 23.0
