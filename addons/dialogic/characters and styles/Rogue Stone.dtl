@@ -1,0 +1,5 @@
+"Rogue Stone": The Rogue Stone...
+"Rogue Stone": Do you want to switch to Rogue hero?
+- Confirm
+	[signal arg="rogue_confirm"]
+- Cancel

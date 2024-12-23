@@ -1,0 +1,132 @@
+[gd_scene load_steps=11 format=3 uid="uid://bwrn0w7b76a46"]
+
+[ext_resource type="Script" path="res://ui/central_hub_hud.gd" id="1_gfwca"]
+[ext_resource type="Texture2D" uid="uid://chxm33cij47bg" path="res://assets/UI/wood_pack_icons/MenusIcons_34x34.png" id="1_pxv3j"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k7txc"]
+texture = ExtResource("1_pxv3j")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(39, 4, 23, 26)
+modulate_color = Color(0.67, 0.67, 0.67, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_652na"]
+texture = ExtResource("1_pxv3j")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(40, 3, 22, 27)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xo4st"]
+texture = ExtResource("1_pxv3j")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(40, 4, 22, 25)
+modulate_color = Color(0.75, 0.75, 0.75, 1)
+
+[sub_resource type="Theme" id="Theme_tnhjy"]
+Button/styles/hover = SubResource("StyleBoxTexture_k7txc")
+Button/styles/normal = SubResource("StyleBoxTexture_652na")
+Button/styles/pressed = SubResource("StyleBoxTexture_xo4st")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w7vkh"]
+texture = ExtResource("1_pxv3j")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+region_rect = Rect2(110, 7, 20, 20)
+modulate_color = Color(0.68, 0.68, 0.68, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1r5oa"]
+texture = ExtResource("1_pxv3j")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(109, 6, 22, 22)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1hxme"]
+texture = ExtResource("1_pxv3j")
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(110, 7, 20, 20)
+modulate_color = Color(0.69, 0.69, 0.69, 1)
+
+[sub_resource type="Theme" id="Theme_0srku"]
+Button/styles/hover = SubResource("StyleBoxTexture_w7vkh")
+Button/styles/normal = SubResource("StyleBoxTexture_1r5oa")
+Button/styles/pressed = SubResource("StyleBoxTexture_1hxme")
+
+[node name="central_hub_hud" type="CanvasLayer"]
+script = ExtResource("1_gfwca")
+
+[node name="hud" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="hud"]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 35.0
+offset_bottom = 68.0
+scale = Vector2(1.5, 1.5)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="hud/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="hud/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Profile" type="Button" parent="hud/MarginContainer/HBoxContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme = SubResource("Theme_tnhjy")
+text = "    "
+
+[node name="settings" type="Button" parent="hud/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_0srku")
+text = " "
+
+[connection signal="pressed" from="hud/MarginContainer/HBoxContainer/VBoxContainer/Profile" to="." method="_on_profile_pressed"]
+[connection signal="pressed" from="hud/MarginContainer/HBoxContainer/VBoxContainer/settings" to="." method="_on_settings_pressed"]

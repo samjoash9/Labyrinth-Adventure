@@ -1,15 +1,25 @@
-[gd_scene load_steps=18 format=4 uid="uid://bfkhq2vf0a3gf"]
+[gd_scene load_steps=27 format=4 uid="uid://bfkhq2vf0a3gf"]
 
 [ext_resource type="Texture2D" uid="uid://dmibqs7ant8f6" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetFloor.png" id="1_4m24w"]
 [ext_resource type="Script" path="res://scenes/central_hub.gd" id="1_jfdxu"]
 [ext_resource type="Texture2D" uid="uid://oo6x4w6aivsb" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetElement.png" id="2_hdupt"]
 [ext_resource type="Texture2D" uid="uid://dwkvh4s6mb3pn" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetHouse.png" id="2_qw0b5"]
 [ext_resource type="Texture2D" uid="uid://b8d3w08gyrd8k" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetNature.png" id="3_lfukg"]
+[ext_resource type="Script" path="res://scenes/portals/central_hub_portal.gd" id="4_0a0v4"]
 [ext_resource type="PackedScene" uid="uid://dm62q6y08fg8o" path="res://scenes/portals/central_hub_portal.tscn" id="5_wo05u"]
 [ext_resource type="PackedScene" uid="uid://daxxv2b8obm6d" path="res://scenes/npcs/black_smith_onNode.tscn" id="7_hv86f"]
 [ext_resource type="PackedScene" uid="uid://cfsxr23f07rxu" path="res://scenes/npcs/Weapons_Dealer/Weapons_Dealer_onNode.tscn" id="8_jx01w"]
-[ext_resource type="PackedScene" uid="uid://dpxflij4yb018" path="res://scenes/camera/camera_limiter.tscn" id="9_d6gfe"]
 [ext_resource type="PackedScene" uid="uid://ve2cvvfk14kv" path="res://characters/player.tscn" id="10_be00a"]
+[ext_resource type="PackedScene" uid="uid://bwrn0w7b76a46" path="res://ui/central_hub_hud.tscn" id="10_nyvvm"]
+[ext_resource type="PackedScene" uid="uid://cg7d8v6yxy0jw" path="res://scenes/portals/wizard_stone.tscn" id="12_8xpxx"]
+[ext_resource type="PackedScene" uid="uid://vdg8vmh50ss2" path="res://scenes/portals/knight_stone.tscn" id="13_hlbhr"]
+[ext_resource type="Script" path="res://scenes/portals/rogue_stone.gd" id="13_sm5p4"]
+[ext_resource type="Script" path="res://scenes/portals/knight_stone.gd" id="14_krmdj"]
+[ext_resource type="PackedScene" uid="uid://dvtdjrwn86a6p" path="res://scenes/portals/rogue_stone.tscn" id="14_ncom1"]
+[ext_resource type="Script" path="res://scenes/portals/wizard_stone.gd" id="14_uvpby"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o37wm"]
+radius = 50.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_alg65"]
 texture = ExtResource("2_hdupt")
@@ -1357,10 +1367,8 @@ texture = ExtResource("3_lfukg")
 19:7/0 = 0
 19:7/0/z_index = 11
 0:8/0 = 0
-0:8/0/z_index = 11
 0:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(1.33333, 4, 8, 4, 8, 8, -8, 8, -4, 4)
 1:8/0 = 0
-1:8/0/z_index = 11
 1:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4, -2.66667, 4, -1.33333, 4, 1.33333, 4, 2.66667, 4, 4, 4, 4, 6.66667, 6.66667, 8, -8, 8, -8, 4)
 2:8/0 = 0
 2:8/0/z_index = 11
@@ -1396,10 +1404,8 @@ texture = ExtResource("3_lfukg")
 17:8/0 = 0
 17:8/0/z_index = 11
 0:9/0 = 0
-0:9/0/z_index = 11
 0:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -8, -4, -2.66667, -6.66667, -1.33333, -4, 1.33333, -1.33333, 1.33333, 0, 1.33333, 1.33333, 1.33333, 4, 2.66667, 4, 5.33333, 5.33333, 5.33333, 8, 2.66667, 8, -8)
 1:9/0 = 0
-1:9/0/z_index = 11
 1:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 6.66667, -8, 2.66667, -5.33333, 5.33333, -2.66667, 5.33333, 0, 1.33333, 0, 0, 1.33333, -2.66667, 1.33333, -6.66667, 2.66667, -8, 4, -8, 4, -8, -6.66667)
 2:9/0 = 0
 2:9/0/z_index = 11
@@ -2309,14 +2315,33 @@ texture = ExtResource("1_4m24w")
 [sub_resource type="TileSet" id="TileSet_x0d71"]
 sources/0 = SubResource("TileSetAtlasSource_iitm3")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_tk2kj"]
+radius = 60.208
+
 [node name="mini_village" type="Node2D"]
 script = ExtResource("1_jfdxu")
 
+[node name="Player" parent="." instance=ExtResource("10_be00a")]
+z_index = 10
+position = Vector2(217, 29)
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" parent="Player" index="0"]
+position = Vector2(0, -10)
+
+[node name="Camera2D" parent="Player" index="1" groups=["player_camera"]]
+
 [node name="central_hub_portal" parent="." instance=ExtResource("5_wo05u")]
 z_index = 100
-position = Vector2(246, -46)
+position = Vector2(248, -43)
 scale = Vector2(0.5, 0.5)
 autoplay = "default"
+script = ExtResource("4_0a0v4")
+
+[node name="Area2D" type="Area2D" parent="central_hub_portal"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="central_hub_portal/Area2D"]
+shape = SubResource("CircleShape2D_o37wm")
 
 [node name="objects" type="TileMapLayer" parent="."]
 z_index = 11
@@ -2337,35 +2362,51 @@ position = Vector2(171, 142)
 scale = Vector2(0.09, 0.09)
 
 [node name="Node2D" parent="." instance=ExtResource("7_hv86f")]
-position = Vector2(312, 139)
+position = Vector2(308, 144)
 scale = Vector2(0.1, 0.1)
 
-[node name="CameraLimiters" type="Node" parent="."]
+[node name="central_hub_hud" parent="." instance=ExtResource("10_nyvvm")]
 
-[node name="camera_limiter_leftBottom" parent="CameraLimiters" instance=ExtResource("9_d6gfe")]
-visible = false
-position = Vector2(1, 1)
-limit_x = 1
-limit_y = 2
+[node name="rogue_stone" parent="." instance=ExtResource("14_ncom1")]
+position = Vector2(217, 24)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("13_sm5p4")
 
-[node name="CollisionShape2D" parent="CameraLimiters/camera_limiter_leftBottom" index="0"]
-position = Vector2(144, 161)
+[node name="Area2D2" type="Area2D" parent="rogue_stone"]
+position = Vector2(0, -1.90735e-06)
 
-[node name="limit_position" parent="CameraLimiters/camera_limiter_leftBottom" index="1"]
-position = Vector2(62, 300)
+[node name="rogue_interaction" type="CollisionShape2D" parent="rogue_stone/Area2D2"]
+shape = SubResource("CircleShape2D_tk2kj")
 
-[node name="camera_limiter_rightBottom" parent="CameraLimiters" instance=ExtResource("9_d6gfe")]
-visible = false
-limit_x = 2
-limit_y = 2
+[node name="wizard_stone" parent="." instance=ExtResource("12_8xpxx")]
+position = Vector2(287, 25)
+scale = Vector2(0.2, 0.2)
+autoplay = "default"
+script = ExtResource("14_uvpby")
 
-[node name="CollisionShape2D" parent="CameraLimiters/camera_limiter_rightBottom" index="0"]
-position = Vector2(352, 160)
+[node name="Area2D2" type="Area2D" parent="wizard_stone"]
+position = Vector2(0, -5)
 
-[node name="limit_position" parent="CameraLimiters/camera_limiter_rightBottom" index="1"]
-position = Vector2(480, 296)
+[node name="wizard_interaction" type="CollisionShape2D" parent="wizard_stone/Area2D2"]
+position = Vector2(0, -7.62939e-06)
+shape = SubResource("CircleShape2D_tk2kj")
 
-[node name="Player" parent="." instance=ExtResource("10_be00a")]
+[node name="knight_stone" parent="." instance=ExtResource("13_hlbhr")]
+position = Vector2(247, 3)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("14_krmdj")
 
-[editable path="CameraLimiters/camera_limiter_leftBottom"]
-[editable path="CameraLimiters/camera_limiter_rightBottom"]
+[node name="Area2D" type="Area2D" parent="knight_stone"]
+
+[node name="knight_interaction" type="CollisionShape2D" parent="knight_stone/Area2D"]
+shape = SubResource("CircleShape2D_tk2kj")
+
+[connection signal="body_entered" from="central_hub_portal/Area2D" to="central_hub_portal" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="rogue_stone/Area2D2" to="rogue_stone" method="_on_area_2d_2_body_entered"]
+[connection signal="body_exited" from="rogue_stone/Area2D2" to="rogue_stone" method="_on_area_2d_2_body_exited"]
+[connection signal="body_entered" from="wizard_stone/Area2D2" to="wizard_stone" method="_on_area_2d_2_body_entered"]
+[connection signal="body_exited" from="wizard_stone/Area2D2" to="wizard_stone" method="_on_area_2d_2_body_exited"]
+[connection signal="body_entered" from="knight_stone/Area2D" to="knight_stone" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="knight_stone/Area2D" to="knight_stone" method="_on_area_2d_body_exited"]
+
+[editable path="Player"]

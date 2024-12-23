@@ -19,33 +19,38 @@ enum states{
 
 var state = states.IDLE
 var SELECTED_CLASS : CharacterResource
+var player: Node2D
+var weapon: Node2D
+@export var selected : String = GameManager.selected_hero	
 
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 #	Load Selected Class Resource
 	SELECTED_CLASS  = load(GameManager.get_selected_character())
 	
 #	Create Instances Of the Class Body, Primary weapon, and Unique Skill
 	if SELECTED_CLASS: 
-		instancePlayerAnimations()
-		#instanceWeaponAnimations()
-		instanceUniqueAnimations()
-
-func instancePlayerAnimations():
-	if SELECTED_CLASS.animationComponent:
-		var player = SELECTED_CLASS.animationComponent.instantiate()
-		add_child(player)
-
-func instanceWeaponAnimations():
-	if SELECTED_CLASS.weapon.weaponAnimations:
-		var weapon = SELECTED_CLASS.weapon.weaponAnimations.instantiate()
-		add_child(weapon)
-		weapon.position = Vector2(0,-9)
-		weapon.get_node("AnimationPlayer").speed_scale = SELECTED_CLASS.weapon.attackSpeed
-
-func instanceUniqueAnimations():
-	pass
+		instantiate_player()
+		#weapon.get_node("AnimationPlayer").speed_scale = SELECTED_CLASS.weapon.attackSpeed
+	scale.x = 0.5
+	scale.y = 0.5
 	
-func _process(_delta: float) -> void:
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func instantiate_player():
+	player = SELECTED_CLASS.animationComponent.instantiate()
+	weapon = SELECTED_CLASS.weapon.weaponAnimations.instantiate()
+	add_child(player)
+	weapon.position = Vector2(0,-9)
+
+func reselect_character():
+	player.queue_free()
+	#weapon.queue_free()
+	SELECTED_CLASS = load("res://resources/jobs/%s.tres" % GameManager.selected_hero)
+	instantiate_player()
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("e"):
+		reselect_character()
 	if SELECTED_CLASS:
 		if SELECTED_CLASS.basicStats.Hitpoints > 0:
 				var inputDir = Input.get_vector("left", "right", "up", "down").normalized()

@@ -2,9 +2,37 @@ extends Node
 
 # MAP VARIABLES ==============================
 const PATTERN_SIZE = 27
-const map_rooms = 16
-const mapSize = map_rooms * PATTERN_SIZE
-const object_map_size = mapSize - PATTERN_SIZE
+var map_rooms = 1
+var mapSize = map_rooms * PATTERN_SIZE
+var object_map_size = mapSize - PATTERN_SIZE
+
+var user_prefs: UserPreferences
+const defaultSize: Vector2i = Vector2i(640*2,360*2)
+var maindisplaysize : Vector2i = DisplayServer.screen_get_size(0)
+
+func _ready() -> void:
+	user_prefs = UserPreferences.load_or_create()
+	var bus_index_music = AudioServer.get_bus_index("Music")
+	var bus_index_sound = AudioServer.get_bus_index("SoundFX")
+	
+	AudioServer.set_bus_volume_db(bus_index_music,linear_to_db(user_prefs.music_audio_level))
+	AudioServer.set_bus_volume_db(bus_index_sound,linear_to_db(user_prefs.music_audio_level))
+
+	match user_prefs.displaymode:
+		2:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+		0:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			DisplayServer.window_set_size(defaultSize)
+			DisplayServer.window_set_position((maindisplaysize-defaultSize)/2)
+		1: 
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
+
+# CENTRAL HUB LAST POSITION
+var central_hub_last_position: Vector2i = Vector2(216, 24)
+
+# SELECTED HERO
+var selected_hero = "rogue"
 
 # SPECIFIC MAP TYPES
 # GREEN 
@@ -71,42 +99,3 @@ const LAVA = {
 	],
 	"object_pattern_count": 8
 }
-
-
-# Player Manager
-
-# Level Up Function
-
-const UpgradePath: String = "res://upgrades/"
-
-
-var ExpPoints: float = 0
-var LevelExpCap : float = 100
-var level: int = 0
-
-func levelUP():
-	ExpPoints -= LevelExpCap
-	LevelExpCap += LevelExpCap*.2
-	level += 1
-
-var upgrades: Dictionary = {
-	"ice_spike": "res://upgrades/ice_spike/ice_spike.tscn",
-	"fire_ball" : "res://upgrades/fireball/fire_ball.tscn",
-	"plant_spike" : "res://upgrades/plant_spike/plant_spike.tscn",
-	"kunai" : "res://upgrades/kunai/kunai.tscn"
-}
-
-var availableUpgrades := ["ice_spike", "fire_ball" , "plant_spike" , "kunai"]
-# Character Selection Function
-var selected : String = "knight"
-
-func get_selected_character():
-	return ("res://resources/jobs/%s.tres" % selected)
-	
-func get_availableUpgrades() :
-	var available:= []
-	var player: playerCharacter = get_tree().get_first_node_in_group("player")
-	for upgrade in player.applied_upgrades.get_children():
-		if upgrade.upgradeInfo.level < 5 and upgrade.upgradeInfo.name.to_camel_case():
-			available.append(upgrade)
-	return available

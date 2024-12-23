@@ -1,0 +1,95 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj5vagmfjxjrw"]
+
+[ext_resource type="Script" path="res://scenes/UI/options.gd" id="1_gbbf0"]
+[ext_resource type="Theme" uid="uid://iivwh67cjc1k" path="res://scenes/UI/base_theme.tres" id="2_jgiwn"]
+
+[node name="options_canvas" type="CanvasLayer"]
+script = ExtResource("1_gbbf0")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_jgiwn")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.5
+offset_top = -56.0
+offset_right = 76.5
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="Music_HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Music_label" type="Label" parent="Control/MarginContainer/VBoxContainer/Music_HBoxContainer"]
+layout_mode = 2
+text = "MUSIC"
+
+[node name="Music_Hslider" type="HSlider" parent="Control/MarginContainer/VBoxContainer/Music_HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.1
+
+[node name="SoundFX_HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SoundFX_label" type="Label" parent="Control/MarginContainer/VBoxContainer/SoundFX_HBoxContainer2"]
+layout_mode = 2
+text = "SOUND FX"
+
+[node name="SoundFX_Hslider" type="HSlider" parent="Control/MarginContainer/VBoxContainer/SoundFX_HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.1
+
+[node name="DisplayMode_HBoxContainer3" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="DisplayMode_Label" type="Label" parent="Control/MarginContainer/VBoxContainer/DisplayMode_HBoxContainer3"]
+layout_mode = 2
+text = "DISPLAY MODE"
+
+[node name="DisplayMode_OptionButton" type="OptionButton" parent="Control/MarginContainer/VBoxContainer/DisplayMode_HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "Windowed"
+popup/item_1/text = "Fullsceen"
+popup/item_1/id = 1
+popup/item_2/text = "Exclusive Fullscreen"
+popup/item_2/id = 2
+
+[node name="back_button" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "BACK
+"
+
+[connection signal="value_changed" from="Control/MarginContainer/VBoxContainer/Music_HBoxContainer/Music_Hslider" to="." method="_on_music_hslider_value_changed"]
+[connection signal="value_changed" from="Control/MarginContainer/VBoxContainer/SoundFX_HBoxContainer2/SoundFX_Hslider" to="." method="_on_sound_fx_hslider_value_changed"]
+[connection signal="item_selected" from="Control/MarginContainer/VBoxContainer/DisplayMode_HBoxContainer3/DisplayMode_OptionButton" to="." method="_on_display_mode_option_button_item_selected"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/back_button" to="." method="_on_back_button_pressed"]

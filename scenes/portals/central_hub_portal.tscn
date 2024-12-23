@@ -1,6 +1,6 @@
 [gd_scene load_steps=183 format=3 uid="uid://dm62q6y08fg8o"]
 
-[ext_resource type="Texture2D" uid="uid://be2u1ch7vruql" path="res://assets/Environment/Portals/Central Hub Portal/convert.png" id="1_ykcqe"]
+[ext_resource type="Texture2D" uid="uid://be2u1ch7vruql" path="res://assets/Environment/Portals_and_stones/Central Hub Portal/convert.png" id="1_ykcqe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_giscm"]
 atlas = ExtResource("1_ykcqe")

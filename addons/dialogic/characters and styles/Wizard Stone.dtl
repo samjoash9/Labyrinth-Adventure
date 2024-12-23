@@ -1,0 +1,5 @@
+wizard_stone_character: The Wizard Stone...
+wizard_stone_character: Do you want to switch to Wizard hero?
+- Confirm
+	[signal arg="wizard_confirm"]
+- Cancel

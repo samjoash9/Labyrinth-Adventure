@@ -1,0 +1,151 @@
+[gd_scene load_steps=11 format=3 uid="uid://d22qntanl6lep"]
+
+[ext_resource type="Theme" uid="uid://iivwh67cjc1k" path="res://scenes/UI/base_theme.tres" id="1_b6oyx"]
+[ext_resource type="Script" path="res://ui/player_profile.gd" id="1_d8cig"]
+[ext_resource type="Texture2D" uid="uid://cov8uyxyjkdf2" path="res://assets/Images/button UI.png" id="1_gnac8"]
+[ext_resource type="Texture2D" uid="uid://ebf4xxnh2lyn" path="res://assets/Images/rogue.jpg" id="3_oly0a"]
+[ext_resource type="Texture2D" uid="uid://bnff21cfunewx" path="res://assets/Ninja Adventure - Asset Pack/Ui/Icon/Spell/AttackUpgrade.png" id="4_gsfqw"]
+[ext_resource type="Texture2D" uid="uid://fw7nnjk48sem" path="res://assets/Ninja Adventure - Asset Pack/Ui/Icon/Spell/Heal.png" id="5_k4t70"]
+[ext_resource type="Texture2D" uid="uid://bflr18if7opsj" path="res://assets/Images/swiftness.png" id="6_ed7h6"]
+[ext_resource type="Texture2D" uid="uid://dee7a6ei2e6c" path="res://characters/knight/sprites/special_skill.svg" id="7_nb8s4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5d3ft"]
+texture = ExtResource("1_gnac8")
+region_rect = Rect2(64, 64, 16, 16)
+
+[sub_resource type="Theme" id="Theme_6nfm4"]
+Button/styles/normal = SubResource("StyleBoxTexture_5d3ft")
+
+[node name="player_profile" type="CanvasLayer"]
+script = ExtResource("1_d8cig")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_b6oyx")
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -100.0
+offset_right = 250.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/PanelContainer"]
+layout_mode = 2
+
+[node name="Header" type="HBoxContainer" parent="Control/Panel/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="invisible" type="Button" parent="Control/Panel/PanelContainer/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = " "
+flat = true
+
+[node name="Label" type="Label" parent="Control/Panel/PanelContainer/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 6
+localize_numeral_system = false
+text = "PROFILE"
+
+[node name="exit" type="Button" parent="Control/Panel/PanelContainer/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = SubResource("Theme_6nfm4")
+text = "  "
+
+[node name="Body" type="HBoxContainer" parent="Control/Panel/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Sprite_container" type="HBoxContainer" parent="Control/Panel/PanelContainer/VBoxContainer/Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Panel/PanelContainer/VBoxContainer/Body/Sprite_container"]
+position = Vector2(85, 83)
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("3_oly0a")
+
+[node name="stats_container" type="HBoxContainer" parent="Control/Panel/PanelContainer/VBoxContainer/Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/PanelContainer/VBoxContainer/Body/stats_container"]
+layout_mode = 2
+
+[node name="attack" type="Sprite2D" parent="Control/Panel/PanelContainer/VBoxContainer/Body/stats_container/VBoxContainer"]
+position = Vector2(82, 27)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_gsfqw")
+
+[node name="health" type="Sprite2D" parent="Control/Panel/PanelContainer/VBoxContainer/Body/stats_container/VBoxContainer"]
+position = Vector2(83, 83)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_k4t70")
+
+[node name="agility" type="Sprite2D" parent="Control/Panel/PanelContainer/VBoxContainer/Body/stats_container/VBoxContainer"]
+position = Vector2(82, 139)
+scale = Vector2(2.4, 2.4)
+texture = ExtResource("6_ed7h6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel/PanelContainer/VBoxContainer/Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/PanelContainer/VBoxContainer/Body/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="attack" type="Label" parent="Control/Panel/PanelContainer/VBoxContainer/Body/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "50"
+
+[node name="health" type="Label" parent="Control/Panel/PanelContainer/VBoxContainer/Body/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "45"
+
+[node name="agility" type="Label" parent="Control/Panel/PanelContainer/VBoxContainer/Body/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "99"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Panel/PanelContainer/VBoxContainer/Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="special_skill" type="Sprite2D" parent="Control/Panel/PanelContainer/VBoxContainer/Body/HBoxContainer2"]
+position = Vector2(15, 83)
+scale = Vector2(0.42, 0.42)
+texture = ExtResource("7_nb8s4")
+
+[connection signal="pressed" from="Control/Panel/PanelContainer/VBoxContainer/Header/exit" to="." method="_on_exit_pressed"]
