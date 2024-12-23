@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://do5iqcp38dabd"]
+
+[ext_resource type="Script" path="res://core/Weapons/icespike/ice_spike.gd" id="1_2ji1f"]
+[ext_resource type="Texture2D" uid="uid://ci3nxhnfg7obq" path="res://upgrades/IceSpike.png" id="2_sw8sl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbbss"]
+atlas = ExtResource("2_sw8sl")
+region = Rect2(0, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lu151"]
+atlas = ExtResource("2_sw8sl")
+region = Rect2(18, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cjc4"]
+atlas = ExtResource("2_sw8sl")
+region = Rect2(36, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vxl6"]
+atlas = ExtResource("2_sw8sl")
+region = Rect2(54, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gycav"]
+atlas = ExtResource("2_sw8sl")
+region = Rect2(72, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pk5f"]
+atlas = ExtResource("2_sw8sl")
+region = Rect2(90, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wqw2"]
+atlas = ExtResource("2_sw8sl")
+region = Rect2(108, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdty8"]
+atlas = ExtResource("2_sw8sl")
+region = Rect2(126, 0, 18, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4fcua"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"Attacking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbbss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lu151")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cjc4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vxl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gycav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pk5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wqw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdty8")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 12.0
+}]
+
+[node name="Ice Spike" type="Node2D"]
+script = ExtResource("1_2ji1f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(9, 0)
+sprite_frames = SubResource("SpriteFrames_4fcua")
+animation = &"Idle"

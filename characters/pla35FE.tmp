@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=3 uid="uid://ve2cvvfk14kv"]
+
+[ext_resource type="Script" path="res://characters/player.gd" id="1_mk0d3"]
+[ext_resource type="PackedScene" uid="uid://crdqwmeuv1q8b" path="res://upgrades/kunai/kunai.tscn" id="2_hbctm"]
+[ext_resource type="PackedScene" uid="uid://ca5a5uyk7dnt" path="res://common/hurtbox/hurt_box.tscn" id="2_uxgyh"]
+[ext_resource type="PackedScene" uid="uid://s5diqyt5yw74" path="res://common/item_magnet/item_magnet.tscn" id="3_0127m"]
+[ext_resource type="PackedScene" uid="uid://c72nfn8f33v6g" path="res://common/scanner/enemy_scanner.tscn" id="4_v0a7a"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ptk8"]
+radius = 5.0
+height = 16.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_71gxf"]
+radius = 4.0
+height = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iyb53"]
+radius = 563.355
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+scale = Vector2(0.6, 0.6)
+collision_layer = 2
+script = ExtResource("1_mk0d3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_6ptk8")
+
+[node name="HurtBox" parent="." instance=ExtResource("2_uxgyh")]
+collision_layer = 2
+collision_mask = 4
+
+[node name="HurtShape" parent="HurtBox" index="0"]
+position = Vector2(0, -6)
+shape = SubResource("CapsuleShape2D_71gxf")
+
+[node name="Item_Magnet" parent="." instance=ExtResource("3_0127m")]
+position = Vector2(0, -8.33333)
+magnet_stregth = 1.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="EnemyScanner" parent="." instance=ExtResource("4_v0a7a")]
+
+[node name="Area" parent="EnemyScanner" index="0"]
+shape = SubResource("CircleShape2D_iyb53")
+debug_color = Color(0.8, 0.173333, 0.048, 0.0666667)
+
+[node name="UpgradePos1" type="Marker2D" parent="."]
+position = Vector2(-26.6667, -8.33333)
+
+[node name="UpgradePos2" type="Marker2D" parent="."]
+position = Vector2(26.6667, -8.33333)
+
+[node name="UpgradePos3" type="Marker2D" parent="."]
+position = Vector2(0, 18.3333)
+
+[node name="UpgradePos4" type="Marker2D" parent="."]
+position = Vector2(0, -35)
+
+[node name="UpgradePos5" type="Marker2D" parent="."]
+position = Vector2(18.3333, -28.3333)
+
+[node name="UpgradePos6" type="Marker2D" parent="."]
+position = Vector2(-18.3333, -28.3333)
+
+[node name="UpgradePos7" type="Marker2D" parent="."]
+position = Vector2(-18.3333, 11.6667)
+
+[node name="UpgradePos8" type="Marker2D" parent="."]
+position = Vector2(18.3333, 11.6667)
+
+[node name="Kunai" parent="." instance=ExtResource("2_hbctm")]
+
+[editable path="HurtBox"]
+[editable path="EnemyScanner"]

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cp4c2x3wsfo5p" path="res://ui/loading_screen.tscn" id="5_yeol0"]
 
 [node name="Dungeon_Mode" type="Node2D"]
+scale = Vector2(0.1, 0.1)
 script = ExtResource("1_lel40")
 
 [node name="Maze_Generator" parent="." node_paths=PackedStringArray("wall_patterns", "maze_object_patterns") instance=ExtResource("2_4rsbj")]

@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://ckv7uf7tnaeji"]
+
+[ext_resource type="Script" path="res://environment/exp_orb.gd" id="1_uvq2h"]
+[ext_resource type="Texture2D" uid="uid://tkqisuqitbq8" path="res://assets/Characters/combat FX/Particle/Snow.png" id="2_4nuqc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2dywe"]
+radius = 4.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1r1b"]
+atlas = ExtResource("2_4nuqc")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gn4hg"]
+atlas = ExtResource("2_4nuqc")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlpl0"]
+atlas = ExtResource("2_4nuqc")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmcgn"]
+atlas = ExtResource("2_4nuqc")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4s25"]
+atlas = ExtResource("2_4nuqc")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75vio"]
+atlas = ExtResource("2_4nuqc")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rh5ot"]
+atlas = ExtResource("2_4nuqc")
+region = Rect2(48, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tj4bo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1r1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gn4hg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlpl0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmcgn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4s25")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75vio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rh5ot")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="ExpOrb" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_uvq2h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2dywe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tj4bo")
+autoplay = "default"
+frame_progress = 0.474717
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

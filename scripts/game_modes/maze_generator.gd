@@ -134,14 +134,16 @@ func check_adjacent(cell, unvisited):
 func init_objects():
 	var prev = 0
 	for x in range(0, object_map_size + PATTERN_SIZE, PATTERN_SIZE):
+		await get_tree().process_frame
 		for y in range(0, object_map_size + PATTERN_SIZE, PATTERN_SIZE):
+			await get_tree().process_frame
 			var pos = Vector2i(x, y)
 			var pattern_index = generate_random_index(prev)
 			prev = pattern_index
 			var pattern = TileMapPattern.new()
 			pattern = maze_object_patterns.tile_set.get_pattern(pattern_index)
 			maze_object_patterns.set_pattern(pos, pattern)
-
+		
 func generate_random_index(prev: int) -> int:
 	var random_int = prev
 	while random_int == prev:

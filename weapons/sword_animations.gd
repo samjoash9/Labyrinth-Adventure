@@ -5,12 +5,11 @@ extends WeaponClass
 const SLASH_WAVE = preload("res://weapons/slash_wave.tscn")
 
 func slash():
-
-	var slash = SLASH_WAVE.instantiate()
-	slash.global_position = marker_2d.global_position
-	slash.global_rotation = marker_2d.global_rotation
+	var slashInstance = SLASH_WAVE.instantiate()
+	slashInstance.global_position = marker_2d.global_position
+	slashInstance.global_rotation = marker_2d.global_rotation
 	if rotation_degrees > 90 and rotation_degrees < 270: 
-		slash.scale.y = -2.5
+		slashInstance.scale.y = -2.5
 	else :
-		slash.scale.y = 2.5
-	add_child(slash) 
+		slashInstance.scale.y = 2.5
+	add_child(slashInstance) 

@@ -1,0 +1,237 @@
+[gd_scene load_steps=14 format=3 uid="uid://01cq3ethui3i"]
+
+[ext_resource type="Script" path="res://characters/baseCharacter/player.gd" id="1_a7jnc"]
+[ext_resource type="Texture2D" uid="uid://sj5fu2ew5m3q" path="res://assets/Game Icon.png" id="2_3j21r"]
+[ext_resource type="FontFile" uid="uid://hvg11s76s4ff" path="res://themes/GravityRegular5.ttf" id="3_74pua"]
+[ext_resource type="PackedScene" uid="uid://beuglkms01sq6" path="res://ui/passive_slot.tscn" id="3_ipme1"]
+[ext_resource type="PackedScene" uid="uid://pgbdho2yu1br" path="res://ui/slot.tscn" id="5_0asyh"]
+[ext_resource type="Script" path="res://ui/optionsupgrade.gd" id="6_tq6tw"]
+[ext_resource type="Texture2D" uid="uid://cd7uyq7xrjdef" path="res://characters/knight/sprites/Idle/Idle-Sheet.png" id="7_pwscg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1ly4"]
+bg_color = Color(0.6, 0.516, 0.516, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqw0p"]
+bg_color = Color(0.74, 0, 0.0863334, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmqcd"]
+bg_color = Color(0.6, 0.4, 0.6, 0.47451)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eu6t1"]
+bg_color = Color(0.6, 0, 0.6, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ha4uq"]
+bg_color = Color(2.88785e-07, 0.535112, 0.498313, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 180
+corner_radius_top_right = 180
+corner_radius_bottom_right = 180
+corner_radius_bottom_left = 180
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5wi5q"]
+radius = 24.0
+height = 48.0
+
+[node name="Player" type="CharacterBody2D" groups=["player2"]]
+script = ExtResource("1_a7jnc")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Weapons" type="HBoxContainer" parent="HUD"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Slot" parent="HUD/Weapons" instance=ExtResource("5_0asyh")]
+layout_mode = 2
+slotPosition = Vector2(0, -24)
+
+[node name="Slot2" parent="HUD/Weapons" instance=ExtResource("5_0asyh")]
+layout_mode = 2
+slotPosition = Vector2(16, -16)
+
+[node name="Slot3" parent="HUD/Weapons" instance=ExtResource("5_0asyh")]
+layout_mode = 2
+slotPosition = Vector2(24, 0)
+
+[node name="Slot4" parent="HUD/Weapons" instance=ExtResource("5_0asyh")]
+layout_mode = 2
+slotPosition = Vector2(16, 16)
+
+[node name="Slot5" parent="HUD/Weapons" instance=ExtResource("5_0asyh")]
+layout_mode = 2
+slotPosition = Vector2(0, 24)
+
+[node name="Slot6" parent="HUD/Weapons" instance=ExtResource("5_0asyh")]
+layout_mode = 2
+slotPosition = Vector2(-16, 16)
+
+[node name="Slot7" parent="HUD/Weapons" instance=ExtResource("5_0asyh")]
+layout_mode = 2
+slotPosition = Vector2(-24, 0)
+
+[node name="Slot8" parent="HUD/Weapons" instance=ExtResource("5_0asyh")]
+layout_mode = 2
+slotPosition = Vector2(-16, -16)
+
+[node name="Passives" type="HBoxContainer" parent="HUD"]
+offset_top = 48.0
+offset_right = 348.0
+offset_bottom = 88.0
+
+[node name="PassiveSlot" parent="HUD/Passives" instance=ExtResource("3_ipme1")]
+layout_mode = 2
+
+[node name="PassiveSlot2" parent="HUD/Passives" instance=ExtResource("3_ipme1")]
+layout_mode = 2
+
+[node name="PassiveSlot3" parent="HUD/Passives" instance=ExtResource("3_ipme1")]
+layout_mode = 2
+
+[node name="PassiveSlot4" parent="HUD/Passives" instance=ExtResource("3_ipme1")]
+layout_mode = 2
+
+[node name="PassiveSlot5" parent="HUD/Passives" instance=ExtResource("3_ipme1")]
+layout_mode = 2
+
+[node name="PassiveSlot6" parent="HUD/Passives" instance=ExtResource("3_ipme1")]
+layout_mode = 2
+
+[node name="PassiveSlot7" parent="HUD/Passives" instance=ExtResource("3_ipme1")]
+layout_mode = 2
+
+[node name="PassiveSlot8" parent="HUD/Passives" instance=ExtResource("3_ipme1")]
+layout_mode = 2
+
+[node name="PlayerUi" type="HBoxContainer" parent="HUD"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -54.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Portrait" type="TextureRect" parent="HUD/PlayerUi"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+texture = ExtResource("2_3j21r")
+expand_mode = 1
+
+[node name="StatusBars" type="VBoxContainer" parent="HUD/PlayerUi"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="HpBar" type="ProgressBar" parent="HUD/PlayerUi/StatusBars"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 25)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_e1ly4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_tqw0p")
+value = 50.0
+show_percentage = false
+
+[node name="XpBar" type="ProgressBar" parent="HUD/PlayerUi/StatusBars"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 25)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_pmqcd")
+theme_override_styles/fill = SubResource("StyleBoxFlat_eu6t1")
+value = 50.0
+show_percentage = false
+
+[node name="Level" type="MarginContainer" parent="HUD"]
+offset_left = 338.0
+offset_top = 625.0
+offset_right = 362.0
+offset_bottom = 649.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Panel" type="Panel" parent="HUD/Level"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ha4uq")
+
+[node name="Level" type="Label" parent="HUD/Level/Panel"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_right = 24.0
+offset_bottom = 24.0
+theme_override_fonts/font = ExtResource("3_74pua")
+theme_override_font_sizes/font_size = 10
+text = "1
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Options" type="HBoxContainer" parent="HUD" node_paths=PackedStringArray("weapons", "passives")]
+unique_name_in_owner = true
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_tq6tw")
+weapons = NodePath("../Weapons")
+passives = NodePath("../Passives")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("7_pwscg")
+hframes = 4
+
+[node name="PlayerBodyCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_5wi5q")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,114 @@
+[gd_scene load_steps=9 format=3 uid="uid://b7c3is6brl4pf"]
+
+[ext_resource type="Script" path="res://ui/game_hud.gd" id="1_sn5qd"]
+[ext_resource type="Texture2D" uid="uid://bpgr4o3jjy1dt" path="res://imgs/5.jpg" id="2_5n83o"]
+[ext_resource type="Texture2D" uid="uid://cmf0bcxdr57fg" path="res://imgs/blinding_light_spell.png" id="3_7fby7"]
+[ext_resource type="Texture2D" uid="uid://cl32polqsw2sh" path="res://imgs/counterspell.png" id="4_5hwsb"]
+[ext_resource type="Texture2D" uid="uid://b7bq83xwfo508" path="res://imgs/divine_protection_spell.png" id="5_8igl1"]
+[ext_resource type="Texture2D" uid="uid://ccm8vjh0xpmfb" path="res://imgs/fire_spell.png" id="6_ivj67"]
+[ext_resource type="Texture2D" uid="uid://bqlb7t5ylbcbs" path="res://imgs/fire_spell_2.png" id="7_8byuu"]
+[ext_resource type="Texture2D" uid="uid://baqyeu31j0s0e" path="res://imgs/fortify_spell.png" id="8_dopbc"]
+
+[node name="GameHUD" type="Control" groups=["UIHUD"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sn5qd")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -86.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+texture = ExtResource("2_5n83o")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="score label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "lvl : "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HpBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 2
+show_percentage = false
+
+[node name="ExpBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 2
+show_percentage = false
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Upgrade1" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("3_7fby7")
+
+[node name="Upgrade2" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("3_7fby7")
+
+[node name="Upgrade3" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("4_5hwsb")
+
+[node name="Upgrade4" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_8igl1")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Upgrade5" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("6_ivj67")
+
+[node name="Upgrade6" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("6_ivj67")
+
+[node name="Upgrade7" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("7_8byuu")
+
+[node name="Upgrade8" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("8_dopbc")

@@ -77,7 +77,8 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/scen
 attack=""
 hurtboxes=""
 player=""
-player_camera=""
+scanner=""
+UIHUD=""
 
 [input]
 

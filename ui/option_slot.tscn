@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1fxycgiau4n6"]
+
+[ext_resource type="Texture2D" uid="uid://dwc2ry0dpfrfw" path="res://imgs/weaponIcons/FrostMage_2.png" id="1_s3abd"]
+[ext_resource type="Script" path="res://ui/option_slot.gd" id="2_kfit0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_knfyf"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 1)
+
+[node name="OptionSlot" type="PanelContainer"]
+custom_minimum_size = Vector2(250, 400)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_knfyf")
+script = ExtResource("2_kfit0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("1_s3abd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Ice Spike"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Level 1"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+text = "Shoots ice spikes towards the enemy , freezing them and slowing them down by 5%"
+horizontal_alignment = 1
+autowrap_mode = 1
+clip_text = true
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

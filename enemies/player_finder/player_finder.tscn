@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdho7cwp378qp"]
+
+[ext_resource type="Script" path="res://enemies/player_finder/player_finder.gd" id="1_3llis"]
+
+[node name="PlayerFinder" type="NavigationAgent2D"]
+avoidance_enabled = true
+script = ExtResource("1_3llis")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="velocity_computed" from="." to="." method="_on_velocity_computed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

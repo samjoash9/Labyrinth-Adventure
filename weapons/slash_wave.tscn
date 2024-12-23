@@ -10,7 +10,7 @@ height = 36.8
 
 [node name="SlashWave" type="Node2D" groups=["attack"]]
 top_level = true
-scale = Vector2(2.5, 2.5)
+scale = Vector2(2, 2)
 script = ExtResource("1_p4sc7")
 
 [node name="Sprite2D" type="Sprite2D" parent="." groups=["attack"]]
@@ -21,10 +21,11 @@ texture = ExtResource("3_2pq0v")
 hframes = 4
 frame = 1
 
-[node name="hitBoxComponent" parent="." groups=["attack"] instance=ExtResource("3_xxxan")]
+[node name="hitBoxComponent" parent="." instance=ExtResource("3_xxxan")]
 collision_layer = 2
 collision_mask = 4
-knockback = 1.0
+damage = 500.0
+knockback = 100.0
 
 [node name="hitboxshape" parent="hitBoxComponent" index="0"]
 position = Vector2(4, 0)
