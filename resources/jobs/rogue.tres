@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=8 format=3 uid="uid://cea0cg5tmc1d2"]
+
+[ext_resource type="PackedScene" uid="uid://bo58ix0qyjqn4" path="res://characters/rouge/rouge_animations.tscn" id="1_dngcb"]
+[ext_resource type="Script" path="res://resources/Scripts/baseStats.gd" id="2_j10mp"]
+[ext_resource type="Script" path="res://resources/Scripts/Character.gd" id="3_uyqae"]
+[ext_resource type="Script" path="res://resources/Scripts/weapon.gd" id="4_gyeht"]
+[ext_resource type="PackedScene" uid="uid://bvkxbkgdn3yjb" path="res://weapons/magic_bullet.tscn" id="5_v34f4"]
+
+[sub_resource type="Resource" id="Resource_47sb7"]
+script = ExtResource("2_j10mp")
+Hitpoints = 1231.0
+Movespeed = 150
+Recovery = 123.0
+
+[sub_resource type="Resource" id="Resource_h7wxp"]
+script = ExtResource("4_gyeht")
+name = "asifisa"
+attackPower = 7.87239e+08
+attackSpeed = 97.0
+critChance = 82347.0
+critDamage = 78374.0
+weaponAnimations = ExtResource("5_v34f4")
+
+[resource]
+script = ExtResource("3_uyqae")
+jobName = "Rouge"
+jobDescription = "asd"
+basicStats = SubResource("Resource_47sb7")
+animationComponent = ExtResource("1_dngcb")
+weapon = SubResource("Resource_h7wxp")

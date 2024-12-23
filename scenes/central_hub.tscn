@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://bfkhq2vf0a3gf"]
+[gd_scene load_steps=27 format=4 uid="uid://bfkhq2vf0a3gf"]
 
 [ext_resource type="Texture2D" uid="uid://dmibqs7ant8f6" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetFloor.png" id="1_4m24w"]
 [ext_resource type="Script" path="res://scenes/central_hub.gd" id="1_jfdxu"]
@@ -11,6 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://cfsxr23f07rxu" path="res://scenes/npcs/Weapons_Dealer/Weapons_Dealer_onNode.tscn" id="8_jx01w"]
 [ext_resource type="PackedScene" uid="uid://ve2cvvfk14kv" path="res://characters/player.tscn" id="10_be00a"]
 [ext_resource type="PackedScene" uid="uid://bwrn0w7b76a46" path="res://ui/central_hub_hud.tscn" id="10_nyvvm"]
+[ext_resource type="PackedScene" uid="uid://cg7d8v6yxy0jw" path="res://scenes/portals/wizard_stone.tscn" id="12_8xpxx"]
+[ext_resource type="PackedScene" uid="uid://vdg8vmh50ss2" path="res://scenes/portals/knight_stone.tscn" id="13_hlbhr"]
+[ext_resource type="Script" path="res://scenes/portals/rogue_stone.gd" id="13_sm5p4"]
+[ext_resource type="Script" path="res://scenes/portals/knight_stone.gd" id="14_krmdj"]
+[ext_resource type="PackedScene" uid="uid://dvtdjrwn86a6p" path="res://scenes/portals/rogue_stone.tscn" id="14_ncom1"]
+[ext_resource type="Script" path="res://scenes/portals/wizard_stone.gd" id="14_uvpby"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o37wm"]
 radius = 50.0
@@ -2309,25 +2315,21 @@ texture = ExtResource("1_4m24w")
 [sub_resource type="TileSet" id="TileSet_x0d71"]
 sources/0 = SubResource("TileSetAtlasSource_iitm3")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_tk2kj"]
+radius = 60.208
+
 [node name="mini_village" type="Node2D"]
 script = ExtResource("1_jfdxu")
 
 [node name="Player" parent="." instance=ExtResource("10_be00a")]
 z_index = 10
-position = Vector2(248, 152)
+position = Vector2(217, 29)
 scale = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D" parent="Player" index="0"]
 position = Vector2(0, -10)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(0, -6)
-zoom = Vector2(4, 4)
-limit_left = -32
-limit_top = -192
-limit_right = 528
-limit_bottom = 416
-editor_draw_limits = true
+[node name="Camera2D" parent="Player" index="1" groups=["player_camera"]]
 
 [node name="central_hub_portal" parent="." instance=ExtResource("5_wo05u")]
 z_index = 100
@@ -2365,6 +2367,46 @@ scale = Vector2(0.1, 0.1)
 
 [node name="central_hub_hud" parent="." instance=ExtResource("10_nyvvm")]
 
+[node name="rogue_stone" parent="." instance=ExtResource("14_ncom1")]
+position = Vector2(217, 24)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("13_sm5p4")
+
+[node name="Area2D2" type="Area2D" parent="rogue_stone"]
+position = Vector2(0, -1.90735e-06)
+
+[node name="rogue_interaction" type="CollisionShape2D" parent="rogue_stone/Area2D2"]
+shape = SubResource("CircleShape2D_tk2kj")
+
+[node name="wizard_stone" parent="." instance=ExtResource("12_8xpxx")]
+position = Vector2(287, 25)
+scale = Vector2(0.2, 0.2)
+autoplay = "default"
+script = ExtResource("14_uvpby")
+
+[node name="Area2D2" type="Area2D" parent="wizard_stone"]
+position = Vector2(0, -5)
+
+[node name="wizard_interaction" type="CollisionShape2D" parent="wizard_stone/Area2D2"]
+position = Vector2(0, -7.62939e-06)
+shape = SubResource("CircleShape2D_tk2kj")
+
+[node name="knight_stone" parent="." instance=ExtResource("13_hlbhr")]
+position = Vector2(247, 3)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("14_krmdj")
+
+[node name="Area2D" type="Area2D" parent="knight_stone"]
+
+[node name="knight_interaction" type="CollisionShape2D" parent="knight_stone/Area2D"]
+shape = SubResource("CircleShape2D_tk2kj")
+
 [connection signal="body_entered" from="central_hub_portal/Area2D" to="central_hub_portal" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="rogue_stone/Area2D2" to="rogue_stone" method="_on_area_2d_2_body_entered"]
+[connection signal="body_exited" from="rogue_stone/Area2D2" to="rogue_stone" method="_on_area_2d_2_body_exited"]
+[connection signal="body_entered" from="wizard_stone/Area2D2" to="wizard_stone" method="_on_area_2d_2_body_entered"]
+[connection signal="body_exited" from="wizard_stone/Area2D2" to="wizard_stone" method="_on_area_2d_2_body_exited"]
+[connection signal="body_entered" from="knight_stone/Area2D" to="knight_stone" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="knight_stone/Area2D" to="knight_stone" method="_on_area_2d_body_exited"]
 
 [editable path="Player"]

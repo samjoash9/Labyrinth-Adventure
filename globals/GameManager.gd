@@ -2,7 +2,7 @@ extends Node
 
 # MAP VARIABLES ==============================
 const PATTERN_SIZE = 27
-const map_rooms = 10
+const map_rooms = 5
 const mapSize = map_rooms * PATTERN_SIZE
 const object_map_size = mapSize - PATTERN_SIZE
 
@@ -29,7 +29,10 @@ func _ready() -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
 
 # CENTRAL HUB LAST POSITION
-var central_hub_last_position: Vector2i
+var central_hub_last_position: Vector2i = Vector2(216, 24)
+
+# SELECTED HERO
+var selected_hero = "rogue"
 
 # SPECIFIC MAP TYPES
 # GREEN 

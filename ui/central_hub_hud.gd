@@ -3,7 +3,6 @@ extends CanvasLayer
 const OPTIONS = preload("res://scenes/UI/options.tscn")
 const PLAYER_PROFILE = preload("res://ui/Player_profile.tscn")
 
-
 func _on_settings_pressed() -> void:
 	visible = false
 	var options_menu = OPTIONS.instantiate()

@@ -5,35 +5,23 @@
 [ext_resource type="FontFile" uid="uid://c4o2mmlfx4faa" path="res://themes/PressStart2P.ttf" id="2_a227i"]
 
 [sub_resource type="Animation" id="Animation_drlv7"]
-length = 0.001
+length = 140.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/Sprite2D:position")
+tracks/0/path = NodePath("AnimationPlayer/GameStory:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 135.933),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(4050, 324)]
+"values": [Vector2(5949, 289), Vector2(-3728, 284)]
 }
 
 [sub_resource type="Animation" id="Animation_ghobt"]
 resource_name = "opening_story"
 length = 140.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 134.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(4860, 324), Vector2(-2556, 324)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hy3i1"]
 _data = {
@@ -51,11 +39,11 @@ script = ExtResource("1_yojdh")
 libraries = {
 "": SubResource("AnimationLibrary_hy3i1")
 }
-autoplay = "opening_story"
+autoplay = "RESET"
 
-[node name="Sprite2D" type="Sprite2D" parent="AnimationPlayer"]
-position = Vector2(4050, 324)
-scale = Vector2(0.618, 0.618)
+[node name="GameStory" type="Sprite2D" parent="AnimationPlayer"]
+position = Vector2(5949, 289)
+scale = Vector2(0.62, 0.62)
 texture = ExtResource("1_ujd6s")
 
 [node name="control_menu" type="Control" parent="."]

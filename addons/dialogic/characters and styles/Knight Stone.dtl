@@ -1,0 +1,5 @@
+"Knight Stone": The Knight Stone...
+"Knight Stone": Do you want to switch to Knight hero?
+- Confirm
+	[signal arg="knight_confirm"]
+- Cancel
