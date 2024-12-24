@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://gpo24n2hi45r"]
+[gd_scene load_steps=8 format=3 uid="uid://gpo24n2hi45r"]
 
 [ext_resource type="Script" path="res://scripts/game_modes/green_mode.gd" id="1_jhivi"]
 [ext_resource type="PackedScene" uid="uid://dwyhebwkim47x" path="res://scenes/game_modes/tilesets/green.tscn" id="1_ocduj"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://br1vuxb82exst" path="res://scenes/game_modes/objects/green_objects.tscn" id="2_2y7qd"]
 [ext_resource type="PackedScene" uid="uid://cp4c2x3wsfo5p" path="res://ui/loading_screen.tscn" id="5_01dn4"]
 [ext_resource type="AudioStream" uid="uid://burxw1457iytb" path="res://assets/Musics/26 - Lost Village.ogg" id="6_tt6st"]
+[ext_resource type="PackedScene" uid="uid://01cq3ethui3i" path="res://characters/baseCharacter/player.tscn" id="7_vvuvv"]
 
 [node name="Green_Mode" type="Node2D"]
 script = ExtResource("1_jhivi")
@@ -21,10 +22,6 @@ tile_map_data = PackedByteArray()
 [node name="green_walls" parent="." instance=ExtResource("1_ocduj")]
 tile_map_data = PackedByteArray()
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(2059, 1245)
-zoom = Vector2(0.2, 0.2)
-
 [node name="loading_screen" parent="." instance=ExtResource("5_01dn4")]
 
 [node name="Label" parent="loading_screen/Control/Panel/VBoxContainer" index="0"]
@@ -35,6 +32,14 @@ Tip: Follow one wall to find your way out!"
 stream = ExtResource("6_tt6st")
 parameters/looping = true
 
+[node name="Player" parent="." instance=ExtResource("7_vvuvv")]
+z_index = 10
+
+[node name="Camera2D" parent="Player/PlayerBodyCollision" index="0"]
+zoom = Vector2(3, 3)
+
+[connection signal="last_index" from="Maze_Generator" to="." method="_on_maze_generator_last_index"]
 [connection signal="map_loaded" from="Maze_Generator" to="loading_screen" method="_on_maze_generator_map_loaded"]
 
 [editable path="loading_screen"]
+[editable path="Player"]

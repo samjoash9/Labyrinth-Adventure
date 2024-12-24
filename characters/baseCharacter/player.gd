@@ -87,6 +87,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("e"):
+		print(global_position)
+	
 	var inputDir = Input.get_vector("left", "right", "up", "down").normalized()
 	velocity = inputDir * movementSpeed
 	velocity.normalized()

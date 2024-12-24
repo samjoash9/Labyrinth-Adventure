@@ -18,6 +18,7 @@ func _input(event: InputEvent) -> void:
 		camera.position.y += 15
 
 func _on_return_button_pressed() -> void:
+	click_sound.play()
 	SceneManager.change_scene(
 	"res://scenes/central_hub.tscn",
   { "pattern": "scribbles", "pattern_leave": "scribbles"})
@@ -29,8 +30,7 @@ func confirmation(mode: String, level: int):
 	
 	map_confirm.visible = true
 	return_hud.visible = false
-	
-	
+
 func _on_confirm_pressed() -> void:
 	click_sound.play()
 	# generate level based on pressed level
@@ -53,6 +53,7 @@ func _on_confirm_pressed() -> void:
 		  { "pattern": "horizontal", "pattern_leave": ""})
 
 func _on_cancel_pressed() -> void:
+	click_sound.play()
 	map_confirm.visible = false
 	return_hud.visible = true
 
