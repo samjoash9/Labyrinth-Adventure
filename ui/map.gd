@@ -38,15 +38,15 @@ func _on_confirm_pressed() -> void:
 		"green":
 			SceneManager.change_scene(
 			"res://scenes/game_modes/Green_Mode.tscn",
-		  { "pattern": "horizontal", "pattern_leave": "scribbles"})
+		  { "pattern": "horizontal", "pattern_leave": "horizontal"})
 		"dungeon":
 			SceneManager.change_scene(
 			"res://scenes/game_modes/Dungeon_mode.tscn",
-		  { "pattern": "horizontal", "pattern_leave": "scribbles"})
+		  { "pattern": "horizontal", "pattern_leave": "horizontal"})
 		"lava":
 			SceneManager.change_scene(
 			"res://scenes/game_modes/Lava_mode.tscn",
-		  { "pattern": "horizontal", "pattern_leave": "scribbles"})
+		  { "pattern": "horizontal", "pattern_leave": "horizontal"})
 
 func _on_cancel_pressed() -> void:
 	map_confirm.visible = false

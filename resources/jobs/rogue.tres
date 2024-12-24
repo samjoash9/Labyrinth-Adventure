@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="CharacterResource" load_steps=8 format=3 uid="uid://cea0cg5tmc1d2"]
 
 [ext_resource type="PackedScene" uid="uid://bo58ix0qyjqn4" path="res://characters/rouge/rouge_animations.tscn" id="1_dngcb"]
-[ext_resource type="Script" path="res://resources/Scripts/baseStats.gd" id="2_j10mp"]
-[ext_resource type="Script" path="res://resources/Scripts/Character.gd" id="3_uyqae"]
-[ext_resource type="Script" path="res://resources/Scripts/weapon.gd" id="4_gyeht"]
+[ext_resource type="Script" path="res://resources/scripts/baseStats.gd" id="2_j10mp"]
+[ext_resource type="Script" path="res://resources/scripts/Character.gd" id="3_uyqae"]
+[ext_resource type="Script" path="res://resources/scripts/weapon.gd" id="4_gyeht"]
 [ext_resource type="PackedScene" uid="uid://bvkxbkgdn3yjb" path="res://weapons/magic_bullet.tscn" id="5_v34f4"]
 
 [sub_resource type="Resource" id="Resource_47sb7"]
