@@ -38,8 +38,8 @@ directories/dtl_directory={
 "Rogue Stone": "res://addons/dialogic/characters and styles/Rogue Stone.dtl",
 "Wizard Stone": "res://addons/dialogic/characters and styles/Wizard Stone.dtl"
 }
-layout/style_list=["res://addons/dialogic/characters and styles/base_stye.tres"]
-layout/default_style="res://addons/dialogic/characters and styles/base_stye.tres"
+layout/style_list=["res://themes/CenteredChoices/centered_new_style.tres"]
+layout/default_style="res://themes/CenteredChoices/centered_new_style.tres"
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true

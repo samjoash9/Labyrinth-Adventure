@@ -1,6 +1,6 @@
 extends AnimatedSprite2D
 
-@onready var player: playerCharacter = $"../Player"
+@onready var player: Player = $"../Player"
 @onready var mini_village: central_hub = $".."
 const PLAYER = preload("res://characters/baseCharacter/player.tscn")
 
@@ -24,10 +24,10 @@ func _process(delta: float) -> void:
 			run_dialogue("Knight Stone")
 			player.set_process(false)
 			
-func _on_area_2d_body_entered(body: playerCharacter) -> void:
+func _on_area_2d_body_entered(body: Player) -> void:
 	player_in_area = true
 
-func _on_area_2d_body_exited(body: playerCharacter) -> void:
+func _on_area_2d_body_exited(body: Player) -> void:
 	player_in_area = false
 	
 func run_dialogue(dialogue_string):

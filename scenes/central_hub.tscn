@@ -2321,19 +2321,15 @@ radius = 60.208
 [node name="mini_village" type="Node2D"]
 script = ExtResource("1_jfdxu")
 
-<<<<<<< Updated upstream
 [node name="Player" parent="." instance=ExtResource("2_dt31g")]
-=======
-[node name="Player" parent="." instance=ExtResource("10_be00a")]
-z_index = 10
-position = Vector2(217, 29)
-scale = Vector2(0.5, 0.5)
+z_index = 12
+z_as_relative = false
 
-[node name="Camera2D" parent="Player" index="4" groups=["player_camera"]]
+[node name="HUD" parent="Player" index="0"]
+visible = false
 
-[node name="CollisionShape2D" parent="Player" index="6"]
-position = Vector2(0, -10)
->>>>>>> Stashed changes
+[node name="Camera2D" parent="Player/PlayerBodyCollision" index="0"]
+zoom = Vector2(3, 3)
 
 [node name="central_hub_portal" parent="." instance=ExtResource("5_wo05u")]
 z_index = 100
@@ -2414,6 +2410,3 @@ shape = SubResource("CircleShape2D_tk2kj")
 [connection signal="body_exited" from="knight_stone/Area2D" to="knight_stone" method="_on_area_2d_body_exited"]
 
 [editable path="Player"]
-[editable path="Player/HurtBox"]
-[editable path="Player/Item_Magnet"]
-[editable path="Player/EnemyScanner"]

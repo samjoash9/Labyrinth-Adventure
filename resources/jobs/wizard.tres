@@ -4,22 +4,33 @@
 [ext_resource type="Script" path="res://resources/scripts/baseStats.gd" id="2_8txem"]
 [ext_resource type="Script" path="res://resources/scripts/Character.gd" id="3_laagq"]
 [ext_resource type="Script" path="res://resources/scripts/weapon.gd" id="4_0poc7"]
-[ext_resource type="PackedScene" uid="uid://bjm0dba7aiam1" path="res://weapons/staff_animations.tscn" id="5_4gvyf"]
+[ext_resource type="Script" path="res://resources/scripts/upgrade.gd" id="5_h25xy"]
 
 [sub_resource type="Resource" id="Resource_5nvo0"]
 script = ExtResource("2_8txem")
-Hitpoints = 100.0
-Movespeed = 500
-Recovery = 20.0
+description = ""
+hitPoints = 2.0
+maxHitpoints = 2.0
+moveSpeed = 150.0
+might = 2.0
+armor = 2.0
+magnetArea = 23.0
+areaMultiplier = 24.0
+growth = 4.0
 
 [sub_resource type="Resource" id="Resource_cjt5t"]
 script = ExtResource("4_0poc7")
-name = "Staff "
+weaponType = 0
+upgrades = Array[ExtResource("5_h25xy")]([])
 attackPower = 100.0
 attackSpeed = 100.0
+coolDown = 0.0
 critChance = 100.0
 critDamage = 100.0
-weaponAnimations = ExtResource("5_4gvyf")
+knockBack = 0.0
+name = "Staff "
+description = ""
+level = 1
 
 [resource]
 script = ExtResource("3_laagq")
