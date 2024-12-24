@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bakcqeqs0mi0e"]
+[gd_scene load_steps=24 format=3 uid="uid://bakcqeqs0mi0e"]
 
 [ext_resource type="Script" path="res://scenes/UI/main_menu.gd" id="1_aw0id"]
 [ext_resource type="Script" path="res://scenes/UI/parallax_background.gd" id="2_r2ya0"]
@@ -9,6 +9,8 @@
 [ext_resource type="Theme" uid="uid://iivwh67cjc1k" path="res://scenes/UI/base_theme.tres" id="7_lc7si"]
 [ext_resource type="Texture2D" uid="uid://di70broao655r" path="res://assets/Images/IconsFlat-160.png" id="8_6aixh"]
 [ext_resource type="Texture2D" uid="uid://chxm33cij47bg" path="res://assets/UI/wood_pack_icons/MenusIcons_34x34.png" id="9_xp30b"]
+[ext_resource type="AudioStream" uid="uid://ccuuov71h10fu" path="res://assets/Sound FX/Menu/Menu2.wav" id="10_2r2o8"]
+[ext_resource type="AudioStream" uid="uid://gl0to25op1ka" path="res://assets/Musics/4 - Village.ogg" id="11_blnsv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_15le6"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -235,6 +237,15 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 theme = SubResource("Theme_p7cti")
 text = " "
+
+[node name="click_sound" type="AudioStreamPlayer2D" parent="main_menu"]
+stream = ExtResource("10_2r2o8")
+
+[node name="main_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_blnsv")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
 [connection signal="pressed" from="main_menu/main_menu_control/MarginContainer/VBoxContainer/HBoxContainer/start_button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="main_menu/main_menu_control/MarginContainer/VBoxContainer/HBoxContainer2/exit_button" to="." method="_on_exit_button_pressed"]

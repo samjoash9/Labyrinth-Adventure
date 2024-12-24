@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgtge0leu72ds"]
+[gd_scene load_steps=7 format=3 uid="uid://cgtge0leu72ds"]
 
 [ext_resource type="Script" path="res://scripts/game_modes/dungeon_mode.gd" id="1_lel40"]
 [ext_resource type="PackedScene" uid="uid://gntrd0281yiq" path="res://scenes/game_modes/Maze_Generator.tscn" id="2_4rsbj"]
 [ext_resource type="PackedScene" uid="uid://8sotrcyxx4a5" path="res://scenes/game_modes/tilesets/dungeon.tscn" id="3_ddod5"]
 [ext_resource type="PackedScene" uid="uid://diyb228qqbi12" path="res://scenes/game_modes/objects/dungeon_objects.tscn" id="4_d0f5w"]
 [ext_resource type="PackedScene" uid="uid://cp4c2x3wsfo5p" path="res://ui/loading_screen.tscn" id="5_yeol0"]
+[ext_resource type="AudioStream" uid="uid://cngt26w6g1tfr" path="res://assets/Musics/30 - Ruins.ogg" id="6_d1h1m"]
 
 [node name="Dungeon_Mode" type="Node2D"]
 script = ExtResource("1_lel40")
@@ -32,6 +33,10 @@ text = "Tip: Follow one wall to find your way out!"
 [node name="ProgressBar" parent="loading_screen/Control/Panel/VBoxContainer" index="1"]
 step = 0.1
 rounded = true
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_d1h1m")
+parameters/looping = true
 
 [connection signal="map_loaded" from="Maze_Generator" to="loading_screen" method="_on_maze_generator_map_loaded"]
 

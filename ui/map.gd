@@ -6,6 +6,8 @@ extends Node2D
 
 const GREEN_MODE = preload("res://scenes/game_modes/Green_Mode.tscn")
 
+@onready var click_sound: AudioStreamPlayer2D = $click_sound
+
 var selected_level: int
 var selected_mode: String
 
@@ -21,6 +23,7 @@ func _on_return_button_pressed() -> void:
   { "pattern": "scribbles", "pattern_leave": "scribbles"})
 
 func confirmation(mode: String, level: int):
+	click_sound.play()
 	selected_level = level
 	selected_mode = mode
 	
@@ -29,6 +32,7 @@ func confirmation(mode: String, level: int):
 	
 	
 func _on_confirm_pressed() -> void:
+	click_sound.play()
 	# generate level based on pressed level
 	GameManager.map_rooms += selected_level
 	GameManager.mapSize = GameManager.map_rooms * GameManager.PATTERN_SIZE
@@ -38,15 +42,15 @@ func _on_confirm_pressed() -> void:
 		"green":
 			SceneManager.change_scene(
 			"res://scenes/game_modes/Green_Mode.tscn",
-		  { "pattern": "horizontal", "pattern_leave": "scribbles"})
+		  { "pattern": "horizontal", "pattern_leave": ""})
 		"dungeon":
 			SceneManager.change_scene(
 			"res://scenes/game_modes/Dungeon_mode.tscn",
-		  { "pattern": "horizontal", "pattern_leave": "scribbles"})
+		  { "pattern": "horizontal", "pattern_leave": ""})
 		"lava":
 			SceneManager.change_scene(
 			"res://scenes/game_modes/Lava_mode.tscn",
-		  { "pattern": "horizontal", "pattern_leave": "scribbles"})
+		  { "pattern": "horizontal", "pattern_leave": ""})
 
 func _on_cancel_pressed() -> void:
 	map_confirm.visible = false

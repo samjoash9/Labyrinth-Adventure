@@ -2,7 +2,6 @@ extends Node2D
 class_name central_hub
 
 @onready var player: Player = $Player
-@onready var camera_2d: Camera2D = $Player/PlayerBodyCollision/Camera2D
 
 # STONES
 @onready var wizard_stone: AnimatedSprite2D = $wizard_stone
@@ -10,7 +9,7 @@ class_name central_hub
 @onready var rogue_stone: AnimatedSprite2D = $rogue_stone
 
 func _ready() -> void:
-	player.position = Vector2(216, 24)
+	player.position = GameManager.central_hub_last_position + Vector2i(0, 20)
 	# ready the stones
 	match GameManager.selected_hero:
 		"rogue":

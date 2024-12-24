@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://bfkhq2vf0a3gf"]
+[gd_scene load_steps=29 format=4 uid="uid://bfkhq2vf0a3gf"]
 
 [ext_resource type="Texture2D" uid="uid://dmibqs7ant8f6" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetFloor.png" id="1_4m24w"]
 [ext_resource type="Script" path="res://scenes/central_hub.gd" id="1_jfdxu"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dwkvh4s6mb3pn" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetHouse.png" id="2_qw0b5"]
 [ext_resource type="Texture2D" uid="uid://b8d3w08gyrd8k" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetNature.png" id="3_lfukg"]
 [ext_resource type="Script" path="res://scenes/portals/central_hub_portal.gd" id="4_0a0v4"]
+[ext_resource type="AudioStream" uid="uid://cg4c85rsb5ksn" path="res://assets/Sound FX/Game/Spirit.wav" id="5_te2hw"]
 [ext_resource type="PackedScene" uid="uid://dm62q6y08fg8o" path="res://scenes/portals/central_hub_portal.tscn" id="5_wo05u"]
 [ext_resource type="PackedScene" uid="uid://daxxv2b8obm6d" path="res://scenes/npcs/black_smith_onNode.tscn" id="7_hv86f"]
 [ext_resource type="PackedScene" uid="uid://cfsxr23f07rxu" path="res://scenes/npcs/Weapons_Dealer/Weapons_Dealer_onNode.tscn" id="8_jx01w"]
@@ -19,8 +20,8 @@
 [ext_resource type="Script" path="res://scenes/portals/wizard_stone.gd" id="14_uvpby"]
 [ext_resource type="AudioStream" uid="uid://cpbi4krdkvg3f" path="res://assets/Musics/17 - Fight.ogg" id="18_gaad8"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_o37wm"]
-radius = 50.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pumx7"]
+size = Vector2(90, 48)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_alg65"]
 texture = ExtResource("2_hdupt")
@@ -2340,9 +2341,14 @@ autoplay = "default"
 script = ExtResource("4_0a0v4")
 
 [node name="Area2D" type="Area2D" parent="central_hub_portal"]
+position = Vector2(-32, -10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="central_hub_portal/Area2D"]
-shape = SubResource("CircleShape2D_o37wm")
+position = Vector2(35, 14)
+shape = SubResource("RectangleShape2D_pumx7")
+
+[node name="portal_sound" type="AudioStreamPlayer2D" parent="central_hub_portal"]
+stream = ExtResource("5_te2hw")
 
 [node name="objects" type="TileMapLayer" parent="."]
 z_index = 11

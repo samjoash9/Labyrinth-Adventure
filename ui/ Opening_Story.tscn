@@ -82,6 +82,7 @@ text = "SKIP >"
 [node name="story_music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_8sni6")
 autoplay = true
+bus = &"Music"
 parameters/looping = true
 
 [connection signal="pressed" from="control_menu/MarginContainer/Button" to="." method="_on_button_pressed"]

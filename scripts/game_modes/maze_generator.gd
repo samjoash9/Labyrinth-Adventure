@@ -111,7 +111,7 @@ func init_maze():
 			else:
 				break 
 		i += 1
-		progress_bar.value = ((float(i) / iterations) * 100)
+		#progress_bar.value = ((float(i) / iterations) * 100)
 
 func apply_noise():
 	var length = len(noise_tiles) - 1 

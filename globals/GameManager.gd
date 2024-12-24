@@ -29,7 +29,7 @@ func _ready() -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
 
 # CENTRAL HUB LAST POSITION
-var central_hub_last_position: Vector2i = Vector2(216, 24)
+var central_hub_last_position: Vector2i = Vector2(216, 6)
 
 # SELECTED HERO
 var selected_hero = "rogue"
