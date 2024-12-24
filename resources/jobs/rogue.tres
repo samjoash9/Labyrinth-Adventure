@@ -1,30 +1,49 @@
-[gd_resource type="Resource" script_class="CharacterResource" load_steps=8 format=3 uid="uid://cea0cg5tmc1d2"]
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=11 format=3 uid="uid://btelycpr583kc"]
 
 [ext_resource type="PackedScene" uid="uid://bo58ix0qyjqn4" path="res://characters/rouge/rouge_animations.tscn" id="1_dngcb"]
-[ext_resource type="Script" path="res://resources/Scripts/baseStats.gd" id="2_j10mp"]
-[ext_resource type="Script" path="res://resources/Scripts/Character.gd" id="3_uyqae"]
-[ext_resource type="Script" path="res://resources/Scripts/weapon.gd" id="4_gyeht"]
-[ext_resource type="PackedScene" uid="uid://bvkxbkgdn3yjb" path="res://weapons/magic_bullet.tscn" id="5_v34f4"]
+[ext_resource type="Script" path="res://resources/scripts/baseStats.gd" id="2_ofei5"]
+[ext_resource type="Texture2D" uid="uid://kqvw2novwvcs" path="res://imgs/4.jpg" id="3_fb5tl"]
+[ext_resource type="Script" path="res://resources/scripts/Character.gd" id="4_s5sn7"]
+[ext_resource type="Script" path="res://resources/scripts/uniqueSkill.gd" id="5_7pg1t"]
+[ext_resource type="Script" path="res://resources/scripts/weapon.gd" id="6_gvkn0"]
+[ext_resource type="Script" path="res://resources/scripts/upgrade.gd" id="7_fjkh2"]
 
-[sub_resource type="Resource" id="Resource_47sb7"]
-script = ExtResource("2_j10mp")
-Hitpoints = 1231.0
-Movespeed = 150
-Recovery = 123.0
+[sub_resource type="Resource" id="Resource_5bwc7"]
+script = ExtResource("2_ofei5")
+description = ""
+hitPoints = 12.0
+maxHitpoints = 3123.0
+moveSpeed = 150.0
+might = 123.0
+armor = 23.0
+magnetArea = 123.0
+areaMultiplier = 123.0
+growth = 123.0
 
-[sub_resource type="Resource" id="Resource_h7wxp"]
-script = ExtResource("4_gyeht")
-name = "asifisa"
-attackPower = 7.87239e+08
-attackSpeed = 97.0
-critChance = 82347.0
-critDamage = 78374.0
-weaponAnimations = ExtResource("5_v34f4")
+[sub_resource type="Resource" id="Resource_fjaws"]
+script = ExtResource("5_7pg1t")
+cooldown = 0.0
+
+[sub_resource type="Resource" id="Resource_pm345"]
+script = ExtResource("6_gvkn0")
+weaponType = 0
+upgrades = Array[ExtResource("7_fjkh2")]([])
+attackPower = 1.0
+attackSpeed = 1.0
+coolDown = 1.0
+critChance = 1.0
+critDamage = 1.0
+knockBack = 1.0
+name = ""
+description = ""
+level = 1
 
 [resource]
-script = ExtResource("3_uyqae")
+script = ExtResource("4_s5sn7")
 jobName = "Rouge"
-jobDescription = "asd"
-basicStats = SubResource("Resource_47sb7")
+jobDescription = "Fast Swift and Chuhu"
+characterPortrait = ExtResource("3_fb5tl")
+basicStats = SubResource("Resource_5bwc7")
 animationComponent = ExtResource("1_dngcb")
-weapon = SubResource("Resource_h7wxp")
+weapon = SubResource("Resource_pm345")
+uniqueSkill = SubResource("Resource_fjaws")

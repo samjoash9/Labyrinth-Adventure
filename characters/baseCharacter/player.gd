@@ -81,13 +81,36 @@ var character : CharacterResource:
 func _ready() -> void:
 	exp = 0
 	expCap = 10
-	character = load("res://resources/jobs/knight.tres")
+	character = load("res://resources/jobs/" + GameManager.selected_hero + ".tres")
+	scale.x = 0.5
+	scale.y = 0.5
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("click"):
-		level+=1
 	var inputDir = Input.get_vector("left", "right", "up", "down").normalized()
 	velocity = inputDir * movementSpeed
 	velocity.normalized()
 	move_and_slide()
+
+func reselect_character():
+	print(GameManager.selected_hero)
+	match GameManager.selected_hero:
+		"rogue":
+			if has_node("KnightAnimations"):
+				get_node("KnightAnimations").queue_free()
+			if has_node("WizardAnimations"):
+				get_node("WizardAnimations").queue_free()
+		"knight":
+			if has_node("RougeAnimations"):
+				get_node("RougeAnimations").queue_free()
+			if has_node("WizardAnimations"):
+				get_node("WizardAnimations").queue_free()
+		"wizard":
+			if has_node("RougeAnimations"):
+				get_node("RougeAnimations").queue_free()
+			if has_node("KnightAnimations"):
+				get_node("KnightAnimations").queue_free()
+				
+	# Reload the character
+	character = load("res://resources/jobs/" + GameManager.selected_hero + ".tres")
+	

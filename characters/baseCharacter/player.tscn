@@ -1,10 +1,15 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=13 format=3 uid="uid://01cq3ethui3i"]
+=======
+[gd_scene load_steps=15 format=3 uid="uid://01cq3ethui3i"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://characters/baseCharacter/player.gd" id="1_a7jnc"]
 [ext_resource type="Texture2D" uid="uid://sj5fu2ew5m3q" path="res://assets/Game Icon.png" id="2_3j21r"]
 [ext_resource type="PackedScene" uid="uid://beuglkms01sq6" path="res://ui/passive_slot.tscn" id="3_ipme1"]
 [ext_resource type="PackedScene" uid="uid://pgbdho2yu1br" path="res://ui/slot.tscn" id="5_0asyh"]
 [ext_resource type="Script" path="res://ui/optionsupgrade.gd" id="6_tq6tw"]
+[ext_resource type="Theme" uid="uid://iivwh67cjc1k" path="res://scenes/UI/base_theme.tres" id="8_ehx48"]
 [ext_resource type="Script" path="res://ui/debug_ui.gd" id="10_sly3d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1ly4"]
@@ -229,6 +234,7 @@ anchor_right = 1.0
 offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
+theme = ExtResource("8_ehx48")
 
 [node name="Label" type="Label" parent="DebugUI/VBoxContainer"]
 layout_mode = 2

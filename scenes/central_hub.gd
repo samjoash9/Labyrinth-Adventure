@@ -1,8 +1,8 @@
 extends Node2D
 class_name central_hub
 
-@onready var player: playerCharacter = $Player 
-@onready var camera_2d: Camera2D = $Player/Camera2D
+@onready var player: Player = $Player
+@onready var camera_2d: Camera2D = $Player/PlayerBodyCollision/Camera2D
 
 # STONES
 @onready var wizard_stone: AnimatedSprite2D = $wizard_stone

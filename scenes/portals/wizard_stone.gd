@@ -1,6 +1,6 @@
 extends AnimatedSprite2D
 
-@onready var player: playerCharacter = $"../Player"
+@onready var player: Player = $"../Player"
 const PLAYER = preload("res://characters/player.tscn")
 @onready var mini_village: central_hub = $".."
 
@@ -46,8 +46,8 @@ func DialogicSignal(arg: String):
 		GameManager.selected_hero = "wizard"
 		player.reselect_character()
 
-func _on_area_2d_2_body_entered(body: Node2D) -> void:
+func _on_area_2d_2_body_entered(body: Player) -> void:
 	player_in_area = true
 
-func _on_area_2d_2_body_exited(body: Node2D) -> void:
+func _on_area_2d_2_body_exited(body: Player) -> void:
 	player_in_area = false

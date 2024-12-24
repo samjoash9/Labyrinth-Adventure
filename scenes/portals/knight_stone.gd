@@ -1,6 +1,6 @@
 extends AnimatedSprite2D
 
-@onready var player: playerCharacter = $"../Player"
+@onready var player: Player = $"../Player"
 const PLAYER = preload("res://characters/player.tscn")
 @onready var mini_village: central_hub = $".."
 
@@ -24,10 +24,10 @@ func _process(delta: float) -> void:
 			run_dialogue("Knight Stone")
 			player.set_process(false)
 			
-func _on_area_2d_body_entered(body: playerCharacter) -> void:
+func _on_area_2d_body_entered(body: Player) -> void:
 	player_in_area = true
 
-func _on_area_2d_body_exited(body: playerCharacter) -> void:
+func _on_area_2d_body_exited(body: Player) -> void:
 	player_in_area = false
 	
 func run_dialogue(dialogue_string):
@@ -35,7 +35,6 @@ func run_dialogue(dialogue_string):
 
 func DialogicSignal(arg: String):
 	if arg == "knight_confirm":
-		print("nigga")
 		player.set_process(true)
 		# set visibility of wizard stone into false
 		visible = false

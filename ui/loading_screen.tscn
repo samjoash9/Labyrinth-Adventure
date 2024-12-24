@@ -46,7 +46,7 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="Control/Panel/VBoxContainer"]
 layout_mode = 2
-text = "TIP: NIGGALATIONS"
+text = "TIP: RUN AND SURVIVE. TIME IS YOUR ENEMY."
 
 [node name="ProgressBar" type="ProgressBar" parent="Control/Panel/VBoxContainer"]
 layout_mode = 2

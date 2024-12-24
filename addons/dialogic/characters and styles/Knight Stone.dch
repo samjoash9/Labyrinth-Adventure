@@ -18,7 +18,7 @@
 "volume_variance": 0.0
 }
 },
-"style": "base_stye",
+"style": "DialogicBaseStyle",
 "suffix": ""
 },
 "default_portrait": "Knight Stone",
@@ -32,6 +32,7 @@
 "export_overrides": {
 "image": "\"res://assets/Images/Stones/2.png\""
 },
+"ignore_char_scale": false,
 "mirror": false,
 "offset": Vector2(0, 0),
 "scale": 1,

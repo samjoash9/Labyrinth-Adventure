@@ -21,12 +21,16 @@ var state = states.IDLE
 var SELECTED_CLASS : CharacterResource
 var player: Node2D
 var weapon: Node2D
-@export var selected : String = GameManager.selected_hero	
+@export var selected : String = GameManager.selected_hero
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 #	Load Selected Class Resource
+<<<<<<< Updated upstream
 	SELECTED_CLASS  = load("res://resources/jobs/%s.tres" % GameManager.selected_hero)
+=======
+	SELECTED_CLASS  = load("res://resources/jobs/rouge.tres")
+>>>>>>> Stashed changes
 	
 #	Create Instances Of the Class Body, Primary weapon, and Unique Skill
 	if SELECTED_CLASS: 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bakcqeqs0mi0e"]
+[gd_scene load_steps=23 format=3 uid="uid://bakcqeqs0mi0e"]
 
 [ext_resource type="Script" path="res://scenes/UI/main_menu.gd" id="1_fuaji"]
 [ext_resource type="Theme" uid="uid://iivwh67cjc1k" path="res://scenes/UI/base_theme.tres" id="1_k1gf0"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://hy01yidxcfdt" path="res://assets/parallax/nature_3/4.png" id="6_ehm65"]
 [ext_resource type="Texture2D" uid="uid://chxm33cij47bg" path="res://assets/UI/wood_pack_icons/MenusIcons_34x34.png" id="7_01pvq"]
 [ext_resource type="Texture2D" uid="uid://di70broao655r" path="res://assets/Images/IconsFlat-160.png" id="7_sf5s0"]
+[ext_resource type="AudioStream" uid="uid://ccuuov71h10fu" path="res://assets/Sound FX/Menu/Menu2.wav" id="10_lmjx6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_15le6"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -235,6 +236,10 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 theme = SubResource("Theme_p7cti")
 text = " "
+
+[node name="click_sound" type="AudioStreamPlayer" parent="main_menu"]
+stream = ExtResource("10_lmjx6")
+volume_db = 13.394
 
 [connection signal="pressed" from="main_menu/main_menu_control/MarginContainer/VBoxContainer/HBoxContainer/start_button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="main_menu/main_menu_control/MarginContainer/VBoxContainer/HBoxContainer2/exit_button" to="." method="_on_exit_button_pressed"]

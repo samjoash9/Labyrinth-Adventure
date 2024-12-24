@@ -139,4 +139,3 @@ animations = [{
 
 [node name="SpriteFrames" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_0lrum")
-animation = &"idle"

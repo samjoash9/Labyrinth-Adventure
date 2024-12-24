@@ -3,13 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://dmibqs7ant8f6" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetFloor.png" id="1_4m24w"]
 [ext_resource type="Script" path="res://scenes/central_hub.gd" id="1_jfdxu"]
 [ext_resource type="Texture2D" uid="uid://oo6x4w6aivsb" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetElement.png" id="2_hdupt"]
+[ext_resource type="PackedScene" uid="uid://01cq3ethui3i" path="res://characters/baseCharacter/player.tscn" id="2_imr5q"]
 [ext_resource type="Texture2D" uid="uid://dwkvh4s6mb3pn" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetHouse.png" id="2_qw0b5"]
 [ext_resource type="Texture2D" uid="uid://b8d3w08gyrd8k" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetNature.png" id="3_lfukg"]
 [ext_resource type="Script" path="res://scenes/portals/central_hub_portal.gd" id="4_0a0v4"]
 [ext_resource type="PackedScene" uid="uid://dm62q6y08fg8o" path="res://scenes/portals/central_hub_portal.tscn" id="5_wo05u"]
 [ext_resource type="PackedScene" uid="uid://daxxv2b8obm6d" path="res://scenes/npcs/black_smith_onNode.tscn" id="7_hv86f"]
 [ext_resource type="PackedScene" uid="uid://cfsxr23f07rxu" path="res://scenes/npcs/Weapons_Dealer/Weapons_Dealer_onNode.tscn" id="8_jx01w"]
-[ext_resource type="PackedScene" uid="uid://ve2cvvfk14kv" path="res://characters/player.tscn" id="10_be00a"]
 [ext_resource type="PackedScene" uid="uid://bwrn0w7b76a46" path="res://ui/central_hub_hud.tscn" id="10_nyvvm"]
 [ext_resource type="PackedScene" uid="uid://cg7d8v6yxy0jw" path="res://scenes/portals/wizard_stone.tscn" id="12_8xpxx"]
 [ext_resource type="PackedScene" uid="uid://vdg8vmh50ss2" path="res://scenes/portals/knight_stone.tscn" id="13_hlbhr"]
@@ -2321,15 +2321,21 @@ radius = 60.208
 [node name="mini_village" type="Node2D"]
 script = ExtResource("1_jfdxu")
 
-[node name="Player" parent="." instance=ExtResource("10_be00a")]
-z_index = 10
-position = Vector2(217, 29)
-scale = Vector2(0.5, 0.5)
+[node name="Player" parent="." instance=ExtResource("2_imr5q")]
+z_index = 12
 
+<<<<<<< Updated upstream
 [node name="Camera2D" parent="Player" index="4" groups=["player_camera"]]
 
 [node name="CollisionShape2D" parent="Player" index="6"]
 position = Vector2(0, -10)
+=======
+[node name="HUD" parent="Player" index="0"]
+visible = false
+
+[node name="Camera2D" parent="Player/PlayerBodyCollision" index="0"]
+zoom = Vector2(3, 3)
+>>>>>>> Stashed changes
 
 [node name="central_hub_portal" parent="." instance=ExtResource("5_wo05u")]
 z_index = 100
