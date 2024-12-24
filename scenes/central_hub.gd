@@ -10,8 +10,6 @@ class_name central_hub
 @onready var rogue_stone: AnimatedSprite2D = $rogue_stone
 
 func _ready() -> void:
-	player.position = GameManager.central_hub_last_position + Vector2i(0, 10)
-	
 	# ready the stones
 	match GameManager.selected_hero:
 		"rogue":

@@ -1,8 +1,8 @@
 extends AnimatedSprite2D
 
 @onready var player: playerCharacter = $"../Player"
-const PLAYER = preload("res://characters/player.tscn")
 @onready var mini_village: central_hub = $".."
+const PLAYER = preload("res://characters/baseCharacter/player.tscn")
 
 # WIZARD STONE SCRIPT
 @onready var knight_stone: AnimatedSprite2D = $"../knight_stone"

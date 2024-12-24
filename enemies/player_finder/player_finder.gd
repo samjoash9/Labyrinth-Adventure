@@ -7,9 +7,10 @@ class_name PlayerFinder
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _ready() -> void:
-	if is_instance_of(get_parent(), Enemy):
-		body = get_parent()
-		target_position = body.global_position
+	#if is_instance_of(get_parent(), Enemy):
+		##body = get_parent()
+		##target_position = body.global_position
+		pass
 		
 func _process(_delta: float) -> void:
 	if player: 

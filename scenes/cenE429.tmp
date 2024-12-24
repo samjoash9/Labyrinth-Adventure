@@ -1,8 +1,7 @@
-[gd_scene load_steps=27 format=4 uid="uid://bfkhq2vf0a3gf"]
+[gd_scene load_steps=26 format=4 uid="uid://bfkhq2vf0a3gf"]
 
 [ext_resource type="Texture2D" uid="uid://dmibqs7ant8f6" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetFloor.png" id="1_4m24w"]
 [ext_resource type="Script" path="res://scenes/central_hub.gd" id="1_jfdxu"]
-[ext_resource type="PackedScene" uid="uid://01cq3ethui3i" path="res://characters/baseCharacter/player.tscn" id="2_dt31g"]
 [ext_resource type="Texture2D" uid="uid://oo6x4w6aivsb" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetElement.png" id="2_hdupt"]
 [ext_resource type="Texture2D" uid="uid://dwkvh4s6mb3pn" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetHouse.png" id="2_qw0b5"]
 [ext_resource type="Texture2D" uid="uid://b8d3w08gyrd8k" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetNature.png" id="3_lfukg"]
@@ -2321,8 +2320,6 @@ radius = 60.208
 [node name="mini_village" type="Node2D"]
 script = ExtResource("1_jfdxu")
 
-[node name="Player" parent="." instance=ExtResource("2_dt31g")]
-
 [node name="central_hub_portal" parent="." instance=ExtResource("5_wo05u")]
 z_index = 100
 position = Vector2(248, -43)
@@ -2400,5 +2397,3 @@ shape = SubResource("CircleShape2D_tk2kj")
 [connection signal="body_exited" from="wizard_stone/Area2D2" to="wizard_stone" method="_on_area_2d_2_body_exited"]
 [connection signal="body_entered" from="knight_stone/Area2D" to="knight_stone" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="knight_stone/Area2D" to="knight_stone" method="_on_area_2d_body_exited"]
-
-[editable path="Player"]
