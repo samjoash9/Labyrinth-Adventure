@@ -8,6 +8,9 @@ func _on_maze_generator_map_loaded() -> void:
 	SceneManager.fade_in()
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

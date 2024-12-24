@@ -45,6 +45,7 @@ directories/dtl_directory={
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 layout/style_list=["res://addons/dialogic/characters and styles/base_stye.tres"]
 layout/default_style="res://addons/dialogic/characters and styles/base_stye.tres"
 extensions_folder="res://addons/dialogic_additions"
@@ -68,6 +69,10 @@ save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
 variables={}
+=======
+layout/style_list=["res://themes/DialogicBaseStyle.tres"]
+layout/default_style="res://themes/DialogicBaseStyle.tres"
+>>>>>>> Stashed changes
 =======
 layout/style_list=["res://themes/DialogicBaseStyle.tres"]
 layout/default_style="res://themes/DialogicBaseStyle.tres"
@@ -149,7 +154,11 @@ e={
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 "events": [null, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+=======
+"events": [null, null, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+>>>>>>> Stashed changes
 =======
 "events": [null, null, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 >>>>>>> Stashed changes
