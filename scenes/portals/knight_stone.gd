@@ -35,7 +35,6 @@ func run_dialogue(dialogue_string):
 
 func DialogicSignal(arg: String):
 	if arg == "knight_confirm":
-		print("nigga")
 		player.set_process(true)
 		# set visibility of wizard stone into false
 		visible = false
@@ -52,3 +51,5 @@ func DialogicSignal(arg: String):
 
 		GameManager.selected_hero = "knight"
 		player.reselect_character()
+	if arg == "knight_cancel":
+		player.set_process(true)

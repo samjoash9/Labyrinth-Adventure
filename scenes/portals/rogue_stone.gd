@@ -45,6 +45,8 @@ func DialogicSignal(arg: String):
 
 		GameManager.selected_hero = "rogue"
 		player.reselect_character()
+	if arg == "rogue_cancel":
+		player.set_process(true)
 
 func _on_area_2d_2_body_entered(body: Player) -> void:
 	player_in_area = true

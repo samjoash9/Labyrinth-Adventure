@@ -3,3 +3,4 @@
 - Confirm
 	[signal arg="knight_confirm"]
 - Cancel
+	[signal arg="knight_cancel"]

@@ -3,3 +3,4 @@
 - Confirm
 	[signal arg="rogue_confirm"]
 - Cancel
+	[signal arg="rogue_cancel"]
