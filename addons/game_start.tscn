@@ -1,20 +1,20 @@
 [gd_scene load_steps=22 format=3 uid="uid://bakcqeqs0mi0e"]
 
-[ext_resource type="Script" path="res://scenes/UI/main_menu.gd" id="1_fuaji"]
-[ext_resource type="Theme" uid="uid://iivwh67cjc1k" path="res://scenes/UI/base_theme.tres" id="1_k1gf0"]
-[ext_resource type="Script" path="res://scenes/UI/parallax_background.gd" id="2_1ioq1"]
-[ext_resource type="Texture2D" uid="uid://beinwgqigjt80" path="res://assets/parallax/nature_3/1.png" id="3_pnsbh"]
-[ext_resource type="Texture2D" uid="uid://c05h8t16tnfv" path="res://assets/parallax/nature_3/2.png" id="4_n4foe"]
-[ext_resource type="Texture2D" uid="uid://b2i8bon21174h" path="res://assets/parallax/nature_3/3.png" id="5_c6s8y"]
-[ext_resource type="Texture2D" uid="uid://hy01yidxcfdt" path="res://assets/parallax/nature_3/4.png" id="6_ehm65"]
-[ext_resource type="Texture2D" uid="uid://chxm33cij47bg" path="res://assets/UI/wood_pack_icons/MenusIcons_34x34.png" id="7_01pvq"]
-[ext_resource type="Texture2D" uid="uid://di70broao655r" path="res://assets/Images/IconsFlat-160.png" id="7_sf5s0"]
+[ext_resource type="Script" path="res://scenes/UI/main_menu.gd" id="1_aw0id"]
+[ext_resource type="Script" path="res://scenes/UI/parallax_background.gd" id="2_r2ya0"]
+[ext_resource type="Texture2D" uid="uid://beinwgqigjt80" path="res://assets/parallax/nature_3/1.png" id="3_b5hh4"]
+[ext_resource type="Texture2D" uid="uid://c05h8t16tnfv" path="res://assets/parallax/nature_3/2.png" id="4_p5vpw"]
+[ext_resource type="Texture2D" uid="uid://b2i8bon21174h" path="res://assets/parallax/nature_3/3.png" id="5_a5u83"]
+[ext_resource type="Texture2D" uid="uid://hy01yidxcfdt" path="res://assets/parallax/nature_3/4.png" id="6_w5kth"]
+[ext_resource type="Theme" uid="uid://iivwh67cjc1k" path="res://scenes/UI/base_theme.tres" id="7_lc7si"]
+[ext_resource type="Texture2D" uid="uid://di70broao655r" path="res://assets/Images/IconsFlat-160.png" id="8_6aixh"]
+[ext_resource type="Texture2D" uid="uid://chxm33cij47bg" path="res://assets/UI/wood_pack_icons/MenusIcons_34x34.png" id="9_xp30b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_15le6"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nepwt"]
-texture = ExtResource("7_sf5s0")
+texture = ExtResource("8_6aixh")
 texture_margin_left = 2.0
 texture_margin_top = 2.0
 texture_margin_right = 2.0
@@ -27,7 +27,7 @@ region_rect = Rect2(1140, 1300, 120, 130)
 modulate_color = Color(0.712129, 0.712129, 0.712129, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x3fjm"]
-texture = ExtResource("7_sf5s0")
+texture = ExtResource("8_6aixh")
 texture_margin_left = 2.0
 texture_margin_top = 2.0
 texture_margin_right = 2.0
@@ -39,7 +39,7 @@ expand_margin_bottom = 5.0
 region_rect = Rect2(1138, 1300, 125, 133)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h4r3a"]
-texture = ExtResource("7_sf5s0")
+texture = ExtResource("8_6aixh")
 texture_margin_left = 2.0
 texture_margin_top = 2.0
 texture_margin_right = 2.0
@@ -61,7 +61,7 @@ Button/styles/pressed = SubResource("StyleBoxTexture_h4r3a")
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_erm6c"]
-texture = ExtResource("7_01pvq")
+texture = ExtResource("9_xp30b")
 texture_margin_left = 2.0
 texture_margin_top = 2.0
 texture_margin_right = 2.0
@@ -74,7 +74,7 @@ region_rect = Rect2(110, 7, 20, 20)
 modulate_color = Color(0.695503, 0.695503, 0.695503, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_txwdd"]
-texture = ExtResource("7_01pvq")
+texture = ExtResource("9_xp30b")
 texture_margin_left = 2.0
 texture_margin_top = 2.0
 texture_margin_right = 2.0
@@ -86,7 +86,7 @@ expand_margin_bottom = 5.0
 region_rect = Rect2(110, 7, 20, 20)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ueme4"]
-texture = ExtResource("7_01pvq")
+texture = ExtResource("9_xp30b")
 texture_margin_left = 2.0
 texture_margin_top = 2.0
 texture_margin_right = 2.0
@@ -105,7 +105,7 @@ Button/styles/normal = SubResource("StyleBoxTexture_txwdd")
 Button/styles/pressed = SubResource("StyleBoxTexture_ueme4")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_52rr6"]
-texture = ExtResource("7_sf5s0")
+texture = ExtResource("8_6aixh")
 texture_margin_left = 2.0
 texture_margin_top = 2.0
 texture_margin_right = 2.0
@@ -126,39 +126,39 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_fuaji")
+script = ExtResource("1_aw0id")
 
 [node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
 scale = Vector2(2.2, 2.2)
 transform = Transform2D(2.2, 0, 0, 2.2, 0, 0)
-script = ExtResource("2_1ioq1")
+script = ExtResource("2_r2ya0")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
 motion_mirroring = Vector2(576, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
-texture = ExtResource("3_pnsbh")
+texture = ExtResource("3_b5hh4")
 centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground2"]
 motion_mirroring = Vector2(576, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer2"]
-texture = ExtResource("4_n4foe")
+texture = ExtResource("4_p5vpw")
 centered = false
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground2"]
 motion_mirroring = Vector2(576, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer3"]
-texture = ExtResource("5_c6s8y")
+texture = ExtResource("5_a5u83")
 centered = false
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground2"]
 motion_mirroring = Vector2(576, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer4"]
-texture = ExtResource("6_ehm65")
+texture = ExtResource("6_w5kth")
 centered = false
 
 [node name="main_menu" type="CanvasLayer" parent="."]
@@ -172,7 +172,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-theme = ExtResource("1_k1gf0")
+theme = ExtResource("7_lc7si")
 
 [node name="MarginContainer" type="MarginContainer" parent="main_menu/main_menu_control"]
 layout_mode = 1

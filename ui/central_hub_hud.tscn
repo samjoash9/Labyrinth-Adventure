@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bwrn0w7b76a46"]
+[gd_scene load_steps=12 format=3 uid="uid://bwrn0w7b76a46"]
 
 [ext_resource type="Script" path="res://ui/central_hub_hud.gd" id="1_gfwca"]
 [ext_resource type="Texture2D" uid="uid://chxm33cij47bg" path="res://assets/UI/wood_pack_icons/MenusIcons_34x34.png" id="1_pxv3j"]
+[ext_resource type="AudioStream" uid="uid://ccuuov71h10fu" path="res://assets/Sound FX/Menu/Menu2.wav" id="3_e20o3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k7txc"]
 texture = ExtResource("1_pxv3j")
@@ -127,6 +128,9 @@ text = "    "
 layout_mode = 2
 theme = SubResource("Theme_0srku")
 text = " "
+
+[node name="click_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_e20o3")
 
 [connection signal="pressed" from="hud/MarginContainer/HBoxContainer/VBoxContainer/Profile" to="." method="_on_profile_pressed"]
 [connection signal="pressed" from="hud/MarginContainer/HBoxContainer/VBoxContainer/settings" to="." method="_on_settings_pressed"]

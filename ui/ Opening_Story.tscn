@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://kf1o1xxoa8e7"]
+[gd_scene load_steps=11 format=3 uid="uid://kf1o1xxoa8e7"]
 
 [ext_resource type="Texture2D" uid="uid://cp5h2u06xu524" path="res://assets/Images/game_story.png" id="1_ujd6s"]
 [ext_resource type="Script" path="res://ui/opening_story.gd" id="1_yojdh"]
 [ext_resource type="FontFile" uid="uid://c4o2mmlfx4faa" path="res://themes/PressStart2P.ttf" id="2_a227i"]
+[ext_resource type="Theme" uid="uid://iivwh67cjc1k" path="res://scenes/UI/base_theme.tres" id="3_qtj1s"]
+[ext_resource type="AudioStream" uid="uid://bcxnoify54n7j" path="res://assets/Musics/21 - Dungeon.ogg" id="5_8sni6"]
+[ext_resource type="PackedScene" uid="uid://csdl2wqpk36bk" path="res://common/fx/menu_click_sound.tscn" id="5_45w8o"]
 
 [sub_resource type="Animation" id="Animation_drlv7"]
 length = 140.0
@@ -56,6 +59,7 @@ offset_bottom = 40.0
 grow_horizontal = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("3_qtj1s")
 
 [node name="MarginContainer" type="MarginContainer" parent="control_menu"]
 layout_mode = 1
@@ -72,6 +76,12 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = SubResource("Theme_0md2m")
 text = "SKIP >"
-flat = true
+
+[node name="click_sound" parent="control_menu" instance=ExtResource("5_45w8o")]
+
+[node name="story_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_8sni6")
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="control_menu/MarginContainer/Button" to="." method="_on_button_pressed"]

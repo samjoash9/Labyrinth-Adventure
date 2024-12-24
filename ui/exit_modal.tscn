@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://iivwh67cjc1k" path="res://scenes/UI/base_theme.tres" id="1_aqirg"]
 [ext_resource type="Script" path="res://ui/exit_modal.gd" id="2_vw81c"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="exit_modal" type="CanvasLayer"]
 script = ExtResource("2_vw81c")
 
 [node name="Control" type="Control" parent="."]

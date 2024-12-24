@@ -6,6 +6,9 @@ extends CanvasLayer
 
 var maindisplaysize : Vector2i = DisplayServer.screen_get_size(0)
 
+# CLICK SOUND
+@onready var click_sound: AudioStreamPlayer2D = $click_sound
+
 var user_prefs: UserPreferences
 var bus_index_music
 var bus_index_soundfx
@@ -25,6 +28,7 @@ func _ready() -> void:
 		display_mode_option_button.selected = user_prefs.displaymode
 
 func _on_back_button_pressed() -> void:
+	click_sound.play()
 	get_parent().visible = true
 	queue_free()
 
@@ -34,15 +38,14 @@ func _on_music_hslider_value_changed(value: float) -> void:
 		user_prefs.music_audio_level = value
 		user_prefs.save()
 
-
 func _on_sound_fx_hslider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(2,linear_to_db(value))
 	if user_prefs:
 		user_prefs.soundFx_audio_level = value
 		user_prefs.save()
 
-
 func _on_display_mode_option_button_item_selected(index: int) -> void:
+	click_sound.play()
 	const defaultSize: Vector2i = Vector2i(640*2,360*2)
 	
 	match index: 
@@ -58,3 +61,6 @@ func _on_display_mode_option_button_item_selected(index: int) -> void:
 	if user_prefs:
 		user_prefs.displaymode = index
 		user_prefs.save()
+
+func _on_display_mode_option_button_pressed() -> void:
+	click_sound.play()

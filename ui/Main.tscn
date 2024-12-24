@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp7mh1qvhvi2u"]
+
+[ext_resource type="PackedScene" uid="uid://bakcqeqs0mi0e" path="res://addons/game_start.tscn" id="1_v7n5x"]
+[ext_resource type="AudioStream" uid="uid://gl0to25op1ka" path="res://assets/Musics/4 - Village.ogg" id="2_5jusl"]
+
+[node name="Main" type="Node2D"]
+
+[node name="main_menu_control" parent="." instance=ExtResource("1_v7n5x")]
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_5jusl")
+autoplay = true
+bus = &"Music"

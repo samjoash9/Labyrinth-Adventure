@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://bfkhq2vf0a3gf"]
+[gd_scene load_steps=28 format=4 uid="uid://bfkhq2vf0a3gf"]
 
 [ext_resource type="Texture2D" uid="uid://dmibqs7ant8f6" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetFloor.png" id="1_4m24w"]
 [ext_resource type="Script" path="res://scenes/central_hub.gd" id="1_jfdxu"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://scenes/portals/knight_stone.gd" id="14_krmdj"]
 [ext_resource type="PackedScene" uid="uid://dvtdjrwn86a6p" path="res://scenes/portals/rogue_stone.tscn" id="14_ncom1"]
 [ext_resource type="Script" path="res://scenes/portals/wizard_stone.gd" id="14_uvpby"]
+[ext_resource type="AudioStream" uid="uid://cpbi4krdkvg3f" path="res://assets/Musics/17 - Fight.ogg" id="18_gaad8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o37wm"]
 radius = 50.0
@@ -2361,8 +2362,9 @@ tile_set = SubResource("TileSet_x0d71")
 position = Vector2(171, 142)
 scale = Vector2(0.09, 0.09)
 
-[node name="Node2D" parent="." instance=ExtResource("7_hv86f")]
-position = Vector2(308, 144)
+[node name="blacksmith" parent="." instance=ExtResource("7_hv86f")]
+z_index = 12
+position = Vector2(312, 144)
 scale = Vector2(0.1, 0.1)
 
 [node name="central_hub_hud" parent="." instance=ExtResource("10_nyvvm")]
@@ -2400,6 +2402,12 @@ script = ExtResource("14_krmdj")
 
 [node name="knight_interaction" type="CollisionShape2D" parent="knight_stone/Area2D"]
 shape = SubResource("CircleShape2D_tk2kj")
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_gaad8")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
 [connection signal="body_entered" from="central_hub_portal/Area2D" to="central_hub_portal" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="rogue_stone/Area2D2" to="rogue_stone" method="_on_area_2d_2_body_entered"]
