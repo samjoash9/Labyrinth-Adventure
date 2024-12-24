@@ -27,7 +27,11 @@ var weapon: Node2D
 func _ready() -> void:
 #	Load Selected Class Resource
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	SELECTED_CLASS  = load("res://resources/jobs/%s.tres" % GameManager.selected_hero)
+=======
+	SELECTED_CLASS  = load("res://resources/jobs/rouge.tres")
+>>>>>>> Stashed changes
 =======
 	SELECTED_CLASS  = load("res://resources/jobs/rouge.tres")
 >>>>>>> Stashed changes

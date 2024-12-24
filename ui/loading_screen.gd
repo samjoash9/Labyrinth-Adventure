@@ -6,5 +6,8 @@ func _on_maze_generator_map_loaded() -> void:
 =======
 	await get_tree().create_timer(2).timeout
 	SceneManager.fade_in()
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 	queue_free()
