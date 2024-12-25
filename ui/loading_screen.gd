@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var progress_bar: ProgressBar = $Control/Panel/VBoxContainer/ProgressBar
 @onready var music: AudioStreamPlayer = $"../music"
 @onready var player: Player = $"../Player"
+@onready var timer: Timer = $"../game_hud_pause/Timer"
 
 func _on_maze_generator_map_loaded() -> void:
 	for i in range(101):
@@ -12,4 +13,5 @@ func _on_maze_generator_map_loaded() -> void:
 	player.set_process(true)
 	SceneManager.fade_in()
 	music.play()
+	timer.start()
 	queue_free()

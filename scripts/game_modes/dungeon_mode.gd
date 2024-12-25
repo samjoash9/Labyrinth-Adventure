@@ -2,9 +2,9 @@ extends Node2D
 
 @onready var player: Player = $Player
 @onready var camera_2d: Camera2D = $Player/PlayerBodyCollision/Camera2D
-@onready var pause: CanvasLayer = $pause
 @onready var game_status: CanvasLayer = $game_status
 @onready var dungeon_portal: AnimatedSprite2D = %dungeon_portal
+@onready var game_hud_pause: CanvasLayer = $game_hud_pause
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,6 +21,6 @@ func _ready() -> void:
 func _on_area_2d_body_entered(body: Player) -> void:
 	game_status.visible = true
 	
-	pause.visible = false
+	game_hud_pause.visible = false
 	player.get_node("HUD").visible = false
 	player.set_process(false)

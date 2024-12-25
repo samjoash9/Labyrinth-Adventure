@@ -1,0 +1,90 @@
+[gd_scene load_steps=10 format=3 uid="uid://c423bd87f8cy5"]
+
+[ext_resource type="Script" path="res://ui/in_game_pause.gd" id="1_cuast"]
+[ext_resource type="Texture2D" uid="uid://di70broao655r" path="res://assets/Images/IconsFlat-160.png" id="1_y7tit"]
+[ext_resource type="Theme" uid="uid://iivwh67cjc1k" path="res://scenes/UI/base_theme.tres" id="2_32j0l"]
+[ext_resource type="Script" path="res://ui/timer.gd" id="4_1dj7n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g5lpa"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d6j2p"]
+texture = ExtResource("1_y7tit")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(1260, 1288, 200, 144)
+modulate_color = Color(0.76662, 0.76662, 0.76662, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wv1wp"]
+texture = ExtResource("1_y7tit")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_bottom = 2.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(1260, 1284, 200, 152)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_judmb"]
+texture = ExtResource("1_y7tit")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(1260, 1288, 200, 144)
+modulate_color = Color(0.796243, 0.796243, 0.796243, 1)
+
+[sub_resource type="Theme" id="Theme_rmj4g"]
+Button/styles/focus = SubResource("StyleBoxFlat_g5lpa")
+Button/styles/hover = SubResource("StyleBoxTexture_d6j2p")
+Button/styles/normal = SubResource("StyleBoxTexture_wv1wp")
+Button/styles/pressed = SubResource("StyleBoxTexture_judmb")
+
+[node name="game_hud_pause" type="CanvasLayer"]
+script = ExtResource("1_cuast")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 31.0
+theme = ExtResource("2_32j0l")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="timer_label" type="Label" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "TIME: "
+
+[node name="pause" type="Button" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme = SubResource("Theme_rmj4g")
+text = "   "
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+script = ExtResource("4_1dj7n")

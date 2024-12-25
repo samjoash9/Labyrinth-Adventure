@@ -1,64 +1,17 @@
-[gd_scene load_steps=19 format=3 uid="uid://gpo24n2hi45r"]
+[gd_scene load_steps=13 format=3 uid="uid://gpo24n2hi45r"]
 
 [ext_resource type="Script" path="res://scripts/game_modes/green_mode.gd" id="1_jhivi"]
 [ext_resource type="PackedScene" uid="uid://dwyhebwkim47x" path="res://scenes/game_modes/tilesets/green.tscn" id="1_ocduj"]
 [ext_resource type="PackedScene" uid="uid://gntrd0281yiq" path="res://scenes/game_modes/Maze_Generator.tscn" id="1_ql1b5"]
 [ext_resource type="PackedScene" uid="uid://br1vuxb82exst" path="res://scenes/game_modes/objects/green_objects.tscn" id="2_2y7qd"]
 [ext_resource type="PackedScene" uid="uid://cp4c2x3wsfo5p" path="res://ui/loading_screen.tscn" id="5_01dn4"]
+[ext_resource type="PackedScene" uid="uid://c423bd87f8cy5" path="res://ui/game_hud_pause.tscn" id="6_8w3i6"]
 [ext_resource type="AudioStream" uid="uid://burxw1457iytb" path="res://assets/Musics/26 - Lost Village.ogg" id="6_tt6st"]
-[ext_resource type="Script" path="res://ui/in_game_pause.gd" id="7_801lv"]
 [ext_resource type="PackedScene" uid="uid://01cq3ethui3i" path="res://characters/baseCharacter/player.tscn" id="7_vvuvv"]
-[ext_resource type="Texture2D" uid="uid://di70broao655r" path="res://assets/Images/IconsFlat-160.png" id="8_1l8wp"]
 [ext_resource type="PackedScene" uid="uid://csdl2wqpk36bk" path="res://common/fx/menu_click_sound.tscn" id="10_ytskn"]
 [ext_resource type="PackedScene" uid="uid://dgthph7v8cafd" path="res://ui/game_status.tscn" id="11_u1e0f"]
 [ext_resource type="PackedScene" uid="uid://cawigphsjmbeu" path="res://scenes/portals/green_portal.tscn" id="12_e83j0"]
 [ext_resource type="Script" path="res://scenes/portals/green_portal.gd" id="13_jldfc"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yyioc"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m4p85"]
-texture = ExtResource("8_1l8wp")
-texture_margin_left = 2.0
-texture_margin_top = 2.0
-texture_margin_right = 2.0
-texture_margin_bottom = 2.0
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
-region_rect = Rect2(1260, 1288, 200, 144)
-modulate_color = Color(0.76662, 0.76662, 0.76662, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1tvyv"]
-texture = ExtResource("8_1l8wp")
-texture_margin_left = 2.0
-texture_margin_top = 2.0
-texture_margin_bottom = 2.0
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
-region_rect = Rect2(1260, 1284, 200, 152)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wr5n6"]
-texture = ExtResource("8_1l8wp")
-texture_margin_left = 2.0
-texture_margin_top = 2.0
-texture_margin_right = 2.0
-texture_margin_bottom = 2.0
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
-region_rect = Rect2(1260, 1288, 200, 144)
-modulate_color = Color(0.796243, 0.796243, 0.796243, 1)
-
-[sub_resource type="Theme" id="Theme_28oav"]
-Button/styles/focus = SubResource("StyleBoxFlat_yyioc")
-Button/styles/hover = SubResource("StyleBoxTexture_m4p85")
-Button/styles/normal = SubResource("StyleBoxTexture_1tvyv")
-Button/styles/pressed = SubResource("StyleBoxTexture_wr5n6")
 
 [node name="Green_Mode" type="Node2D"]
 script = ExtResource("1_jhivi")
@@ -76,6 +29,9 @@ tile_map_data = PackedByteArray()
 
 [node name="Player" parent="." instance=ExtResource("7_vvuvv")]
 
+[node name="HUD" parent="Player" index="0"]
+visible = false
+
 [node name="DebugUI" parent="Player" index="1"]
 visible = false
 
@@ -84,21 +40,7 @@ zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
-[node name="pause" type="CanvasLayer" parent="."]
-script = ExtResource("7_801lv")
-
-[node name="Button" type="Button" parent="pause"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -74.0
-offset_top = 13.0
-offset_right = -15.0
-offset_bottom = 44.0
-grow_horizontal = 0
-size_flags_horizontal = 6
-size_flags_vertical = 3
-theme = SubResource("Theme_28oav")
+[node name="game_hud_pause" parent="." instance=ExtResource("6_8w3i6")]
 
 [node name="loading_screen" parent="." instance=ExtResource("5_01dn4")]
 
@@ -117,18 +59,24 @@ parameters/looping = true
 visible = false
 
 [node name="green_portal" parent="." instance=ExtResource("12_e83j0")]
+visible = false
 z_index = 100
-scale = Vector2(0.8, 0.8)
+scale = Vector2(1e-05, 1e-05)
 script = ExtResource("13_jldfc")
+
+[node name="CollisionShape2D" parent="green_portal/Area2D" index="0"]
+disabled = true
 
 [connection signal="last_index" from="Maze_Generator" to="green_portal" method="_on_maze_generator_last_index"]
 [connection signal="map_loaded" from="Maze_Generator" to="loading_screen" method="_on_maze_generator_map_loaded"]
-[connection signal="pressed" from="pause/Button" to="pause" method="_on_button_pressed"]
+[connection signal="pressed" from="game_hud_pause/Control/MarginContainer/HBoxContainer/pause" to="game_hud_pause" method="_on_button_pressed"]
+[connection signal="timeout" from="game_hud_pause/Timer" to="green_portal" method="_on_timer_timeout"]
 [connection signal="pressed" from="game_status/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/restart" to="game_status" method="_on_restart_pressed"]
 [connection signal="pressed" from="game_status/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/quit" to="game_status" method="_on_quit_pressed"]
 [connection signal="body_entered" from="green_portal/Area2D" to="." method="_on_area_2d_body_entered"]
 
 [editable path="Player"]
+[editable path="game_hud_pause"]
 [editable path="loading_screen"]
 [editable path="game_status"]
 [editable path="green_portal"]

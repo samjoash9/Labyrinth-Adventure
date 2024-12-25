@@ -3,7 +3,7 @@ extends Node2D
 @onready var player: Player = $Player
 @onready var camera_2d: Camera2D = $Player/PlayerBodyCollision/Camera2D
 @onready var game_status: CanvasLayer = $game_status
-@onready var pause: CanvasLayer = $pause
+@onready var game_hud_pause: CanvasLayer = $game_hud_pause
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,9 +17,9 @@ func _ready() -> void:
 	camera_2d.limit_bottom = GameManager.map_rooms * 27 * 16
 	camera_2d.limit_right = GameManager.map_rooms * 27 * 16
 
-
 func _on_area_2d_body_entered(body: Player) -> void:
 	game_status.visible = true
-	player.set_process(false)
+	
+	game_hud_pause.visible = false
 	player.get_node("HUD").visible = false
-	pause.visible = false
+	player.set_process(false)
