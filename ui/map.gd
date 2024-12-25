@@ -31,7 +31,7 @@ func confirmation(mode: String, level: int):
 func _on_confirm_pressed() -> void:
 	click_sound.play()
 	# generate level based on pressed level
-	GameManager.map_rooms += GameManager.selected_level
+	GameManager.map_rooms = GameManager.selected_level + 1
 	GameManager.mapSize = GameManager.map_rooms * GameManager.PATTERN_SIZE
 	GameManager.object_map_size = GameManager.mapSize - GameManager.PATTERN_SIZE
 	

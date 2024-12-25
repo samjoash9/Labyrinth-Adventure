@@ -19,20 +19,9 @@ func _on_resume_pressed() -> void:
 
 func _on_restart_pressed() -> void:
 	click_sound.play()
-	if GameManager.selected_mode and GameManager.selected_level:
-		match GameManager.selected_mode:
-			"green":
-				SceneManager.change_scene(
-				"res://scenes/game_modes/Green_Mode.tscn",
-			  { "pattern": "scribbles", "pattern_leave": ""})
-			"dungeon":
-				SceneManager.change_scene(
-				"res://scenes/game_modes/Dungeon_mode.tscn",
-			  { "pattern": "scribbles", "pattern_leave": ""})
-			"lava":
-				SceneManager.change_scene(
-				"res://scenes/game_modes/Lava_mode.tscn",
-			  { "pattern": "scribbles", "pattern_leave": ""})
+	SceneManager.fade_in()
+	get_tree().reload_current_scene()
+	visible = false
 
 func _on_settings_pressed() -> void:
 	click_sound.play()

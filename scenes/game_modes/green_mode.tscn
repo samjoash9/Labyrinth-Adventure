@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://gpo24n2hi45r"]
+[gd_scene load_steps=19 format=3 uid="uid://gpo24n2hi45r"]
 
 [ext_resource type="Script" path="res://scripts/game_modes/green_mode.gd" id="1_jhivi"]
 [ext_resource type="PackedScene" uid="uid://dwyhebwkim47x" path="res://scenes/game_modes/tilesets/green.tscn" id="1_ocduj"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://01cq3ethui3i" path="res://characters/baseCharacter/player.tscn" id="7_vvuvv"]
 [ext_resource type="Texture2D" uid="uid://di70broao655r" path="res://assets/Images/IconsFlat-160.png" id="8_1l8wp"]
 [ext_resource type="PackedScene" uid="uid://csdl2wqpk36bk" path="res://common/fx/menu_click_sound.tscn" id="10_ytskn"]
+[ext_resource type="PackedScene" uid="uid://dgthph7v8cafd" path="res://ui/game_status.tscn" id="11_u1e0f"]
+[ext_resource type="PackedScene" uid="uid://cawigphsjmbeu" path="res://scenes/portals/green_portal.tscn" id="12_e83j0"]
+[ext_resource type="Script" path="res://scenes/portals/green_portal.gd" id="13_jldfc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yyioc"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -110,9 +113,22 @@ parameters/looping = true
 
 [node name="click_sound" parent="." instance=ExtResource("10_ytskn")]
 
-[connection signal="last_index" from="Maze_Generator" to="." method="_on_maze_generator_last_index"]
+[node name="game_status" parent="." instance=ExtResource("11_u1e0f")]
+visible = false
+
+[node name="green_portal" parent="." instance=ExtResource("12_e83j0")]
+z_index = 100
+scale = Vector2(0.8, 0.8)
+script = ExtResource("13_jldfc")
+
+[connection signal="last_index" from="Maze_Generator" to="green_portal" method="_on_maze_generator_last_index"]
 [connection signal="map_loaded" from="Maze_Generator" to="loading_screen" method="_on_maze_generator_map_loaded"]
 [connection signal="pressed" from="pause/Button" to="pause" method="_on_button_pressed"]
+[connection signal="pressed" from="game_status/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/restart" to="game_status" method="_on_restart_pressed"]
+[connection signal="pressed" from="game_status/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/quit" to="game_status" method="_on_quit_pressed"]
+[connection signal="body_entered" from="green_portal/Area2D" to="." method="_on_area_2d_body_entered"]
 
 [editable path="Player"]
 [editable path="loading_screen"]
+[editable path="game_status"]
+[editable path="green_portal"]

@@ -116,7 +116,7 @@ func init_maze():
 		last_index.y * 16 * GameManager.map_rooms + (240 if last_index.y == 0 else -190))
 	
 	emit_signal("last_index", portal_position)
-	
+
 func apply_noise():
 	var length = len(noise_tiles) - 1 
 	for x in range(mapSize):
