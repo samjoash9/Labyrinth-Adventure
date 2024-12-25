@@ -2400,7 +2400,7 @@ script = ExtResource("14_krmdj")
 shape = SubResource("CircleShape2D_tk2kj")
 
 [node name="wizard_stone" parent="." instance=ExtResource("12_8xpxx")]
-position = Vector2(287, 25)
+position = Vector2(280, 24)
 scale = Vector2(0.2, 0.2)
 autoplay = "default"
 script = ExtResource("14_uvpby")

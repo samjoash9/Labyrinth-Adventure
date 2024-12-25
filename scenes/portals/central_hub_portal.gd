@@ -1,9 +1,11 @@
 extends AnimatedSprite2D
 
+# CENTRAL HUB PORTAL
+
 @onready var player: Player = $"../Player"
 @onready var portal_sound: AudioStreamPlayer2D = $portal_sound
 
-func _on_area_2d_body_entered(body: PhysicsBody2D) -> void:
+func _on_area_2d_body_entered(body: Player) -> void:
 	portal_sound.play()
 	GameManager.central_hub_last_position = player.global_position
 	
