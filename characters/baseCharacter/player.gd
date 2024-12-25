@@ -95,6 +95,9 @@ func _ready() -> void:
 
 var nearest_enemy : CharacterBody2D
 var nearest_enemy_distance : float = INF
+	character = load("res://resources/jobs/" + GameManager.selected_hero + ".tres")
+	scale.x = 0.5
+	scale.y = 0.5
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -133,3 +136,23 @@ func debug_killAllEnemy():
 	for i in get_tree().get_nodes_in_group("loot"):
 		i.magnet_stregth = 10
 		i.set_process(true)
+
+func reselect_character():
+	match GameManager.selected_hero:
+		"rogue":
+			if has_node("KnightAnimations"):
+				get_node("KnightAnimations").queue_free()
+			if has_node("WizardAnimations"):
+				get_node("WizardAnimations").queue_free()
+		"knight":
+			if has_node("RougeAnimations"):
+				get_node("RougeAnimations").queue_free()
+			if has_node("WizardAnimations"):
+				get_node("WizardAnimations").queue_free()
+		"wizard":
+			if has_node("KnightAnimations"):
+				get_node("KnightAnimations").queue_free()
+			if has_node("RougeAnimations"):
+				get_node("RougeAnimations").queue_free()
+	
+	character = load("res://resources/jobs/%s.tres" % GameManager.selected_hero)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d22qntanl6lep"]
+[gd_scene load_steps=12 format=3 uid="uid://d22qntanl6lep"]
 
 [ext_resource type="Theme" uid="uid://iivwh67cjc1k" path="res://scenes/UI/base_theme.tres" id="1_b6oyx"]
 [ext_resource type="Script" path="res://ui/player_profile.gd" id="1_d8cig"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://fw7nnjk48sem" path="res://assets/Ninja Adventure - Asset Pack/Ui/Icon/Spell/Heal.png" id="5_k4t70"]
 [ext_resource type="Texture2D" uid="uid://bflr18if7opsj" path="res://assets/Images/swiftness.png" id="6_ed7h6"]
 [ext_resource type="Texture2D" uid="uid://dee7a6ei2e6c" path="res://characters/knight/sprites/special_skill.svg" id="7_nb8s4"]
+[ext_resource type="PackedScene" uid="uid://csdl2wqpk36bk" path="res://common/fx/menu_click_sound.tscn" id="9_dbiso"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5d3ft"]
 texture = ExtResource("1_gnac8")
@@ -89,7 +90,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="Control/Panel/PanelContainer/VBoxContainer/Body/Sprite_container"]
+[node name="hero_image" type="Sprite2D" parent="Control/Panel/PanelContainer/VBoxContainer/Body/Sprite_container"]
 position = Vector2(85, 83)
 scale = Vector2(0.22, 0.22)
 texture = ExtResource("3_oly0a")
@@ -147,5 +148,7 @@ size_flags_horizontal = 3
 position = Vector2(15, 83)
 scale = Vector2(0.42, 0.42)
 texture = ExtResource("7_nb8s4")
+
+[node name="click_sound" parent="." instance=ExtResource("9_dbiso")]
 
 [connection signal="pressed" from="Control/Panel/PanelContainer/VBoxContainer/Header/exit" to="." method="_on_exit_pressed"]

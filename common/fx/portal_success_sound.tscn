@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbw6rx0qk54qr"]
+
+[ext_resource type="AudioStream" uid="uid://do2hx312tdrhv" path="res://assets/Sound FX/Game/Success3.wav" id="1_d1ten"]
+
+[node name="portal_success_sound" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_d1ten")
+bus = &"SoundFX"

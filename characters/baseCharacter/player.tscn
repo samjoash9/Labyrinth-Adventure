@@ -3,11 +3,12 @@
 [ext_resource type="Script" path="res://characters/baseCharacter/player.gd" id="1_a7jnc"]
 [ext_resource type="Texture2D" uid="uid://sj5fu2ew5m3q" path="res://assets/Game Icon.png" id="2_3j21r"]
 [ext_resource type="FontFile" uid="uid://hvg11s76s4ff" path="res://themes/GravityRegular5.ttf" id="3_74pua"]
-[ext_resource type="PackedScene" uid="uid://beuglkms01sq6" path="res://ui/passive_slot.tscn" id="3_ipme1"]
-[ext_resource type="PackedScene" uid="uid://pgbdho2yu1br" path="res://ui/slot.tscn" id="5_0asyh"]
+[ext_resource type="PackedScene" path="res://ui/passive_slot.tscn" id="3_ipme1"]
+[ext_resource type="PackedScene" path="res://ui/slot.tscn" id="5_0asyh"]
 [ext_resource type="Script" path="res://ui/optionsupgrade.gd" id="6_tq6tw"]
 [ext_resource type="PackedScene" uid="uid://rtn180tpi6kf" path="res://core/effects/walksmoke.tscn" id="8_ubk1n"]
 [ext_resource type="PackedScene" uid="uid://s5diqyt5yw74" path="res://common/item_magnet/item_magnet.tscn" id="9_ie3pg"]
+[ext_resource type="Theme" uid="uid://iivwh67cjc1k" path="res://scenes/UI/base_theme.tres" id="8_p8ppg"]
 [ext_resource type="Script" path="res://ui/debug_ui.gd" id="10_sly3d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1ly4"]
@@ -73,6 +74,7 @@ radius = 8.0
 height = 16.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 10
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_a7jnc")
@@ -237,6 +239,7 @@ anchor_right = 1.0
 offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
+theme = ExtResource("8_p8ppg")
 
 [node name="Label9" type="Label" parent="DebugUI/VBoxContainer"]
 layout_mode = 2

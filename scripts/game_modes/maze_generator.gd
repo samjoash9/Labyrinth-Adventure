@@ -1,8 +1,5 @@
 extends TileMapLayer
 
-@onready var loading_screen: CanvasLayer = $"../loading_screen"
-@onready var progress_bar: ProgressBar = $"../loading_screen/Control/Panel/VBoxContainer/ProgressBar"
-
 @export var wall_patterns: TileMapLayer
 @export var maze_object_patterns: TileMapLayer
 @export var mode: int
@@ -14,7 +11,10 @@ var object_map_size = GameManager.object_map_size
 var noise_tiles = []
 var object_pattern_count = 0
 
+signal last_index(portal_position: Vector2i)
 signal map_loaded
+
+var portal_position: Vector2i
 
 # THREADS
 var thread1: Thread
@@ -49,7 +49,6 @@ func _ready() -> void:
 	thread2.wait_to_finish()
 	
 	await init_maze()
-	progress_bar.value = 100
 	emit_signal("map_loaded")
 
 const N = 1 
@@ -68,6 +67,7 @@ func init_maze():
 	var patterns = {}
 	var unvisited = []
 	var stack = []
+	var last_index: Vector2i
 
 	# Initialize patterns and unvisited list
 	for x in range(0, mapSize, PATTERN_SIZE):
@@ -76,9 +76,6 @@ func init_maze():
 			var key = Vector2i(x, y)
 			patterns[key] = 15
 	
-	var iterations = len(unvisited) + 1
-	var i = 0
-
 	var current = Vector2i(0, 0)
 	unvisited.erase(current) 
 
@@ -104,14 +101,21 @@ func init_maze():
 			# Move to the next cell
 			current = next
 			unvisited.erase(current)  
+			
+			# record the last index to spawn the portal
+			last_index = current
 		else:
 			# Backtrack
 			if stack.size() > 0:
 				current = stack.pop_back()
 			else:
 				break 
-		i += 1
-		progress_bar.value = ((float(i) / iterations) * 100)
+	
+	portal_position = Vector2i(
+		last_index.x * 16 * GameManager.map_rooms + (215 if last_index.x == 0 else -215),
+		last_index.y * 16 * GameManager.map_rooms + (240 if last_index.y == 0 else -190))
+	
+	emit_signal("last_index", portal_position)
 
 func apply_noise():
 	var length = len(noise_tiles) - 1 

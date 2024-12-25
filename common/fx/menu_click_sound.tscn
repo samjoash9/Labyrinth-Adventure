@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://csdl2wqpk36bk"]
+
+[ext_resource type="AudioStream" uid="uid://ccuuov71h10fu" path="res://assets/Sound FX/Menu/Menu2.wav" id="1_hwaxd"]
+
+[node name="click_sound" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_hwaxd")
+volume_db = 5.0
+bus = &"SoundFX"

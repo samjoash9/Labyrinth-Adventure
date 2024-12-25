@@ -1,8 +1,8 @@
 extends AnimatedSprite2D
 
-@onready var player: playerCharacter = $"../Player"
-const PLAYER = preload("res://characters/player.tscn")
+@onready var player: Player = $"../Player"
 @onready var mini_village: central_hub = $".."
+const PLAYER = preload("res://characters/baseCharacter/player.tscn")
 
 # KNIGHT STONE SCRIPT
 @onready var rogue_stone: AnimatedSprite2D = $"../rogue_stone"
@@ -24,10 +24,10 @@ func _process(delta: float) -> void:
 			run_dialogue("Knight Stone")
 			player.set_process(false)
 			
-func _on_area_2d_body_entered(body: playerCharacter) -> void:
+func _on_area_2d_body_entered(body: Player) -> void:
 	player_in_area = true
 
-func _on_area_2d_body_exited(body: playerCharacter) -> void:
+func _on_area_2d_body_exited(body: Player) -> void:
 	player_in_area = false
 	
 func run_dialogue(dialogue_string):
@@ -35,7 +35,6 @@ func run_dialogue(dialogue_string):
 
 func DialogicSignal(arg: String):
 	if arg == "knight_confirm":
-		print("nigga")
 		player.set_process(true)
 		# set visibility of wizard stone into false
 		visible = false
@@ -52,3 +51,5 @@ func DialogicSignal(arg: String):
 
 		GameManager.selected_hero = "knight"
 		player.reselect_character()
+	if arg == "knight_cancel":
+		player.set_process(true)

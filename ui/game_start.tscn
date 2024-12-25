@@ -1,0 +1,252 @@
+[gd_scene load_steps=24 format=3 uid="uid://dmv5cla7avixe"]
+
+[ext_resource type="Script" path="res://scenes/UI/main_menu.gd" id="1_aw0id"]
+[ext_resource type="Script" path="res://scenes/UI/parallax_background.gd" id="2_r2ya0"]
+[ext_resource type="Texture2D" uid="uid://beinwgqigjt80" path="res://assets/parallax/nature_3/1.png" id="3_b5hh4"]
+[ext_resource type="Texture2D" uid="uid://c05h8t16tnfv" path="res://assets/parallax/nature_3/2.png" id="4_p5vpw"]
+[ext_resource type="Texture2D" uid="uid://b2i8bon21174h" path="res://assets/parallax/nature_3/3.png" id="5_a5u83"]
+[ext_resource type="Texture2D" uid="uid://hy01yidxcfdt" path="res://assets/parallax/nature_3/4.png" id="6_w5kth"]
+[ext_resource type="Theme" uid="uid://iivwh67cjc1k" path="res://scenes/UI/base_theme.tres" id="7_lc7si"]
+[ext_resource type="Texture2D" uid="uid://di70broao655r" path="res://assets/Images/IconsFlat-160.png" id="8_6aixh"]
+[ext_resource type="Texture2D" uid="uid://chxm33cij47bg" path="res://assets/UI/wood_pack_icons/MenusIcons_34x34.png" id="9_xp30b"]
+[ext_resource type="AudioStream" uid="uid://ccuuov71h10fu" path="res://assets/Sound FX/Menu/Menu2.wav" id="10_2r2o8"]
+[ext_resource type="AudioStream" uid="uid://gl0to25op1ka" path="res://assets/Musics/4 - Village.ogg" id="11_blnsv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_15le6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nepwt"]
+texture = ExtResource("8_6aixh")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(1140, 1300, 120, 130)
+modulate_color = Color(0.712129, 0.712129, 0.712129, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x3fjm"]
+texture = ExtResource("8_6aixh")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+region_rect = Rect2(1138, 1300, 125, 133)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h4r3a"]
+texture = ExtResource("8_6aixh")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(1138, 1299, 124, 133)
+modulate_color = Color(0.641934, 0.641934, 0.641934, 1)
+
+[sub_resource type="Theme" id="Theme_o1re3"]
+Button/styles/focus = SubResource("StyleBoxFlat_15le6")
+Button/styles/hover = SubResource("StyleBoxTexture_nepwt")
+Button/styles/normal = SubResource("StyleBoxTexture_x3fjm")
+Button/styles/pressed = SubResource("StyleBoxTexture_h4r3a")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x6135"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_erm6c"]
+texture = ExtResource("9_xp30b")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+region_rect = Rect2(110, 7, 20, 20)
+modulate_color = Color(0.695503, 0.695503, 0.695503, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_txwdd"]
+texture = ExtResource("9_xp30b")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+region_rect = Rect2(110, 7, 20, 20)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ueme4"]
+texture = ExtResource("9_xp30b")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_left = 5.0
+expand_margin_top = 10.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+region_rect = Rect2(110, 7, 20, 20)
+modulate_color = Color(0.629675, 0.629675, 0.629675, 1)
+
+[sub_resource type="Theme" id="Theme_l28pk"]
+Button/styles/focus = SubResource("StyleBoxFlat_x6135")
+Button/styles/hover = SubResource("StyleBoxTexture_erm6c")
+Button/styles/normal = SubResource("StyleBoxTexture_txwdd")
+Button/styles/pressed = SubResource("StyleBoxTexture_ueme4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_52rr6"]
+texture = ExtResource("8_6aixh")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(188, 648, 104, 144)
+
+[sub_resource type="Theme" id="Theme_p7cti"]
+Button/styles/normal = SubResource("StyleBoxTexture_52rr6")
+
+[node name="main_menu_control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aw0id")
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+scale = Vector2(2.2, 2.2)
+transform = Transform2D(2.2, 0, 0, 2.2, 0, 0)
+script = ExtResource("2_r2ya0")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
+texture = ExtResource("3_b5hh4")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground2"]
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer2"]
+texture = ExtResource("4_p5vpw")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground2"]
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer3"]
+texture = ExtResource("5_a5u83")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground2"]
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer4"]
+texture = ExtResource("6_w5kth")
+centered = false
+
+[node name="main_menu" type="CanvasLayer" parent="."]
+
+[node name="main_menu_control" type="Control" parent="main_menu"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme = ExtResource("7_lc7si")
+
+[node name="MarginContainer" type="MarginContainer" parent="main_menu/main_menu_control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = -28.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="main_menu/main_menu_control/MarginContainer"]
+layout_direction = 1
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="main_menu/main_menu_control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="start_button" type="Button" parent="main_menu/main_menu_control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "START GAME
+"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="main_menu/main_menu_control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="exit_button" type="Button" parent="main_menu/main_menu_control/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 8
+theme = SubResource("Theme_o1re3")
+text = " "
+
+[node name="Label" type="Label" parent="main_menu/main_menu_control/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+text = "VER. 1.0.0 - I_WONT_LET_YOU_GO"
+
+[node name="settings_button_container" type="VBoxContainer" parent="main_menu/main_menu_control/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+
+[node name="settings_button" type="Button" parent="main_menu/main_menu_control/MarginContainer/VBoxContainer/HBoxContainer2/settings_button_container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme = SubResource("Theme_l28pk")
+text = " "
+
+[node name="about_button" type="Button" parent="main_menu/main_menu_control/MarginContainer/VBoxContainer/HBoxContainer2/settings_button_container"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme = SubResource("Theme_p7cti")
+text = " "
+
+[node name="click_sound" type="AudioStreamPlayer2D" parent="main_menu"]
+stream = ExtResource("10_2r2o8")
+
+[node name="main_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_blnsv")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[connection signal="pressed" from="main_menu/main_menu_control/MarginContainer/VBoxContainer/HBoxContainer/start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="main_menu/main_menu_control/MarginContainer/VBoxContainer/HBoxContainer2/exit_button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="main_menu/main_menu_control/MarginContainer/VBoxContainer/HBoxContainer2/settings_button_container/settings_button" to="." method="_on_settings_button_pressed"]

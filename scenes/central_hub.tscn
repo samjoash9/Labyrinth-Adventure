@@ -1,15 +1,16 @@
-[gd_scene load_steps=27 format=4 uid="uid://bfkhq2vf0a3gf"]
+[gd_scene load_steps=29 format=4 uid="uid://bfkhq2vf0a3gf"]
 
 [ext_resource type="Texture2D" uid="uid://dmibqs7ant8f6" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetFloor.png" id="1_4m24w"]
 [ext_resource type="Script" path="res://scenes/central_hub.gd" id="1_jfdxu"]
+[ext_resource type="PackedScene" uid="uid://01cq3ethui3i" path="res://characters/baseCharacter/player.tscn" id="2_dt31g"]
 [ext_resource type="Texture2D" uid="uid://oo6x4w6aivsb" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetElement.png" id="2_hdupt"]
 [ext_resource type="Texture2D" uid="uid://dwkvh4s6mb3pn" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetHouse.png" id="2_qw0b5"]
 [ext_resource type="Texture2D" uid="uid://b8d3w08gyrd8k" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetNature.png" id="3_lfukg"]
 [ext_resource type="Script" path="res://scenes/portals/central_hub_portal.gd" id="4_0a0v4"]
+[ext_resource type="AudioStream" uid="uid://cg4c85rsb5ksn" path="res://assets/Sound FX/Game/Spirit.wav" id="5_te2hw"]
 [ext_resource type="PackedScene" uid="uid://dm62q6y08fg8o" path="res://scenes/portals/central_hub_portal.tscn" id="5_wo05u"]
 [ext_resource type="PackedScene" uid="uid://daxxv2b8obm6d" path="res://scenes/npcs/black_smith_onNode.tscn" id="7_hv86f"]
 [ext_resource type="PackedScene" uid="uid://cfsxr23f07rxu" path="res://scenes/npcs/Weapons_Dealer/Weapons_Dealer_onNode.tscn" id="8_jx01w"]
-[ext_resource type="PackedScene" uid="uid://ve2cvvfk14kv" path="res://characters/player.tscn" id="10_be00a"]
 [ext_resource type="PackedScene" uid="uid://bwrn0w7b76a46" path="res://ui/central_hub_hud.tscn" id="10_nyvvm"]
 [ext_resource type="PackedScene" uid="uid://cg7d8v6yxy0jw" path="res://scenes/portals/wizard_stone.tscn" id="12_8xpxx"]
 [ext_resource type="PackedScene" uid="uid://vdg8vmh50ss2" path="res://scenes/portals/knight_stone.tscn" id="13_hlbhr"]
@@ -17,9 +18,10 @@
 [ext_resource type="Script" path="res://scenes/portals/knight_stone.gd" id="14_krmdj"]
 [ext_resource type="PackedScene" uid="uid://dvtdjrwn86a6p" path="res://scenes/portals/rogue_stone.tscn" id="14_ncom1"]
 [ext_resource type="Script" path="res://scenes/portals/wizard_stone.gd" id="14_uvpby"]
+[ext_resource type="AudioStream" uid="uid://cpbi4krdkvg3f" path="res://assets/Musics/17 - Fight.ogg" id="18_gaad8"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_o37wm"]
-radius = 50.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pumx7"]
+size = Vector2(90, 48)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_alg65"]
 texture = ExtResource("2_hdupt")
@@ -2321,15 +2323,18 @@ radius = 60.208
 [node name="mini_village" type="Node2D"]
 script = ExtResource("1_jfdxu")
 
-[node name="Player" parent="." instance=ExtResource("10_be00a")]
-z_index = 10
-position = Vector2(217, 29)
-scale = Vector2(0.5, 0.5)
+[node name="Player" parent="." instance=ExtResource("2_dt31g")]
+z_index = 12
+z_as_relative = false
 
-[node name="CollisionShape2D" parent="Player" index="0"]
-position = Vector2(0, -10)
+[node name="HUD" parent="Player" index="0"]
+visible = false
 
-[node name="Camera2D" parent="Player" index="1" groups=["player_camera"]]
+[node name="DebugUI" parent="Player" index="1"]
+visible = false
+
+[node name="Camera2D" parent="Player/PlayerBodyCollision" index="0"]
+zoom = Vector2(3, 3)
 
 [node name="central_hub_portal" parent="." instance=ExtResource("5_wo05u")]
 z_index = 100
@@ -2339,9 +2344,14 @@ autoplay = "default"
 script = ExtResource("4_0a0v4")
 
 [node name="Area2D" type="Area2D" parent="central_hub_portal"]
+position = Vector2(-32, -10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="central_hub_portal/Area2D"]
-shape = SubResource("CircleShape2D_o37wm")
+position = Vector2(35, 14)
+shape = SubResource("RectangleShape2D_pumx7")
+
+[node name="portal_sound" type="AudioStreamPlayer2D" parent="central_hub_portal"]
+stream = ExtResource("5_te2hw")
 
 [node name="objects" type="TileMapLayer" parent="."]
 z_index = 11
@@ -2358,12 +2368,14 @@ tile_map_data = PackedByteArray("AAAIAAQAAAALAAcAAAAIAAUAAAALAAgAAAAIAAYAAAALAAg
 tile_set = SubResource("TileSet_x0d71")
 
 [node name="weapons_dealer" parent="." instance=ExtResource("8_jx01w")]
-position = Vector2(171, 142)
+z_index = 11
+position = Vector2(171, 141)
 scale = Vector2(0.09, 0.09)
 
-[node name="Node2D" parent="." instance=ExtResource("7_hv86f")]
-position = Vector2(308, 144)
-scale = Vector2(0.1, 0.1)
+[node name="blacksmith" parent="." instance=ExtResource("7_hv86f")]
+z_index = 11
+position = Vector2(326, 142)
+scale = Vector2(0.2, 0.2)
 
 [node name="central_hub_hud" parent="." instance=ExtResource("10_nyvvm")]
 
@@ -2378,8 +2390,18 @@ position = Vector2(0, -1.90735e-06)
 [node name="rogue_interaction" type="CollisionShape2D" parent="rogue_stone/Area2D2"]
 shape = SubResource("CircleShape2D_tk2kj")
 
+[node name="knight_stone" parent="." instance=ExtResource("13_hlbhr")]
+position = Vector2(247, 3)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("14_krmdj")
+
+[node name="Area2D" type="Area2D" parent="knight_stone"]
+
+[node name="knight_interaction" type="CollisionShape2D" parent="knight_stone/Area2D"]
+shape = SubResource("CircleShape2D_tk2kj")
+
 [node name="wizard_stone" parent="." instance=ExtResource("12_8xpxx")]
-position = Vector2(287, 25)
+position = Vector2(280, 24)
 scale = Vector2(0.2, 0.2)
 autoplay = "default"
 script = ExtResource("14_uvpby")
@@ -2391,22 +2413,18 @@ position = Vector2(0, -5)
 position = Vector2(0, -7.62939e-06)
 shape = SubResource("CircleShape2D_tk2kj")
 
-[node name="knight_stone" parent="." instance=ExtResource("13_hlbhr")]
-position = Vector2(247, 3)
-scale = Vector2(0.2, 0.2)
-script = ExtResource("14_krmdj")
-
-[node name="Area2D" type="Area2D" parent="knight_stone"]
-
-[node name="knight_interaction" type="CollisionShape2D" parent="knight_stone/Area2D"]
-shape = SubResource("CircleShape2D_tk2kj")
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_gaad8")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
 [connection signal="body_entered" from="central_hub_portal/Area2D" to="central_hub_portal" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="rogue_stone/Area2D2" to="rogue_stone" method="_on_area_2d_2_body_entered"]
 [connection signal="body_exited" from="rogue_stone/Area2D2" to="rogue_stone" method="_on_area_2d_2_body_exited"]
-[connection signal="body_entered" from="wizard_stone/Area2D2" to="wizard_stone" method="_on_area_2d_2_body_entered"]
-[connection signal="body_exited" from="wizard_stone/Area2D2" to="wizard_stone" method="_on_area_2d_2_body_exited"]
 [connection signal="body_entered" from="knight_stone/Area2D" to="knight_stone" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="knight_stone/Area2D" to="knight_stone" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="wizard_stone/Area2D2" to="wizard_stone" method="_on_area_2d_2_body_entered"]
+[connection signal="body_exited" from="wizard_stone/Area2D2" to="wizard_stone" method="_on_area_2d_2_body_exited"]
 
 [editable path="Player"]

@@ -1,13 +1,29 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgtge0leu72ds"]
+[gd_scene load_steps=14 format=3 uid="uid://cgtge0leu72ds"]
 
 [ext_resource type="Script" path="res://scripts/game_modes/dungeon_mode.gd" id="1_lel40"]
 [ext_resource type="PackedScene" uid="uid://gntrd0281yiq" path="res://scenes/game_modes/Maze_Generator.tscn" id="2_4rsbj"]
 [ext_resource type="PackedScene" uid="uid://8sotrcyxx4a5" path="res://scenes/game_modes/tilesets/dungeon.tscn" id="3_ddod5"]
+[ext_resource type="PackedScene" uid="uid://lmcbsxwemc2j" path="res://scenes/portals/dungeon_portal.tscn" id="3_ur71p"]
 [ext_resource type="PackedScene" uid="uid://diyb228qqbi12" path="res://scenes/game_modes/objects/dungeon_objects.tscn" id="4_d0f5w"]
 [ext_resource type="PackedScene" uid="uid://cp4c2x3wsfo5p" path="res://ui/loading_screen.tscn" id="5_yeol0"]
+[ext_resource type="AudioStream" uid="uid://cngt26w6g1tfr" path="res://assets/Musics/30 - Ruins.ogg" id="6_d1h1m"]
+[ext_resource type="PackedScene" uid="uid://c423bd87f8cy5" path="res://ui/game_hud_pause.tscn" id="6_k8orw"]
+[ext_resource type="PackedScene" uid="uid://01cq3ethui3i" path="res://characters/baseCharacter/player.tscn" id="7_q65sv"]
+[ext_resource type="PackedScene" uid="uid://dgthph7v8cafd" path="res://ui/game_status.tscn" id="10_pgqwc"]
+[ext_resource type="PackedScene" uid="uid://csdl2wqpk36bk" path="res://common/fx/menu_click_sound.tscn" id="11_fmef0"]
+[ext_resource type="Script" path="res://scenes/portals/dungeon_portal.gd" id="13_2hi4g"]
+[ext_resource type="PackedScene" uid="uid://bbw6rx0qk54qr" path="res://common/fx/portal_success_sound.tscn" id="13_qvf7b"]
 
 [node name="Dungeon_Mode" type="Node2D"]
 script = ExtResource("1_lel40")
+
+[node name="Player" parent="." instance=ExtResource("7_q65sv")]
+
+[node name="DebugUI" parent="Player" index="1"]
+visible = false
+
+[node name="Camera2D" parent="Player/PlayerBodyCollision" index="0"]
+zoom = Vector2(3, 3)
 
 [node name="Maze_Generator" parent="." node_paths=PackedStringArray("wall_patterns", "maze_object_patterns") instance=ExtResource("2_4rsbj")]
 wall_patterns = NodePath("../dungeon_walls")
@@ -18,11 +34,10 @@ mode = 2
 tile_map_data = PackedByteArray()
 
 [node name="dungeon_objects" parent="." instance=ExtResource("4_d0f5w")]
+z_as_relative = false
 tile_map_data = PackedByteArray()
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(458, 487)
-zoom = Vector2(0.5, 0.5)
+[node name="game_hud_pause" parent="." instance=ExtResource("6_k8orw")]
 
 [node name="loading_screen" parent="." instance=ExtResource("5_yeol0")]
 
@@ -33,6 +48,39 @@ text = "Tip: Follow one wall to find your way out!"
 step = 0.1
 rounded = true
 
-[connection signal="map_loaded" from="Maze_Generator" to="loading_screen" method="_on_maze_generator_map_loaded"]
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_d1h1m")
+bus = &"Music"
+parameters/looping = true
 
+[node name="click_sound" parent="." instance=ExtResource("11_fmef0")]
+
+[node name="portal_success_sound" parent="." instance=ExtResource("13_qvf7b")]
+
+[node name="game_status" parent="." instance=ExtResource("10_pgqwc")]
+visible = false
+
+[node name="dungeon_portal" parent="." instance=ExtResource("3_ur71p")]
+unique_name_in_owner = true
+visible = false
+z_index = 100
+position = Vector2(200, 200)
+scale = Vector2(1e-05, 1e-05)
+script = ExtResource("13_2hi4g")
+
+[node name="CollisionShape2D" parent="dungeon_portal/Area2D" index="0"]
+disabled = true
+
+[connection signal="last_index" from="Maze_Generator" to="dungeon_portal" method="_on_maze_generator_last_index"]
+[connection signal="map_loaded" from="Maze_Generator" to="loading_screen" method="_on_maze_generator_map_loaded"]
+[connection signal="pressed" from="game_hud_pause/Control/MarginContainer/HBoxContainer/pause" to="game_hud_pause" method="_on_button_pressed"]
+[connection signal="timeout" from="game_hud_pause/Timer" to="dungeon_portal" method="_on_timer_timeout"]
+[connection signal="pressed" from="game_status/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/restart" to="game_status" method="_on_restart_pressed"]
+[connection signal="pressed" from="game_status/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/quit" to="game_status" method="_on_quit_pressed"]
+[connection signal="body_entered" from="dungeon_portal/Area2D" to="." method="_on_area_2d_body_entered"]
+
+[editable path="Player"]
+[editable path="game_hud_pause"]
 [editable path="loading_screen"]
+[editable path="game_status"]
+[editable path="dungeon_portal"]

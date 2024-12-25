@@ -29,10 +29,12 @@ func _ready() -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
 
 # CENTRAL HUB LAST POSITION
-var central_hub_last_position: Vector2i = Vector2(216, 24)
+var central_hub_last_position: Vector2i = Vector2(216, 6)
 
 # SELECTED HERO
 var selected_hero = "rogue"
+var selected_level: int
+var selected_mode: String
 
 # SPECIFIC MAP TYPES
 # GREEN 
@@ -99,3 +101,7 @@ const LAVA = {
 	],
 	"object_pattern_count": 8
 }
+
+# IN GAME SCORE AND COINS
+var score: int
+var coins: int

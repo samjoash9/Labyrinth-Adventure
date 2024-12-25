@@ -1,58 +1,65 @@
-[gd_scene load_steps=10 format=3 uid="uid://bixh0i4kcao41"]
+[gd_scene load_steps=11 format=3 uid="uid://bixh0i4kcao41"]
 
-[ext_resource type="Texture2D" uid="uid://c3tfv3coxh747" path="res://assets/Characters/NPC/FREE - Blacksmith 2D Pixel Art/Sprites/BLACKSMITH.png" id="1_5i661"]
+[ext_resource type="Texture2D" uid="uid://drmvrij8x74cx" path="res://assets/Characters/NPC/blacksmith.png" id="1_tolim"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ibyk0"]
-atlas = ExtResource("1_5i661")
-region = Rect2(0, 0, 96, 96)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nkua"]
+atlas = ExtResource("1_tolim")
+region = Rect2(246, 0, 194, 240)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r2ik5"]
-atlas = ExtResource("1_5i661")
-region = Rect2(96, 0, 96, 96)
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwjy6"]
+atlas = ExtResource("1_tolim")
+region = Rect2(440, 0, 194, 240)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qr6tk"]
-atlas = ExtResource("1_5i661")
-region = Rect2(192, 0, 96, 96)
+[sub_resource type="AtlasTexture" id="AtlasTexture_witpr"]
+atlas = ExtResource("1_tolim")
+region = Rect2(634, 0, 194, 240)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mcxcw"]
-atlas = ExtResource("1_5i661")
-region = Rect2(288, 0, 96, 96)
+[sub_resource type="AtlasTexture" id="AtlasTexture_sw1oe"]
+atlas = ExtResource("1_tolim")
+region = Rect2(828, 0, 194, 240)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lh77l"]
-atlas = ExtResource("1_5i661")
-region = Rect2(384, 0, 96, 96)
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cl87"]
+atlas = ExtResource("1_tolim")
+region = Rect2(1022, 0, 194, 240)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kwt1r"]
-atlas = ExtResource("1_5i661")
-region = Rect2(480, 0, 96, 96)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dq3h"]
+atlas = ExtResource("1_tolim")
+region = Rect2(1216, 0, 194, 240)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wp8yx"]
-atlas = ExtResource("1_5i661")
-region = Rect2(576, 0, 96, 96)
+[sub_resource type="AtlasTexture" id="AtlasTexture_08h7w"]
+atlas = ExtResource("1_tolim")
+region = Rect2(1410, 0, 194, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ytaw"]
+atlas = ExtResource("1_tolim")
+region = Rect2(1604, 0, 194, 240)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4eej4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ibyk0")
+"texture": SubResource("AtlasTexture_6nkua")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_r2ik5")
+"texture": SubResource("AtlasTexture_cwjy6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qr6tk")
+"texture": SubResource("AtlasTexture_witpr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mcxcw")
+"texture": SubResource("AtlasTexture_sw1oe")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lh77l")
+"texture": SubResource("AtlasTexture_1cl87")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kwt1r")
+"texture": SubResource("AtlasTexture_0dq3h")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wp8yx")
+"texture": SubResource("AtlasTexture_08h7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ytaw")
 }],
 "loop": true,
 "name": &"default",
@@ -63,3 +70,4 @@ animations = [{
 position = Vector2(49, 39)
 sprite_frames = SubResource("SpriteFrames_4eej4")
 autoplay = "default"
+frame_progress = 0.0058554

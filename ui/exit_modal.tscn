@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://by2ph2cwc5x2x"]
+[gd_scene load_steps=4 format=3 uid="uid://by2ph2cwc5x2x"]
 
 [ext_resource type="Theme" uid="uid://iivwh67cjc1k" path="res://scenes/UI/base_theme.tres" id="1_aqirg"]
 [ext_resource type="Script" path="res://ui/exit_modal.gd" id="2_vw81c"]
+[ext_resource type="PackedScene" uid="uid://csdl2wqpk36bk" path="res://common/fx/menu_click_sound.tscn" id="3_1lt8h"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="exit_modal" type="CanvasLayer"]
 script = ExtResource("2_vw81c")
 
 [node name="Control" type="Control" parent="."]
@@ -72,6 +73,8 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 text = "CANCEL"
+
+[node name="click_sound" parent="." instance=ExtResource("3_1lt8h")]
 
 [connection signal="pressed" from="Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/QUIT" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/CANCEL" to="." method="_on_cancel_pressed"]

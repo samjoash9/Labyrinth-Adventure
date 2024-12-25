@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bwrn0w7b76a46"]
+[gd_scene load_steps=18 format=3 uid="uid://bwrn0w7b76a46"]
 
 [ext_resource type="Script" path="res://ui/central_hub_hud.gd" id="1_gfwca"]
 [ext_resource type="Texture2D" uid="uid://chxm33cij47bg" path="res://assets/UI/wood_pack_icons/MenusIcons_34x34.png" id="1_pxv3j"]
+[ext_resource type="Texture2D" uid="uid://di70broao655r" path="res://assets/Images/IconsFlat-160.png" id="3_7iv5q"]
+[ext_resource type="AudioStream" uid="uid://ccuuov71h10fu" path="res://assets/Sound FX/Menu/Menu2.wav" id="3_e20o3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k7txc"]
 texture = ExtResource("1_pxv3j")
@@ -84,6 +86,53 @@ Button/styles/hover = SubResource("StyleBoxTexture_w7vkh")
 Button/styles/normal = SubResource("StyleBoxTexture_1r5oa")
 Button/styles/pressed = SubResource("StyleBoxTexture_1hxme")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u1qs0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g3d5d"]
+texture = ExtResource("3_7iv5q")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 4.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(1284, 636, 152, 168)
+modulate_color = Color(0.783523, 0.783523, 0.783523, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k61cx"]
+texture = ExtResource("3_7iv5q")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(1288, 640, 144, 164)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fsb77"]
+texture = ExtResource("3_7iv5q")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(1288, 640, 144, 164)
+modulate_color = Color(0.809, 0.809, 0.809, 0.999)
+
+[sub_resource type="Theme" id="Theme_estgh"]
+Button/styles/focus = SubResource("StyleBoxFlat_u1qs0")
+Button/styles/hover = SubResource("StyleBoxTexture_g3d5d")
+Button/styles/normal = SubResource("StyleBoxTexture_k61cx")
+Button/styles/pressed = SubResource("StyleBoxTexture_fsb77")
+
 [node name="central_hub_hud" type="CanvasLayer"]
 script = ExtResource("1_gfwca")
 
@@ -101,32 +150,49 @@ size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="hud"]
 layout_mode = 1
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 35.0
-offset_bottom = 68.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -51.0
+offset_top = -163.0
+offset_right = -26.0
+offset_bottom = -63.0
+grow_horizontal = 0
+grow_vertical = 0
 scale = Vector2(1.5, 1.5)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="hud/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="hud/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
-size_flags_vertical = 4
 
 [node name="Profile" type="Button" parent="hud/MarginContainer/HBoxContainer/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
+size_flags_vertical = 6
 theme = SubResource("Theme_tnhjy")
 text = "    "
 
 [node name="settings" type="Button" parent="hud/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 6
 theme = SubResource("Theme_0srku")
 text = " "
 
+[node name="exit" type="Button" parent="hud/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = SubResource("Theme_estgh")
+text = " "
+
+[node name="click_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_e20o3")
+
 [connection signal="pressed" from="hud/MarginContainer/HBoxContainer/VBoxContainer/Profile" to="." method="_on_profile_pressed"]
 [connection signal="pressed" from="hud/MarginContainer/HBoxContainer/VBoxContainer/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="hud/MarginContainer/HBoxContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
