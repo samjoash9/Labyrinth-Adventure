@@ -41,7 +41,7 @@ position_smoothing_speed = 10.0
 [node name="game_hud_pause" parent="." instance=ExtResource("6_8w3i6")]
 
 [node name="timer_label" parent="game_hud_pause/Control/MarginContainer/HBoxContainer" index="0"]
-size_flags_vertical = 0
+size_flags_vertical = 4
 
 [node name="loading_screen" parent="." instance=ExtResource("5_01dn4")]
 

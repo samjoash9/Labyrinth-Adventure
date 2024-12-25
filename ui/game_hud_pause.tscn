@@ -1,9 +1,53 @@
-[gd_scene load_steps=10 format=3 uid="uid://c423bd87f8cy5"]
+[gd_scene load_steps=17 format=3 uid="uid://c423bd87f8cy5"]
 
 [ext_resource type="Script" path="res://ui/in_game_pause.gd" id="1_cuast"]
 [ext_resource type="Texture2D" uid="uid://di70broao655r" path="res://assets/Images/IconsFlat-160.png" id="1_y7tit"]
 [ext_resource type="Theme" uid="uid://iivwh67cjc1k" path="res://scenes/UI/base_theme.tres" id="2_32j0l"]
+[ext_resource type="Texture2D" uid="uid://h2bcxd2qm0ap" path="res://assets/Images/MonedaD.png" id="3_vpo6t"]
 [ext_resource type="Script" path="res://ui/timer.gd" id="4_1dj7n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lr333"]
+atlas = ExtResource("3_vpo6t")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lg7fr"]
+atlas = ExtResource("3_vpo6t")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ge0ud"]
+atlas = ExtResource("3_vpo6t")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5brnx"]
+atlas = ExtResource("3_vpo6t")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_313rx"]
+atlas = ExtResource("3_vpo6t")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kag1k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lr333")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lg7fr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ge0ud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5brnx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_313rx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g5lpa"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -76,8 +120,21 @@ layout_mode = 2
 
 [node name="timer_label" type="Label" parent="Control/MarginContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 10
+size_flags_vertical = 8
 text = "TIME: "
+
+[node name="coins" type="Label" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "1039"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/MarginContainer/HBoxContainer/coins"]
+position = Vector2(-20, 8)
+scale = Vector2(1.6875, 1.6875)
+sprite_frames = SubResource("SpriteFrames_kag1k")
+autoplay = "default"
+frame_progress = 0.87474
 
 [node name="pause" type="Button" parent="Control/MarginContainer/HBoxContainer"]
 layout_mode = 2
