@@ -100,10 +100,12 @@ var nearest_enemy_distance : float = INF
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("DevDebug"):
 		$DebugUI.visible = !$DebugUI.visible
+	if Input.is_action_just_pressed("debugkill"):
+		debug_killAllEnemy()
 	if Input.is_action_just_pressed("DebugLevelUp"):
 		level+=1
 	
-	if nearest_enemy:
+	if nearest_enemy != null:
 		nearest_enemy_distance = nearest_enemy.separation
 	else:
 		nearest_enemy_distance = INF
@@ -122,3 +124,12 @@ func take_damage(damage):
 	var tween = create_tween()
 	tween.tween_property(animations, "modulate", Color(1,0,0) , 0.1)
 	tween.tween_property(animations, "modulate", Color(1,1,1) , 0.1)
+
+
+func debug_killAllEnemy():
+	for i in get_tree().get_nodes_in_group("enemy"):
+		i.hitPoints = 0
+	await get_tree().create_timer(1).timeout
+	for i in get_tree().get_nodes_in_group("loot"):
+		i.magnet_stregth = 10
+		i.set_process(true)

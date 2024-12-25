@@ -3,6 +3,7 @@ class_name PickableItem
 
 @onready var target: Player = get_tree().get_first_node_in_group("player")
 @onready var magnet_stregth: float = 1
+
 @export var pickableData:Pickables:
 	set(value):
 		pickableData = value
@@ -16,7 +17,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	global_position = global_position.move_toward(target.position , .5)
+	global_position = global_position.move_toward(target.position , magnet_stregth)
 	 
 func _on_body_entered(body: Node2D) -> void:
 	if is_instance_of(body, Player):
