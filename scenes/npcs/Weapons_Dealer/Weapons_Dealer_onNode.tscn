@@ -1,7 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfsxr23f07rxu"]
+[gd_scene load_steps=3 format=3 uid="uid://cfsxr23f07rxu"]
 
 [ext_resource type="PackedScene" uid="uid://cmdhp46hntdet" path="res://scenes/npcs/Weapons_Dealer/weapons_dealer.tscn" id="1_i8dqe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ayy3c"]
+radius = 189.169
 
 [node name="Node2D" type="Node2D"]
 
 [node name="AnimatedSprite2D" parent="." instance=ExtResource("1_i8dqe")]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(49, -151)
+shape = SubResource("CircleShape2D_ayy3c")

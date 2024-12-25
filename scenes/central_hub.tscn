@@ -2368,13 +2368,14 @@ tile_map_data = PackedByteArray("AAAIAAQAAAALAAcAAAAIAAUAAAALAAgAAAAIAAYAAAALAAg
 tile_set = SubResource("TileSet_x0d71")
 
 [node name="weapons_dealer" parent="." instance=ExtResource("8_jx01w")]
-position = Vector2(171, 142)
+z_index = 11
+position = Vector2(171, 141)
 scale = Vector2(0.09, 0.09)
 
 [node name="blacksmith" parent="." instance=ExtResource("7_hv86f")]
-z_index = 12
-position = Vector2(312, 144)
-scale = Vector2(0.1, 0.1)
+z_index = 11
+position = Vector2(326, 142)
+scale = Vector2(0.2, 0.2)
 
 [node name="central_hub_hud" parent="." instance=ExtResource("10_nyvvm")]
 
