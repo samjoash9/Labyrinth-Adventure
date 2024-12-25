@@ -7,7 +7,9 @@ const DEATH_EFFECT = preload("res://core/effects/death_effect.tscn")
 const SPAWN_EFFECT = preload("res://core/effects/spawn_effect.tscn")
 const PICKABLE_ITEM = preload("res://core/utility/pickable_item.tscn")
 const ENEMYPROJECTILE = preload("res://core/Enemies/projectiles/enemyprojectile.tscn")
+
 @onready var pathfinder: NavigationAgent2D = $NavigationAgent2D
+
 @onready var target: Player = get_tree().get_first_node_in_group("player")
 var enemyType : Enemy:
 	set(value):
@@ -53,7 +55,8 @@ func _ready() -> void:
 	tween.chain().tween_callback(self.set_process.bind(true))
 	tween.chain().tween_callback(%AttackRadius.set_deferred.bind("disabled", false))
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	check_separation()
 	var current_agent_position = global_position
 	var next_path_position = pathfinder.get_next_path_position()
 	var new_velocity = current_agent_position.direction_to(next_path_position) * movementSpeed
@@ -95,10 +98,10 @@ func _on_attack_cool_down_timeout() -> void:
 	%AttackRadius.set_deferred("disabled", false)
 	set_process(true)
 	
-func take_damage(damage,direction):
-	hitPoints-=damage
+func take_damage(enemydamage,direction):
+	hitPoints-=enemydamage
 	var damageText = DAMAGE_TEXT.instantiate()
-	damageText.text = str(damage)
+	damageText.text = str(enemydamage)
 	damageText.position = position + Vector2(-50 ,-25)
 	get_tree().current_scene.add_child(damageText)
 	var tween = create_tween().set_parallel(true)

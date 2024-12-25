@@ -16,7 +16,7 @@ func upgrade_item():
 		return
 	var upgrade = upgrades[level-1]
 	
-	player_reference.hitPoints += upgrade.hitPoints
+	player_reference.hitPoints += upgrade.maxHitpoints
 	player_reference.maxHitpoints+=upgrade.maxHitpoints
 	player_reference.movementSpeed +=upgrade.moveSpeed
 	player_reference.might+=upgrade.might

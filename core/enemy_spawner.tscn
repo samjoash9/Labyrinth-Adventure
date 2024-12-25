@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdi8d70wpq4ym"]
+[gd_scene load_steps=3 format=3 uid="uid://cdi8d70wpq4ym"]
 
 [ext_resource type="Script" path="res://core/enemy_spawner.gd" id="1_61dfi"]
 
+[sub_resource type="Curve2D" id="Curve2D_dxsey"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -282, -156, 0, 0, 0, 0, -282, 149, 0, 0, 0, 0, 279, 152, 0, 0, 0, 0, 279, -152, 0, 0, 0, 0, -282, -156)
+}
+point_count = 5
+
 [node name="EnemySpawner" type="Camera2D"]
+zoom = Vector2(2, 2)
 script = ExtResource("1_61dfi")
 
 [node name="Timer" type="Timer" parent="."]
@@ -21,5 +28,14 @@ offset_bottom = 23.0
 grow_horizontal = 2
 text = "Time: 00:00
 "
+
+[node name="Path2D" type="Path2D" parent="."]
+unique_name_in_owner = true
+curve = SubResource("Curve2D_dxsey")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+unique_name_in_owner = true
+position = Vector2(-282, -156)
+rotation = 1.5708
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

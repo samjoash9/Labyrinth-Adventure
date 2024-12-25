@@ -92,6 +92,7 @@ func _ready() -> void:
 		if child is Animations:
 			animations = child
 
+
 var nearest_enemy : CharacterBody2D
 var nearest_enemy_distance : float = INF
 

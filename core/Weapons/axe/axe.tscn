@@ -16,7 +16,8 @@ func attack():
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method(\"take_damage\"):
-		body.take_damage(damage, 10)
+		body.take_damage(damage, (self.global_position - body.global_position).normalized() *Vector2(10,10))
+	
 "
 
 [sub_resource type="Animation" id="Animation_j3kfv"]

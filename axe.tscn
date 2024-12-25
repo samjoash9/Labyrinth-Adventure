@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxlcwsl8g8vkn"]
+
+[ext_resource type="Script" path="res://axe.gd" id="1_d8vkv"]
+[ext_resource type="Texture2D" uid="uid://dy1nfq5cg74o0" path="res://upgrades/fantasy_weapons_pack1_noglow.png" id="2_3vr5a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0j5g"]
+atlas = ExtResource("2_3vr5a")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x716w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0j5g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_44ngr"]
+radius = 13.3417
+
+[node name="Axe" type="Area2D"]
+script = ExtResource("1_d8vkv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(14, -13)
+sprite_frames = SubResource("SpriteFrames_x716w")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(15, -14)
+shape = SubResource("CircleShape2D_44ngr")

@@ -15,7 +15,7 @@ func _ready() -> void:
 	set_process(false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	global_position = global_position.move_toward(target.position , .5)
 	 
 func _on_body_entered(body: Node2D) -> void:

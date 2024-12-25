@@ -11,6 +11,7 @@ var weaponInstance: Node2D
 		item = value
 		%TextureRect.texture = item.icon
 		%Cooldown.wait_time = item.coolDown
+		print(owner)
 		
 func _on_cooldown_timeout() -> void:
 	if item:
