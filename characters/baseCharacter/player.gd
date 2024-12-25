@@ -6,12 +6,11 @@ class_name Player
 enum states{
 	IDLE,
 	MOVE,
-	HURT,
 	DEAD,
 }
 
-const expGrowthRate: float = 0.2
 
+const expGrowthRate: float = 0.2
 @onready var state = states.IDLE
 
 var maxHitpoints: float :
@@ -24,6 +23,10 @@ var hitPoints: float :
 		hitPoints = clamp(value, 0 ,maxHitpoints)
 		var tween:=create_tween()
 		tween.tween_property(%HpBar,"value", value, 0.5)
+		if hitPoints == 0:
+			self.set_process(false)
+			$PlayerBodyCollision.set_deferred("disabled", true)
+			state = states.DEAD
 
 var movementSpeed: float
 
@@ -34,6 +37,7 @@ var armor: float
 var magnetArea: float:
 	set(value):
 		magnetArea = value
+		$Item_Magnet/MagnetArea.shape.radius = magnetArea
 
 var areaMultiplier: float:
 	set(value):
@@ -76,18 +80,44 @@ var character : CharacterResource:
 		areaMultiplier = character.basicStats.areaMultiplier
 		growth = character.basicStats.growth
 		add_child(character.animationComponent.instantiate())
-	
+
+var animations : Animations
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	exp = 0
 	expCap = 10
-	character = load("res://resources/jobs/knight.tres")
+	character = load("res://resources/jobs/rouge.tres")
+	
+	for child in get_children():
+		if child is Animations:
+			animations = child
+
+var nearest_enemy : CharacterBody2D
+var nearest_enemy_distance : float = INF
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("click"):
+	if Input.is_action_just_pressed("DevDebug"):
+		$DebugUI.visible = !$DebugUI.visible
+	if Input.is_action_just_pressed("DebugLevelUp"):
 		level+=1
+	
+	if nearest_enemy:
+		nearest_enemy_distance = nearest_enemy.separation
+	else:
+		nearest_enemy_distance = INF
+		
 	var inputDir = Input.get_vector("left", "right", "up", "down").normalized()
 	velocity = inputDir * movementSpeed
 	velocity.normalized()
+	if velocity:
+		$GPUParticles2D.emitting = true
+	else:
+		$GPUParticles2D.emitting = false
 	move_and_slide()
+
+func take_damage(damage):
+	hitPoints -= damage-(damage*armor)
+	var tween = create_tween()
+	tween.tween_property(animations, "modulate", Color(1,0,0) , 0.1)
+	tween.tween_property(animations, "modulate", Color(1,1,1) , 0.1)

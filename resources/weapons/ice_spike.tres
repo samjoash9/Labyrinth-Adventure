@@ -33,7 +33,7 @@ description = "+100 Attack Speed
 script = ExtResource("1_hb3kx")
 attackPower = 0.0
 coolDown = -0.7
-attackSpeed = 1000.0
+attackSpeed = 100.0
 description = "+500 Attack Speed
 -0.4 Cooldown"
 

@@ -21,7 +21,7 @@ func _on_cooldown_timeout() -> void:
 			if weaponInstance.has_method("attack"):
 				weaponInstance.attack()
 				weaponInstance.animation_player.speed_scale = 2 * (weaponInstance.animation_player.current_animation_length/item.coolDown)
-				
+		
 		%Cooldown.wait_time = item.coolDown
 		$ProgressBar.max_value = %Cooldown.wait_time
 		item.activate()

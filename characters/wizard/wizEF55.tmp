@@ -1,0 +1,141 @@
+[gd_scene load_steps=22 format=3 uid="uid://b07lbjbjc5yoq"]
+
+[ext_resource type="PackedScene" uid="uid://bak2s8uahb430" path="res://characters/knight/knight_animations.tscn" id="1_i0os1"]
+[ext_resource type="Texture2D" uid="uid://efp3mwynm34y" path="res://characters/wizard/sprites/Death/Death-Sheet.png" id="2_5jv2q"]
+[ext_resource type="Texture2D" uid="uid://mnc46dqoqenp" path="res://characters/wizard/sprites/Idle/Idle-Sheet.png" id="3_f1jqh"]
+[ext_resource type="Texture2D" uid="uid://cp1hhfmhj0w0i" path="res://characters/wizard/sprites/Run/Run-Sheet.png" id="4_7odfp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryfgl"]
+atlas = ExtResource("2_5jv2q")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rgyw"]
+atlas = ExtResource("2_5jv2q")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nv20l"]
+atlas = ExtResource("2_5jv2q")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_if38r"]
+atlas = ExtResource("2_5jv2q")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aarke"]
+atlas = ExtResource("2_5jv2q")
+region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krbuo"]
+atlas = ExtResource("2_5jv2q")
+region = Rect2(320, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnlxi"]
+atlas = ExtResource("3_f1jqh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj05k"]
+atlas = ExtResource("3_f1jqh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1flop"]
+atlas = ExtResource("3_f1jqh")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qss0w"]
+atlas = ExtResource("3_f1jqh")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhasb"]
+atlas = ExtResource("4_7odfp")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3i44q"]
+atlas = ExtResource("4_7odfp")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrrfx"]
+atlas = ExtResource("4_7odfp")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_um5mr"]
+atlas = ExtResource("4_7odfp")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcyrn"]
+atlas = ExtResource("4_7odfp")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qddk4"]
+atlas = ExtResource("4_7odfp")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yxhfm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryfgl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rgyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nv20l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_if38r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aarke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krbuo")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnlxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qj05k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1flop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qss0w")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhasb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3i44q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrrfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_um5mr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcyrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qddk4")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[node name="WizardAnimations" instance=ExtResource("1_i0os1")]
+
+[node name="SpriteFrames" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_yxhfm")

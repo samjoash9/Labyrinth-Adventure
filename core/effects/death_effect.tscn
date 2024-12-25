@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://ben4e71q7r115"]
+
+[ext_resource type="Script" path="res://core/effects/death_effect.gd" id="1_kcf22"]
+[ext_resource type="Texture2D" uid="uid://bng4b2oq1na11" path="res://assets/Characters/combat FX/Smoke/SpriteSheet.png" id="2_42yvh"]
+[ext_resource type="AudioStream" uid="uid://ih6e3qfekkjp" path="res://assets/Sound FX/Game/Explosion2.wav" id="3_ljpba"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsx3r"]
+atlas = ExtResource("2_42yvh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgy5h"]
+atlas = ExtResource("2_42yvh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cw50q"]
+atlas = ExtResource("2_42yvh")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88ktd"]
+atlas = ExtResource("2_42yvh")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvt24"]
+atlas = ExtResource("2_42yvh")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcws5"]
+atlas = ExtResource("2_42yvh")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n7af6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsx3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgy5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cw50q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88ktd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvt24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcws5")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="DeathEffect" type="Node2D"]
+script = ExtResource("1_kcf22")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_n7af6")
+autoplay = "default"
+frame = 5
+frame_progress = 1.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_ljpba")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

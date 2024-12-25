@@ -1,7 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1c86iwbcpif7"]
+[gd_scene load_steps=8 format=3 uid="uid://c1c86iwbcpif7"]
 
-[ext_resource type="Script" path="res://axe.gd" id="1_uftfo"]
 [ext_resource type="Texture2D" uid="uid://dy1nfq5cg74o0" path="res://upgrades/fantasy_weapons_pack1_noglow.png" id="2_bapy0"]
+
+[sub_resource type="GDScript" id="GDScript_prv2t"]
+script/source = "extends Node2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+var damage = 10
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+	look_at(get_global_mouse_position())
+
+func attack(): 
+	animation_player.play(\"attack\")
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.has_method(\"take_damage\"):
+		body.take_damage(damage, 10)
+"
 
 [sub_resource type="Animation" id="Animation_j3kfv"]
 length = 0.001
@@ -17,6 +33,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_lkc0m"]
 resource_name = "attack"
@@ -31,6 +59,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 0.170755, 0.101532, 2.82843),
 "update": 0,
 "values": [0.0, -0.893838, 2.44523, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
 }
 
 [sub_resource type="Animation" id="Animation_svvb0"]
@@ -55,8 +95,13 @@ _data = {
 "attack_2": SubResource("Animation_svvb0")
 }
 
-[node name="Axe" type="Node2D"]
-script = ExtResource("1_uftfo")
+[sub_resource type="CircleShape2D" id="CircleShape2D_1oni0"]
+radius = 15.2971
+
+[node name="Axe" type="Area2D"]
+collision_mask = 5
+monitorable = false
+script = SubResource("GDScript_prv2t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_bapy0")
@@ -70,3 +115,10 @@ frame = 1
 libraries = {
 "": SubResource("AnimationLibrary_t2ijq")
 }
+
+[node name="Area" type="CollisionShape2D" parent="."]
+position = Vector2(15, -4)
+shape = SubResource("CircleShape2D_1oni0")
+disabled = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

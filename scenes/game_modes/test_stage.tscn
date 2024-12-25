@@ -1,9 +1,18 @@
-[gd_scene load_steps=10 format=4 uid="uid://tsgcl1bb1j7b"]
+[gd_scene load_steps=30 format=4 uid="uid://tsgcl1bb1j7b"]
 
 [ext_resource type="Script" path="res://scenes/game_modes/test_stage.gd" id="1_0jhx5"]
 [ext_resource type="Texture2D" uid="uid://cqduagm0niyk4" path="res://assets/Environment/Dungeon/Dungeon 2/Dungeon tileset.png" id="2_xmj3q"]
 [ext_resource type="PackedScene" uid="uid://01cq3ethui3i" path="res://characters/baseCharacter/player.tscn" id="3_xuxk0"]
-[ext_resource type="PackedScene" uid="uid://dcga1ldlgos1l" path="res://core/Enemies/enemy.tscn" id="4_5mw67"]
+[ext_resource type="PackedScene" uid="uid://cdi8d70wpq4ym" path="res://core/enemy_spawner.tscn" id="4_ca7cl"]
+[ext_resource type="Script" path="res://resources/scripts/enemyType.gd" id="5_ubj4o"]
+[ext_resource type="SpriteFrames" uid="uid://kr4ywn5wpfss" path="res://core/Enemies/spriteframes/akaname.tres" id="6_l20qb"]
+[ext_resource type="SpriteFrames" uid="uid://bxerk6uvdqtdv" path="res://core/Enemies/spriteframes/braineater.tres" id="7_sfiqx"]
+[ext_resource type="Script" path="res://resources/scripts/pickables.gd" id="8_1p7di"]
+[ext_resource type="Texture2D" uid="uid://bd4sy5qr22da3" path="res://assets/pickables/spr_coin_gri.png" id="8_3hnen"]
+[ext_resource type="SpriteFrames" uid="uid://k60oj7hrwnky" path="res://core/Enemies/spriteframes/ratfolk.tres" id="9_g37w7"]
+[ext_resource type="Script" path="res://resources/scripts/ExpOrb.gd" id="11_vukfs"]
+[ext_resource type="Texture2D" uid="uid://bng4b2oq1na11" path="res://assets/Characters/combat FX/Smoke/SpriteSheet.png" id="11_y4el7"]
+[ext_resource type="Script" path="res://resources/scripts/rangedEnemy.gd" id="12_utbqu"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_rtc4i"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -286,6 +295,101 @@ physics_layer_0/collision_mask = 7
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_4wnan")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tdcw"]
+atlas = ExtResource("8_3hnen")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nm3k"]
+atlas = ExtResource("8_3hnen")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bk25o"]
+atlas = ExtResource("8_3hnen")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlktn"]
+atlas = ExtResource("8_3hnen")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yum72"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2tdcw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nm3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bk25o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlktn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_10xfl"]
+script = ExtResource("11_vukfs")
+xpAmount = 1.0
+name = "Exp1"
+sprite = SubResource("SpriteFrames_yum72")
+
+[sub_resource type="Resource" id="Resource_rkxxy"]
+script = ExtResource("5_ubj4o")
+name = "Akaname"
+animation = ExtResource("6_l20qb")
+hitPoints = 100.0
+movementSpeed = 50.0
+damage = 10.0
+attackRadius = 10.0
+attackSpeed = 1.0
+drop = Array[Resource]([SubResource("Resource_10xfl")])
+attackType = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yie7"]
+atlas = ExtResource("11_y4el7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pkqwo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7yie7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_rgfe1"]
+script = ExtResource("12_utbqu")
+projectile = SubResource("SpriteFrames_pkqwo")
+projectileSpeed = 100.0
+name = "BrainEater"
+animation = ExtResource("7_sfiqx")
+hitPoints = 10.0
+movementSpeed = 100.0
+damage = 10.0
+attackRadius = 150.0
+attackSpeed = 1.0
+drop = Array[ExtResource("8_1p7di")]([])
+attackType = 1
+
+[sub_resource type="Resource" id="Resource_darh8"]
+script = ExtResource("5_ubj4o")
+name = "Ratfolk"
+animation = ExtResource("9_g37w7")
+hitPoints = 10.0
+movementSpeed = 10.0
+damage = 1.0
+attackRadius = 10.0
+attackSpeed = 10.0
+drop = Array[ExtResource("8_1p7di")]([])
+attackType = 0
+
 [node name="TestStage" type="Node2D"]
 script = ExtResource("1_0jhx5")
 
@@ -295,7 +399,16 @@ tile_map_data = PackedByteArray("AADu//b/AAAEAAkAAADu//f/AAAEAAoAAADu//j/AAAEAAs
 tile_set = SubResource("TileSet_lcwbi")
 
 [node name="Player" parent="." instance=ExtResource("3_xuxk0")]
+position = Vector2(-272, -95)
+scale = Vector2(0.5, 0.5)
 
-[node name="Enemy" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_5mw67")]
-rotation = -0.0021377
-target = NodePath("../Player")
+[node name="EnemySpawner" parent="Player" node_paths=PackedStringArray("world") instance=ExtResource("4_ca7cl")]
+scale = Vector2(2, 2)
+zoom = Vector2(3, 3)
+limit_left = -398
+limit_top = -193
+limit_right = 495
+limit_bottom = 166
+limit_smoothed = true
+world = NodePath("../..")
+enemy_types = Array[ExtResource("5_ubj4o")]([SubResource("Resource_rkxxy"), SubResource("Resource_rgfe1"), SubResource("Resource_rgfe1"), SubResource("Resource_darh8")])

@@ -47,3 +47,4 @@ upgrades = Array[ExtResource("3_xf0cp")]([SubResource("Resource_3o2go"), SubReso
 name = "Health Boost"
 description = "Max Health Increase"
 icon = ExtResource("1_3sqrw")
+level = 1

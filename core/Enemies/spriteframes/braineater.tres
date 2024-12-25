@@ -1,0 +1,72 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://bxerk6uvdqtdv"]
+
+[ext_resource type="Texture2D" uid="uid://bpqjly0kjop47" path="res://enemies/dungeon/Brain Mole Monarch Sprite Sheet.png" id="1_n4sps"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48w70"]
+atlas = ExtResource("1_n4sps")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_313wd"]
+atlas = ExtResource("1_n4sps")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrulx"]
+atlas = ExtResource("1_n4sps")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1s0v"]
+atlas = ExtResource("1_n4sps")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2a15j"]
+atlas = ExtResource("1_n4sps")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fg2ba"]
+atlas = ExtResource("1_n4sps")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8w0kt"]
+atlas = ExtResource("1_n4sps")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phnl4"]
+atlas = ExtResource("1_n4sps")
+region = Rect2(96, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48w70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_313wd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrulx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1s0v")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2a15j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fg2ba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8w0kt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phnl4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]

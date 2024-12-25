@@ -21,6 +21,7 @@ enum weaponTypes {
 @export var knockBack: float
 @export var weaponNode : PackedScene
 
+
 func activate():
 	pass
 

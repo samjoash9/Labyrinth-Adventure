@@ -9,8 +9,6 @@ enum states{
 }
 
 @onready var hurt_shape: CollisionShape2D = $HurtBox/HurtShape
-@onready var hurt_box: HurtBox = $HurtBox
-@onready var enemy_scanner: EnemyScanner = $EnemyScanner
 @onready var magnet_area: CollisionShape2D = $Item_Magnet/MagnetArea
 @onready var upgrade_slots: Node2D = $UpgradeSlots
 @onready var applied_upgrades: Node2D = $AppliedUpgrades

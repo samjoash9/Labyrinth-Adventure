@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://v0oh6ljfqjju"]
+
+[ext_resource type="Script" path="res://core/Enemies/projectiles/enemy_projectile.gd" id="1_b4qat"]
+[ext_resource type="Material" uid="uid://bbgdnp8j5iryi" path="res://shaders/enemyprojectile.tres" id="2_l7b5u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e17pm"]
+radius = 4.0
+
+[node name="EnemyProjectile" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+collision_layer = 4
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_b4qat")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_e17pm")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+material = ExtResource("2_l7b5u")
+position = Vector2(0, -4)
+autoplay = "default"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

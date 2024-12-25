@@ -1,80 +1,72 @@
-[gd_scene load_steps=12 format=3 uid="uid://dcga1ldlgos1l"]
+[gd_scene load_steps=5 format=3 uid="uid://dcga1ldlgos1l"]
 
 [ext_resource type="Script" path="res://core/Enemies/enemy.gd" id="1_rsld4"]
-[ext_resource type="Texture2D" uid="uid://bwwkupcq1hrx5" path="res://assets/Characters/Enemy/green/Twig Blight Sprite Sheet.png" id="2_7jqtq"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4wdv6"]
-atlas = ExtResource("2_7jqtq")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5e63n"]
-atlas = ExtResource("2_7jqtq")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_coj1u"]
-atlas = ExtResource("2_7jqtq")
-region = Rect2(64, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_phjfx"]
-atlas = ExtResource("2_7jqtq")
-region = Rect2(96, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8anl4"]
-atlas = ExtResource("2_7jqtq")
-region = Rect2(128, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qipte"]
-atlas = ExtResource("2_7jqtq")
-region = Rect2(160, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jftue"]
-atlas = ExtResource("2_7jqtq")
-region = Rect2(192, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4vx2g"]
-atlas = ExtResource("2_7jqtq")
-region = Rect2(224, 32, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_4ort2"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_m6hr0"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4wdv6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5e63n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_coj1u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_phjfx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8anl4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qipte")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jftue")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4vx2g")
-}],
+"frames": [],
 "loop": true,
-"name": &"Idle",
-"speed": 12.0
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
 }]
 
-[node name="Enemy" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ec130"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8te8p"]
+radius = 6.08276
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+modulate = Color(0.271, 0.161, 0.247, 0)
+z_index = 1
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_rsld4")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_4ort2")
-animation = &"Idle"
-frame_progress = 0.240711
+[node name="SpriteFrames" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_m6hr0")
+animation = &"attack"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+simplify_path = true
+simplify_epsilon = 50.0
+avoidance_enabled = true
+radius = 5.0
 
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="AttackRadius" type="CollisionShape2D" parent="AttackArea"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_ec130")
+disabled = true
+
+[node name="AttackCoolDown" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 10.0
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8te8p")
+disabled = true
+
+[node name="PathFinderCooldown" type="Timer" parent="."]
+autostart = true
+
+[connection signal="animation_finished" from="SpriteFrames" to="." method="_on_sprite_frames_animation_finished"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="timeout" from="AttackCoolDown" to="." method="_on_attack_cool_down_timeout"]
+[connection signal="timeout" from="PathFinderCooldown" to="." method="_on_path_finder_cooldown_timeout"]

@@ -1,18 +1,26 @@
-[gd_resource type="Resource" script_class="CharacterResource" load_steps=5 format=3 uid="uid://btelycpr583kc"]
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=6 format=3 uid="uid://btelycpr583kc"]
 
 [ext_resource type="PackedScene" uid="uid://bo58ix0qyjqn4" path="res://characters/rouge/rouge_animations.tscn" id="1_rk2fo"]
 [ext_resource type="Script" path="res://resources/scripts/baseStats.gd" id="2_5u7vb"]
+[ext_resource type="Texture2D" uid="uid://kqvw2novwvcs" path="res://imgs/4.jpg" id="3_2adgo"]
 [ext_resource type="Script" path="res://resources/scripts/Character.gd" id="3_eol2l"]
 
 [sub_resource type="Resource" id="Resource_5bwc7"]
 script = ExtResource("2_5u7vb")
-Hitpoints = 80.0
-Movespeed = 200
-Recovery = 50.0
+description = ""
+hitPoints = 150.0
+maxHitpoints = 150.0
+moveSpeed = 100.0
+might = 10.0
+armor = 0.2
+magnetArea = 100.0
+areaMultiplier = 10.0
+growth = 1.0
 
 [resource]
 script = ExtResource("3_eol2l")
 jobName = "Rouge"
 jobDescription = "Fast Swift and Chuhu"
+characterPortrait = ExtResource("3_2adgo")
 basicStats = SubResource("Resource_5bwc7")
 animationComponent = ExtResource("1_rk2fo")

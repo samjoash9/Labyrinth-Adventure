@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://bmu3xbi7ly0eb"]
+
+[ext_resource type="Texture2D" uid="uid://cbh11emavlmt" path="res://enemies/dungeon/boss/SpriteSheet/Bringer-of-Death-SpritSheet_no-Effect.png" id="1_bpcfo"]
+[ext_resource type="Script" path="res://core/effects/spawn_effect.gd" id="1_nhbcb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tb4tb"]
+atlas = ExtResource("1_bpcfo")
+region = Rect2(0, 558, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v887c"]
+atlas = ExtResource("1_bpcfo")
+region = Rect2(140, 558, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r07qv"]
+atlas = ExtResource("1_bpcfo")
+region = Rect2(280, 558, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8176f"]
+atlas = ExtResource("1_bpcfo")
+region = Rect2(420, 558, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uoitb"]
+atlas = ExtResource("1_bpcfo")
+region = Rect2(560, 558, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f31os"]
+atlas = ExtResource("1_bpcfo")
+region = Rect2(700, 558, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjwlo"]
+atlas = ExtResource("1_bpcfo")
+region = Rect2(840, 558, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgmfl"]
+atlas = ExtResource("1_bpcfo")
+region = Rect2(980, 558, 140, 93)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_of0r3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tb4tb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v887c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r07qv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8176f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uoitb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f31os")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjwlo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgmfl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="SpawnEffect" type="Node2D"]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_nhbcb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_of0r3")
+autoplay = "default"
+frame_progress = 0.464202
+
+[node name="Camera2D" type="Camera2D" parent="."]
