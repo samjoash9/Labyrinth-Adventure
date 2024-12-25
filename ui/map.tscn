@@ -2402,6 +2402,7 @@ visible = false
 [node name="map_music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_33xwp")
 autoplay = true
+bus = &"Music"
 parameters/looping = true
 
 [connection signal="pressed" from="Control/level1" to="." method="_on_level_1_pressed"]

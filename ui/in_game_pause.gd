@@ -6,6 +6,7 @@ extends CanvasLayer
 const IN_GAME_PAUSE = preload("res://ui/in_game_pause.tscn")
 
 func _on_button_pressed() -> void:
+	get_parent().get_node("click_sound").play()
 	player.set_process(false)
 	player_hud.visible = false
 	visible = false
@@ -13,4 +14,3 @@ func _on_button_pressed() -> void:
 	# add in game pause canvas layer
 	var in_game_pause = IN_GAME_PAUSE.instantiate()
 	add_child(in_game_pause)
-	

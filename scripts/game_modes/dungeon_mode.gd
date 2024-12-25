@@ -9,6 +9,7 @@ const DUNGEON_PORTAL = preload("res://scenes/portals/dungeon_portal.tscn")
 func _ready() -> void:
 	var start_tile = Vector2(220, 245)
 	player.position = start_tile
+	player.set_process(false)
 
 	# SETTING CAMERA LIMITS BASED ON GM
 	camera_2d.limit_left = 0

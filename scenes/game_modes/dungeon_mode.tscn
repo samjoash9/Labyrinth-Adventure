@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgtge0leu72ds"]
+[gd_scene load_steps=15 format=3 uid="uid://cgtge0leu72ds"]
 
 [ext_resource type="Script" path="res://scripts/game_modes/dungeon_mode.gd" id="1_lel40"]
 [ext_resource type="PackedScene" uid="uid://gntrd0281yiq" path="res://scenes/game_modes/Maze_Generator.tscn" id="2_4rsbj"]
@@ -7,11 +7,62 @@
 [ext_resource type="PackedScene" uid="uid://cp4c2x3wsfo5p" path="res://ui/loading_screen.tscn" id="5_yeol0"]
 [ext_resource type="AudioStream" uid="uid://cngt26w6g1tfr" path="res://assets/Musics/30 - Ruins.ogg" id="6_d1h1m"]
 [ext_resource type="PackedScene" uid="uid://01cq3ethui3i" path="res://characters/baseCharacter/player.tscn" id="7_q65sv"]
+[ext_resource type="Script" path="res://ui/in_game_pause.gd" id="8_fya05"]
+[ext_resource type="Texture2D" uid="uid://di70broao655r" path="res://assets/Images/IconsFlat-160.png" id="9_ac5y0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g5lpa"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d6j2p"]
+texture = ExtResource("9_ac5y0")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(1260, 1288, 200, 144)
+modulate_color = Color(0.76662, 0.76662, 0.76662, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wv1wp"]
+texture = ExtResource("9_ac5y0")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_bottom = 2.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(1260, 1284, 200, 152)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_judmb"]
+texture = ExtResource("9_ac5y0")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(1260, 1288, 200, 144)
+modulate_color = Color(0.796243, 0.796243, 0.796243, 1)
+
+[sub_resource type="Theme" id="Theme_ms8lx"]
+Button/styles/focus = SubResource("StyleBoxFlat_g5lpa")
+Button/styles/hover = SubResource("StyleBoxTexture_d6j2p")
+Button/styles/normal = SubResource("StyleBoxTexture_wv1wp")
+Button/styles/pressed = SubResource("StyleBoxTexture_judmb")
 
 [node name="Dungeon_Mode" type="Node2D"]
 script = ExtResource("1_lel40")
 
 [node name="Player" parent="." instance=ExtResource("7_q65sv")]
+
+[node name="DebugUI" parent="Player" index="1"]
+visible = false
 
 [node name="Camera2D" parent="Player/PlayerBodyCollision" index="0"]
 zoom = Vector2(3, 3)
@@ -39,10 +90,28 @@ rounded = true
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_d1h1m")
+bus = &"Music"
 parameters/looping = true
+
+[node name="pause" type="CanvasLayer" parent="."]
+script = ExtResource("8_fya05")
+
+[node name="Button" type="Button" parent="pause"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -74.0
+offset_top = 13.0
+offset_right = -15.0
+offset_bottom = 44.0
+grow_horizontal = 0
+size_flags_horizontal = 6
+size_flags_vertical = 3
+theme = SubResource("Theme_ms8lx")
 
 [connection signal="last_index" from="Maze_Generator" to="." method="_on_maze_generator_last_index"]
 [connection signal="map_loaded" from="Maze_Generator" to="loading_screen" method="_on_maze_generator_map_loaded"]
+[connection signal="pressed" from="pause/Button" to="pause" method="_on_button_pressed"]
 
 [editable path="Player"]
 [editable path="loading_screen"]
