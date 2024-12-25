@@ -32,8 +32,10 @@ var movementSpeed: float
 
 var might: float
 
+# ARMOR WORKING
 var armor: float
 
+# MAGNET AREA WORKING
 var magnetArea: float:
 	set(value):
 		magnetArea = value
@@ -43,22 +45,26 @@ var areaMultiplier: float:
 	set(value):
 		areaMultiplier = value
 
+# WORKING
 var growth : float
 
+# LEVEL UP WOKING
 var level: float = 1:
 	set(value):
 		expCap += expCap * (expGrowthRate*(value-level))
 		level = value
 		%Level.text = str(level)
 		%Options.show_option()
-		
+
+
+# EXP and GROWTH STAT WORKING
 var exp: float:
 	set(value):
-		if value * growth > %XpBar.max_value:
-			level+= floor(value * growth/%XpBar.max_value)
+		if value + (value * growth) > %XpBar.max_value:
+			level+= floor(value + (value * growth)/%XpBar.max_value)
 			exp = value/%XpBar.max_value
 		else:
-			exp = value * growth
+			exp = value + (value * growth)
 		var tween:=create_tween()
 		tween.tween_property(%XpBar,"value", exp, 0.5)
 
@@ -86,7 +92,7 @@ var animations : Animations
 func _ready() -> void:
 	exp = 0
 	expCap = 10
-	character = load("res://resources/jobs/rouge.tres")
+	character = load("res://resources/jobs/rogue.tres")
 	
 	for child in get_children():
 		if child is Animations:
@@ -119,6 +125,7 @@ func _process(_delta: float) -> void:
 		$GPUParticles2D.emitting = false
 	move_and_slide()
 
+
 func take_damage(damage):
 	hitPoints -= damage-(damage*armor)
 	var tween = create_tween()
@@ -133,3 +140,23 @@ func debug_killAllEnemy():
 	for i in get_tree().get_nodes_in_group("loot"):
 		i.magnet_stregth = 10
 		i.set_process(true)
+
+func reselect_character():
+	match GameManager.selected_hero:
+		"rogue":
+			if has_node("KnightAnimations"):
+				get_node("KnightAnimations").queue_free()
+			if has_node("WizardAnimations"):
+				get_node("WizardAnimations").queue_free()
+		"knight":
+			if has_node("RougeAnimations"):
+				get_node("RougeAnimations").queue_free()
+			if has_node("WizardAnimations"):
+				get_node("WizardAnimations").queue_free()
+		"wizard":
+			if has_node("KnightAnimations"):
+				get_node("KnightAnimations").queue_free()
+			if has_node("RougeAnimations"):
+				get_node("RougeAnimations").queue_free()
+	
+	character = load("res://resources/jobs/%s.tres" % GameManager.selected_hero)

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Passives" load_steps=5 format=3 uid="uid://cx2067640im3w"]
+[gd_resource type="Resource" script_class="Passives" load_steps=6 format=3 uid="uid://cx2067640im3w"]
 
 [ext_resource type="Texture2D" uid="uid://b8odpjv4siphu" path="res://imgs/SpellIcons/healing_spell.png" id="1_3sqrw"]
 [ext_resource type="Script" path="res://resources/scripts/passiveItem.gd" id="2_rdxde"]
@@ -7,8 +7,8 @@
 [sub_resource type="Resource" id="Resource_nwf6x"]
 script = ExtResource("3_xf0cp")
 description = ""
-hitPoints = 0.0
-maxHitpoints = 0.0
+hitPoints = 100.0
+maxHitpoints = 100.0
 moveSpeed = 0.0
 might = 0.0
 armor = 0.0
@@ -16,9 +16,21 @@ magnetArea = 0.0
 areaMultiplier = 0.0
 growth = 0.0
 
+[sub_resource type="Resource" id="Resource_la8ov"]
+script = ExtResource("3_xf0cp")
+description = ""
+hitPoints = 100.0
+maxHitpoints = 100.0
+moveSpeed = 100.0
+might = 100.0
+armor = 0.0
+magnetArea = 1.0
+areaMultiplier = 0.0
+growth = 0.0
+
 [resource]
 script = ExtResource("2_rdxde")
-upgrades = Array[ExtResource("3_xf0cp")]([SubResource("Resource_nwf6x")])
+upgrades = Array[ExtResource("3_xf0cp")]([SubResource("Resource_nwf6x"), SubResource("Resource_la8ov")])
 name = "Health Boost"
 description = "Max Health Increase"
 icon = ExtResource("1_3sqrw")

@@ -8,19 +8,19 @@
 [sub_resource type="Resource" id="Resource_icw5h"]
 script = ExtResource("2_e5q1n")
 description = ""
-hitPoints = 100.0
-maxHitpoints = 100.0
+hitPoints = 150.0
+maxHitpoints = 150.0
 moveSpeed = 100.0
-might = 1.0
-armor = 0.1
-magnetArea = 1.0
+might = 0.1
+armor = 0.6
+magnetArea = 100.0
 areaMultiplier = 1.0
-growth = 1.0
+growth = 0.3
 
 [resource]
 script = ExtResource("3_0y8pi")
 jobName = "Knight"
-jobDescription = "Knight"
+jobDescription = "A sturdy warrior with exceptional defense and resilience."
 characterPortrait = ExtResource("3_hscd4")
 basicStats = SubResource("Resource_icw5h")
 animationComponent = ExtResource("1_51vhl")

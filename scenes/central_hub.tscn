@@ -2326,9 +2326,13 @@ script = ExtResource("1_jfdxu")
 [node name="Player" parent="." instance=ExtResource("2_dt31g")]
 z_index = 12
 z_as_relative = false
+collision_mask = 1
 
 [node name="HUD" parent="Player" index="0"]
 visible = false
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(3, 3)
 
 [node name="central_hub_portal" parent="." instance=ExtResource("5_wo05u")]
 z_index = 100
@@ -2339,6 +2343,8 @@ script = ExtResource("4_0a0v4")
 
 [node name="Area2D" type="Area2D" parent="central_hub_portal"]
 position = Vector2(-32, -10)
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="central_hub_portal/Area2D"]
 position = Vector2(35, 14)
@@ -2380,6 +2386,8 @@ script = ExtResource("13_sm5p4")
 
 [node name="Area2D2" type="Area2D" parent="rogue_stone"]
 position = Vector2(0, -1.90735e-06)
+collision_layer = 0
+collision_mask = 2
 
 [node name="rogue_interaction" type="CollisionShape2D" parent="rogue_stone/Area2D2"]
 shape = SubResource("CircleShape2D_tk2kj")
@@ -2390,6 +2398,8 @@ scale = Vector2(0.2, 0.2)
 script = ExtResource("14_krmdj")
 
 [node name="Area2D" type="Area2D" parent="knight_stone"]
+collision_layer = 0
+collision_mask = 2
 
 [node name="knight_interaction" type="CollisionShape2D" parent="knight_stone/Area2D"]
 shape = SubResource("CircleShape2D_tk2kj")
@@ -2402,6 +2412,8 @@ script = ExtResource("14_uvpby")
 
 [node name="Area2D2" type="Area2D" parent="wizard_stone"]
 position = Vector2(0, -5)
+collision_layer = 0
+collision_mask = 2
 
 [node name="wizard_interaction" type="CollisionShape2D" parent="wizard_stone/Area2D2"]
 position = Vector2(0, -7.62939e-06)

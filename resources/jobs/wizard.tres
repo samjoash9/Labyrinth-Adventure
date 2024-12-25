@@ -1,22 +1,23 @@
-[gd_resource type="Resource" script_class="CharacterResource" load_steps=8 format=3 uid="uid://burc587610t21"]
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=9 format=3 uid="uid://burc587610t21"]
 
 [ext_resource type="PackedScene" uid="uid://b07lbjbjc5yoq" path="res://characters/wizard/wizard_animations.tscn" id="1_ocnf8"]
 [ext_resource type="Script" path="res://resources/scripts/baseStats.gd" id="2_8txem"]
 [ext_resource type="Script" path="res://resources/scripts/Character.gd" id="3_laagq"]
+[ext_resource type="Texture2D" uid="uid://4hu1k13hicps" path="res://imgs/6.jpg" id="3_yqg7s"]
 [ext_resource type="Script" path="res://resources/scripts/weapon.gd" id="4_0poc7"]
 [ext_resource type="Script" path="res://resources/scripts/upgrade.gd" id="5_ih5gg"]
 
 [sub_resource type="Resource" id="Resource_5nvo0"]
 script = ExtResource("2_8txem")
 description = ""
-hitPoints = 100.0
-maxHitpoints = 100.0
-moveSpeed = 100.0
-might = 0.0
-armor = 0.0
-magnetArea = 0.0
-areaMultiplier = 0.0
-growth = 0.0
+hitPoints = 60.0
+maxHitpoints = 60.0
+moveSpeed = 120.0
+might = 0.2
+armor = 0.1
+magnetArea = 200.0
+areaMultiplier = 2.0
+growth = 0.2
 
 [sub_resource type="Resource" id="Resource_cjt5t"]
 script = ExtResource("4_0poc7")
@@ -25,13 +26,8 @@ upgrades = Array[ExtResource("5_ih5gg")]([])
 attackPower = 100.0
 attackSpeed = 100.0
 coolDown = 0.0
-coolDown = 0.0
 critChance = 100.0
 critDamage = 100.0
-knockBack = 0.0
-name = "Staff "
-description = ""
-level = 1
 knockBack = 0.0
 name = "Staff "
 description = ""
@@ -40,7 +36,8 @@ level = 1
 [resource]
 script = ExtResource("3_laagq")
 jobName = "Wizard"
-jobDescription = "Wizard"
+jobDescription = "A master of the arcane arts, dealing devastating ranged magic damage."
+characterPortrait = ExtResource("3_yqg7s")
 basicStats = SubResource("Resource_5nvo0")
 animationComponent = ExtResource("1_ocnf8")
 weapon = SubResource("Resource_cjt5t")

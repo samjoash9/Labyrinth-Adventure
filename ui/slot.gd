@@ -2,7 +2,7 @@ extends PanelContainer
 class_name Slot
 
 @export var slotPosition: Vector2
-@onready var progress_bar: ProgressBar = $ProgressBar
+@onready var progress_bar: TextureProgressBar = $TextureProgressBar
 
 var weaponInstance: Node2D
 
@@ -11,7 +11,6 @@ var weaponInstance: Node2D
 		item = value
 		%TextureRect.texture = item.icon
 		%Cooldown.wait_time = item.coolDown
-		print(owner)
 		
 func _on_cooldown_timeout() -> void:
 	if item:
@@ -24,14 +23,14 @@ func _on_cooldown_timeout() -> void:
 				weaponInstance.animation_player.speed_scale = 2 * (weaponInstance.animation_player.current_animation_length/item.coolDown)
 		
 		%Cooldown.wait_time = item.coolDown
-		$ProgressBar.max_value = %Cooldown.wait_time
+		progress_bar.max_value = %Cooldown.wait_time
 		item.activate()
 		
 func _process(_delta: float) -> void:
 	if %Cooldown.is_stopped() == false:
-		$ProgressBar.value = %Cooldown.time_left
+		progress_bar.value = %Cooldown.time_left
 	else:
-		$ProgressBar.value = 0
+		progress_bar.value = 0
 
 func createWeapon():
 	weaponInstance = item.weaponNode.instantiate()

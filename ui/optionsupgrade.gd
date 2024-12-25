@@ -34,15 +34,10 @@ func add_option(item) -> int:
 	return 0
 	
 func show_option():
-	#var weapons_available = get_available_resource_in(weapons)
-	#var passives_available = get_available_resource_in(passives)
-	#if weapons_available.size()==0 and passives_available.size() == 0:
-		#return
 		
 	for slot in get_children():
 			slot.queue_free()
 	
-
 	var available = get_equiped_item()
 	
 	if slot_available(weapons):
@@ -70,7 +65,6 @@ func dir_contents(path):
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while file_name != "":
-			print("Found: " + file_name)
 			var item_resource : Item = load(path + file_name)
 			item_resources.append(item_resource)
 			file_name = dir.get_next()

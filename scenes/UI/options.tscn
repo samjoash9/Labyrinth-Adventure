@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/UI/options.gd" id="1_gbbf0"]
 [ext_resource type="Theme" uid="uid://iivwh67cjc1k" path="res://scenes/UI/base_theme.tres" id="2_jgiwn"]
-[ext_resource type="PackedScene" uid="uid://csdl2wqpk36bk" path="res://common/fx/menu_click_sound.tscn" id="3_jtw8w"]
+[ext_resource type="PackedScene" path="res://common/fx/menu_click_sound.tscn" id="3_jtw8w"]
 
 [node name="options_canvas" type="CanvasLayer"]
 script = ExtResource("1_gbbf0")

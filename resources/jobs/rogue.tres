@@ -8,19 +8,19 @@
 [sub_resource type="Resource" id="Resource_5bwc7"]
 script = ExtResource("2_5u7vb")
 description = ""
-hitPoints = 150.0
-maxHitpoints = 150.0
-moveSpeed = 100.0
-might = 10.0
+hitPoints = 75.0
+maxHitpoints = 75.0
+moveSpeed = 180.0
+might = 0.15
 armor = 0.2
-magnetArea = 100.0
-areaMultiplier = 10.0
-growth = 1.0
+magnetArea = 120.0
+areaMultiplier = 1.0
+growth = 0.1
 
 [resource]
 script = ExtResource("3_eol2l")
 jobName = "Rouge"
-jobDescription = "Fast Swift and Chuhu"
+jobDescription = "A swift and deadly assassin, excelling in agility and critical strikes."
 characterPortrait = ExtResource("3_2adgo")
 basicStats = SubResource("Resource_5bwc7")
 animationComponent = ExtResource("1_rk2fo")

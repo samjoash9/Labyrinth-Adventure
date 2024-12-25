@@ -1,14 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1fxycgiau4n6"]
+[gd_scene load_steps=6 format=3 uid="uid://c1fxycgiau4n6"]
 
+[ext_resource type="Texture2D" uid="uid://c4d5yscb1wfim" path="res://assets/Images/frame.png" id="1_d8j76"]
 [ext_resource type="Texture2D" uid="uid://dwc2ry0dpfrfw" path="res://imgs/weaponIcons/FrostMage_2.png" id="1_s3abd"]
 [ext_resource type="Script" path="res://ui/option_slot.gd" id="2_kfit0"]
+[ext_resource type="FontFile" uid="uid://c4o2mmlfx4faa" path="res://themes/PressStart2P.ttf" id="4_aikih"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_knfyf"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
-bg_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3j7hw"]
+texture = ExtResource("1_d8j76")
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 16.0
+texture_margin_bottom = 23.3846
+region_rect = Rect2(6, 8, 834, 696)
 
 [node name="OptionSlot" type="PanelContainer"]
 custom_minimum_size = Vector2(250, 400)
@@ -17,15 +20,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -25.0
-offset_right = 25.0
-offset_bottom = 25.0
+offset_left = -125.0
+offset_top = -259.192
+offset_right = 125.0
+offset_bottom = 185.192
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_knfyf")
+theme_override_styles/panel = SubResource("StyleBoxTexture_3j7hw")
 script = ExtResource("2_kfit0")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -45,6 +48,7 @@ stretch_mode = 5
 [node name="Name" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_aikih")
 text = "Ice Spike"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -52,6 +56,7 @@ vertical_alignment = 1
 [node name="Level" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_aikih")
 text = "Level 1"
 horizontal_alignment = 1
 
@@ -59,9 +64,10 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_aikih")
 text = "Shoots ice spikes towards the enemy , freezing them and slowing them down by 5%"
 horizontal_alignment = 1
-autowrap_mode = 1
+autowrap_mode = 3
 clip_text = true
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
