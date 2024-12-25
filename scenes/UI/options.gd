@@ -32,6 +32,11 @@ func _on_back_button_pressed() -> void:
 	get_parent().visible = true
 	queue_free()
 
+	if get_parent().get_parent().get_node("Player"):
+		get_parent().get_parent().get_node("Player").set_process(true)
+	if get_parent().get_node("Player"):
+		get_parent().get_node("Player").set_process(true)
+
 func _on_music_hslider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(1,linear_to_db(value))
 	if user_prefs:

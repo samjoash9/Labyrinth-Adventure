@@ -33,7 +33,6 @@ stream = ExtResource("6_tt6st")
 parameters/looping = true
 
 [node name="Player" parent="." instance=ExtResource("7_vvuvv")]
-z_index = 10
 
 [node name="Camera2D" parent="Player/PlayerBodyCollision" index="0"]
 zoom = Vector2(3, 3)

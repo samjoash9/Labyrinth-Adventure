@@ -42,15 +42,15 @@ func _on_confirm_pressed() -> void:
 		"green":
 			SceneManager.change_scene(
 			"res://scenes/game_modes/Green_Mode.tscn",
-		  { "pattern": "horizontal", "pattern_leave": ""})
+		  { "pattern": "scribbles", "pattern_leave": ""})
 		"dungeon":
 			SceneManager.change_scene(
 			"res://scenes/game_modes/Dungeon_mode.tscn",
-		  { "pattern": "horizontal", "pattern_leave": ""})
+		  { "pattern": "scribbles", "pattern_leave": ""})
 		"lava":
 			SceneManager.change_scene(
 			"res://scenes/game_modes/Lava_mode.tscn",
-		  { "pattern": "horizontal", "pattern_leave": ""})
+		  { "pattern": "scribbles", "pattern_leave": ""})
 
 func _on_cancel_pressed() -> void:
 	click_sound.play()

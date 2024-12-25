@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgtge0leu72ds"]
+[gd_scene load_steps=8 format=3 uid="uid://cgtge0leu72ds"]
 
 [ext_resource type="Script" path="res://scripts/game_modes/dungeon_mode.gd" id="1_lel40"]
 [ext_resource type="PackedScene" uid="uid://gntrd0281yiq" path="res://scenes/game_modes/Maze_Generator.tscn" id="2_4rsbj"]
@@ -6,9 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://diyb228qqbi12" path="res://scenes/game_modes/objects/dungeon_objects.tscn" id="4_d0f5w"]
 [ext_resource type="PackedScene" uid="uid://cp4c2x3wsfo5p" path="res://ui/loading_screen.tscn" id="5_yeol0"]
 [ext_resource type="AudioStream" uid="uid://cngt26w6g1tfr" path="res://assets/Musics/30 - Ruins.ogg" id="6_d1h1m"]
+[ext_resource type="PackedScene" uid="uid://01cq3ethui3i" path="res://characters/baseCharacter/player.tscn" id="7_q65sv"]
 
 [node name="Dungeon_Mode" type="Node2D"]
 script = ExtResource("1_lel40")
+
+[node name="Player" parent="." instance=ExtResource("7_q65sv")]
+
+[node name="Camera2D" parent="Player/PlayerBodyCollision" index="0"]
+zoom = Vector2(3, 3)
 
 [node name="Maze_Generator" parent="." node_paths=PackedStringArray("wall_patterns", "maze_object_patterns") instance=ExtResource("2_4rsbj")]
 wall_patterns = NodePath("../dungeon_walls")
@@ -19,11 +25,8 @@ mode = 2
 tile_map_data = PackedByteArray()
 
 [node name="dungeon_objects" parent="." instance=ExtResource("4_d0f5w")]
+z_as_relative = false
 tile_map_data = PackedByteArray()
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(458, 487)
-zoom = Vector2(0.5, 0.5)
 
 [node name="loading_screen" parent="." instance=ExtResource("5_yeol0")]
 
@@ -38,6 +41,8 @@ rounded = true
 stream = ExtResource("6_d1h1m")
 parameters/looping = true
 
+[connection signal="last_index" from="Maze_Generator" to="." method="_on_maze_generator_last_index"]
 [connection signal="map_loaded" from="Maze_Generator" to="loading_screen" method="_on_maze_generator_map_loaded"]
 
+[editable path="Player"]
 [editable path="loading_screen"]

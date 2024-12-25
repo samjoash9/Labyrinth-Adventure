@@ -1,6 +1,5 @@
 extends Node2D
 
-@onready var maze_generator: TileMapLayer = $Maze_Generator
 @onready var player: Player = $Player
 @onready var camera_2d: Camera2D = $Player/PlayerBodyCollision/Camera2D
 

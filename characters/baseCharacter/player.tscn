@@ -72,6 +72,7 @@ radius = 8.0
 height = 16.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 10
 script = ExtResource("1_a7jnc")
 
 [node name="HUD" type="CanvasLayer" parent="."]
