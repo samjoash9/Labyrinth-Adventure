@@ -29,9 +29,6 @@ tile_map_data = PackedByteArray()
 
 [node name="Player" parent="." instance=ExtResource("7_vvuvv")]
 
-[node name="HUD" parent="Player" index="0"]
-visible = false
-
 [node name="DebugUI" parent="Player" index="1"]
 visible = false
 
@@ -41,6 +38,9 @@ position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="game_hud_pause" parent="." instance=ExtResource("6_8w3i6")]
+
+[node name="timer_label" parent="game_hud_pause/Control/MarginContainer/HBoxContainer" index="0"]
+size_flags_vertical = 0
 
 [node name="loading_screen" parent="." instance=ExtResource("5_01dn4")]
 

@@ -12,8 +12,8 @@ func _on_button_pressed() -> void:
 	player.set_process(false)
 	player_hud.visible = false
 	visible = false
-	
-	# add in game pause canvas layer
+	timer.paused = true
+
 	var in_game_pause = IN_GAME_PAUSE.instantiate()
 	add_child(in_game_pause)
 

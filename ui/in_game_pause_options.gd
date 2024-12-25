@@ -11,8 +11,11 @@ func _on_resume_pressed() -> void:
 	if get_parent().get_parent().get_node("Player"):
 		var player = get_parent().get_parent().get_node("Player")
 		var player_hud = player.get_node("HUD")
+		
 		player_hud.visible = true
 		player.set_process(true)
+		
+		get_parent().get_node("Timer").paused = false
 		get_parent().visible = true
 	
 	visible = false
