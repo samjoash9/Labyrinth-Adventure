@@ -8,9 +8,6 @@ const GREEN_MODE = preload("res://scenes/game_modes/Green_Mode.tscn")
 
 @onready var click_sound: AudioStreamPlayer2D = $click_sound
 
-var selected_level: int
-var selected_mode: String
-
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_UP:
 		camera.position.y -= 15
@@ -25,8 +22,8 @@ func _on_return_button_pressed() -> void:
 
 func confirmation(mode: String, level: int):
 	click_sound.play()
-	selected_level = level
-	selected_mode = mode
+	GameManager.selected_level = level
+	GameManager.selected_mode = mode
 	
 	map_confirm.visible = true
 	return_hud.visible = false
@@ -34,11 +31,11 @@ func confirmation(mode: String, level: int):
 func _on_confirm_pressed() -> void:
 	click_sound.play()
 	# generate level based on pressed level
-	GameManager.map_rooms += selected_level
+	GameManager.map_rooms += GameManager.selected_level
 	GameManager.mapSize = GameManager.map_rooms * GameManager.PATTERN_SIZE
 	GameManager.object_map_size = GameManager.mapSize - GameManager.PATTERN_SIZE
 	
-	match selected_mode:
+	match GameManager.selected_mode:
 		"green":
 			SceneManager.change_scene(
 			"res://scenes/game_modes/Green_Mode.tscn",

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://gpo24n2hi45r"]
+[gd_scene load_steps=15 format=3 uid="uid://gpo24n2hi45r"]
 
 [ext_resource type="Script" path="res://scripts/game_modes/green_mode.gd" id="1_jhivi"]
 [ext_resource type="PackedScene" uid="uid://dwyhebwkim47x" path="res://scenes/game_modes/tilesets/green.tscn" id="1_ocduj"]
@@ -6,7 +6,55 @@
 [ext_resource type="PackedScene" uid="uid://br1vuxb82exst" path="res://scenes/game_modes/objects/green_objects.tscn" id="2_2y7qd"]
 [ext_resource type="PackedScene" uid="uid://cp4c2x3wsfo5p" path="res://ui/loading_screen.tscn" id="5_01dn4"]
 [ext_resource type="AudioStream" uid="uid://burxw1457iytb" path="res://assets/Musics/26 - Lost Village.ogg" id="6_tt6st"]
+[ext_resource type="Script" path="res://ui/in_game_pause.gd" id="7_801lv"]
 [ext_resource type="PackedScene" uid="uid://01cq3ethui3i" path="res://characters/baseCharacter/player.tscn" id="7_vvuvv"]
+[ext_resource type="Texture2D" uid="uid://di70broao655r" path="res://assets/Images/IconsFlat-160.png" id="8_1l8wp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g5lpa"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d6j2p"]
+texture = ExtResource("8_1l8wp")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(1260, 1288, 200, 144)
+modulate_color = Color(0.76662, 0.76662, 0.76662, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wv1wp"]
+texture = ExtResource("8_1l8wp")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_bottom = 2.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(1260, 1284, 200, 152)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_judmb"]
+texture = ExtResource("8_1l8wp")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(1260, 1288, 200, 144)
+modulate_color = Color(0.796243, 0.796243, 0.796243, 1)
+
+[sub_resource type="Theme" id="Theme_28oav"]
+Button/styles/focus = SubResource("StyleBoxFlat_g5lpa")
+Button/styles/hover = SubResource("StyleBoxTexture_d6j2p")
+Button/styles/normal = SubResource("StyleBoxTexture_wv1wp")
+Button/styles/pressed = SubResource("StyleBoxTexture_judmb")
 
 [node name="Green_Mode" type="Node2D"]
 script = ExtResource("1_jhivi")
@@ -22,23 +70,48 @@ tile_map_data = PackedByteArray()
 [node name="green_walls" parent="." instance=ExtResource("1_ocduj")]
 tile_map_data = PackedByteArray()
 
-[node name="loading_screen" parent="." instance=ExtResource("5_01dn4")]
-
-[node name="Label" parent="loading_screen/Control/Panel/VBoxContainer" index="0"]
-text = "
-Tip: Follow one wall to find your way out!"
-
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_tt6st")
 parameters/looping = true
 
 [node name="Player" parent="." instance=ExtResource("7_vvuvv")]
 
+[node name="DebugUI" parent="Player" index="1"]
+visible = false
+
 [node name="Camera2D" parent="Player/PlayerBodyCollision" index="0"]
 zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="pause" type="CanvasLayer" parent="."]
+script = ExtResource("7_801lv")
+
+[node name="Button" type="Button" parent="pause"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -71.0
+offset_top = -44.0
+offset_right = -12.0
+offset_bottom = -13.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 6
+size_flags_vertical = 3
+theme = SubResource("Theme_28oav")
+
+[node name="loading_screen" parent="." instance=ExtResource("5_01dn4")]
+
+[node name="Label" parent="loading_screen/Control/Panel/VBoxContainer" index="0"]
+text = "
+Tip: Follow one wall to find your way out!"
 
 [connection signal="last_index" from="Maze_Generator" to="." method="_on_maze_generator_last_index"]
 [connection signal="map_loaded" from="Maze_Generator" to="loading_screen" method="_on_maze_generator_map_loaded"]
+[connection signal="pressed" from="pause/Button" to="pause" method="_on_button_pressed"]
 
-[editable path="loading_screen"]
 [editable path="Player"]
+[editable path="loading_screen"]
