@@ -339,15 +339,16 @@ vertical_alignment = 1
 [node name="Options" type="HBoxContainer" parent="HUD" node_paths=PackedStringArray("weapons", "passives")]
 unique_name_in_owner = true
 process_mode = 3
+z_index = 2
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
-offset_top = -20.0
+offset_top = -54.0
 offset_right = 20.0
-offset_bottom = 20.0
+offset_bottom = -14.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_tq6tw")
@@ -378,13 +379,16 @@ script = ExtResource("10_sly3d")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
+offset_left = -1104.0
+offset_top = 16.0
+offset_right = -864.0
+offset_bottom = 192.0
 grow_horizontal = 0
 theme = ExtResource("8_p8ppg")
 
 [node name="Label9" type="Label" parent="DebugUI/VBoxContainer"]
 layout_mode = 2
+text = "FPS"
 
 [node name="Label" type="Label" parent="DebugUI/VBoxContainer"]
 layout_mode = 2

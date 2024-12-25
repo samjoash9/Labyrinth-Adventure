@@ -1,24 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://bysrp2cq0vumt"]
+[gd_scene load_steps=5 format=3 uid="uid://cws84432hu3a7"]
 
 [ext_resource type="Theme" uid="uid://iivwh67cjc1k" path="res://scenes/UI/base_theme.tres" id="1_1apxo"]
 [ext_resource type="Script" path="res://ui/in_game_pause_options.gd" id="1_erj1v"]
 [ext_resource type="Script" path="res://ui/in_game_exit_modal.gd" id="3_hlod2"]
-[ext_resource type="PackedScene" uid="uid://csdl2wqpk36bk" path="res://common/fx/menu_click_sound.tscn" id="4_ycic2"]
+[ext_resource type="PackedScene" path="res://common/fx/menu_click_sound.tscn" id="4_ycic2"]
 
 [node name="in_game_pause" type="CanvasLayer"]
 script = ExtResource("1_erj1v")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
@@ -27,16 +21,15 @@ theme = ExtResource("1_1apxo")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 6
+anchor_left = 1.0
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -90.0
-offset_top = -58.0
-offset_right = 90.0
-offset_bottom = 92.0
-grow_horizontal = 2
+offset_left = -180.0
+offset_top = -75.0
+offset_bottom = 75.0
+grow_horizontal = 0
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
@@ -44,6 +37,7 @@ layout_mode = 2
 
 [node name="RESUME" type="Button" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 6
 text = "RESUME GAME"
 

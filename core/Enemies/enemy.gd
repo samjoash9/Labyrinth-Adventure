@@ -30,10 +30,11 @@ var hitPoints: float:
 			var deathfx = DEATH_EFFECT.instantiate()
 			deathfx.global_position = global_position
 			add_sibling(deathfx)
-			var drop = PICKABLE_ITEM.instantiate()
-			drop.pickableData = enemyType.get_drop()
-			drop.global_position = global_position
-			add_sibling.call_deferred(drop)
+			if enemyType.drops != null:
+				var drop = PICKABLE_ITEM.instantiate()
+				drop.pickableData = enemyType.get_drop()
+				drop.global_position = global_position
+				add_sibling.call_deferred(drop)
 			queue_free()
 			
 var movementSpeed: float

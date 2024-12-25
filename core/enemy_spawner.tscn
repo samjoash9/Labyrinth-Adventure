@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdi8d70wpq4ym"]
+[gd_scene load_steps=4 format=3 uid="uid://cdi8d70wpq4ym"]
 
 [ext_resource type="Script" path="res://core/enemy_spawner.gd" id="1_61dfi"]
+[ext_resource type="FontFile" uid="uid://c4o2mmlfx4faa" path="res://themes/PressStart2P.ttf" id="2_df0dq"]
 
 [sub_resource type="Curve2D" id="Curve2D_dxsey"]
 _data = {
@@ -9,7 +10,7 @@ _data = {
 point_count = 5
 
 [node name="EnemySpawner" type="Camera2D"]
-zoom = Vector2(2, 2)
+zoom = Vector2(4, 4)
 script = ExtResource("1_61dfi")
 
 [node name="Timer" type="Timer" parent="."]
@@ -22,10 +23,12 @@ z_index = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -44.0
-offset_right = 44.0
-offset_bottom = 23.0
+offset_left = -88.0
+offset_top = 27.0
+offset_right = 88.0
+offset_bottom = 50.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_df0dq")
 text = "Time: 00:00
 "
 

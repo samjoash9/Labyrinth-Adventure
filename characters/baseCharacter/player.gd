@@ -51,20 +51,18 @@ var growth : float
 # LEVEL UP WOKING
 var level: float = 1:
 	set(value):
-		expCap += expCap * (expGrowthRate*(value-level))
 		level = value
+		expCap += expCap * (expGrowthRate)
 		%Level.text = str(level)
 		%Options.show_option()
-
 
 # EXP and GROWTH STAT WORKING
 var exp: float:
 	set(value):
-		if value + (value * growth) > %XpBar.max_value:
-			level+= floor(value + (value * growth)/%XpBar.max_value)
-			exp = value/%XpBar.max_value
-		else:
-			exp = value + (value * growth)
+		exp = value + (value * growth)
+		if exp > expCap:
+			exp = exp - expCap
+			level +=1
 		var tween:=create_tween()
 		tween.tween_property(%XpBar,"value", exp, 0.5)
 
