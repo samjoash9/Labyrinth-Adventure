@@ -90,7 +90,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="Control/Panel/PanelContainer/VBoxContainer/Body/Sprite_container"]
+[node name="hero_image" type="Sprite2D" parent="Control/Panel/PanelContainer/VBoxContainer/Body/Sprite_container"]
 position = Vector2(85, 83)
 scale = Vector2(0.22, 0.22)
 texture = ExtResource("3_oly0a")
