@@ -101,3 +101,7 @@ const LAVA = {
 	],
 	"object_pattern_count": 8
 }
+
+# IN GAME SCORE AND COINS
+var score: int
+var coins: int

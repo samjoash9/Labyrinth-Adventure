@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cgtge0leu72ds"]
+[gd_scene load_steps=14 format=3 uid="uid://cgtge0leu72ds"]
 
 [ext_resource type="Script" path="res://scripts/game_modes/dungeon_mode.gd" id="1_lel40"]
 [ext_resource type="PackedScene" uid="uid://gntrd0281yiq" path="res://scenes/game_modes/Maze_Generator.tscn" id="2_4rsbj"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dgthph7v8cafd" path="res://ui/game_status.tscn" id="10_pgqwc"]
 [ext_resource type="PackedScene" uid="uid://csdl2wqpk36bk" path="res://common/fx/menu_click_sound.tscn" id="11_fmef0"]
 [ext_resource type="Script" path="res://scenes/portals/dungeon_portal.gd" id="13_2hi4g"]
+[ext_resource type="PackedScene" uid="uid://bbw6rx0qk54qr" path="res://common/fx/portal_success_sound.tscn" id="13_qvf7b"]
 
 [node name="Dungeon_Mode" type="Node2D"]
 script = ExtResource("1_lel40")
@@ -53,6 +54,8 @@ bus = &"Music"
 parameters/looping = true
 
 [node name="click_sound" parent="." instance=ExtResource("11_fmef0")]
+
+[node name="portal_success_sound" parent="." instance=ExtResource("13_qvf7b")]
 
 [node name="game_status" parent="." instance=ExtResource("10_pgqwc")]
 visible = false

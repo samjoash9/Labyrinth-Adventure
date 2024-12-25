@@ -4,6 +4,8 @@ extends Node2D
 @onready var camera_2d: Camera2D = $Player/PlayerBodyCollision/Camera2D
 @onready var game_status: CanvasLayer = $game_status
 @onready var game_hud_pause: CanvasLayer = $game_hud_pause
+@onready var portal_success_sound: AudioStreamPlayer2D = $portal_success_sound
+@onready var music: AudioStreamPlayer = $music
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,7 +21,8 @@ func _ready() -> void:
 
 func _on_area_2d_body_entered(body: Player) -> void:
 	game_status.visible = true
-	
+	portal_success_sound.play()
+	music.stop()
 	game_hud_pause.visible = false
 	player.get_node("HUD").visible = false
 	player.set_process(false)
