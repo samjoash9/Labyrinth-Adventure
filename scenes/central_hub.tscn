@@ -2330,12 +2330,6 @@ z_as_relative = false
 [node name="HUD" parent="Player" index="0"]
 visible = false
 
-[node name="DebugUI" parent="Player" index="1"]
-visible = false
-
-[node name="Camera2D" parent="Player/PlayerBodyCollision" index="0"]
-zoom = Vector2(3, 3)
-
 [node name="central_hub_portal" parent="." instance=ExtResource("5_wo05u")]
 z_index = 100
 position = Vector2(248, -43)
@@ -2428,3 +2422,4 @@ parameters/looping = true
 [connection signal="body_exited" from="wizard_stone/Area2D2" to="wizard_stone" method="_on_area_2d_2_body_exited"]
 
 [editable path="Player"]
+[editable path="Player/Item_Magnet"]
