@@ -6,7 +6,7 @@ const ENEMY = preload("res://core/Enemies/enemy.tscn")
 @onready var label: Label = $CanvasLayer/Label
 
 func get_random_position() ->Vector2:
-	var viewportsize = self.get_viewport_rect().size
+	var viewportsize = self.get_viewport_rect().size / self.zoom
 	var worldPos = get_viewport().get_camera_2d().make_canvas_position_local(Vector2((randf() * viewportsize.x),(randf() * viewportsize.y)))
 	return worldPos
 
