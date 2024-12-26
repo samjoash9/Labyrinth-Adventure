@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cgtge0leu72ds"]
+[gd_scene load_steps=17 format=3 uid="uid://cgtge0leu72ds"]
 
 [ext_resource type="Script" path="res://scripts/game_modes/dungeon_mode.gd" id="1_lel40"]
 [ext_resource type="PackedScene" uid="uid://gntrd0281yiq" path="res://scenes/game_modes/Maze_Generator.tscn" id="2_4rsbj"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://diyb228qqbi12" path="res://scenes/game_modes/objects/dungeon_objects.tscn" id="4_d0f5w"]
 [ext_resource type="PackedScene" uid="uid://cp4c2x3wsfo5p" path="res://ui/loading_screen.tscn" id="5_yeol0"]
 [ext_resource type="AudioStream" uid="uid://cngt26w6g1tfr" path="res://assets/Musics/30 - Ruins.ogg" id="6_d1h1m"]
+[ext_resource type="PackedScene" uid="uid://cdi8d70wpq4ym" path="res://core/enemy_spawner.tscn" id="6_gn1ac"]
 [ext_resource type="PackedScene" uid="uid://c423bd87f8cy5" path="res://ui/game_hud_pause.tscn" id="6_k8orw"]
 [ext_resource type="PackedScene" uid="uid://01cq3ethui3i" path="res://characters/baseCharacter/player.tscn" id="7_q65sv"]
 [ext_resource type="PackedScene" uid="uid://dgthph7v8cafd" path="res://ui/game_status.tscn" id="10_pgqwc"]
@@ -35,7 +36,7 @@ tile_map_data = PackedByteArray()
 collision_layer = 1
 collision_mask = 1
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="EnemySpawner" parent="Player" instance=ExtResource("6_gn1ac")]
 zoom = Vector2(3, 3)
 
 [node name="game_hud_pause" parent="." instance=ExtResource("6_k8orw")]

@@ -1,14 +1,13 @@
 extends Node2D
 
 @onready var player: Player = $Player
-@onready var enemy_spawner: Camera2D = $Player/EnemySpawner
 @onready var game_status: CanvasLayer = $game_status
 @onready var dungeon_portal: AnimatedSprite2D = %dungeon_portal
 @onready var game_hud_pause: CanvasLayer = $game_hud_pause
 @onready var portal_success_sound: AudioStreamPlayer2D = $portal_success_sound
 @onready var music: AudioStreamPlayer = $music
 @onready var game_complete: CanvasLayer = $game_complete
-@onready var camera_2d: Camera2D = $Player/Camera2D
+@onready var enemy_spawner: Camera2D = $Player/EnemySpawner
 
 var dedicated_sizes = [
 	1, 2, 2, 3, 4, 0, 4, 5, 5, 6, 7, 0
@@ -21,12 +20,10 @@ func _ready() -> void:
 	player.set_process(false)
 
 	# SETTING CAMERA LIMITS BASED ON GM
-	camera_2d.limit_left = 0
-	camera_2d.limit_top = 0
-	camera_2d.limit_bottom = GameManager.map_rooms * 27 * 16
-	camera_2d.limit_right = GameManager.map_rooms * 27 * 16
-	
-	print(GameManager.selected_level)
+	enemy_spawner.limit_left = 0
+	enemy_spawner.limit_top = 0
+	enemy_spawner.limit_bottom = GameManager.map_rooms * 27 * 16
+	enemy_spawner.limit_right = GameManager.map_rooms * 27 * 16
 
 func _on_area_2d_body_entered(_body: Player) -> void:
 	game_complete.visible = true
