@@ -31,9 +31,12 @@ func _ready() -> void:
 var central_hub_last_position: Vector2i = Vector2(216, 6)
 
 # SELECTED HERO
-var selected_hero = "knight"
-var selected_level: int
-var selected_mode: String
+var selected_hero = "rogue"
+
+# SELECTED LEVEL
+var selected_level = 1
+var dedicated_size = 2
+var selected_mode = "green"
 
 # SPECIFIC MAP TYPES
 # GREEN 
@@ -104,3 +107,35 @@ const LAVA = {
 # IN GAME SCORE AND COINS
 var score: int = 0
 var coins: int = 0
+
+# HERO DETAILS
+const ROGUE = {
+	"special_skill_description": "",
+	"base_stats": {
+		"attack": "150",
+		"health": "75",
+		"agility": "180"
+	},
+	"special_skill": "res://assets/Ninja Adventure - Asset Pack/Ui/Icon/Spell/OrbLight.png", 
+	"weapon": ""
+}
+const KNIGHT = {
+	"special_skill_description": "",
+	"base_stats": {
+		"attack": "100",
+		"health": "150",
+		"agility": "100"
+	},
+	"special_skill": "", 
+	"weapon": ""
+}
+const WIZARD = {
+	"special_skill_description": "",
+	"base_stats": {
+		"attack": "200",
+		"health": "60",
+		"agility": "120"
+	},
+	"special_skill": "", 
+	"weapon": ""
+}

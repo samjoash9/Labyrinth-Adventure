@@ -23,8 +23,8 @@ buses/default_bus_layout="res://assets/Bus_Layout.tres"
 [autoload]
 
 GameManager="*res://globals/GameManager.gd"
-SceneManager="*res://addons/scene_manager/SceneManager.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+SceneManager="*res://addons/scene_manager/SceneManager.tscn"
 
 [dialogic]
 
@@ -39,6 +39,8 @@ directories/dtl_directory={
 "Rogue Stone": "res://addons/dialogic/characters and styles/Rogue Stone.dtl",
 "Wizard Stone": "res://addons/dialogic/characters and styles/Wizard Stone.dtl"
 }
+layout/style_list=["res://themes/stone_interaction_base_styole.tres"]
+layout/default_style="res://themes/stone_interaction_base_styole.tres"
 
 [display]
 

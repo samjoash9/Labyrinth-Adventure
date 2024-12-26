@@ -11,7 +11,7 @@
 [ext_resource type="Theme" uid="uid://b7hegvw856mt3" path="res://themes/normal_level.tres" id="8_3fsb7"]
 [ext_resource type="Theme" uid="uid://c458glwcww10h" path="res://themes/boss_level_theme.tres" id="9_q38vj"]
 [ext_resource type="PackedScene" uid="uid://c00in8aw55fsa" path="res://ui/map_confirmation.tscn" id="11_ofswj"]
-[ext_resource type="PackedScene" path="res://common/fx/menu_click_sound.tscn" id="12_joq40"]
+[ext_resource type="PackedScene" uid="uid://csdl2wqpk36bk" path="res://common/fx/menu_click_sound.tscn" id="12_joq40"]
 [ext_resource type="AudioStream" uid="uid://cl8a5j1tmaooc" path="res://assets/Musics/18 - Aquatic.ogg" id="13_33xwp"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_0jf1k"]
@@ -2175,7 +2175,7 @@ layout_mode = 3
 anchors_preset = 0
 theme = ExtResource("6_0frc0")
 
-[node name="level1" type="Button" parent="Control"]
+[node name="level1" type="Button" parent="Control" groups=["level_buttons"]]
 layout_mode = 0
 offset_left = 780.0
 offset_top = 460.0
@@ -2183,9 +2183,10 @@ offset_right = 800.0
 offset_bottom = 480.0
 scale = Vector2(2, 2)
 theme = ExtResource("8_3fsb7")
+disabled = true
 text = "1"
 
-[node name="level2" type="Button" parent="Control"]
+[node name="level2" type="Button" parent="Control" groups=["level_buttons"]]
 layout_mode = 0
 offset_left = 204.0
 offset_top = 411.0
@@ -2193,9 +2194,10 @@ offset_right = 224.0
 offset_bottom = 431.0
 scale = Vector2(2, 2)
 theme = ExtResource("8_3fsb7")
+disabled = true
 text = "2"
 
-[node name="level3" type="Button" parent="Control"]
+[node name="level3" type="Button" parent="Control" groups=["level_buttons"]]
 layout_mode = 0
 offset_left = 523.0
 offset_top = 284.0
@@ -2203,9 +2205,10 @@ offset_right = 543.0
 offset_bottom = 304.0
 scale = Vector2(2, 2)
 theme = ExtResource("8_3fsb7")
+disabled = true
 text = "3"
 
-[node name="level4" type="Button" parent="Control"]
+[node name="level4" type="Button" parent="Control" groups=["level_buttons"]]
 layout_mode = 0
 offset_left = 893.0
 offset_top = 141.0
@@ -2213,9 +2216,10 @@ offset_right = 913.0
 offset_bottom = 161.0
 scale = Vector2(2, 2)
 theme = ExtResource("8_3fsb7")
+disabled = true
 text = "4"
 
-[node name="level5" type="Button" parent="Control"]
+[node name="level5" type="Button" parent="Control" groups=["level_buttons"]]
 layout_mode = 0
 offset_left = 540.0
 offset_top = 26.0
@@ -2223,9 +2227,10 @@ offset_right = 560.0
 offset_bottom = 46.0
 scale = Vector2(2, 2)
 theme = ExtResource("9_q38vj")
+disabled = true
 text = "5"
 
-[node name="level6" type="Button" parent="Control"]
+[node name="level6" type="Button" parent="Control" groups=["level_buttons"]]
 layout_mode = 0
 offset_left = 537.0
 offset_top = -160.0
@@ -2233,9 +2238,10 @@ offset_right = 557.0
 offset_bottom = -140.0
 scale = Vector2(2, 2)
 theme = ExtResource("8_3fsb7")
+disabled = true
 text = "6"
 
-[node name="level7" type="Button" parent="Control"]
+[node name="level7" type="Button" parent="Control" groups=["level_buttons"]]
 layout_mode = 0
 offset_left = 138.0
 offset_top = -286.0
@@ -2243,9 +2249,10 @@ offset_right = 158.0
 offset_bottom = -266.0
 scale = Vector2(2, 2)
 theme = ExtResource("8_3fsb7")
+disabled = true
 text = "7"
 
-[node name="level8" type="Button" parent="Control"]
+[node name="level8" type="Button" parent="Control" groups=["level_buttons"]]
 layout_mode = 0
 offset_left = 410.0
 offset_top = -511.0
@@ -2253,9 +2260,10 @@ offset_right = 430.0
 offset_bottom = -491.0
 scale = Vector2(2, 2)
 theme = ExtResource("8_3fsb7")
+disabled = true
 text = "8"
 
-[node name="level9" type="Button" parent="Control"]
+[node name="level9" type="Button" parent="Control" groups=["level_buttons"]]
 layout_mode = 0
 offset_left = 891.0
 offset_top = -323.0
@@ -2263,9 +2271,10 @@ offset_right = 911.0
 offset_bottom = -303.0
 scale = Vector2(2, 2)
 theme = ExtResource("8_3fsb7")
+disabled = true
 text = "9"
 
-[node name="level10" type="Button" parent="Control"]
+[node name="level10" type="Button" parent="Control" groups=["level_buttons"]]
 layout_mode = 0
 offset_left = 780.0
 offset_top = -647.0
@@ -2273,6 +2282,7 @@ offset_right = 816.0
 offset_bottom = -627.0
 scale = Vector2(1.5, 1.5)
 theme = ExtResource("9_q38vj")
+disabled = true
 text = "10"
 
 [node name="level11" type="Button" parent="Control"]
@@ -2285,7 +2295,6 @@ scale = Vector2(1.6, 1.6)
 theme = ExtResource("8_3fsb7")
 disabled = true
 text = "11"
-flat = true
 
 [node name="level12" type="Button" parent="Control"]
 layout_mode = 0

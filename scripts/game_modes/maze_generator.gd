@@ -47,7 +47,7 @@ func _ready() -> void:
 	
 	thread1.wait_to_finish()
 	thread2.wait_to_finish()
-	
+
 	await init_maze()
 	emit_signal("map_loaded")
 
@@ -110,11 +110,14 @@ func init_maze():
 				current = stack.pop_back()
 			else:
 				break 
-	
+
+	#portal_position = Vector2i(
+		#last_index.x * 16 + (215 if last_index.x == 0 else -215),
+		#last_index.y * 16 + (240 if last_index.y == 0 else -190))
 	portal_position = Vector2i(
-		last_index.x * 16 * GameManager.map_rooms + (215 if last_index.x == 0 else -215),
-		last_index.y * 16 * GameManager.map_rooms + (240 if last_index.y == 0 else -190))
-	
+		(last_index.x * 16) + 215,
+		(last_index.y * 16) + 240)
+
 	emit_signal("last_index", portal_position)
 
 func apply_noise():

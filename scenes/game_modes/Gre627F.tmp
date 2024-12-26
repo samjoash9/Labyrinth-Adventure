@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://gpo24n2hi45r"]
+[gd_scene load_steps=18 format=3 uid="uid://gpo24n2hi45r"]
 
 [ext_resource type="Script" path="res://scripts/game_modes/green_mode.gd" id="1_jhivi"]
 [ext_resource type="PackedScene" uid="uid://dwyhebwkim47x" path="res://scenes/game_modes/tilesets/green.tscn" id="1_ocduj"]
@@ -16,16 +16,14 @@
 [ext_resource type="PackedScene" uid="uid://dgthph7v8cafd" path="res://ui/game_status.tscn" id="11_u1e0f"]
 [ext_resource type="PackedScene" uid="uid://cawigphsjmbeu" path="res://scenes/portals/green_portal.tscn" id="12_e83j0"]
 [ext_resource type="Script" path="res://scenes/portals/green_portal.gd" id="13_jldfc"]
-[ext_resource type="PackedScene" uid="uid://bggfmmp107gab" path="res://ui/game_complete.tscn" id="17_fjcdd"]
-[ext_resource type="Script" path="res://ui/game_complete.gd" id="18_hv3y7"]
 
-[sub_resource type="Resource" id="Resource_461gp"]
+[sub_resource type="Resource" id="Resource_yaw0h"]
 script = ExtResource("7_4m5w6")
-name = "Akaname"
+name = "akaname"
 animation = ExtResource("8_jpwnj")
 hitPoints = 10.0
-movementSpeed = 10.0
-damage = 1.0
+movementSpeed = 100.0
+damage = 10.0
 attackRadius = 10.0
 attackSpeed = 10.0
 drops = {}
@@ -41,21 +39,22 @@ mode = 1
 
 [node name="green_objects" parent="." instance=ExtResource("2_2y7qd")]
 tile_map_data = PackedByteArray()
+navigation_visibility_mode = 1
 
 [node name="green_walls" parent="." instance=ExtResource("1_ocduj")]
 tile_map_data = PackedByteArray()
+navigation_visibility_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("7_vvuvv")]
-collision_layer = 1
 collision_mask = 1
 
 [node name="EnemySpawner" parent="Player" node_paths=PackedStringArray("world") instance=ExtResource("6_1rtf3")]
 scale = Vector2(2, 2)
-zoom = Vector2(3, 3)
+enabled = false
 position_smoothing_enabled = true
 position_smoothing_speed = 12.0
 world = NodePath("../..")
-enemy_types = Array[ExtResource("7_4m5w6")]([SubResource("Resource_461gp")])
+enemy_types = Array[ExtResource("7_4m5w6")]([SubResource("Resource_yaw0h")])
 
 [node name="game_hud_pause" parent="." instance=ExtResource("6_8w3i6")]
 
@@ -63,6 +62,7 @@ enemy_types = Array[ExtResource("7_4m5w6")]([SubResource("Resource_461gp")])
 size_flags_vertical = 0
 
 [node name="loading_screen" parent="." instance=ExtResource("5_01dn4")]
+visible = false
 
 [node name="Label" parent="loading_screen/Control/Panel/VBoxContainer" index="0"]
 text = "
@@ -77,7 +77,11 @@ parameters/looping = true
 
 [node name="portal_success_sound" parent="." instance=ExtResource("10_k3wix")]
 
+[node name="game_status" parent="." instance=ExtResource("11_u1e0f")]
+visible = false
+
 [node name="green_portal" parent="." instance=ExtResource("12_e83j0")]
+visible = false
 z_index = 100
 scale = Vector2(1e-05, 1e-05)
 script = ExtResource("13_jldfc")
@@ -85,29 +89,17 @@ script = ExtResource("13_jldfc")
 [node name="CollisionShape2D" parent="green_portal/Area2D" index="0"]
 disabled = true
 
-[node name="game_over" parent="." instance=ExtResource("11_u1e0f")]
-visible = false
-
-[node name="game_complete" parent="." instance=ExtResource("17_fjcdd")]
-visible = false
-script = ExtResource("18_hv3y7")
-
 [connection signal="last_index" from="Maze_Generator" to="green_portal" method="_on_maze_generator_last_index"]
 [connection signal="map_loaded" from="Maze_Generator" to="loading_screen" method="_on_maze_generator_map_loaded"]
 [connection signal="pressed" from="game_hud_pause/Control/MarginContainer/HBoxContainer/pause" to="game_hud_pause" method="_on_button_pressed"]
 [connection signal="timeout" from="game_hud_pause/Timer" to="green_portal" method="_on_timer_timeout"]
+[connection signal="pressed" from="game_status/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/restart" to="game_status" method="_on_restart_pressed"]
+[connection signal="pressed" from="game_status/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/quit" to="game_status" method="_on_quit_pressed"]
 [connection signal="body_entered" from="green_portal/Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="pressed" from="game_over/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/restart" to="game_over" method="_on_restart_pressed"]
-[connection signal="pressed" from="game_over/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/quit" to="game_over" method="_on_quit_pressed"]
-[connection signal="pressed" from="game_complete/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/restart" to="game_complete" method="_on_restart_pressed"]
-[connection signal="pressed" from="game_complete/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/next_level" to="game_complete" method="_on_next_level_pressed"]
-[connection signal="pressed" from="game_complete/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/quit" to="game_complete" method="_on_quit_pressed"]
 
 [editable path="Player"]
 [editable path="Player/Item_Magnet"]
-[editable path="Player/EnemySpawner"]
 [editable path="game_hud_pause"]
 [editable path="loading_screen"]
+[editable path="game_status"]
 [editable path="green_portal"]
-[editable path="game_over"]
-[editable path="game_complete"]

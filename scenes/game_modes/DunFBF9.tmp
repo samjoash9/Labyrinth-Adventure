@@ -1,40 +1,32 @@
-[gd_scene load_steps=21 format=3 uid="uid://cgtge0leu72ds"]
+[gd_scene load_steps=18 format=3 uid="uid://cgtge0leu72ds"]
 
 [ext_resource type="Script" path="res://scripts/game_modes/dungeon_mode.gd" id="1_lel40"]
 [ext_resource type="PackedScene" uid="uid://gntrd0281yiq" path="res://scenes/game_modes/Maze_Generator.tscn" id="2_4rsbj"]
-[ext_resource type="PackedScene" uid="uid://cdi8d70wpq4ym" path="res://core/enemy_spawner.tscn" id="3_0rje5"]
 [ext_resource type="PackedScene" uid="uid://8sotrcyxx4a5" path="res://scenes/game_modes/tilesets/dungeon.tscn" id="3_ddod5"]
-[ext_resource type="PackedScene" path="res://scenes/portals/dungeon_portal.tscn" id="3_ur71p"]
+[ext_resource type="PackedScene" uid="uid://lmcbsxwemc2j" path="res://scenes/portals/dungeon_portal.tscn" id="3_ur71p"]
+[ext_resource type="PackedScene" uid="uid://cdi8d70wpq4ym" path="res://core/enemy_spawner.tscn" id="3_xps1x"]
 [ext_resource type="PackedScene" uid="uid://diyb228qqbi12" path="res://scenes/game_modes/objects/dungeon_objects.tscn" id="4_d0f5w"]
-[ext_resource type="Script" path="res://resources/scripts/enemyType.gd" id="4_suona"]
+[ext_resource type="Script" path="res://resources/scripts/enemyType.gd" id="4_mnucy"]
+[ext_resource type="SpriteFrames" uid="uid://kr4ywn5wpfss" path="res://core/Enemies/spriteframes/akaname.tres" id="5_2ffgu"]
 [ext_resource type="PackedScene" uid="uid://cp4c2x3wsfo5p" path="res://ui/loading_screen.tscn" id="5_yeol0"]
-[ext_resource type="SpriteFrames" uid="uid://kr4ywn5wpfss" path="res://core/Enemies/spriteframes/akaname.tres" id="5_yvfdr"]
 [ext_resource type="AudioStream" uid="uid://cngt26w6g1tfr" path="res://assets/Musics/30 - Ruins.ogg" id="6_d1h1m"]
-[ext_resource type="PackedScene" path="res://ui/game_hud_pause.tscn" id="6_k8orw"]
-[ext_resource type="Resource" uid="uid://d2xq4euk36s7e" path="res://resources/pickables/coin-5.tres" id="6_me0a7"]
-[ext_resource type="Resource" uid="uid://d2dbnw85yvk2h" path="res://resources/pickables/exp-5.tres" id="7_ljsib"]
+[ext_resource type="PackedScene" uid="uid://c423bd87f8cy5" path="res://ui/game_hud_pause.tscn" id="6_k8orw"]
 [ext_resource type="PackedScene" uid="uid://01cq3ethui3i" path="res://characters/baseCharacter/player.tscn" id="7_q65sv"]
-[ext_resource type="Resource" uid="uid://51y18eak51m3" path="res://resources/pickables/food-10.tres" id="8_bla47"]
-[ext_resource type="PackedScene" uid="uid://oo4g14m4gje0" path="res://ui/game_status.tscn" id="10_pgqwc"]
-[ext_resource type="PackedScene" path="res://common/fx/menu_click_sound.tscn" id="11_fmef0"]
+[ext_resource type="PackedScene" uid="uid://dgthph7v8cafd" path="res://ui/game_status.tscn" id="10_pgqwc"]
+[ext_resource type="PackedScene" uid="uid://csdl2wqpk36bk" path="res://common/fx/menu_click_sound.tscn" id="11_fmef0"]
 [ext_resource type="Script" path="res://scenes/portals/dungeon_portal.gd" id="13_2hi4g"]
-[ext_resource type="PackedScene" path="res://common/fx/portal_success_sound.tscn" id="13_qvf7b"]
+[ext_resource type="PackedScene" uid="uid://bbw6rx0qk54qr" path="res://common/fx/portal_success_sound.tscn" id="13_qvf7b"]
 
-[sub_resource type="Resource" id="Resource_s6ngk"]
-script = ExtResource("4_suona")
-name = "Akaname"
-animation = ExtResource("5_yvfdr")
-hitPoints = 10.0
-movementSpeed = 5.0
-damage = 5.0
-attackRadius = 15.0
-attackSpeed = 1.0
-drops = {
-ExtResource("6_me0a7"): 60,
-ExtResource("7_ljsib"): 100,
-ExtResource("8_bla47"): 10
-}
-scoreValue = 10
+[sub_resource type="Resource" id="Resource_mkdeb"]
+script = ExtResource("4_mnucy")
+name = "nigga"
+animation = ExtResource("5_2ffgu")
+hitPoints = 12.0
+movementSpeed = 12.0
+damage = 0.0
+attackRadius = 5.0
+attackSpeed = 5.0
+drops = {}
 attackType = 0
 
 [node name="Dungeon_Mode" type="Node2D"]
@@ -42,16 +34,9 @@ script = ExtResource("1_lel40")
 
 [node name="Player" parent="." instance=ExtResource("7_q65sv")]
 
-[node name="EnemySpawner" parent="Player" node_paths=PackedStringArray("world", "spawnLocationExcluderMap") instance=ExtResource("3_0rje5")]
+[node name="EnemySpawner" parent="Player" node_paths=PackedStringArray("world") instance=ExtResource("3_xps1x")]
 world = NodePath("../..")
-spawnLocationExcluderMap = NodePath("../../dungeon_walls")
-enemy_types = Array[ExtResource("4_suona")]([SubResource("Resource_s6ngk")])
-
-[node name="CanvasLayer" parent="Player/EnemySpawner" index="1"]
-visible = false
-
-[node name="Label" parent="Player/EnemySpawner/CanvasLayer" index="0"]
-visible = false
+enemy_types = Array[ExtResource("4_mnucy")]([SubResource("Resource_mkdeb")])
 
 [node name="Maze_Generator" parent="." node_paths=PackedStringArray("wall_patterns", "maze_object_patterns") instance=ExtResource("2_4rsbj")]
 wall_patterns = NodePath("../dungeon_walls")
@@ -64,13 +49,6 @@ tile_map_data = PackedByteArray()
 [node name="dungeon_objects" parent="." instance=ExtResource("4_d0f5w")]
 z_as_relative = false
 tile_map_data = PackedByteArray()
-
-[node name="Player" parent="." instance=ExtResource("7_q65sv")]
-collision_layer = 1
-collision_mask = 1
-
-[node name="EnemySpawner" parent="Player" instance=ExtResource("6_gn1ac")]
-zoom = Vector2(3, 3)
 
 [node name="game_hud_pause" parent="." instance=ExtResource("6_k8orw")]
 
@@ -95,11 +73,8 @@ parameters/looping = true
 [node name="game_status" parent="." instance=ExtResource("10_pgqwc")]
 visible = false
 
-[node name="game_complete" parent="." instance=ExtResource("12_plg6f")]
-visible = false
-script = ExtResource("13_233ov")
-
 [node name="dungeon_portal" parent="." instance=ExtResource("3_ur71p")]
+unique_name_in_owner = true
 visible = false
 z_index = 100
 position = Vector2(200, 200)
@@ -108,25 +83,18 @@ script = ExtResource("13_2hi4g")
 
 [node name="CollisionShape2D" parent="dungeon_portal/Area2D" index="0"]
 disabled = true
-debug_color = Color(0.0105917, 0.570205, 0.844516, 0.42)
 
 [connection signal="last_index" from="Maze_Generator" to="dungeon_portal" method="_on_maze_generator_last_index"]
 [connection signal="map_loaded" from="Maze_Generator" to="loading_screen" method="_on_maze_generator_map_loaded"]
 [connection signal="pressed" from="game_hud_pause/Control/MarginContainer/HBoxContainer/pause" to="game_hud_pause" method="_on_button_pressed"]
 [connection signal="timeout" from="game_hud_pause/Timer" to="dungeon_portal" method="_on_timer_timeout"]
-[connection signal="visibility_changed" from="game_status" to="game_status" method="_on_visibility_changed"]
 [connection signal="pressed" from="game_status/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/restart" to="game_status" method="_on_restart_pressed"]
 [connection signal="pressed" from="game_status/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/quit" to="game_status" method="_on_quit_pressed"]
-[connection signal="pressed" from="game_complete/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/restart" to="game_complete" method="_on_restart_pressed"]
-[connection signal="pressed" from="game_complete/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/next_level" to="game_complete" method="_on_next_level_pressed"]
-[connection signal="pressed" from="game_complete/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/quit" to="game_complete" method="_on_quit_pressed"]
 [connection signal="body_entered" from="dungeon_portal/Area2D" to="." method="_on_area_2d_body_entered"]
 
 [editable path="Player"]
 [editable path="Player/Item_Magnet"]
-[editable path="Player/EnemySpawner"]
 [editable path="game_hud_pause"]
 [editable path="loading_screen"]
 [editable path="game_status"]
-[editable path="game_complete"]
 [editable path="dungeon_portal"]

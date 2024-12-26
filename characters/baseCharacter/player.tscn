@@ -100,8 +100,7 @@ corner_radius_bottom_right = 180
 corner_radius_bottom_left = 180
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5wi5q"]
-radius = 8.0
-height = 16.0
+height = 28.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 10

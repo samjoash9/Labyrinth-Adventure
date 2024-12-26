@@ -18,6 +18,12 @@ func _on_resume_pressed() -> void:
 		get_parent().get_node("Timer").paused = false
 		get_parent().visible = true
 	
+	# get enemies
+	var enemies = get_tree().get_nodes_in_group("enemy")
+	
+	for e in enemies:
+		e.set_process(true)
+	
 	visible = false
 
 func _on_restart_pressed() -> void:

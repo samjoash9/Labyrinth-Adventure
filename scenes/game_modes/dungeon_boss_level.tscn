@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=4 uid="uid://db5dphu83t0jt"]
+[gd_scene load_steps=8 format=4 uid="uid://db5dphu83t0jt"]
 
 [ext_resource type="PackedScene" uid="uid://8sotrcyxx4a5" path="res://scenes/game_modes/tilesets/dungeon.tscn" id="2_l7kdj"]
 [ext_resource type="PackedScene" uid="uid://diyb228qqbi12" path="res://scenes/game_modes/objects/dungeon_objects.tscn" id="2_vey6i"]
+[ext_resource type="PackedScene" uid="uid://bggfmmp107gab" path="res://ui/game_complete.tscn" id="3_lusd5"]
+[ext_resource type="PackedScene" uid="uid://csdl2wqpk36bk" path="res://common/fx/menu_click_sound.tscn" id="3_ral1b"]
+[ext_resource type="AudioStream" uid="uid://byvl6rqevka60" path="res://assets/Musics/8 - End Theme.ogg" id="4_k3q0l"]
+[ext_resource type="PackedScene" uid="uid://dgthph7v8cafd" path="res://ui/game_status.tscn" id="4_ukcu3"]
+[ext_resource type="Script" path="res://ui/boss_complete.gd" id="6_vkq2f"]
 [ext_resource type="PackedScene" uid="uid://ci4wjd6hg4rhn" path="res://core/Enemies/boss/dungeon_boss.tscn" id="3_bxfjc"]
 [ext_resource type="PackedScene" uid="uid://01cq3ethui3i" path="res://characters/baseCharacter/player.tscn" id="4_6jv1c"]
 
@@ -22,3 +27,27 @@ position = Vector2(545, 498)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(3, 3)
+
+[node name="click_sound" parent="." instance=ExtResource("3_ral1b")]
+
+[node name="boss_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_k3q0l")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[node name="game_status" parent="." instance=ExtResource("4_ukcu3")]
+visible = false
+
+[node name="game_complete" parent="." instance=ExtResource("3_lusd5")]
+visible = false
+script = ExtResource("6_vkq2f")
+
+[connection signal="pressed" from="game_status/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/restart" to="game_status" method="_on_restart_pressed"]
+[connection signal="pressed" from="game_status/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/quit" to="game_status" method="_on_quit_pressed"]
+[connection signal="pressed" from="game_complete/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/restart" to="game_complete" method="_on_restart_pressed"]
+[connection signal="pressed" from="game_complete/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/next_level" to="game_complete" method="_on_next_level_pressed"]
+[connection signal="pressed" from="game_complete/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/quit" to="game_complete" method="_on_quit_pressed"]
+
+[editable path="game_status"]
+[editable path="game_complete"]
