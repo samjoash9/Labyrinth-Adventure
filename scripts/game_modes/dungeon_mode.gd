@@ -28,6 +28,5 @@ func _on_area_2d_body_entered(body: Player) -> void:
 	player.set_process(false)
 	
 
-
 func _on_game_status_visibility_changed() -> void:
 	pass # Replace with function body.

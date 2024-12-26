@@ -42,8 +42,9 @@ script = ExtResource("1_lel40")
 
 [node name="Player" parent="." instance=ExtResource("7_q65sv")]
 
-[node name="EnemySpawner" parent="Player" node_paths=PackedStringArray("world") instance=ExtResource("3_0rje5")]
+[node name="EnemySpawner" parent="Player" node_paths=PackedStringArray("world", "spawnLocationExcluderMap") instance=ExtResource("3_0rje5")]
 world = NodePath("../..")
+spawnLocationExcluderMap = NodePath("../../dungeon_walls")
 enemy_types = Array[ExtResource("4_suona")]([SubResource("Resource_s6ngk")])
 
 [node name="CanvasLayer" parent="Player/EnemySpawner" index="1"]
