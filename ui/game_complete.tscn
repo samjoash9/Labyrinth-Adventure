@@ -55,12 +55,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 text = "SCORE: "
 
-[node name="coins" type="Label" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-text = "COINS EARNED:"
-
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
