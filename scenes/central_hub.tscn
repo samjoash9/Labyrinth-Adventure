@@ -2330,6 +2330,9 @@ scale = Vector2(0.5, 0.5)
 [node name="Player" parent="." instance=ExtResource("2_dt31g")]
 z_index = 12
 z_as_relative = false
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 [node name="CollisionShape2D" parent="Player" index="0"]
