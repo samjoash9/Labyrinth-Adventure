@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d22qntanl6lep"]
+[gd_scene load_steps=13 format=3 uid="uid://d22qntanl6lep"]
 
 [ext_resource type="Theme" uid="uid://iivwh67cjc1k" path="res://scenes/UI/base_theme.tres" id="1_b6oyx"]
 [ext_resource type="Script" path="res://ui/player_profile.gd" id="1_d8cig"]
@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bnff21cfunewx" path="res://assets/Ninja Adventure - Asset Pack/Ui/Icon/Spell/AttackUpgrade.png" id="4_gsfqw"]
 [ext_resource type="Texture2D" uid="uid://fw7nnjk48sem" path="res://assets/Ninja Adventure - Asset Pack/Ui/Icon/Spell/Heal.png" id="5_k4t70"]
 [ext_resource type="Texture2D" uid="uid://bflr18if7opsj" path="res://assets/Images/swiftness.png" id="6_ed7h6"]
-[ext_resource type="Texture2D" uid="uid://dee7a6ei2e6c" path="res://characters/knight/sprites/special_skill.svg" id="7_nb8s4"]
+[ext_resource type="Texture2D" uid="uid://clgc4gwijftke" path="res://assets/Ninja Adventure - Asset Pack/Ui/Icon/Spell/OrbLight.png" id="8_kbi4v"]
 [ext_resource type="PackedScene" uid="uid://csdl2wqpk36bk" path="res://common/fx/menu_click_sound.tscn" id="9_dbiso"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5d3ft"]
@@ -16,6 +16,18 @@ region_rect = Rect2(64, 64, 16, 16)
 
 [sub_resource type="Theme" id="Theme_6nfm4"]
 Button/styles/normal = SubResource("StyleBoxTexture_5d3ft")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m5pyx"]
+bg_color = Color(1, 0.678431, 0.333333, 1)
+border_width_left = 5
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 5
+border_color = Color(0.941176, 0.403922, 0.2, 1)
+expand_margin_left = 2.0
+expand_margin_top = 4.0
+expand_margin_right = 2.0
+expand_margin_bottom = 6.0
 
 [node name="player_profile" type="CanvasLayer"]
 script = ExtResource("1_d8cig")
@@ -42,10 +54,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -100.0
-offset_right = 250.0
-offset_bottom = 100.0
+offset_left = -400.0
+offset_top = -150.0
+offset_right = 400.0
+offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -60,95 +72,162 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/PanelContainer"]
 layout_mode = 2
 
-[node name="Header" type="HBoxContainer" parent="Control/Panel/PanelContainer/VBoxContainer"]
+[node name="Header_Panel" type="PanelContainer" parent="Control/Panel/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Header" type="HBoxContainer" parent="Control/Panel/PanelContainer/VBoxContainer/Header_Panel"]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="invisible" type="Button" parent="Control/Panel/PanelContainer/VBoxContainer/Header"]
+[node name="invisible" type="Button" parent="Control/Panel/PanelContainer/VBoxContainer/Header_Panel/Header"]
 layout_mode = 2
 size_flags_horizontal = 2
 text = " "
 flat = true
 
-[node name="Label" type="Label" parent="Control/Panel/PanelContainer/VBoxContainer/Header"]
+[node name="Label" type="Label" parent="Control/Panel/PanelContainer/VBoxContainer/Header_Panel/Header"]
 layout_mode = 2
 size_flags_horizontal = 6
 localize_numeral_system = false
 text = "PROFILE"
 
-[node name="exit" type="Button" parent="Control/Panel/PanelContainer/VBoxContainer/Header"]
+[node name="exit" type="Button" parent="Control/Panel/PanelContainer/VBoxContainer/Header_Panel/Header"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme = SubResource("Theme_6nfm4")
 text = "  "
 
-[node name="Body" type="HBoxContainer" parent="Control/Panel/PanelContainer/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="Control/Panel/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Sprite_container" type="HBoxContainer" parent="Control/Panel/PanelContainer/VBoxContainer/Body"]
+[node name="Body" type="HBoxContainer" parent="Control/Panel/PanelContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Hero_Holder" type="VBoxContainer" parent="Control/Panel/PanelContainer/VBoxContainer/PanelContainer/Body"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="hero_image" type="Sprite2D" parent="Control/Panel/PanelContainer/VBoxContainer/Body/Sprite_container"]
-position = Vector2(85, 83)
-scale = Vector2(0.22, 0.22)
+[node name="hero_image" type="Sprite2D" parent="Control/Panel/PanelContainer/VBoxContainer/PanelContainer/Body/Hero_Holder"]
+position = Vector2(124, 123)
+scale = Vector2(0.38, 0.38)
 texture = ExtResource("3_oly0a")
 
-[node name="stats_container" type="HBoxContainer" parent="Control/Panel/PanelContainer/VBoxContainer/Body"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel/PanelContainer/VBoxContainer/PanelContainer/Body/Hero_Holder"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_vertical = 6
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/PanelContainer/VBoxContainer/Body/stats_container"]
-layout_mode = 2
-
-[node name="attack" type="Sprite2D" parent="Control/Panel/PanelContainer/VBoxContainer/Body/stats_container/VBoxContainer"]
-position = Vector2(82, 27)
+[node name="attack" type="Sprite2D" parent="Control/Panel/PanelContainer/VBoxContainer/PanelContainer/Body/Hero_Holder/HBoxContainer"]
+position = Vector2(38, 159)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_gsfqw")
 
-[node name="health" type="Sprite2D" parent="Control/Panel/PanelContainer/VBoxContainer/Body/stats_container/VBoxContainer"]
-position = Vector2(83, 83)
+[node name="health" type="Sprite2D" parent="Control/Panel/PanelContainer/VBoxContainer/PanelContainer/Body/Hero_Holder/HBoxContainer"]
+position = Vector2(127, 159)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("5_k4t70")
 
-[node name="agility" type="Sprite2D" parent="Control/Panel/PanelContainer/VBoxContainer/Body/stats_container/VBoxContainer"]
-position = Vector2(82, 139)
+[node name="agility" type="Sprite2D" parent="Control/Panel/PanelContainer/VBoxContainer/PanelContainer/Body/Hero_Holder/HBoxContainer"]
+position = Vector2(214, 157)
 scale = Vector2(2.4, 2.4)
 texture = ExtResource("6_ed7h6")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel/PanelContainer/VBoxContainer/Body"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Panel/PanelContainer/VBoxContainer/PanelContainer/Body/Hero_Holder"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="attack" type="Label" parent="Control/Panel/PanelContainer/VBoxContainer/PanelContainer/Body/Hero_Holder/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "150"
+
+[node name="health" type="Label" parent="Control/Panel/PanelContainer/VBoxContainer/PanelContainer/Body/Hero_Holder/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "75"
+
+[node name="agility" type="Label" parent="Control/Panel/PanelContainer/VBoxContainer/PanelContainer/Body/Hero_Holder/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "150
+"
+
+[node name="separator1" type="Panel" parent="Control/Panel/PanelContainer/VBoxContainer/PanelContainer/Body"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m5pyx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel/PanelContainer/VBoxContainer/PanelContainer/Body"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/PanelContainer/VBoxContainer/Body/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/PanelContainer/VBoxContainer/PanelContainer/Body/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="attack" type="Label" parent="Control/Panel/PanelContainer/VBoxContainer/Body/HBoxContainer/VBoxContainer"]
+[node name="special_skill" type="Label" parent="Control/Panel/PanelContainer/VBoxContainer/PanelContainer/Body/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 6
-text = "50"
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "SPECIAL SKILL"
+horizontal_alignment = 1
 
-[node name="health" type="Label" parent="Control/Panel/PanelContainer/VBoxContainer/Body/HBoxContainer/VBoxContainer"]
+[node name="Sprite2D" type="Sprite2D" parent="Control/Panel/PanelContainer/VBoxContainer/PanelContainer/Body/HBoxContainer/VBoxContainer"]
+position = Vector2(120, 86)
+scale = Vector2(5, 5)
+texture = ExtResource("8_kbi4v")
+
+[node name="Label" type="Label" parent="Control/Panel/PanelContainer/VBoxContainer/PanelContainer/Body/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 6
-text = "45"
+size_flags_vertical = 10
+text = "what do you 
+call a black 
+man in 
+america?
+"
 
-[node name="agility" type="Label" parent="Control/Panel/PanelContainer/VBoxContainer/Body/HBoxContainer/VBoxContainer"]
+[node name="separator2" type="Panel" parent="Control/Panel/PanelContainer/VBoxContainer/PanelContainer/Body"]
 layout_mode = 2
-size_flags_vertical = 6
-text = "99"
+theme_override_styles/panel = SubResource("StyleBoxFlat_m5pyx")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Panel/PanelContainer/VBoxContainer/Body"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Panel/PanelContainer/VBoxContainer/PanelContainer/Body"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="special_skill" type="Sprite2D" parent="Control/Panel/PanelContainer/VBoxContainer/Body/HBoxContainer2"]
-position = Vector2(15, 83)
-scale = Vector2(0.42, 0.42)
-texture = ExtResource("7_nb8s4")
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/PanelContainer/VBoxContainer/PanelContainer/Body/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="special_skill" type="Label" parent="Control/Panel/PanelContainer/VBoxContainer/PanelContainer/Body/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "WEAPON"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Panel/PanelContainer/VBoxContainer/PanelContainer/Body/HBoxContainer2/VBoxContainer"]
+position = Vector2(120, 86)
+scale = Vector2(5, 5)
+texture = ExtResource("8_kbi4v")
+
+[node name="Label" type="Label" parent="Control/Panel/PanelContainer/VBoxContainer/PanelContainer/Body/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+text = "DAMAGE: 
+COOLDOWN: 
+  
+ 
+
+"
 
 [node name="click_sound" parent="." instance=ExtResource("9_dbiso")]
 
-[connection signal="pressed" from="Control/Panel/PanelContainer/VBoxContainer/Header/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Control/Panel/PanelContainer/VBoxContainer/Header_Panel/Header/exit" to="." method="_on_exit_pressed"]

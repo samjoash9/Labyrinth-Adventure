@@ -102,6 +102,8 @@ var nearest_enemy_distance : float = INF
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("e"):
+		print(global_position)
 	if Input.is_action_just_pressed("DevDebug"):
 		$DebugUI.visible = !$DebugUI.visible
 	if Input.is_action_just_pressed("debugkill"):
@@ -122,7 +124,6 @@ func _process(_delta: float) -> void:
 	else:
 		$GPUParticles2D.emitting = false
 	move_and_slide()
-
 
 func take_damage(damage):
 	hitPoints -= damage-(damage*armor)
