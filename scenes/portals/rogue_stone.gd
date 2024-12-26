@@ -49,7 +49,6 @@ func DialogicSignal(arg: String):
 		player.set_process(true)
 
 func _on_area_2d_2_body_entered(body: Player) -> void:
-	print("Player")
 	player_in_area = true
 
 func _on_area_2d_2_body_exited(body: Player) -> void:

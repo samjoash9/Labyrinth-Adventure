@@ -2,7 +2,7 @@ extends Node
 
 # MAP VARIABLES ==============================
 const PATTERN_SIZE = 27
-var map_rooms = 2
+var map_rooms = 1
 var mapSize = map_rooms * PATTERN_SIZE
 var object_map_size = mapSize - PATTERN_SIZE
 
@@ -33,8 +33,10 @@ var central_hub_last_position: Vector2i = Vector2(216, 6)
 
 # SELECTED HERO
 var selected_hero = "rogue"
-var selected_level: int
-var selected_mode: String
+
+# SELECTED LEVEL
+var selected_level = 1
+var selected_mode = "green"
 
 # SPECIFIC MAP TYPES
 # GREEN 

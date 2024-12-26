@@ -5,9 +5,6 @@ const ENEMY = preload("res://core/Enemies/enemy.tscn")
 @onready var timer: Timer = $Timer
 @onready var label: Label = $CanvasLayer/Label
 
-@onready var green_walls: TileMapLayer = $"../../green_walls"
-@onready var dungeon_walls: TileMapLayer = $"../../dungeon_walls"
-
 var valid_ids: Array
 var wall_type: TileMapLayer
 
@@ -35,10 +32,10 @@ func _ready() -> void:
 	match GameManager.selected_mode:
 		"green":
 			valid_ids = GameManager.GREEN.ground_tiles
-			wall_type = green_walls
+			wall_type = get_parent().get_parent().get_node("green_walls")
 		"dungeon":
 			valid_ids = GameManager.DUNGEON.ground_tiles
-			wall_type = dungeon_walls
+			wall_type = get_parent().get_parent().get_node("dungeon_walls")
 
 func spawn():
 	if get_tree().get_node_count_in_group("enemy") < 400:
@@ -65,6 +62,8 @@ func random_position() -> Vector2:
 	return position
 
 func _on_timer_timeout() -> void:
+	get_tree().create_timer(8).timeout
+	
 	elapsedTime += 1
 	label.text = format_time(elapsedTime)
 	spawn_wave((elapsedTime/60.00)+1)

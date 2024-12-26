@@ -35,6 +35,8 @@ func _on_confirm_pressed() -> void:
 	GameManager.mapSize = GameManager.map_rooms * GameManager.PATTERN_SIZE
 	GameManager.object_map_size = GameManager.mapSize - GameManager.PATTERN_SIZE
 	
+	print(GameManager.map_rooms)
+	
 	match GameManager.selected_mode:
 		"green":
 			SceneManager.change_scene(

@@ -7,6 +7,7 @@ extends Node2D
 @onready var game_hud_pause: CanvasLayer = $game_hud_pause
 @onready var portal_success_sound: AudioStreamPlayer2D = $portal_success_sound
 @onready var music: AudioStreamPlayer = $music
+@onready var game_complete: CanvasLayer = $game_complete
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,7 +22,7 @@ func _ready() -> void:
 	enemy_spawner.limit_right = GameManager.map_rooms * 27 * 16
 
 func _on_area_2d_body_entered(body: Player) -> void:
-	game_status.visible = true
+	game_complete.visible = true
 	music.stop()
 	portal_success_sound.play()
 	game_hud_pause.visible = false

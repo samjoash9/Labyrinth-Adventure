@@ -339,8 +339,8 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2lhyw"]
-radius = 40.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_5rx2m"]
+radius = 35.2278
 
 [node name="dungeon_portal" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_gv6yc")
@@ -349,4 +349,4 @@ autoplay = "default"
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_2lhyw")
+shape = SubResource("CircleShape2D_5rx2m")
