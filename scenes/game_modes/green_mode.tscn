@@ -39,9 +39,11 @@ mode = 1
 
 [node name="green_objects" parent="." instance=ExtResource("2_2y7qd")]
 tile_map_data = PackedByteArray()
+navigation_visibility_mode = 1
 
 [node name="green_walls" parent="." instance=ExtResource("1_ocduj")]
 tile_map_data = PackedByteArray()
+navigation_visibility_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("7_vvuvv")]
 collision_mask = 1

@@ -85,11 +85,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 0, -8, 0, -8, 0)])
 agent_radius = 0.0
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_75wft"]
-vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
-agent_radius = 0.0
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_puk20"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fqsyr"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, 4, 8, 4)
@@ -211,7 +207,7 @@ texture = ExtResource("2_h0e0q")
 1:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:6/0 = 0
 2:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:6/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_75wft")
+2:6/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_puk20")
 3:6/0 = 0
 3:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:6/0 = 0
