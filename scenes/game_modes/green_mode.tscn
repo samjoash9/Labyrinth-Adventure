@@ -16,9 +16,13 @@
 [ext_resource type="PackedScene" uid="uid://bbw6rx0qk54qr" path="res://common/fx/portal_success_sound.tscn" id="10_k3wix"]
 [ext_resource type="PackedScene" uid="uid://csdl2wqpk36bk" path="res://common/fx/menu_click_sound.tscn" id="10_ytskn"]
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://oo4g14m4gje0" path="res://ui/game_status.tscn" id="11_u1e0f"]
 =======
 [ext_resource type="PackedScene" uid="uid://dgthph7v8cafd" path="res://ui/game_status.tscn" id="11_u1e0f"]
+>>>>>>> Stashed changes
+=======
+[ext_resource type="PackedScene" uid="uid://oo4g14m4gje0" path="res://ui/game_status.tscn" id="11_u1e0f"]
 >>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://cawigphsjmbeu" path="res://scenes/portals/green_portal.tscn" id="12_e83j0"]
 [ext_resource type="Script" path="res://scenes/portals/green_portal.gd" id="13_jldfc"]
@@ -65,6 +69,9 @@ zoom = Vector2(0.2, 0.2)
 <<<<<<< Updated upstream
 =======
 collision_layer = 1
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 [node name="EnemySpawner" parent="Player" node_paths=PackedStringArray("world") instance=ExtResource("6_1rtf3")]
