@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="Exporb" load_steps=8 format=3 uid="uid://c81prapep370t"]
+
+[ext_resource type="Script" path="res://resources/scripts/ExpOrb.gd" id="1_l7a7x"]
+[ext_resource type="Texture2D" uid="uid://hyop0h4idtbe" path="res://assets/pickables/spr_coin_ama.png" id="2_upb0j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50kae"]
+atlas = ExtResource("2_upb0j")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bk36y"]
+atlas = ExtResource("2_upb0j")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uase3"]
+atlas = ExtResource("2_upb0j")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u84qa"]
+atlas = ExtResource("2_upb0j")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gucjf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50kae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bk36y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uase3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u84qa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_l7a7x")
+xpAmount = 50.0
+name = "exp-gold"
+sprite = SubResource("SpriteFrames_gucjf")

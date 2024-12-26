@@ -1,11 +1,9 @@
 extends Area2D
 class_name RangedAttack
 
-
 var direction
 var damage 
 var speed
-
 var sprite
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

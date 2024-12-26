@@ -22,10 +22,10 @@ script = ExtResource("4_suona")
 name = "Akaname"
 animation = ExtResource("5_yvfdr")
 hitPoints = 10.0
-movementSpeed = 10.0
-damage = 10.0
-attackRadius = 10.0
-attackSpeed = 10.0
+movementSpeed = 5.0
+damage = 5.0
+attackRadius = 15.0
+attackSpeed = 1.0
 drops = {}
 scoreValue = 10
 attackType = 0
@@ -95,6 +95,7 @@ disabled = true
 [connection signal="map_loaded" from="Maze_Generator" to="loading_screen" method="_on_maze_generator_map_loaded"]
 [connection signal="pressed" from="game_hud_pause/Control/MarginContainer/HBoxContainer/pause" to="game_hud_pause" method="_on_button_pressed"]
 [connection signal="timeout" from="game_hud_pause/Timer" to="dungeon_portal" method="_on_timer_timeout"]
+[connection signal="visibility_changed" from="game_status" to="game_status" method="_on_visibility_changed"]
 [connection signal="pressed" from="game_status/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/restart" to="game_status" method="_on_restart_pressed"]
 [connection signal="pressed" from="game_status/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/quit" to="game_status" method="_on_quit_pressed"]
 [connection signal="body_entered" from="dungeon_portal/Area2D" to="." method="_on_area_2d_body_entered"]

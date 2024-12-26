@@ -21,5 +21,8 @@ func _process(_delta: float) -> void:
 	 
 func _on_body_entered(body: Node2D) -> void:
 	if is_instance_of(body, Player):
-		pickableData.activate()
+		if pickableData.has_method("activate"):
+			pickableData.activate()
+		if pickableData.has_method("global_activate"):
+			pickableData.global_activate(self)
 		queue_free()

@@ -19,8 +19,8 @@ func _on_quit_pressed() -> void:
 	"res://ui/map.tscn",
   { "pattern": "scribbles", "pattern_leave": "scribbles"})
 
-
-func _on_coins_visibility_changed() -> void:
-	coins.text = "COINS EARNED: " + str(GameManager.coins)
-	score.text = "SCORE: " + str(GameManager.score)
 	
+
+func _on_visibility_changed() -> void:
+	coins.text = str(GameManager.coins)
+	score.text = str(GameManager.score)

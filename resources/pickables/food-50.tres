@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Food" load_steps=5 format=3 uid="uid://ce7msje84xuef"]
+
+[ext_resource type="Script" path="res://resources/scripts/food.gd" id="1_m7yio"]
+[ext_resource type="Texture2D" uid="uid://bu31fr3vqcrh" path="res://assets/pickables/Food.png" id="2_p2bxd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqdab"]
+atlas = ExtResource("2_p2bxd")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bi0dt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqdab")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_m7yio")
+heal = 50.0
+name = "Food-50"
+sprite = SubResource("SpriteFrames_bi0dt")

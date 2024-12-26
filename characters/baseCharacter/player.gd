@@ -134,11 +134,12 @@ func take_damage(damage):
 func debug_killAllEnemy():
 	for i in get_tree().get_nodes_in_group("enemy"):
 		i.hitPoints = 0
-	await get_tree().create_timer(1).timeout
-	for i in get_tree().get_nodes_in_group("loot"):
-		i.magnet_stregth = 10
-		i.set_process(true)
-
+	#await get_tree().create_timer(1).timeout
+	#for i in get_tree().get_nodes_in_group("loot"):
+		#i.magnet_stregth = 10
+		#i.set_process(true)
+		
+		
 func reselect_character():
 	match GameManager.selected_hero:
 		"rogue":

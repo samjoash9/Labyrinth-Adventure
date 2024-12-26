@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="CoinPickable" load_steps=9 format=3 uid="uid://bpt3l5krhnap8"]
+
+[ext_resource type="Script" path="res://resources/scripts/coin.gd" id="1_tanxc"]
+[ext_resource type="Texture2D" uid="uid://dw8gjrkat0hw7" path="res://assets/pickables/MonedaR.png" id="2_eem54"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ha332"]
+atlas = ExtResource("2_eem54")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vh70h"]
+atlas = ExtResource("2_eem54")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbkak"]
+atlas = ExtResource("2_eem54")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ka5qx"]
+atlas = ExtResource("2_eem54")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojtib"]
+atlas = ExtResource("2_eem54")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8dm33"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ha332")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vh70h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbkak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ka5qx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojtib")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_tanxc")
+coinVal = 100
+name = "coin-100"
+sprite = SubResource("SpriteFrames_8dm33")

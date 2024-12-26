@@ -36,7 +36,7 @@ script = ExtResource("1_rsld4")
 [node name="SpriteFrames" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_m6hr0")
-animation = &"attack"
+animation = &"dead"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 simplify_path = true
