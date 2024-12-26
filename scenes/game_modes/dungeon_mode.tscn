@@ -12,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://cngt26w6g1tfr" path="res://assets/Musics/30 - Ruins.ogg" id="6_d1h1m"]
 [ext_resource type="PackedScene" path="res://ui/game_hud_pause.tscn" id="6_k8orw"]
 [ext_resource type="PackedScene" uid="uid://01cq3ethui3i" path="res://characters/baseCharacter/player.tscn" id="7_q65sv"]
-[ext_resource type="PackedScene" path="res://ui/game_status.tscn" id="10_pgqwc"]
+[ext_resource type="PackedScene" uid="uid://oo4g14m4gje0" path="res://ui/game_status.tscn" id="10_pgqwc"]
 [ext_resource type="PackedScene" path="res://common/fx/menu_click_sound.tscn" id="11_fmef0"]
 [ext_resource type="Script" path="res://scenes/portals/dungeon_portal.gd" id="13_2hi4g"]
 [ext_resource type="PackedScene" path="res://common/fx/portal_success_sound.tscn" id="13_qvf7b"]
