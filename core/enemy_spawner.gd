@@ -2,7 +2,7 @@ extends Camera2D
 
 const ENEMY = preload("res://core/Enemies/enemy.tscn")
 @export var world: Node2D
-@export var spawnLocationExcluderMap: TileMapLayer
+
 @onready var timer: Timer = $Timer
 @onready var label: Label = $CanvasLayer/Label
 
@@ -12,6 +12,7 @@ func get_random_position() ->Vector2:
 	#if spawnLocationExcluderMap.get_cell_source_id(%PathFollow2D.global_position):
 	#print(spawnLocationExcluderMap.get_cell_atlas_coords(spawnLocationExcluderMap.local_to_map(%PathFollow2D.global_position)))
 	return %PathFollow2D.global_position
+
 
 var elapsedTime: int
 var waveLevel = 0
