@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream:scenes/UI/game_start.tscn
 [gd_scene load_steps=23 format=3 uid="uid://bakcqeqs0mi0e"]
+=======
+[gd_scene load_steps=24 format=3 uid="uid://h1ksjwayto1n"]
+>>>>>>> Stashed changes:ui/game_start.tscn
 
 [ext_resource type="Script" path="res://scenes/UI/main_menu.gd" id="1_fuaji"]
 [ext_resource type="Theme" uid="uid://iivwh67cjc1k" path="res://scenes/UI/base_theme.tres" id="1_k1gf0"]
@@ -130,9 +134,15 @@ grow_vertical = 2
 script = ExtResource("1_fuaji")
 
 [node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+<<<<<<< Updated upstream:scenes/UI/game_start.tscn
 scale = Vector2(2.2, 2.2)
 transform = Transform2D(2.2, 0, 0, 2.2, 0, 0)
 script = ExtResource("2_1ioq1")
+=======
+scale = Vector2(2.4, 2.1)
+transform = Transform2D(2.4, 0, 0, 2.1, 0, 0)
+script = ExtResource("2_r2ya0")
+>>>>>>> Stashed changes:ui/game_start.tscn
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
 motion_mirroring = Vector2(576, 0)
