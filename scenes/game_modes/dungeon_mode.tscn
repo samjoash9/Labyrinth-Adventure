@@ -1,10 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://cgtge0leu72ds"]
+[gd_scene load_steps=18 format=3 uid="uid://cgtge0leu72ds"]
 
 [ext_resource type="Script" path="res://scripts/game_modes/dungeon_mode.gd" id="1_lel40"]
 [ext_resource type="PackedScene" uid="uid://gntrd0281yiq" path="res://scenes/game_modes/Maze_Generator.tscn" id="2_4rsbj"]
 [ext_resource type="PackedScene" uid="uid://8sotrcyxx4a5" path="res://scenes/game_modes/tilesets/dungeon.tscn" id="3_ddod5"]
 [ext_resource type="PackedScene" uid="uid://lmcbsxwemc2j" path="res://scenes/portals/dungeon_portal.tscn" id="3_ur71p"]
+[ext_resource type="PackedScene" uid="uid://cdi8d70wpq4ym" path="res://core/enemy_spawner.tscn" id="3_xps1x"]
 [ext_resource type="PackedScene" uid="uid://diyb228qqbi12" path="res://scenes/game_modes/objects/dungeon_objects.tscn" id="4_d0f5w"]
+[ext_resource type="Script" path="res://resources/scripts/enemyType.gd" id="4_mnucy"]
+[ext_resource type="SpriteFrames" uid="uid://kr4ywn5wpfss" path="res://core/Enemies/spriteframes/akaname.tres" id="5_2ffgu"]
 [ext_resource type="PackedScene" uid="uid://cp4c2x3wsfo5p" path="res://ui/loading_screen.tscn" id="5_yeol0"]
 [ext_resource type="AudioStream" uid="uid://cngt26w6g1tfr" path="res://assets/Musics/30 - Ruins.ogg" id="6_d1h1m"]
 [ext_resource type="PackedScene" uid="uid://c423bd87f8cy5" path="res://ui/game_hud_pause.tscn" id="6_k8orw"]
@@ -14,16 +17,26 @@
 [ext_resource type="Script" path="res://scenes/portals/dungeon_portal.gd" id="13_2hi4g"]
 [ext_resource type="PackedScene" uid="uid://bbw6rx0qk54qr" path="res://common/fx/portal_success_sound.tscn" id="13_qvf7b"]
 
+[sub_resource type="Resource" id="Resource_mkdeb"]
+script = ExtResource("4_mnucy")
+name = "nigga"
+animation = ExtResource("5_2ffgu")
+hitPoints = 12.0
+movementSpeed = 12.0
+damage = 0.0
+attackRadius = 5.0
+attackSpeed = 5.0
+drops = {}
+attackType = 0
+
 [node name="Dungeon_Mode" type="Node2D"]
 script = ExtResource("1_lel40")
 
 [node name="Player" parent="." instance=ExtResource("7_q65sv")]
 
-[node name="DebugUI" parent="Player" index="1"]
-visible = false
-
-[node name="Camera2D" parent="Player/PlayerBodyCollision" index="0"]
-zoom = Vector2(3, 3)
+[node name="EnemySpawner" parent="Player" node_paths=PackedStringArray("world") instance=ExtResource("3_xps1x")]
+world = NodePath("../..")
+enemy_types = Array[ExtResource("4_mnucy")]([SubResource("Resource_mkdeb")])
 
 [node name="Maze_Generator" parent="." node_paths=PackedStringArray("wall_patterns", "maze_object_patterns") instance=ExtResource("2_4rsbj")]
 wall_patterns = NodePath("../dungeon_walls")
@@ -80,6 +93,7 @@ disabled = true
 [connection signal="body_entered" from="dungeon_portal/Area2D" to="." method="_on_area_2d_body_entered"]
 
 [editable path="Player"]
+[editable path="Player/Item_Magnet"]
 [editable path="game_hud_pause"]
 [editable path="loading_screen"]
 [editable path="game_status"]

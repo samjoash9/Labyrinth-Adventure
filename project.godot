@@ -39,6 +39,8 @@ directories/dtl_directory={
 "Rogue Stone": "res://addons/dialogic/characters and styles/Rogue Stone.dtl",
 "Wizard Stone": "res://addons/dialogic/characters and styles/Wizard Stone.dtl"
 }
+layout/style_list=["res://themes/stone_interaction_base_styole.tres"]
+layout/default_style="res://themes/stone_interaction_base_styole.tres"
 
 [display]
 

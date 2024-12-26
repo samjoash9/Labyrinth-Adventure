@@ -47,7 +47,7 @@ func _ready() -> void:
 	
 	thread1.wait_to_finish()
 	thread2.wait_to_finish()
-	
+
 	await init_maze()
 	emit_signal("map_loaded")
 

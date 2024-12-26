@@ -123,7 +123,6 @@ func _process(_delta: float) -> void:
 		$GPUParticles2D.emitting = false
 	move_and_slide()
 
-
 func take_damage(damage):
 	hitPoints -= damage-(damage*armor)
 	var tween = create_tween()

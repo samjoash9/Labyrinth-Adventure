@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var music: AudioStreamPlayer = $"../music"
 @onready var player: Player = $"../Player"
 @onready var timer: Timer = $"../game_hud_pause/Timer"
+@onready var enemy_spawner: Camera2D = $"../Player/EnemySpawner"
 
 func _on_maze_generator_map_loaded() -> void:
 	for i in range(101):
@@ -14,4 +15,5 @@ func _on_maze_generator_map_loaded() -> void:
 	SceneManager.fade_in()
 	music.play()
 	timer.start()
+	enemy_spawner.enabled = true
 	queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://dwyhebwkim47x"]
+[gd_scene load_steps=44 format=4 uid="uid://dwyhebwkim47x"]
 
 [ext_resource type="Texture2D" uid="uid://bfri3vo8g5pmc" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetRelief.png" id="2_h0e0q"]
 [ext_resource type="Texture2D" uid="uid://dmibqs7ant8f6" path="res://assets/Environment/Green/Ninja Nature Tilesets/TilesetFloor.png" id="3_sejlu"]
@@ -253,11 +253,11 @@ texture = ExtResource("2_h0e0q")
 11:7/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_q1add")
 0:8/0 = 0
 0:8/0/z_index = 11
-0:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -5.33333, -8, -5.33333, -4, -8, -4)
+0:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:8/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_dt3qy")
 1:8/0 = 0
 1:8/0/z_index = 11
-1:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(5.33333, -8, 8, -8, 8, -4, 5.33333, -4, 5.33333, -5.33333)
+1:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:8/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_5ecck")
 2:8/0 = 0
 2:8/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_nqdvr")
@@ -266,17 +266,41 @@ texture = ExtResource("2_h0e0q")
 5:8/0 = 0
 6:8/0 = 0
 0:9/0 = 0
-0:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 5.33333, -5.33333, 5.33333, -5.33333, 8, -8, 8, -8, 8, -8, 8, -8, 8)
+0:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:9/0 = 0
-1:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(5.33333, 5.33333, 5.33333, 8, 8, 8, 8, 5.33333)
+1:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:9/0 = 0
 3:9/0 = 0
 4:9/0 = 0
-4:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -4, -8, -4, 8, -8, 8, -8, -8)
+4:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:9/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_c5rtg")
 5:9/0 = 0
-5:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(4, -8, 4, 8, 8, 8, 8, -8)
+5:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 19:4/0 = 0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_eg3px"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_t5wbl"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_lxgkq"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0ou18"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_midsk"]
 texture = ExtResource("3_sejlu")
@@ -488,8 +512,10 @@ texture = ExtResource("3_sejlu")
 1:11/0 = 0
 2:11/0 = 0
 2:11/0/probability = 0.0
+2:11/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_lxgkq")
 3:11/0 = 0
 3:11/0/probability = 0.3
+3:11/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_lxgkq")
 4:11/0 = 0
 5:11/0 = 0
 6:11/0 = 0
@@ -504,14 +530,19 @@ texture = ExtResource("3_sejlu")
 18:11/0 = 0
 19:11/0 = 0
 0:12/0 = 0
+0:12/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_eg3px")
 1:12/0 = 0
 1:12/0/probability = 0.1
+1:12/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_t5wbl")
 2:12/0 = 0
 2:12/0/probability = 0.2
+2:12/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_0ou18")
 3:12/0 = 0
 3:12/0/probability = 0.3
+3:12/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_0ou18")
 4:12/0 = 0
 4:12/0/probability = 0.3
+4:12/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_0ou18")
 11:12/0 = 0
 12:12/0 = 0
 13:12/0 = 0

@@ -5,6 +5,12 @@ const ENEMY = preload("res://core/Enemies/enemy.tscn")
 @onready var timer: Timer = $Timer
 @onready var label: Label = $CanvasLayer/Label
 
+@onready var green_walls: TileMapLayer = $"../../green_walls"
+@onready var dungeon_walls: TileMapLayer = $"../../dungeon_walls"
+
+var valid_ids: Array
+var wall_type: TileMapLayer
+
 func get_random_position() ->Vector2:
 	%Path2D.scale = Vector2(randf_range(.5,1),randf_range(.5,1))
 	%PathFollow2D.progress_ratio = randf()
@@ -25,16 +31,39 @@ var spawnable = []
 func _ready() -> void:
 	spawnable.append(enemy_types[waveLevel])
 	
+	# get tile ids
+	match GameManager.selected_mode:
+		"green":
+			valid_ids = GameManager.GREEN.ground_tiles
+			wall_type = green_walls
+		"dungeon":
+			valid_ids = GameManager.DUNGEON.ground_tiles
+			wall_type = dungeon_walls
+
 func spawn():
 	if get_tree().get_node_count_in_group("enemy") < 400:
 		var enemyInstance: BaseEnemy = ENEMY.instantiate()
 		var enemyResource: Enemy = spawnable.pick_random()
 		enemyInstance.enemyType = enemyResource
-		enemyInstance.global_position = get_random_position()
+		enemyInstance.global_position = random_position()
 		world.add_child(enemyInstance)
 	else:
 		return
+
+func random_position() -> Vector2:
+	var position: Vector2
+	
+	while true:
+		var pos = get_random_position()
+		var tile = wall_type.local_to_map(pos)
+		var tile_id = wall_type.get_cell_atlas_coords(tile)
 		
+		if tile_id in valid_ids:
+			position = pos
+			break
+		
+	return position
+
 func _on_timer_timeout() -> void:
 	elapsedTime += 1
 	label.text = format_time(elapsedTime)
