@@ -107,3 +107,35 @@ const LAVA = {
 # IN GAME SCORE AND COINS
 var score: int
 var coins: int
+
+# HERO DETAILS
+const ROGUE = {
+	"special_skill_description": "",
+	"base_stats": {
+		"attack": "150",
+		"health": "75",
+		"agility": "180"
+	},
+	"special_skill": "", 
+	"weapon": ""
+}
+const KNIGHT = {
+	"special_skill_description": "",
+	"base_stats": {
+		"attack": "100",
+		"health": "150",
+		"agility": "100"
+	},
+	"special_skill": "", 
+	"weapon": ""
+}
+const WIZARD = {
+	"special_skill_description": "",
+	"base_stats": {
+		"attack": "200",
+		"health": "60",
+		"agility": "120"
+	},
+	"special_skill": "", 
+	"weapon": ""
+}
