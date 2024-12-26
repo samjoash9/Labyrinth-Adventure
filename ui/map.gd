@@ -8,6 +8,17 @@ const GREEN_MODE = preload("res://scenes/game_modes/Green_Mode.tscn")
 
 @onready var click_sound: AudioStreamPlayer2D = $click_sound
 
+# user preferences to load unlocked levels
+var user_prefs: UserPreferences
+
+func _ready() -> void:
+	user_prefs = UserPreferences.load_or_create()
+	var level_buttons = get_tree().get_nodes_in_group("level_buttons")
+	for i in range(user_prefs.unlocked_levels):
+		level_buttons[i].disabled = false
+	
+	user_prefs.save()
+	
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_UP:
 		camera.position.y -= 15

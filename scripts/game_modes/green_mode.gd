@@ -8,6 +8,8 @@ extends Node2D
 @onready var music: AudioStreamPlayer = $music
 @onready var game_complete: CanvasLayer = $game_complete
 
+var user_prefs: UserPreferences
+
 var dedicated_sizes = [
 	1, 2, 2, 3, 4, 4, 5, 5, 6, 7
 ]
@@ -33,6 +35,8 @@ func _on_area_2d_body_entered(_body: Player) -> void:
 	game_hud_pause.visible = false
 	player.get_node("HUD").visible = false
 	player.set_process(false)
+	
+	user_prefs = UserPreferences.load_or_create()
 
 	# set level in advance
 	if GameManager.selected_level >= 1 and GameManager.selected_level <= 5 or GameManager.selected_level >= 7 and GameManager.selected_level <= 11:
@@ -41,6 +45,7 @@ func _on_area_2d_body_entered(_body: Player) -> void:
 		GameManager.map_rooms = GameManager.dedicated_size + 1
 		GameManager.mapSize = GameManager.map_rooms * GameManager.PATTERN_SIZE
 		GameManager.object_map_size = GameManager.mapSize - GameManager.PATTERN_SIZE
+		user_prefs.unlocked_levels += 1
 	
 	# set mode
 	if GameManager.selected_level == 6: 
@@ -52,3 +57,4 @@ func _on_area_2d_body_entered(_body: Player) -> void:
 	elif GameManager.selected_level >= 7 and GameManager.selected_level <= 11:
 		GameManager.selected_mode = "dungeon"
 	
+	user_prefs.save()

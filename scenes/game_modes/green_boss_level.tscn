@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://b1ns5waxrgudc"]
+[gd_scene load_steps=9 format=4 uid="uid://b1ns5waxrgudc"]
 
 [ext_resource type="PackedScene" uid="uid://br1vuxb82exst" path="res://scenes/game_modes/objects/green_objects.tscn" id="1_qf60i"]
 [ext_resource type="PackedScene" uid="uid://dwyhebwkim47x" path="res://scenes/game_modes/tilesets/green.tscn" id="1_us1ar"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://c2uho1qvy2da" path="res://assets/Musics/24 - Final Area.ogg" id="4_4aid3"]
 [ext_resource type="PackedScene" uid="uid://bggfmmp107gab" path="res://ui/game_complete.tscn" id="4_d4m7o"]
 [ext_resource type="Script" path="res://ui/boss_complete.gd" id="5_auct6"]
+[ext_resource type="PackedScene" uid="uid://c423bd87f8cy5" path="res://ui/game_hud_pause.tscn" id="8_5uupn"]
 
 [node name="green_boss_level" type="Node2D"]
 
@@ -31,11 +32,18 @@ visible = false
 visible = false
 script = ExtResource("5_auct6")
 
+[node name="game_hud_pause" parent="." instance=ExtResource("8_5uupn")]
+
+[node name="timer_label" parent="game_hud_pause/Control/MarginContainer/HBoxContainer" index="0"]
+size_flags_vertical = 0
+
 [connection signal="pressed" from="game_status/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/restart" to="game_status" method="_on_restart_pressed"]
 [connection signal="pressed" from="game_status/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/quit" to="game_status" method="_on_quit_pressed"]
 [connection signal="pressed" from="game_complete/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/restart" to="game_complete" method="_on_restart_pressed"]
 [connection signal="pressed" from="game_complete/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/next_level" to="game_complete" method="_on_next_level_pressed"]
 [connection signal="pressed" from="game_complete/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/quit" to="game_complete" method="_on_quit_pressed"]
+[connection signal="pressed" from="game_hud_pause/Control/MarginContainer/HBoxContainer/pause" to="game_hud_pause" method="_on_button_pressed"]
 
 [editable path="game_status"]
 [editable path="game_complete"]
+[editable path="game_hud_pause"]
