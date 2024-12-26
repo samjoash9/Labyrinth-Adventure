@@ -7,7 +7,8 @@ const DEATH_EFFECT = preload("res://core/effects/death_effect.tscn")
 const SPAWN_EFFECT = preload("res://core/effects/spawn_effect.tscn")
 const PICKABLE_ITEM = preload("res://core/utility/pickable_item.tscn")
 const ENEMYPROJECTILE = preload("res://core/Enemies/projectiles/enemyprojectile.tscn")
-
+@onready var attack_radius: CollisionShape2D = %AttackRadius
+@onready var sprite_frames: AnimatedSprite2D = %SpriteFrames
 @onready var pathfinder: NavigationAgent2D = $NavigationAgent2D
 
 @onready var target: Player = get_tree().get_first_node_in_group("player")
@@ -45,8 +46,8 @@ func check_separation():
 	separation = (target.global_position - global_position).length()
 	if separation < target.nearest_enemy_distance: 
 		target.nearest_enemy = self
-	if separation >= 600:
-		queue_free()
+	#if separation >= 600:
+		#queue_free()
 
 func _ready() -> void:
 	set_process(false)

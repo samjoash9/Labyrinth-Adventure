@@ -1,26 +1,26 @@
 [gd_resource type="Resource" script_class="CoinPickable" load_steps=9 format=3 uid="uid://d2xq4euk36s7e"]
 
-[ext_resource type="Script" path="res://resources/scripts/coin.gd" id="1_csteq"]
-[ext_resource type="Texture2D" uid="uid://blxygn8tfcsay" path="res://assets/pickables/MonedaP.png" id="2_blmjy"]
+[ext_resource type="Script" path="res://resources/scripts/coin.gd" id="1_xxkde"]
+[ext_resource type="Texture2D" uid="uid://blxygn8tfcsay" path="res://assets/pickables/MonedaP.png" id="2_mq43a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ro7ok"]
-atlas = ExtResource("2_blmjy")
+atlas = ExtResource("2_mq43a")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8cuf7"]
-atlas = ExtResource("2_blmjy")
+atlas = ExtResource("2_mq43a")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lobgf"]
-atlas = ExtResource("2_blmjy")
+atlas = ExtResource("2_mq43a")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i25oj"]
-atlas = ExtResource("2_blmjy")
+atlas = ExtResource("2_mq43a")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nkjjg"]
-atlas = ExtResource("2_blmjy")
+atlas = ExtResource("2_mq43a")
 region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f557r"]
@@ -47,7 +47,7 @@ animations = [{
 }]
 
 [resource]
-script = ExtResource("1_csteq")
+script = ExtResource("1_xxkde")
 coinVal = 5
 name = "Coint-5"
 sprite = SubResource("SpriteFrames_f557r")

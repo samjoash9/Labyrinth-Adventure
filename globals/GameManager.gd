@@ -103,4 +103,4 @@ const LAVA = {
 
 # IN GAME SCORE AND COINS
 var score: int = 0
-var coins: int = 0 
+var coins: int = 0

@@ -9,7 +9,7 @@ var knockBack
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _ready() -> void:
-	$AudioStreamPlayer2D.play()
+	#$AudioStreamPlayer2D.play()
 	pass
 	
 func _process(delta: float) -> void:

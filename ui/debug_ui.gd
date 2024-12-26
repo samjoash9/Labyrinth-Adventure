@@ -9,6 +9,8 @@ extends CanvasLayer
 @onready var label_8: Label = $VBoxContainer/Label8
 @onready var label_2: Label = $VBoxContainer/Label2
 @onready var label_9: Label = $VBoxContainer/Label9
+@onready var label_10: Label = $VBoxContainer/Label10
+@onready var label_11: Label = $VBoxContainer/Label11
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -21,3 +23,5 @@ func _process(_delta: float) -> void:
 	label_8.text = "Growth: " + str(player.growth)
 	label_2.text = "Enemy Count: " +  str(get_tree().get_node_count_in_group("enemy"))
 	label_9.text = "FPS : " + str(Engine.get_frames_per_second())
+	label_10.text = "Coins: " + str(GameManager.coins)
+	label_11.text = "Score: " + str(GameManager.score)

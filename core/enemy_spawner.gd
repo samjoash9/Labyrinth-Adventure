@@ -25,31 +25,38 @@ var spawnable = []
 func _ready() -> void:
 	spawnable.append(enemy_types[waveLevel])
 	
-func spawn():
+func spawn(is_elite: bool):
 	if get_tree().get_node_count_in_group("enemy") < 400:
 		var enemyInstance: BaseEnemy = ENEMY.instantiate()
 		var enemyResource: Enemy = spawnable.pick_random()
 		enemyInstance.enemyType = enemyResource
 		enemyInstance.global_position = get_random_position()
 		world.add_child(enemyInstance)
+		if is_elite:
+			enemyInstance.damage *= 2
+			enemyInstance.hitPoints *=2
+			enemyInstance.scale *= Vector2(2,2)	
+			#enemyInstance.sprite_frames.material = load("res://shaders/elite.tres")
 	else:
 		return
 		
 func _on_timer_timeout() -> void:
 	elapsedTime += 1
 	label.text = format_time(elapsedTime)
-	await spawn_wave((elapsedTime/60.00)+1)
+	spawn_wave((elapsedTime/60.00)+1)
 	#spawn_wave(20)
 #	Spawn Wave Every Minute
+	if elapsedTime % 30 == 0:
+		spawn_wave(elapsedTime/10.00)
 	if elapsedTime % 60 == 0:
-		await spawn_wave(elapsedTime/10.00)
+		for i in range(elapsedTime%30):
+			spawn(true)
 #	Introduce New Enemy Evey 2 minutes and increase enemy stats by 20%
-	if elapsedTime %120 == 0:
+	if elapsedTime %30== 0:
 		if waveLevel < enemy_types.size()-1:
 			waveLevel+=1
 			spawnable.append(enemy_types[waveLevel])
 
 func spawn_wave(amount: float):
 	for i in range(amount):
-		spawn()
-		await get_tree().process_frame
+		spawn(false)
