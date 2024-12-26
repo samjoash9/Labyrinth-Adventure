@@ -49,9 +49,6 @@ enemy_types = Array[ExtResource("4_suona")]([SubResource("Resource_s6ngk")])
 [node name="CanvasLayer" parent="Player/EnemySpawner" index="1"]
 visible = false
 
-[node name="Label" parent="Player/EnemySpawner/CanvasLayer" index="0"]
-visible = false
-
 [node name="Maze_Generator" parent="." node_paths=PackedStringArray("wall_patterns", "maze_object_patterns") instance=ExtResource("2_4rsbj")]
 wall_patterns = NodePath("../dungeon_walls")
 maze_object_patterns = NodePath("../dungeon_objects")

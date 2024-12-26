@@ -17,6 +17,7 @@ func attack():
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method(\"take_damage\"):
 		body.take_damage(damage, (self.global_position - body.global_position).normalized() *Vector2(10,10))
+		
 	
 "
 
@@ -100,7 +101,7 @@ _data = {
 radius = 15.2971
 
 [node name="Axe" type="Area2D"]
-collision_mask = 5
+collision_mask = 4
 monitorable = false
 script = SubResource("GDScript_prv2t")
 

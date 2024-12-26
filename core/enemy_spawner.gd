@@ -31,7 +31,6 @@ var spawnable = []
 
 func _ready() -> void:
 	spawnable.append(enemy_types[waveLevel])
-	
 	# get tile ids
 	match GameManager.selected_mode:
 		"green":
@@ -40,7 +39,8 @@ func _ready() -> void:
 		"dungeon":
 			valid_ids = GameManager.DUNGEON.ground_tiles
 			wall_type = get_parent().get_parent().get_node("dungeon_walls")
-
+	await get_tree().create_timer(10).timeout
+	$Timer.start()
 func spawn(is_elite: bool):
 	if get_tree().get_node_count_in_group("enemy") < 400:
 		var enemyInstance: BaseEnemy = ENEMY.instantiate()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://gpo24n2hi45r"]
+[gd_scene load_steps=21 format=3 uid="uid://gpo24n2hi45r"]
 
 [ext_resource type="Script" path="res://scripts/game_modes/green_mode.gd" id="1_jhivi"]
 [ext_resource type="PackedScene" uid="uid://dwyhebwkim47x" path="res://scenes/game_modes/tilesets/green.tscn" id="1_ocduj"]
@@ -6,15 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://br1vuxb82exst" path="res://scenes/game_modes/objects/green_objects.tscn" id="2_2y7qd"]
 [ext_resource type="PackedScene" uid="uid://cp4c2x3wsfo5p" path="res://ui/loading_screen.tscn" id="5_01dn4"]
 [ext_resource type="PackedScene" uid="uid://cdi8d70wpq4ym" path="res://core/enemy_spawner.tscn" id="6_1rtf3"]
-[ext_resource type="PackedScene" uid="uid://c423bd87f8cy5" path="res://ui/game_hud_pause.tscn" id="6_8w3i6"]
+[ext_resource type="PackedScene" path="res://ui/game_hud_pause.tscn" id="6_8w3i6"]
 [ext_resource type="AudioStream" uid="uid://burxw1457iytb" path="res://assets/Musics/26 - Lost Village.ogg" id="6_tt6st"]
 [ext_resource type="Script" path="res://resources/scripts/enemyType.gd" id="7_4m5w6"]
 [ext_resource type="PackedScene" uid="uid://01cq3ethui3i" path="res://characters/baseCharacter/player.tscn" id="7_vvuvv"]
 [ext_resource type="SpriteFrames" uid="uid://kr4ywn5wpfss" path="res://core/Enemies/spriteframes/akaname.tres" id="8_jpwnj"]
-[ext_resource type="PackedScene" uid="uid://bbw6rx0qk54qr" path="res://common/fx/portal_success_sound.tscn" id="10_k3wix"]
-[ext_resource type="PackedScene" uid="uid://csdl2wqpk36bk" path="res://common/fx/menu_click_sound.tscn" id="10_ytskn"]
-[ext_resource type="PackedScene" uid="uid://dgthph7v8cafd" path="res://ui/game_status.tscn" id="11_u1e0f"]
-[ext_resource type="PackedScene" uid="uid://cawigphsjmbeu" path="res://scenes/portals/green_portal.tscn" id="12_e83j0"]
+[ext_resource type="Resource" uid="uid://d2dbnw85yvk2h" path="res://resources/pickables/exp-5.tres" id="9_iarrv"]
+[ext_resource type="PackedScene" path="res://common/fx/portal_success_sound.tscn" id="10_k3wix"]
+[ext_resource type="PackedScene" path="res://common/fx/menu_click_sound.tscn" id="10_ytskn"]
+[ext_resource type="PackedScene" uid="uid://oo4g14m4gje0" path="res://ui/game_status.tscn" id="11_u1e0f"]
+[ext_resource type="PackedScene" path="res://scenes/portals/green_portal.tscn" id="12_e83j0"]
 [ext_resource type="Script" path="res://scenes/portals/green_portal.gd" id="13_jldfc"]
 [ext_resource type="PackedScene" uid="uid://bggfmmp107gab" path="res://ui/game_complete.tscn" id="17_fjcdd"]
 [ext_resource type="Script" path="res://ui/game_complete.gd" id="18_hv3y7"]
@@ -28,7 +29,10 @@ movementSpeed = 100.0
 damage = 10.0
 attackRadius = 10.0
 attackSpeed = 10.0
-drops = {}
+drops = {
+ExtResource("9_iarrv"): 100
+}
+scoreValue = 0
 attackType = 0
 
 [node name="Green_Mode" type="Node2D"]
@@ -47,7 +51,6 @@ tile_map_data = PackedByteArray()
 
 [node name="Player" parent="." instance=ExtResource("7_vvuvv")]
 collision_layer = 1
-collision_mask = 1
 
 [node name="EnemySpawner" parent="Player" node_paths=PackedStringArray("world") instance=ExtResource("6_1rtf3")]
 scale = Vector2(2, 2)

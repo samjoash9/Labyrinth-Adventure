@@ -30,7 +30,6 @@ modulate = Color(0.271, 0.161, 0.247, 0)
 z_index = 1
 scale = Vector2(0.7, 0.7)
 collision_layer = 4
-collision_mask = 7
 script = ExtResource("1_rsld4")
 
 [node name="SpriteFrames" type="AnimatedSprite2D" parent="."]
@@ -45,8 +44,8 @@ avoidance_enabled = true
 radius = 5.0
 
 [node name="AttackArea" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
+collision_layer = 4
+collision_mask = 3
 monitorable = false
 
 [node name="AttackRadius" type="CollisionShape2D" parent="AttackArea"]
