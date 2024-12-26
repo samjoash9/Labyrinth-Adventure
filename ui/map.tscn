@@ -12,7 +12,10 @@
 [ext_resource type="Theme" uid="uid://c458glwcww10h" path="res://themes/boss_level_theme.tres" id="9_q38vj"]
 [ext_resource type="PackedScene" uid="uid://c00in8aw55fsa" path="res://ui/map_confirmation.tscn" id="11_ofswj"]
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://csdl2wqpk36bk" path="res://common/fx/menu_click_sound.tscn" id="12_joq40"]
 [ext_resource type="AudioStream" uid="uid://cl8a5j1tmaooc" path="res://assets/Musics/18 - Aquatic.ogg" id="13_33xwp"]
 >>>>>>> Stashed changes

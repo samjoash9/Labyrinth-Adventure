@@ -22,12 +22,18 @@ buses/default_bus_layout="res://assets/Bus_Layout.tres"
 [autoload]
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 GameManager="*res://globals/gameManager.gd"
 >>>>>>> Stashed changes
 SceneManager="*res://addons/scene_manager/SceneManager.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 GameManager="*res://globals/gameManager.gd"
+=======
+GameManager="*res://globals/GameManager.gd"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+SceneManager="*res://addons/scene_manager/SceneManager.tscn"
+>>>>>>> Stashed changes
 
 [dialogic]
 
@@ -42,6 +48,7 @@ directories/dtl_directory={
 "Rogue Stone": "res://addons/dialogic/characters and styles/Rogue Stone.dtl",
 "Wizard Stone": "res://addons/dialogic/characters and styles/Wizard Stone.dtl"
 }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -96,6 +103,10 @@ layout/style_list=["res://themes/DialogicBaseStyle.tres"]
 layout/default_style="res://themes/DialogicBaseStyle.tres"
 >>>>>>> Stashed changes
 glossary/default_case_sensitive=true
+=======
+layout/style_list=["res://themes/stone_interaction_base_styole.tres"]
+layout/default_style="res://themes/stone_interaction_base_styole.tres"
+>>>>>>> Stashed changes
 
 [display]
 

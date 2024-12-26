@@ -15,7 +15,11 @@
 [ext_resource type="SpriteFrames" uid="uid://kr4ywn5wpfss" path="res://core/Enemies/spriteframes/akaname.tres" id="8_jpwnj"]
 [ext_resource type="PackedScene" uid="uid://bbw6rx0qk54qr" path="res://common/fx/portal_success_sound.tscn" id="10_k3wix"]
 [ext_resource type="PackedScene" uid="uid://csdl2wqpk36bk" path="res://common/fx/menu_click_sound.tscn" id="10_ytskn"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://oo4g14m4gje0" path="res://ui/game_status.tscn" id="11_u1e0f"]
+=======
+[ext_resource type="PackedScene" uid="uid://dgthph7v8cafd" path="res://ui/game_status.tscn" id="11_u1e0f"]
+>>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://cawigphsjmbeu" path="res://scenes/portals/green_portal.tscn" id="12_e83j0"]
 [ext_resource type="Script" path="res://scenes/portals/green_portal.gd" id="13_jldfc"]
 
@@ -47,9 +51,25 @@ tile_map_data = PackedByteArray()
 [node name="green_walls" parent="." instance=ExtResource("1_ocduj")]
 tile_map_data = PackedByteArray()
 
+<<<<<<< Updated upstream
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2059, 1245)
 zoom = Vector2(0.2, 0.2)
+=======
+[node name="Player" parent="." instance=ExtResource("7_vvuvv")]
+
+[node name="EnemySpawner" parent="Player" node_paths=PackedStringArray("world") instance=ExtResource("6_1rtf3")]
+world = NodePath("../..")
+enemy_types = Array[ExtResource("7_4m5w6")]([SubResource("Resource_461gp")])
+
+[node name="Label" parent="Player/EnemySpawner/CanvasLayer" index="0"]
+visible = false
+
+[node name="game_hud_pause" parent="." instance=ExtResource("6_8w3i6")]
+
+[node name="timer_label" parent="game_hud_pause/Control/MarginContainer/HBoxContainer" index="0"]
+size_flags_vertical = 0
+>>>>>>> Stashed changes
 
 [node name="loading_screen" parent="." instance=ExtResource("5_01dn4")]
 
