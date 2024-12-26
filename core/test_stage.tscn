@@ -9,6 +9,5 @@
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
-[node name="Enemy" parent="." node_paths=PackedStringArray("player_reference") instance=ExtResource("2_yqc3o")]
+[node name="Enemy" parent="." instance=ExtResource("2_yqc3o")]
 position = Vector2(173, 19)
-player_reference = NodePath("../Player")

@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=20 format=3 uid="uid://gpo24n2hi45r"]
+=======
+[gd_scene load_steps=28 format=3 uid="uid://gpo24n2hi45r"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://scripts/game_modes/green_mode.gd" id="1_jhivi"]
 [ext_resource type="PackedScene" uid="uid://dwyhebwkim47x" path="res://scenes/game_modes/tilesets/green.tscn" id="1_ocduj"]
@@ -10,25 +14,95 @@
 [ext_resource type="AudioStream" uid="uid://burxw1457iytb" path="res://assets/Musics/26 - Lost Village.ogg" id="6_tt6st"]
 [ext_resource type="Script" path="res://resources/scripts/enemyType.gd" id="7_4m5w6"]
 [ext_resource type="PackedScene" uid="uid://01cq3ethui3i" path="res://characters/baseCharacter/player.tscn" id="7_vvuvv"]
+<<<<<<< Updated upstream
 [ext_resource type="SpriteFrames" uid="uid://kr4ywn5wpfss" path="res://core/Enemies/spriteframes/akaname.tres" id="8_jpwnj"]
 [ext_resource type="PackedScene" uid="uid://bbw6rx0qk54qr" path="res://common/fx/portal_success_sound.tscn" id="10_k3wix"]
 [ext_resource type="PackedScene" uid="uid://csdl2wqpk36bk" path="res://common/fx/menu_click_sound.tscn" id="10_ytskn"]
 [ext_resource type="PackedScene" uid="uid://dgthph7v8cafd" path="res://ui/game_status.tscn" id="11_u1e0f"]
+=======
+[ext_resource type="SpriteFrames" uid="uid://jgj2mbccub2k" path="res://core/Enemies/spriteframes/slime.tres" id="8_kpm50"]
+[ext_resource type="SpriteFrames" uid="uid://f4w77he57u66" path="res://core/Enemies/spriteframes/leafy.tres" id="9_ebxtg"]
+[ext_resource type="SpriteFrames" uid="uid://cyfusqpjo0xa0" path="res://core/Enemies/spriteframes/slime2.tres" id="9_hjg2s"]
+[ext_resource type="PackedScene" uid="uid://bbw6rx0qk54qr" path="res://common/fx/portal_success_sound.tscn" id="10_k3wix"]
+[ext_resource type="PackedScene" uid="uid://csdl2wqpk36bk" path="res://common/fx/menu_click_sound.tscn" id="10_ytskn"]
+[ext_resource type="SpriteFrames" uid="uid://bn0ryw3aa78ff" path="res://core/Enemies/spriteframes/groot.tres" id="11_5hwh5"]
+[ext_resource type="PackedScene" uid="uid://oo4g14m4gje0" path="res://ui/game_status.tscn" id="11_u1e0f"]
+[ext_resource type="SpriteFrames" uid="uid://wxijp1evlvrn" path="res://core/Enemies/spriteframes/orc.tres" id="12_6bd02"]
+>>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://cawigphsjmbeu" path="res://scenes/portals/green_portal.tscn" id="12_e83j0"]
 [ext_resource type="Script" path="res://scenes/portals/green_portal.gd" id="13_jldfc"]
 [ext_resource type="PackedScene" uid="uid://bggfmmp107gab" path="res://ui/game_complete.tscn" id="17_fjcdd"]
 [ext_resource type="Script" path="res://ui/game_complete.gd" id="18_hv3y7"]
 
-[sub_resource type="Resource" id="Resource_yaw0h"]
+[sub_resource type="Resource" id="Resource_lbpjl"]
 script = ExtResource("7_4m5w6")
-name = "akaname"
-animation = ExtResource("8_jpwnj")
+name = "Slime"
+animation = ExtResource("8_kpm50")
 hitPoints = 10.0
-movementSpeed = 100.0
+movementSpeed = 40.0
 damage = 10.0
+<<<<<<< Updated upstream
 attackRadius = 10.0
 attackSpeed = 10.0
 drops = {}
+=======
+attackRadius = 15.0
+attackSpeed = 1.0
+drops = {}
+scoreValue = 10
+attackType = 0
+
+[sub_resource type="Resource" id="Resource_ofrah"]
+script = ExtResource("7_4m5w6")
+name = "Blue Slime"
+animation = ExtResource("9_hjg2s")
+hitPoints = 15.0
+movementSpeed = 35.0
+damage = 15.0
+attackRadius = 15.0
+attackSpeed = 1.5
+drops = {}
+scoreValue = 12
+attackType = 0
+
+[sub_resource type="Resource" id="Resource_rnlpc"]
+script = ExtResource("7_4m5w6")
+name = "Leafy"
+animation = ExtResource("9_ebxtg")
+hitPoints = 15.0
+movementSpeed = 50.0
+damage = 15.0
+attackRadius = 15.0
+attackSpeed = 0.8
+drops = {}
+scoreValue = 15
+attackType = 0
+
+[sub_resource type="Resource" id="Resource_dw3gi"]
+script = ExtResource("7_4m5w6")
+name = "Groot"
+animation = ExtResource("11_5hwh5")
+hitPoints = 60.0
+movementSpeed = 35.0
+damage = 25.0
+attackRadius = 15.0
+attackSpeed = 1.8
+drops = {}
+scoreValue = 40
+attackType = 0
+
+[sub_resource type="Resource" id="Resource_cxv07"]
+script = ExtResource("7_4m5w6")
+name = "Orc"
+animation = ExtResource("12_6bd02")
+hitPoints = 100.0
+movementSpeed = 50.0
+damage = 20.0
+attackRadius = 15.0
+attackSpeed = 2.0
+drops = {}
+scoreValue = 50
+>>>>>>> Stashed changes
 attackType = 0
 
 [node name="Green_Mode" type="Node2D"]
@@ -55,7 +129,7 @@ zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 position_smoothing_speed = 12.0
 world = NodePath("../..")
-enemy_types = Array[ExtResource("7_4m5w6")]([SubResource("Resource_yaw0h")])
+enemy_types = Array[ExtResource("7_4m5w6")]([SubResource("Resource_lbpjl"), SubResource("Resource_ofrah"), SubResource("Resource_rnlpc"), SubResource("Resource_dw3gi"), SubResource("Resource_cxv07")])
 
 [node name="game_hud_pause" parent="." instance=ExtResource("6_8w3i6")]
 
