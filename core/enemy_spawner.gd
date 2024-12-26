@@ -1,5 +1,5 @@
 extends Camera2D
-
+class_name EnemySpawner
 const ENEMY = preload("res://core/Enemies/enemy.tscn")
 @export var world: Node2D
 

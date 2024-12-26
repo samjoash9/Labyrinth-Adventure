@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cp4c2x3wsfo5p" path="res://ui/loading_screen.tscn" id="5_yeol0"]
 [ext_resource type="SpriteFrames" uid="uid://kr4ywn5wpfss" path="res://core/Enemies/spriteframes/akaname.tres" id="5_yvfdr"]
 [ext_resource type="AudioStream" uid="uid://cngt26w6g1tfr" path="res://assets/Musics/30 - Ruins.ogg" id="6_d1h1m"]
-[ext_resource type="PackedScene" path="res://ui/game_hud_pause.tscn" id="6_k8orw"]
+[ext_resource type="PackedScene" uid="uid://d5pmqj0whp4c" path="res://ui/game_hud_pause.tscn" id="6_k8orw"]
 [ext_resource type="Resource" uid="uid://d2xq4euk36s7e" path="res://resources/pickables/coin-5.tres" id="6_me0a7"]
 [ext_resource type="Resource" uid="uid://d2dbnw85yvk2h" path="res://resources/pickables/exp-5.tres" id="7_ljsib"]
 [ext_resource type="PackedScene" uid="uid://01cq3ethui3i" path="res://characters/baseCharacter/player.tscn" id="7_q65sv"]

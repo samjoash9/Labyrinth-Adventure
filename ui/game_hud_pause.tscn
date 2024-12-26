@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c423bd87f8cy5"]
+[gd_scene load_steps=10 format=3 uid="uid://d5pmqj0whp4c"]
 
 [ext_resource type="Script" path="res://ui/in_game_pause.gd" id="1_cuast"]
 [ext_resource type="Texture2D" uid="uid://di70broao655r" path="res://assets/Images/IconsFlat-160.png" id="1_y7tit"]

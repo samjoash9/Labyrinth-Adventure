@@ -2,10 +2,18 @@ extends CanvasLayer
 
 const OPTIONS = preload("res://scenes/UI/options.tscn")
 @onready var exit_modal: CanvasLayer = $exit_modal
-
+var spawner: EnemySpawner
 @onready var click_sound: AudioStreamPlayer2D = $click_sound
 
+func _ready() -> void:
+	await get_tree().create_timer(1)
+	var enemies = get_tree().get_nodes_in_group("enemy")
+	
+	for e in enemies:
+		e.set_process(false)
+		
 func _on_resume_pressed() -> void:
+	spawner.timer.paused = false
 	click_sound.play()
 	# get player reference
 	if get_parent().get_parent().get_node("Player"):

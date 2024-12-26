@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UserPreferences" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://resources/user_prefs.gd" id="1_1witp"]
+
+[resource]
+script = ExtResource("1_1witp")
+music_audio_level = 1.0
+soundFx_audio_level = 1.0
+displaymode = 0
+unlocked_levels = 1

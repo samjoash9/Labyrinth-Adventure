@@ -4,7 +4,7 @@ extends CanvasLayer
 @onready var player: Player = $"../Player"
 @onready var timer_label: Label = $Control/MarginContainer/HBoxContainer/timer_label
 @onready var timer: Timer = $Timer
-
+@export var spawner : EnemySpawner
 const IN_GAME_PAUSE = preload("res://ui/in_game_pause.tscn")
 
 func _on_button_pressed() -> void:
@@ -13,15 +13,12 @@ func _on_button_pressed() -> void:
 	player_hud.visible = false
 	visible = false
 	timer.paused = true
+	spawner.timer.paused = true
 	
 	# pause enemies
-	var enemies = get_tree().get_nodes_in_group("enemy")
-	
-	for e in enemies:
-		e.set_process(false)
-
 	var in_game_pause = IN_GAME_PAUSE.instantiate()
 	add_child(in_game_pause)
+	in_game_pause.spawner = spawner
 
 func _process(_delta: float) -> void:
 	timer_label.text = "TIME: " + str(int(timer.time_left))
