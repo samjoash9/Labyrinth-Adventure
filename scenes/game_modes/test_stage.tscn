@@ -383,7 +383,7 @@ hitPoints = 10.0
 movementSpeed = 100.0
 damage = 1.0
 attackRadius = 10.0
-attackSpeed = 1.0
+attackSpeed = 10.0
 drops = {
 SubResource("Resource_m8rux"): 30,
 SubResource("Resource_qak3a"): 10

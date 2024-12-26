@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=18 format=3 uid="uid://kr4ywn5wpfss"]
+[gd_resource type="SpriteFrames" load_steps=23 format=3 uid="uid://kr4ywn5wpfss"]
 
 [ext_resource type="Texture2D" uid="uid://pdocf2kqwvi3" path="res://enemies/dungeon/akaname/Akaname Sprite Sheet.png" id="1_7iu4q"]
 
@@ -66,6 +66,26 @@ region = Rect2(192, 32, 32, 32)
 atlas = ExtResource("1_7iu4q")
 region = Rect2(224, 32, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ij7i"]
+atlas = ExtResource("1_7iu4q")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqa3m"]
+atlas = ExtResource("1_7iu4q")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gtja"]
+atlas = ExtResource("1_7iu4q")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5wws"]
+atlas = ExtResource("1_7iu4q")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjymv"]
+atlas = ExtResource("1_7iu4q")
+region = Rect2(128, 0, 32, 32)
+
 [resource]
 animations = [{
 "frames": [{
@@ -125,4 +145,24 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ij7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqa3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gtja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5wws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjymv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
 }]

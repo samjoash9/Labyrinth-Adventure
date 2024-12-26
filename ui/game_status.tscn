@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgthph7v8cafd"]
+[gd_scene load_steps=3 format=3 uid="uid://oo4g14m4gje0"]
 
 [ext_resource type="Script" path="res://ui/game_status.gd" id="1_cyy04"]
 [ext_resource type="Theme" uid="uid://iivwh67cjc1k" path="res://scenes/UI/base_theme.tres" id="1_dj0kq"]
@@ -75,3 +75,5 @@ text = "RESTART"
 [node name="quit" type="Button" parent="Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "  QUIT  "
+
+[connection signal="visibility_changed" from="Control/MarginContainer/Panel/PanelContainer/VBoxContainer/coins" to="." method="_on_coins_visibility_changed"]

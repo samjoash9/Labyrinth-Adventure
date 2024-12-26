@@ -15,8 +15,18 @@ var weaponInstance: Node2D
 func _on_cooldown_timeout() -> void:
 	if item:
 		if item.weaponType == item.weaponTypes.PROJECTILE:
-			if item.has_method("shoot"):
-				item.shoot(weaponInstance)
+			if item is SingleShot:
+				var projectile: SingleShotProjectile = item.projectile.instantiate()
+				projectile.global_rotation = weaponInstance.global_rotation
+				projectile.attackPower = item.attackPower
+				projectile.speed = item.attackSpeed
+				projectile.knockBack = item.knockBack
+				projectile.global_position = weaponInstance.global_position
+				if owner.nearest_enemy != null:
+					projectile.direction = owner.nearest_enemy.position
+				else:
+					projectile.direction = Vector2.RIGHT
+				owner.add_child(projectile)
 		if item.weaponType == item.weaponTypes.MELEE:
 			if weaponInstance.has_method("attack"):
 				weaponInstance.attack()

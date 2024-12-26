@@ -69,6 +69,7 @@ animations = [{
 
 [node name="SpawnEffect" type="Node2D"]
 modulate = Color(1, 1, 1, 0)
+z_index = 5
 scale = Vector2(0.1, 0.1)
 script = ExtResource("1_nhbcb")
 

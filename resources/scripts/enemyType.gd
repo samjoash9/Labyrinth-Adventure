@@ -9,6 +9,7 @@ class_name Enemy
 @export var attackRadius: float
 @export var attackSpeed: float
 @export var drops: Dictionary
+@export var scoreValue: int
 enum attackTypes{
 	MELEE,
 	RANGED

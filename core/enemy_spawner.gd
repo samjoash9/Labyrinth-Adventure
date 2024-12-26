@@ -38,11 +38,11 @@ func spawn():
 func _on_timer_timeout() -> void:
 	elapsedTime += 1
 	label.text = format_time(elapsedTime)
-	spawn_wave((elapsedTime/60.00)+1)
+	await spawn_wave((elapsedTime/60.00)+1)
 	#spawn_wave(20)
 #	Spawn Wave Every Minute
 	if elapsedTime % 60 == 0:
-		spawn_wave(elapsedTime/10.00)
+		await spawn_wave(elapsedTime/10.00)
 #	Introduce New Enemy Evey 2 minutes and increase enemy stats by 20%
 	if elapsedTime %120 == 0:
 		if waveLevel < enemy_types.size()-1:
@@ -52,3 +52,4 @@ func _on_timer_timeout() -> void:
 func spawn_wave(amount: float):
 	for i in range(amount):
 		spawn()
+		await get_tree().process_frame

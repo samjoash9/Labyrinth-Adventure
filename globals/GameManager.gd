@@ -9,7 +9,6 @@ var object_map_size = mapSize - PATTERN_SIZE
 var user_prefs: UserPreferences
 const defaultSize: Vector2i = Vector2i(640*2,360*2)
 var maindisplaysize : Vector2i = DisplayServer.screen_get_size(0)
-
 func _ready() -> void:
 	user_prefs = UserPreferences.load_or_create()
 	var bus_index_music = AudioServer.get_bus_index("Music")
@@ -32,7 +31,7 @@ func _ready() -> void:
 var central_hub_last_position: Vector2i = Vector2(216, 6)
 
 # SELECTED HERO
-var selected_hero = "rogue"
+var selected_hero = "knight"
 var selected_level: int
 var selected_mode: String
 

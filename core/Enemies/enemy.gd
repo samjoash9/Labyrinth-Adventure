@@ -35,6 +35,7 @@ var hitPoints: float:
 				drop.pickableData = enemyType.get_drop()
 				drop.global_position = global_position
 				add_sibling.call_deferred(drop)
+			GameManager.score += enemyType.scoreValue
 			queue_free()
 			
 var movementSpeed: float
@@ -44,6 +45,8 @@ func check_separation():
 	separation = (target.global_position - global_position).length()
 	if separation < target.nearest_enemy_distance: 
 		target.nearest_enemy = self
+	if separation >= 600:
+		queue_free()
 
 func _ready() -> void:
 	set_process(false)
@@ -88,17 +91,15 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 				rangedAttack.speed = enemyType.projectileSpeed
 				rangedAttack.sprite = enemyType.projectile
 				call_deferred("add_sibling" , rangedAttack)
-				
 		%SpriteFrames.play("attack")
 		set_process(false)
 		$AttackCoolDown.start()
 		
-
 func _on_attack_cool_down_timeout() -> void:
 	%SpriteFrames.play("default")
 	%AttackRadius.set_deferred("disabled", false)
 	set_process(true)
-	
+
 func take_damage(enemydamage,direction):
 	hitPoints-=enemydamage
 	var damageText = DAMAGE_TEXT.instantiate()
@@ -111,6 +112,8 @@ func take_damage(enemydamage,direction):
 	tween.chain().tween_property(self, "modulate", Color(1,1,1) , 0.1)
 	
 func _on_path_finder_cooldown_timeout() -> void:
+	await get_tree().process_frame
 	pathfinder.target_position = target.global_position
+	
 func _on_sprite_frames_animation_finished() -> void:
-	%SpriteFrames.play("default")
+	%SpriteFrames.play("idle")

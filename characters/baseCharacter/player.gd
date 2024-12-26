@@ -90,7 +90,7 @@ var animations : Animations
 func _ready() -> void:
 	exp = 0
 	expCap = 10
-	character = load("res://resources/jobs/rogue.tres")
+	character = load("res://resources/jobs/%s.tres" % GameManager.selected_hero)
 	
 	for child in get_children():
 		if child is Animations:

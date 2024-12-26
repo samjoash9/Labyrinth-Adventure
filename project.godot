@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Labyrinth Adventure"
-run/main_scene="res://scenes/game_modes/test_stage.tscn"
+run/main_scene="res://ui/game_start.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://assets/Game Icon.png"
@@ -45,6 +45,10 @@ directories/dtl_directory={
 window/size/resizable=false
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+
+[editor]
+
+version_control/main_scene="res://scenes/game_modes/test_stage.tscn"
 
 [editor_plugins]
 
@@ -139,4 +143,6 @@ e={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
