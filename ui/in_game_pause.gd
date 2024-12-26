@@ -13,6 +13,12 @@ func _on_button_pressed() -> void:
 	player_hud.visible = false
 	visible = false
 	timer.paused = true
+	
+	# pause enemies
+	var enemies = get_tree().get_nodes_in_group("enemy")
+	
+	for e in enemies:
+		e.set_process(false)
 
 	var in_game_pause = IN_GAME_PAUSE.instantiate()
 	add_child(in_game_pause)
