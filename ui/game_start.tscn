@@ -131,8 +131,8 @@ grow_vertical = 2
 script = ExtResource("1_aw0id")
 
 [node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
-scale = Vector2(2.2, 2.2)
-transform = Transform2D(2.2, 0, 0, 2.2, 0, 0)
+scale = Vector2(2.4, 2.1)
+transform = Transform2D(2.4, 0, 0, 2.1, 0, 0)
 script = ExtResource("2_r2ya0")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
