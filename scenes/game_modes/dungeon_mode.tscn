@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://gntrd0281yiq" path="res://scenes/game_modes/Maze_Generator.tscn" id="2_4rsbj"]
 [ext_resource type="PackedScene" uid="uid://cdi8d70wpq4ym" path="res://core/enemy_spawner.tscn" id="3_0rje5"]
 [ext_resource type="PackedScene" uid="uid://8sotrcyxx4a5" path="res://scenes/game_modes/tilesets/dungeon.tscn" id="3_ddod5"]
-[ext_resource type="PackedScene" path="res://scenes/portals/dungeon_portal.tscn" id="3_ur71p"]
+[ext_resource type="PackedScene" uid="uid://lmcbsxwemc2j" path="res://scenes/portals/dungeon_portal.tscn" id="3_ur71p"]
 [ext_resource type="PackedScene" uid="uid://diyb228qqbi12" path="res://scenes/game_modes/objects/dungeon_objects.tscn" id="4_d0f5w"]
 [ext_resource type="Script" path="res://resources/scripts/enemyType.gd" id="4_suona"]
 [ext_resource type="PackedScene" uid="uid://cp4c2x3wsfo5p" path="res://ui/loading_screen.tscn" id="5_yeol0"]
@@ -42,9 +42,8 @@ script = ExtResource("1_lel40")
 
 [node name="Player" parent="." instance=ExtResource("7_q65sv")]
 
-[node name="EnemySpawner" parent="Player" node_paths=PackedStringArray("world", "spawnLocationExcluderMap") instance=ExtResource("3_0rje5")]
+[node name="EnemySpawner" parent="Player" node_paths=PackedStringArray("world") instance=ExtResource("3_0rje5")]
 world = NodePath("../..")
-spawnLocationExcluderMap = NodePath("../../dungeon_walls")
 enemy_types = Array[ExtResource("4_suona")]([SubResource("Resource_s6ngk")])
 
 [node name="CanvasLayer" parent="Player/EnemySpawner" index="1"]
