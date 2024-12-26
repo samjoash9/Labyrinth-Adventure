@@ -20,7 +20,7 @@ func _ready() -> void:
 	enemy_spawner.limit_bottom = GameManager.map_rooms * 27 * 16
 	enemy_spawner.limit_right = GameManager.map_rooms * 27 * 16
 
-func _on_area_2d_body_entered(body: Player) -> void:
+func _on_area_2d_body_entered(_body: Player) -> void:
 	game_complete.visible = true
 	portal_success_sound.play()
 	music.stop()

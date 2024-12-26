@@ -18,16 +18,16 @@ var player_in_area = false
 func _ready() -> void:
 	Dialogic.signal_event.connect(DialogicSignal)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if player_in_area:
 		if Input.is_action_just_pressed("e"):
 			run_dialogue("Knight Stone")
 			player.set_process(false)
 			
-func _on_area_2d_body_entered(body: Player) -> void:
+func _on_area_2d_body_entered(_body: Player) -> void:
 	player_in_area = true
 
-func _on_area_2d_body_exited(body: Player) -> void:
+func _on_area_2d_body_exited(_body: Player) -> void:
 	player_in_area = false
 	
 func run_dialogue(dialogue_string):

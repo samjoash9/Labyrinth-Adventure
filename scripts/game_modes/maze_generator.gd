@@ -11,7 +11,7 @@ var object_map_size = GameManager.object_map_size
 var noise_tiles = []
 var object_pattern_count = 0
 
-signal last_index(portal_position: Vector2i)
+#signal last_index(portal_position: Vector2i)
 signal map_loaded
 
 var portal_position: Vector2i

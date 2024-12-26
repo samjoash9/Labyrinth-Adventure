@@ -6,8 +6,6 @@ const PLAYER_PROFILE = preload("res://ui/Player_profile.tscn")
 
 @onready var click_sound: AudioStreamPlayer2D = $click_sound
 
-signal stop_player
-
 func _on_settings_pressed() -> void:
 	player.set_process(false)
 	click_sound.play()

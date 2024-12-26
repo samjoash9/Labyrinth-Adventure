@@ -1,5 +1,4 @@
 extends Control
-signal loaded
 
 const OPTIONS = preload("res://scenes/UI/options.tscn")
 const EXIT_MODAL = preload("res://ui/exit_modal.tscn")

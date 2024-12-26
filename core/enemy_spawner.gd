@@ -48,7 +48,7 @@ func spawn():
 		return
 
 func random_position() -> Vector2:
-	var position: Vector2
+	var spawnable_position: Vector2
 	
 	while true:
 		var pos = get_random_position()
@@ -56,14 +56,12 @@ func random_position() -> Vector2:
 		var tile_id = wall_type.get_cell_atlas_coords(tile)
 		
 		if tile_id in valid_ids:
-			position = pos
+			spawnable_position = pos
 			break
 		
-	return position
+	return spawnable_position
 
 func _on_timer_timeout() -> void:
-	get_tree().create_timer(8).timeout
-	
 	elapsedTime += 1
 	label.text = format_time(elapsedTime)
 	spawn_wave((elapsedTime/60.00)+1)

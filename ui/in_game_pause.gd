@@ -17,5 +17,5 @@ func _on_button_pressed() -> void:
 	var in_game_pause = IN_GAME_PAUSE.instantiate()
 	add_child(in_game_pause)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	timer_label.text = "TIME: " + str(int(timer.time_left))

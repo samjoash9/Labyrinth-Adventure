@@ -116,7 +116,7 @@ const ROGUE = {
 		"health": "75",
 		"agility": "180"
 	},
-	"special_skill": "", 
+	"special_skill": "res://assets/Ninja Adventure - Asset Pack/Ui/Icon/Spell/OrbLight.png", 
 	"weapon": ""
 }
 const KNIGHT = {
