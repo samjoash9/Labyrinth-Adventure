@@ -23,8 +23,8 @@ buses/default_bus_layout="res://assets/Bus_Layout.tres"
 [autoload]
 
 GameManager="*res://globals/GameManager.gd"
-SceneManager="*res://addons/scene_manager/SceneManager.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+SceneManager="*res://addons/scene_manager/SceneManager.tscn"
 
 [dialogic]
 

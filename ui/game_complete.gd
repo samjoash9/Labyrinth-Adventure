@@ -15,29 +15,22 @@ func _on_quit_pressed() -> void:
   { "pattern": "scribbles", "pattern_leave": "scribbles"})
 
 func _on_next_level_pressed() -> void:
-	# check current mode
-	if GameManager.selected_level == 5:
-		GameManager.selected_mode = "dungeon"
+	print(GameManager.selected_mode)
 	
-	# increment level
-	if GameManager.selected_level >= 1 and GameManager.selected_level <= 9:
-		GameManager.selected_level += 1
-		GameManager.map_rooms = GameManager.selected_level + 1
-		GameManager.mapSize = GameManager.map_rooms * GameManager.PATTERN_SIZE
-		GameManager.object_map_size = GameManager.mapSize - GameManager.PATTERN_SIZE
-	
-	if GameManager.selected_level > 8:
-		SceneManager.change_scene(
-		"res://ui/map.tscn",
-	  { "pattern": "scribbles", "pattern_leave": "scribbles"})
-	else:
-		# change scene
-		match GameManager.selected_mode:
-			"green":
-				SceneManager.change_scene(
+	match GameManager.selected_mode:
+		"green_boss":
+			SceneManager.change_scene(
+			"res://scenes/game_modes/green_boss_level.tscn",
+		  { "pattern": "scribbles", "pattern_leave": "scribbles"})
+		"dungeon_boss":
+			SceneManager.change_scene(
+			"res://scenes/game_modes/dungeon_boss_level.tscn",
+		  { "pattern": "scribbles", "pattern_leave": "scribbles"})
+		"green":
+			SceneManager.change_scene(
 				"res://scenes/game_modes/Green_Mode.tscn",
-			  { "pattern": "scribbles", "pattern_leave": "scribbles"})
-			"dungeon":
-				SceneManager.change_scene(
-				"res://scenes/game_modes/Dungeon_mode.tscn",
-			  { "pattern": "scribbles", "pattern_leave": "scribbles"})
+		  { "pattern": "scribbles", "pattern_leave": "scribbles"})
+		"dungeon":
+			SceneManager.change_scene(
+			"res://scenes/game_modes/Dungeon_mode.tscn",
+		  { "pattern": "scribbles", "pattern_leave": "scribbles"})

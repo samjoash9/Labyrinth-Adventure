@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cgtge0leu72ds"]
+[gd_scene load_steps=16 format=3 uid="uid://cgtge0leu72ds"]
 
 [ext_resource type="Script" path="res://scripts/game_modes/dungeon_mode.gd" id="1_lel40"]
 [ext_resource type="PackedScene" uid="uid://gntrd0281yiq" path="res://scenes/game_modes/Maze_Generator.tscn" id="2_4rsbj"]
@@ -7,29 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://diyb228qqbi12" path="res://scenes/game_modes/objects/dungeon_objects.tscn" id="4_d0f5w"]
 [ext_resource type="PackedScene" uid="uid://cp4c2x3wsfo5p" path="res://ui/loading_screen.tscn" id="5_yeol0"]
 [ext_resource type="AudioStream" uid="uid://cngt26w6g1tfr" path="res://assets/Musics/30 - Ruins.ogg" id="6_d1h1m"]
-[ext_resource type="PackedScene" uid="uid://cdi8d70wpq4ym" path="res://core/enemy_spawner.tscn" id="6_gn1ac"]
 [ext_resource type="PackedScene" uid="uid://c423bd87f8cy5" path="res://ui/game_hud_pause.tscn" id="6_k8orw"]
 [ext_resource type="PackedScene" uid="uid://01cq3ethui3i" path="res://characters/baseCharacter/player.tscn" id="7_q65sv"]
-[ext_resource type="Script" path="res://resources/scripts/enemyType.gd" id="7_vxt8f"]
-[ext_resource type="SpriteFrames" uid="uid://kr4ywn5wpfss" path="res://core/Enemies/spriteframes/akaname.tres" id="8_3adyw"]
 [ext_resource type="PackedScene" uid="uid://dgthph7v8cafd" path="res://ui/game_status.tscn" id="10_pgqwc"]
 [ext_resource type="PackedScene" uid="uid://csdl2wqpk36bk" path="res://common/fx/menu_click_sound.tscn" id="11_fmef0"]
 [ext_resource type="PackedScene" uid="uid://bggfmmp107gab" path="res://ui/game_complete.tscn" id="12_plg6f"]
 [ext_resource type="Script" path="res://scenes/portals/dungeon_portal.gd" id="13_2hi4g"]
 [ext_resource type="Script" path="res://ui/game_complete.gd" id="13_233ov"]
 [ext_resource type="PackedScene" uid="uid://bbw6rx0qk54qr" path="res://common/fx/portal_success_sound.tscn" id="13_qvf7b"]
-
-[sub_resource type="Resource" id="Resource_unr65"]
-script = ExtResource("7_vxt8f")
-name = "akame"
-animation = ExtResource("8_3adyw")
-hitPoints = 5.0
-movementSpeed = 5.0
-damage = 5.0
-attackRadius = 5.0
-attackSpeed = 5.0
-drops = {}
-attackType = 0
 
 [node name="Dungeon_Mode" type="Node2D"]
 script = ExtResource("1_lel40")
@@ -50,10 +35,8 @@ tile_map_data = PackedByteArray()
 collision_layer = 1
 collision_mask = 1
 
-[node name="EnemySpawner" parent="Player" node_paths=PackedStringArray("world") instance=ExtResource("6_gn1ac")]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(3, 3)
-world = NodePath("../..")
-enemy_types = Array[ExtResource("7_vxt8f")]([SubResource("Resource_unr65")])
 
 [node name="game_hud_pause" parent="." instance=ExtResource("6_k8orw")]
 

@@ -20,9 +20,10 @@ func _on_return_button_pressed() -> void:
 	"res://scenes/central_hub.tscn",
   { "pattern": "scribbles", "pattern_leave": "scribbles"})
 
-func confirmation(mode: String, level: int):
+func confirmation(mode: String, level: int, size: int):
 	click_sound.play()
 	GameManager.selected_level = level
+	GameManager.dedicated_size = size
 	GameManager.selected_mode = mode
 	
 	map_confirm.visible = true
@@ -31,7 +32,7 @@ func confirmation(mode: String, level: int):
 func _on_confirm_pressed() -> void:
 	click_sound.play()
 	# generate level based on pressed level
-	GameManager.map_rooms = GameManager.selected_level + 1
+	GameManager.map_rooms = GameManager.dedicated_size + 1
 	GameManager.mapSize = GameManager.map_rooms * GameManager.PATTERN_SIZE
 	GameManager.object_map_size = GameManager.mapSize - GameManager.PATTERN_SIZE
 	
@@ -41,15 +42,15 @@ func _on_confirm_pressed() -> void:
 		"green":
 			SceneManager.change_scene(
 			"res://scenes/game_modes/Green_Mode.tscn",
-		  { "pattern": "scribbles", "pattern_leave": ""})
+		  { "pattern": "scribbles", "pattern_leave": "scribbles"})
 		"dungeon":
 			SceneManager.change_scene(
 			"res://scenes/game_modes/Dungeon_mode.tscn",
-		  { "pattern": "scribbles", "pattern_leave": ""})
+		  { "pattern": "scribbles", "pattern_leave": "scribbles"})
 		"lava":
 			SceneManager.change_scene(
 			"res://scenes/game_modes/Lava_mode.tscn",
-		  { "pattern": "scribbles", "pattern_leave": ""})
+		  { "pattern": "scribbles", "pattern_leave": "scribbles"})
 
 func _on_cancel_pressed() -> void:
 	click_sound.play()
@@ -57,48 +58,48 @@ func _on_cancel_pressed() -> void:
 	return_hud.visible = true
 
 func _on_level_1_pressed() -> void:
-	confirmation("green", 1)
+	confirmation("green", 1, 1)
 
 func _on_level_2_pressed() -> void:
-	confirmation("green", 2)
+	confirmation("green", 2, 2)
 
 func _on_level_3_pressed() -> void:
-	confirmation("green", 2)
+	confirmation("green", 3, 2)
 
 func _on_level_4_pressed() -> void:
-	confirmation("green", 3)
+	confirmation("green", 4, 3)
 
 func _on_level_5_pressed() -> void:
-	confirmation("green", 4)
+	confirmation("green", 5, 4)
 
 func _on_level_6_pressed() -> void:
-	confirmation("dungeon", 4)
+	confirmation("dungeon", 7, 4)
 
 func _on_level_7_pressed() -> void:
-	confirmation("dungeon", 5)
+	confirmation("dungeon", 8, 5)
 
 func _on_level_8_pressed() -> void:
-	confirmation("dungeon", 5)
+	confirmation("dungeon", 9, 5)
 
 func _on_level_9_pressed() -> void:
-	confirmation("dungeon", 6)
+	confirmation("dungeon", 10, 6)
 	
 func _on_level_10_pressed() -> void:
-	confirmation("dungeon", 7)
+	confirmation("dungeon", 11, 7)
 
 # COMMING SOON...
 
 func _on_level_11_pressed() -> void:
-	confirmation("dungeon", 11)
+	confirmation("lava", 11, 10)
 
 func _on_level_12_pressed() -> void:
-	confirmation("dungeon", 12)
+	confirmation("lava", 12, 10)
 	
 func _on_level_13_pressed() -> void:
-	confirmation("dungeon", 13)
+	confirmation("lava", 13, 11)
 	
 func _on_level_14_pressed() -> void:
-	confirmation("dungeon", 14)
+	confirmation("lava", 14, 11)
 	
 func _on_level_15_pressed() -> void:
-	confirmation("dungeon", 15)
+	confirmation("lava", 15, 12)

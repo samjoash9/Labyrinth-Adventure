@@ -36,6 +36,7 @@ var selected_hero = "rogue"
 
 # SELECTED LEVEL
 var selected_level = 1
+var dedicated_size = 2
 var selected_mode = "green"
 
 # SPECIFIC MAP TYPES
