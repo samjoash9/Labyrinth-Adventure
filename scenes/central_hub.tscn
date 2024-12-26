@@ -2321,10 +2321,16 @@ radius = 60.208
 [node name="mini_village" type="Node2D"]
 script = ExtResource("1_jfdxu")
 
+<<<<<<< Updated upstream
 [node name="Player" parent="." instance=ExtResource("10_be00a")]
 z_index = 10
 position = Vector2(217, 29)
 scale = Vector2(0.5, 0.5)
+=======
+[node name="Player" parent="." instance=ExtResource("2_dt31g")]
+z_index = 12
+z_as_relative = false
+>>>>>>> Stashed changes
 
 [node name="CollisionShape2D" parent="Player" index="0"]
 position = Vector2(0, -10)

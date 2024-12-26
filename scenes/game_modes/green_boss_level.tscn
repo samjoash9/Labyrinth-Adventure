@@ -2,6 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://br1vuxb82exst" path="res://scenes/game_modes/objects/green_objects.tscn" id="1_qf60i"]
 [ext_resource type="PackedScene" uid="uid://dwyhebwkim47x" path="res://scenes/game_modes/tilesets/green.tscn" id="1_us1ar"]
+<<<<<<< Updated upstream
+=======
+[ext_resource type="PackedScene" uid="uid://csdl2wqpk36bk" path="res://common/fx/menu_click_sound.tscn" id="3_g74vl"]
+[ext_resource type="PackedScene" uid="uid://dgthph7v8cafd" path="res://ui/game_status.tscn" id="3_gd8e4"]
+[ext_resource type="AudioStream" uid="uid://c2uho1qvy2da" path="res://assets/Musics/24 - Final Area.ogg" id="4_4aid3"]
+[ext_resource type="PackedScene" path="res://ui/game_complete.tscn" id="4_d4m7o"]
+[ext_resource type="Script" path="res://ui/boss_complete.gd" id="5_auct6"]
+[ext_resource type="PackedScene" uid="uid://c423bd87f8cy5" path="res://ui/game_hud_pause.tscn" id="8_5uupn"]
+>>>>>>> Stashed changes
 
 [node name="green_boss_level" type="Node2D"]
 
