@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://iivwh67cjc1k" path="res://scenes/UI/base_theme.tres" id="1_1apxo"]
 [ext_resource type="Script" path="res://ui/in_game_pause_options.gd" id="1_erj1v"]
 [ext_resource type="Script" path="res://ui/in_game_exit_modal.gd" id="3_hlod2"]
-[ext_resource type="PackedScene" path="res://common/fx/menu_click_sound.tscn" id="4_ycic2"]
+[ext_resource type="PackedScene" uid="uid://csdl2wqpk36bk" path="res://common/fx/menu_click_sound.tscn" id="4_ycic2"]
 
 [node name="in_game_pause" type="CanvasLayer"]
 script = ExtResource("1_erj1v")
