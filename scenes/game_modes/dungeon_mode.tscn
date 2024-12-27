@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=6 format=3 uid="uid://cgtge0leu72ds"]
+=======
+[gd_scene load_steps=24 format=3 uid="uid://cgtge0leu72ds"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://scripts/game_modes/dungeon_mode.gd" id="1_lel40"]
 [ext_resource type="PackedScene" uid="uid://gntrd0281yiq" path="res://scenes/game_modes/Maze_Generator.tscn" id="2_4rsbj"]
@@ -42,7 +46,51 @@ damage = 5.0
 attackRadius = 15.0
 attackSpeed = 1.0
 drops = {}
+<<<<<<< Updated upstream
 scoreValue = 10
+attackType = 0
+>>>>>>> Stashed changes
+=======
+scoreValue = 15
+attackType = 0
+
+[sub_resource type="Resource" id="Resource_v6scl"]
+script = ExtResource("4_suona")
+name = "Ghoul"
+animation = ExtResource("6_2iboj")
+hitPoints = 30.0
+movementSpeed = 50.0
+damage = 20.0
+attackRadius = 15.0
+attackSpeed = 1.2
+drops = {}
+scoreValue = 25
+attackType = 0
+
+[sub_resource type="Resource" id="Resource_w5tbl"]
+script = ExtResource("4_suona")
+name = "Ratflolk"
+animation = ExtResource("7_brkmt")
+hitPoints = 45.0
+movementSpeed = 60.0
+damage = 2.0
+attackRadius = 10.0
+attackSpeed = 0.2
+drops = {}
+scoreValue = 40
+attackType = 0
+
+[sub_resource type="Resource" id="Resource_p5rfv"]
+script = ExtResource("4_suona")
+name = "Skeleton"
+animation = ExtResource("8_ul10n")
+hitPoints = 100.0
+movementSpeed = 50.0
+damage = 40.0
+attackRadius = 15.0
+attackSpeed = 2.0
+drops = {}
+scoreValue = 50
 attackType = 0
 >>>>>>> Stashed changes
 
@@ -56,7 +104,11 @@ script = ExtResource("1_lel40")
 
 [node name="EnemySpawner" parent="Player" node_paths=PackedStringArray("world") instance=ExtResource("3_0rje5")]
 world = NodePath("../..")
+<<<<<<< Updated upstream
 enemy_types = Array[ExtResource("4_suona")]([SubResource("Resource_s6ngk")])
+=======
+enemy_types = Array[ExtResource("4_suona")]([SubResource("Resource_s6ngk"), SubResource("Resource_v6scl"), SubResource("Resource_w5tbl"), SubResource("Resource_p5rfv")])
+>>>>>>> Stashed changes
 
 [node name="CanvasLayer" parent="Player/EnemySpawner" index="1"]
 visible = false
