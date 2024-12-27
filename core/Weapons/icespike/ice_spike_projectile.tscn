@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c248m75ja0ojv"]
+[gd_scene load_steps=13 format=3 uid="uid://c248m75ja0ojv"]
 
 [ext_resource type="Script" path="res://core/Weapons/icespike/ice_spike_projectile.gd" id="1_15sa3"]
 [ext_resource type="Texture2D" uid="uid://ci3nxhnfg7obq" path="res://upgrades/IceSpike.png" id="2_ewjju"]
@@ -67,8 +67,14 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5d4n"]
+size = Vector2(29, 20)
+
 [node name="IceSpikeProjectile" type="Area2D"]
 top_level = true
+collision_layer = 0
+collision_mask = 4
+monitorable = false
 script = ExtResource("1_15sa3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -78,5 +84,12 @@ autoplay = "default "
 frame_progress = 0.223376
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(0, -2.38419e-07)
+scale = Vector2(1, 0.4)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_o5d4n")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

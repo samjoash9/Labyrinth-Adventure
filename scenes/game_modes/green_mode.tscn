@@ -12,11 +12,22 @@
 [ext_resource type="AudioStream" uid="uid://burxw1457iytb" path="res://assets/Musics/26 - Lost Village.ogg" id="6_tt6st"]
 [ext_resource type="Script" path="res://resources/scripts/enemyType.gd" id="7_4m5w6"]
 [ext_resource type="PackedScene" uid="uid://01cq3ethui3i" path="res://characters/baseCharacter/player.tscn" id="7_vvuvv"]
+<<<<<<< Updated upstream
 [ext_resource type="SpriteFrames" uid="uid://kr4ywn5wpfss" path="res://core/Enemies/spriteframes/akaname.tres" id="8_jpwnj"]
 [ext_resource type="PackedScene" uid="uid://bbw6rx0qk54qr" path="res://common/fx/portal_success_sound.tscn" id="10_k3wix"]
 [ext_resource type="PackedScene" uid="uid://csdl2wqpk36bk" path="res://common/fx/menu_click_sound.tscn" id="10_ytskn"]
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+=======
+[ext_resource type="SpriteFrames" uid="uid://jgj2mbccub2k" path="res://core/Enemies/spriteframes/slime.tres" id="8_8m3nq"]
+[ext_resource type="SpriteFrames" uid="uid://wxijp1evlvrn" path="res://core/Enemies/spriteframes/orc.tres" id="8_tmuia"]
+[ext_resource type="Resource" uid="uid://c81prapep370t" path="res://resources/pickables/exp-gold.tres" id="9_hwqsi"]
+[ext_resource type="Resource" uid="uid://d2dbnw85yvk2h" path="res://resources/pickables/exp-5.tres" id="9_uh2p6"]
+[ext_resource type="Resource" uid="uid://51y18eak51m3" path="res://resources/pickables/food-10.tres" id="10_blifs"]
+[ext_resource type="PackedScene" uid="uid://bbw6rx0qk54qr" path="res://common/fx/portal_success_sound.tscn" id="10_k3wix"]
+[ext_resource type="PackedScene" uid="uid://csdl2wqpk36bk" path="res://common/fx/menu_click_sound.tscn" id="10_ytskn"]
+[ext_resource type="Script" path="res://resources/scripts/AllMagnet.gd" id="11_djx8o"]
+>>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://oo4g14m4gje0" path="res://ui/game_status.tscn" id="11_u1e0f"]
 =======
 [ext_resource type="PackedScene" uid="uid://dgthph7v8cafd" path="res://ui/game_status.tscn" id="11_u1e0f"]

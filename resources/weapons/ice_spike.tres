@@ -33,7 +33,7 @@ description = "+100 Attack Speed
 script = ExtResource("1_hb3kx")
 attackPower = 0.0
 coolDown = -0.7
-attackSpeed = 1000.0
+attackSpeed = 100.0
 description = "+500 Attack Speed
 -0.4 Cooldown"
 
@@ -43,11 +43,11 @@ projectile = ExtResource("1_5v00x")
 weaponType = 1
 upgrades = Array[ExtResource("1_hb3kx")]([SubResource("Resource_n6dca"), SubResource("Resource_d0ain"), SubResource("Resource_5s2hl"), SubResource("Resource_eghnv")])
 attackPower = 2.0
-attackSpeed = 500.0
+attackSpeed = 50.0
 coolDown = 1.0
 critChance = 10.0
 critDamage = 30.0
-knockBack = 1.0
+knockBack = 10.0
 weaponNode = ExtResource("4_2xaju")
 name = "Ice Spike"
 description = ""
