@@ -11,7 +11,7 @@
 [ext_resource type="SpriteFrames" uid="uid://kr4ywn5wpfss" path="res://core/Enemies/spriteframes/akaname.tres" id="5_yvfdr"]
 [ext_resource type="SpriteFrames" uid="uid://dowf23sf7y1ly" path="res://core/Enemies/spriteframes/ghoul.tres" id="6_2iboj"]
 [ext_resource type="AudioStream" uid="uid://cngt26w6g1tfr" path="res://assets/Musics/30 - Ruins.ogg" id="6_d1h1m"]
-[ext_resource type="PackedScene" uid="uid://c423bd87f8cy5" path="res://ui/game_hud_pause.tscn" id="6_k8orw"]
+[ext_resource type="PackedScene" uid="uid://d5pmqj0whp4c" path="res://ui/game_hud_pause.tscn" id="6_k8orw"]
 [ext_resource type="SpriteFrames" uid="uid://k60oj7hrwnky" path="res://core/Enemies/spriteframes/ratfolk.tres" id="7_brkmt"]
 [ext_resource type="PackedScene" uid="uid://01cq3ethui3i" path="res://characters/baseCharacter/player.tscn" id="7_q65sv"]
 [ext_resource type="SpriteFrames" uid="uid://cmwa1xdysg152" path="res://enemies/skeleton.tres" id="8_ul10n"]
