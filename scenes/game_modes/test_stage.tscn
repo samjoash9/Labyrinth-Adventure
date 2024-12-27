@@ -388,6 +388,7 @@ drops = {
 SubResource("Resource_m8rux"): 30,
 SubResource("Resource_qak3a"): 10
 }
+scoreValue = 0
 attackType = 0
 
 [node name="TestStage" type="Node2D"]

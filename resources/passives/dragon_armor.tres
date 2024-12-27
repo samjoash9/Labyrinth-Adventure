@@ -1,0 +1,74 @@
+[gd_resource type="Resource" script_class="Passives" load_steps=9 format=3 uid="uid://b8w1l73blg81d"]
+
+[ext_resource type="Texture2D" uid="uid://dsf1c61yfl1t" path="res://imgs/passiveUpgradesIcons/dragonArmor.jpg" id="1_h811t"]
+[ext_resource type="Script" path="res://resources/scripts/passiveItem.gd" id="2_eo3if"]
+[ext_resource type="Script" path="res://resources/scripts/baseStats.gd" id="3_v5wkl"]
+
+[sub_resource type="Resource" id="Resource_drfvg"]
+script = ExtResource("3_v5wkl")
+description = "Be Hard, Be Tanky
++2% Damage Reduction"
+hitPoints = 0.0
+maxHitpoints = 0.0
+moveSpeed = 0.0
+might = 0.0
+armor = 0.02
+magnetArea = 0.0
+areaMultiplier = 0.0
+growth = 0.0
+
+[sub_resource type="Resource" id="Resource_ya2hl"]
+script = ExtResource("3_v5wkl")
+description = "+5% Damage Reduction"
+hitPoints = 0.0
+maxHitpoints = 0.0
+moveSpeed = 0.0
+might = 0.0
+armor = 0.5
+magnetArea = 0.0
+areaMultiplier = 0.0
+growth = 0.0
+
+[sub_resource type="Resource" id="Resource_etnjm"]
+script = ExtResource("3_v5wkl")
+description = "+10% Damage Reduction"
+hitPoints = 0.0
+maxHitpoints = 0.0
+moveSpeed = 0.0
+might = 0.0
+armor = 0.1
+magnetArea = 0.0
+areaMultiplier = 0.0
+growth = 0.0
+
+[sub_resource type="Resource" id="Resource_dkcpe"]
+script = ExtResource("3_v5wkl")
+description = "+15% Damage Reduction"
+hitPoints = 0.0
+maxHitpoints = 0.0
+moveSpeed = 0.0
+might = 0.0
+armor = 0.15
+magnetArea = 0.0
+areaMultiplier = 0.0
+growth = 0.0
+
+[sub_resource type="Resource" id="Resource_h2l2d"]
+script = ExtResource("3_v5wkl")
+description = "+20% Damage Reduction"
+hitPoints = 0.0
+maxHitpoints = 0.0
+moveSpeed = 0.0
+might = 0.0
+armor = 0.2
+magnetArea = 0.0
+areaMultiplier = 0.0
+growth = 0.0
+
+[resource]
+script = ExtResource("2_eo3if")
+upgrades = Array[ExtResource("3_v5wkl")]([SubResource("Resource_drfvg"), SubResource("Resource_ya2hl"), SubResource("Resource_etnjm"), SubResource("Resource_dkcpe"), SubResource("Resource_h2l2d")])
+name = "Dragon Armor"
+description = "Be Hard, Be Tanky"
+icon = ExtResource("1_h811t")
+level = 1

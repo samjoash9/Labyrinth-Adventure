@@ -49,7 +49,7 @@ var areaMultiplier: float:
 var growth : float
 
 # LEVEL UP WOKING
-var level: float = 1:
+var level: float:
 	set(value):
 		level = value
 		expCap += expCap * (expGrowthRate)
@@ -88,6 +88,7 @@ var character : CharacterResource:
 var animations : Animations
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	level = 1
 	exp = 0
 	expCap = 10
 	character = load("res://resources/jobs/%s.tres" % GameManager.selected_hero)

@@ -1,0 +1,55 @@
+[gd_resource type="Resource" script_class="Passives" load_steps=7 format=3 uid="uid://by0m4agddvwgq"]
+
+[ext_resource type="Texture2D" uid="uid://b154lcqs7b4y3" path="res://imgs/passiveUpgradesIcons/reinforcedRes.jpg" id="1_5wn6x"]
+[ext_resource type="Script" path="res://resources/scripts/passiveItem.gd" id="2_78viq"]
+[ext_resource type="Script" path="res://resources/scripts/baseStats.gd" id="3_iepj6"]
+
+[sub_resource type="Resource" id="Resource_wlw4g"]
+script = ExtResource("3_iepj6")
+description = "Boosts your health, defense, and mobility simultaneously, allowing for a more well-rounded playstyle.
++20 Max Health
++5% Damage Reduction
++10 Movement Speed "
+hitPoints = 20.0
+maxHitpoints = 20.0
+moveSpeed = 10.0
+might = 0.0
+armor = 0.05
+magnetArea = 0.0
+areaMultiplier = 0.0
+growth = 0.0
+
+[sub_resource type="Resource" id="Resource_msn2n"]
+script = ExtResource("3_iepj6")
+description = "+10 Max Health
++10 Movement Speed
+"
+hitPoints = 10.0
+maxHitpoints = 10.0
+moveSpeed = 10.0
+might = 0.0
+armor = 0.0
+magnetArea = 0.0
+areaMultiplier = 0.0
+growth = 0.0
+
+[sub_resource type="Resource" id="Resource_620ja"]
+script = ExtResource("3_iepj6")
+description = "+20 Max Health
++10% Exp Multiplier"
+hitPoints = 20.0
+maxHitpoints = 20.0
+moveSpeed = 0.0
+might = 0.0
+armor = 0.0
+magnetArea = 0.0
+areaMultiplier = 0.0
+growth = 0.1
+
+[resource]
+script = ExtResource("2_78viq")
+upgrades = Array[ExtResource("3_iepj6")]([SubResource("Resource_wlw4g"), SubResource("Resource_msn2n"), SubResource("Resource_620ja")])
+name = "Reinforced Resilience"
+description = ""
+icon = ExtResource("1_5wn6x")
+level = 1

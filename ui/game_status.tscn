@@ -70,4 +70,4 @@ text = "RESTART"
 layout_mode = 2
 text = "  QUIT  "
 
-[connection signal="visibility_changed" from="Control/MarginContainer/Panel/PanelContainer/VBoxContainer/coins" to="." method="_on_coins_visibility_changed"]
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

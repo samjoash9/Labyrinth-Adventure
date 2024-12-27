@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://c248m75ja0ojv"]
+[gd_scene load_steps=13 format=3 uid="uid://c248m75ja0ojv"]
 
 [ext_resource type="Script" path="res://core/Weapons/icespike/ice_spike_projectile.gd" id="1_15sa3"]
 [ext_resource type="Texture2D" uid="uid://ci3nxhnfg7obq" path="res://upgrades/IceSpike.png" id="2_ewjju"]
-[ext_resource type="AudioStream" uid="uid://bcxo0cwa7dcp3" path="res://assets/Sound FX/Game/Fx.wav" id="3_e4ylh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d5lo7"]
 atlas = ExtResource("2_ewjju")
@@ -73,7 +72,9 @@ size = Vector2(29, 20)
 
 [node name="IceSpikeProjectile" type="Area2D"]
 top_level = true
-collision_mask = 5
+collision_layer = 0
+collision_mask = 4
+monitorable = false
 script = ExtResource("1_15sa3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -89,9 +90,6 @@ scale = Vector2(1, 0.4)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_o5d4n")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_e4ylh")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Passives" load_steps=5 format=3 uid="uid://behkh8wjv5f3m"]
+
+[ext_resource type="Texture2D" uid="uid://crocq3hbbwih7" path="res://imgs/passiveUpgradesIcons/switftProtection.jpg" id="1_y6alm"]
+[ext_resource type="Script" path="res://resources/scripts/passiveItem.gd" id="2_1cbqi"]
+[ext_resource type="Script" path="res://resources/scripts/baseStats.gd" id="3_nqbln"]
+
+[sub_resource type="Resource" id="Resource_wcdl7"]
+script = ExtResource("3_nqbln")
+description = "Fast and Durable
+One TIme Upgrade
++50 Movement Speed
++20% Damage Reduction"
+hitPoints = 0.0
+maxHitpoints = 0.0
+moveSpeed = 50.0
+might = 0.0
+armor = 0.2
+magnetArea = 0.0
+areaMultiplier = 0.0
+growth = 0.0
+
+[resource]
+script = ExtResource("2_1cbqi")
+upgrades = Array[ExtResource("3_nqbln")]([SubResource("Resource_wcdl7")])
+name = "Swift Protection"
+description = ""
+icon = ExtResource("1_y6alm")
+level = 1

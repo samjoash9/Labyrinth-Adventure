@@ -1,0 +1,80 @@
+[gd_resource type="Resource" script_class="SingleShot" load_steps=11 format=3 uid="uid://breqe0oddg878"]
+
+[ext_resource type="Texture2D" uid="uid://dud0yjvob0y5j" path="res://assets/Ninja Adventure - Asset Pack/Ui/Icon/Spell/OrbPlant.png" id="1_swr8a"]
+[ext_resource type="PackedScene" uid="uid://cbjce5chdtdrt" path="res://core/Weapons/plant_spike/plant_spike_projectile.tscn" id="1_wt48k"]
+[ext_resource type="Script" path="res://resources/scripts/weapons/singleShot.gd" id="2_tjpxo"]
+[ext_resource type="Script" path="res://resources/scripts/upgrade.gd" id="3_gvaij"]
+[ext_resource type="PackedScene" uid="uid://dhlimbkoioqpc" path="res://core/Weapons/plant_spike/plant_spike.tscn" id="4_3dm4k"]
+
+[sub_resource type="Resource" id="Resource_mpywo"]
+script = ExtResource("3_gvaij")
+attackPower = 10.0
+coolDown = 0.0
+attackSpeed = 0.0
+critChance = 0.0
+critDamage = 0.0
+knockBack = 0.0
+description = "+10 Damage"
+
+[sub_resource type="Resource" id="Resource_jhl82"]
+script = ExtResource("3_gvaij")
+attackPower = 0.0
+coolDown = -0.2
+attackSpeed = 10.0
+critChance = 0.0
+critDamage = 0.0
+knockBack = 0.0
+description = "-0.2s Cooldown
++10 Projectile Speed
+"
+
+[sub_resource type="Resource" id="Resource_6rebo"]
+script = ExtResource("3_gvaij")
+attackPower = 0.0
+coolDown = 0.0
+attackSpeed = 0.0
+critChance = 10.0
+critDamage = 0.0
+knockBack = 10.0
+description = "+10 Knockback
++10% Crit Chance"
+
+[sub_resource type="Resource" id="Resource_6ymip"]
+script = ExtResource("3_gvaij")
+attackPower = 0.0
+coolDown = 0.0
+attackSpeed = 10.0
+critChance = 0.0
+critDamage = 0.0
+knockBack = 10.0
+description = "+10 Knockback
++10 Projectile Speed"
+
+[sub_resource type="Resource" id="Resource_qu84y"]
+script = ExtResource("3_gvaij")
+attackPower = 10.0
+coolDown = -2.0
+attackSpeed = 30.0
+critChance = 0.0
+critDamage = 0.0
+knockBack = 0.0
+description = "+10 Damage
+-2s Cooldown
++30 Projectile Speed"
+
+[resource]
+script = ExtResource("2_tjpxo")
+projectile = ExtResource("1_wt48k")
+weaponType = 1
+upgrades = Array[ExtResource("3_gvaij")]([SubResource("Resource_mpywo"), SubResource("Resource_jhl82"), SubResource("Resource_6rebo"), SubResource("Resource_6ymip"), SubResource("Resource_qu84y")])
+attackPower = 50.0
+attackSpeed = 20.0
+coolDown = 10.0
+critChance = 10.0
+critDamage = 10.0
+knockBack = 30.0
+weaponNode = ExtResource("4_3dm4k")
+name = "Plant Spike"
+description = "Swirl The Plant"
+icon = ExtResource("1_swr8a")
+level = 1

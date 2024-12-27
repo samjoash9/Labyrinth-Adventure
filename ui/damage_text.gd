@@ -8,7 +8,6 @@ func _ready() -> void:
 
 func pop():
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "scale", Vector2(1,1), 0.1)
-	tween.chain().tween_property(self, "scale", Vector2(1,1), 0.1)
-	await tween.finished
-	queue_free()
+	tween.tween_property(self, "scale", Vector2(1,1), 0.5).set_trans(Tween.TRANS_QUINT)
+	tween.tween_property(self, "scale", Vector2(0,0), 0.5).set_trans(Tween.TRANS_QUINT)
+	tween.tween_callback(self.queue_free)

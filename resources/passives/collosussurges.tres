@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="Passives" load_steps=5 format=3 uid="uid://mgs4vipxk6q0"]
+
+[ext_resource type="Texture2D" uid="uid://yerabv6ir6l2" path="res://imgs/passiveUpgradesIcons/colossusSurge.jpg" id="1_6a2yi"]
+[ext_resource type="Script" path="res://resources/scripts/passiveItem.gd" id="2_nbygt"]
+[ext_resource type="Script" path="res://resources/scripts/baseStats.gd" id="3_o8863"]
+
+[sub_resource type="Resource" id="Resource_h1j86"]
+script = ExtResource("3_o8863")
+description = "Giants Blood Flow with in you
+One Time Upgrade
++50 Max Health
++30% Might
++2% Growth"
+hitPoints = 50.0
+maxHitpoints = 50.0
+moveSpeed = 0.0
+might = 0.3
+armor = 0.0
+magnetArea = 0.0
+areaMultiplier = 0.0
+growth = 0.02
+
+[resource]
+script = ExtResource("2_nbygt")
+upgrades = Array[ExtResource("3_o8863")]([SubResource("Resource_h1j86")])
+name = "Colossus Surge"
+description = ""
+icon = ExtResource("1_6a2yi")
+level = 1

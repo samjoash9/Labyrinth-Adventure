@@ -1,5 +1,5 @@
 extends Node2D
-class_name SingleShotNode
+class_name AutoAimNearestRanged
 
 func _process(_delta: float) -> void:
 	if get_tree().get_first_node_in_group("player").nearest_enemy != null:

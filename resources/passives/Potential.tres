@@ -1,0 +1,74 @@
+[gd_resource type="Resource" script_class="Passives" load_steps=9 format=3 uid="uid://byx6tfaotriqe"]
+
+[ext_resource type="Texture2D" uid="uid://dr6ixcnxkauvn" path="res://imgs/passiveUpgradesIcons/Potential.jpg" id="1_epu4j"]
+[ext_resource type="Script" path="res://resources/scripts/passiveItem.gd" id="2_kvym8"]
+[ext_resource type="Script" path="res://resources/scripts/baseStats.gd" id="3_trhd3"]
+
+[sub_resource type="Resource" id="Resource_sbum4"]
+script = ExtResource("3_trhd3")
+description = "Gain Exp Faster
++3 % Exp Multiplier"
+hitPoints = 0.0
+maxHitpoints = 0.0
+moveSpeed = 0.0
+might = 0.0
+armor = 0.0
+magnetArea = 0.0
+areaMultiplier = 0.0
+growth = 0.1
+
+[sub_resource type="Resource" id="Resource_rhmjp"]
+script = ExtResource("3_trhd3")
+description = "+5% Exp Multiplier"
+hitPoints = 0.0
+maxHitpoints = 0.0
+moveSpeed = 0.0
+might = 0.0
+armor = 0.0
+magnetArea = 0.0
+areaMultiplier = 0.0
+growth = 0.05
+
+[sub_resource type="Resource" id="Resource_1d25a"]
+script = ExtResource("3_trhd3")
+description = "+8% Exp Multiplier"
+hitPoints = 0.0
+maxHitpoints = 0.0
+moveSpeed = 0.0
+might = 0.0
+armor = 0.0
+magnetArea = 0.0
+areaMultiplier = 0.0
+growth = 0.08
+
+[sub_resource type="Resource" id="Resource_k06lg"]
+script = ExtResource("3_trhd3")
+description = "+12% Exp Multiplier"
+hitPoints = 0.0
+maxHitpoints = 0.0
+moveSpeed = 0.0
+might = 0.0
+armor = 0.0
+magnetArea = 0.0
+areaMultiplier = 0.0
+growth = 0.12
+
+[sub_resource type="Resource" id="Resource_5ugts"]
+script = ExtResource("3_trhd3")
+description = "+15% Exp Multiplier"
+hitPoints = 0.0
+maxHitpoints = 0.0
+moveSpeed = 0.0
+might = 0.0
+armor = 0.0
+magnetArea = 0.0
+areaMultiplier = 0.0
+growth = 0.15
+
+[resource]
+script = ExtResource("2_kvym8")
+upgrades = Array[ExtResource("3_trhd3")]([SubResource("Resource_sbum4"), SubResource("Resource_rhmjp"), SubResource("Resource_1d25a"), SubResource("Resource_k06lg"), SubResource("Resource_5ugts")])
+name = "Potential "
+description = "Grow Faster, Hone Talent"
+icon = ExtResource("1_epu4j")
+level = 1

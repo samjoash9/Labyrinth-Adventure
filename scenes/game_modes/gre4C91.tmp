@@ -1,0 +1,152 @@
+[gd_scene load_steps=21 format=3 uid="uid://gpo24n2hi45r"]
+
+[ext_resource type="Script" path="res://scripts/game_modes/green_mode.gd" id="1_jhivi"]
+[ext_resource type="PackedScene" uid="uid://dwyhebwkim47x" path="res://scenes/game_modes/tilesets/green.tscn" id="1_ocduj"]
+[ext_resource type="PackedScene" uid="uid://gntrd0281yiq" path="res://scenes/game_modes/Maze_Generator.tscn" id="1_ql1b5"]
+[ext_resource type="PackedScene" uid="uid://br1vuxb82exst" path="res://scenes/game_modes/objects/green_objects.tscn" id="2_2y7qd"]
+[ext_resource type="PackedScene" uid="uid://cp4c2x3wsfo5p" path="res://ui/loading_screen.tscn" id="5_01dn4"]
+[ext_resource type="PackedScene" uid="uid://cdi8d70wpq4ym" path="res://core/enemy_spawner.tscn" id="6_1rtf3"]
+[ext_resource type="PackedScene" uid="uid://d5pmqj0whp4c" path="res://ui/game_hud_pause.tscn" id="6_8w3i6"]
+[ext_resource type="AudioStream" uid="uid://burxw1457iytb" path="res://assets/Musics/26 - Lost Village.ogg" id="6_tt6st"]
+[ext_resource type="PackedScene" uid="uid://01cq3ethui3i" path="res://characters/baseCharacter/player.tscn" id="7_vvuvv"]
+[ext_resource type="SpriteFrames" uid="uid://jgj2mbccub2k" path="res://core/Enemies/spriteframes/slime.tres" id="8_8m3nq"]
+[ext_resource type="Resource" uid="uid://c81prapep370t" path="res://resources/pickables/exp-gold.tres" id="9_hwqsi"]
+[ext_resource type="PackedScene" path="res://common/fx/portal_success_sound.tscn" id="10_k3wix"]
+[ext_resource type="PackedScene" path="res://common/fx/menu_click_sound.tscn" id="10_ytskn"]
+[ext_resource type="PackedScene" uid="uid://oo4g14m4gje0" path="res://ui/game_status.tscn" id="11_u1e0f"]
+[ext_resource type="PackedScene" uid="uid://dsw2rd3t2lehc" path="res://scenes/portals/green_portal.tscn" id="12_e83j0"]
+[ext_resource type="Script" path="res://scenes/portals/green_portal.gd" id="13_jldfc"]
+[ext_resource type="PackedScene" uid="uid://bggfmmp107gab" path="res://ui/game_complete.tscn" id="17_fjcdd"]
+[ext_resource type="Script" path="res://ui/game_complete.gd" id="18_hv3y7"]
+
+[sub_resource type="GDScript" id="GDScript_x310u"]
+script/source = "extends Resource
+class_name Enemy
+
+@export var name: String
+@export var animation: SpriteFrames
+@export var hitPoints: float
+@export var movementSpeed: float
+@export var damage: float
+@export var attackRadius: float
+@export var attackSpeed: float
+@export var drops: Dictionary
+@export var scoreValue: int
+enum attackTypes{
+	MELEE,
+	RANGED
+}
+@export var attackType : attackTypes
+
+func get_drop():
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	
+	var weigthed_sum = 0
+	
+	for n in drops:
+		weigthed_sum += drops[n]
+	
+	var item = rng.randi_range(0,weigthed_sum)
+	
+	for n in drops:
+		if item <= drops[n]:
+			return n
+		else:
+			item -= drops[n]
+"
+
+[sub_resource type="Resource" id="Resource_ny8ty"]
+script = SubResource("GDScript_x310u")
+name = "Slime"
+animation = ExtResource("8_8m3nq")
+hitPoints = 10.0
+movementSpeed = 10.0
+damage = 10.0
+attackRadius = 10.0
+attackSpeed = 1.0
+drops = {
+ExtResource("9_hwqsi"): 10
+}
+scoreValue = 0
+attackType = 0
+
+[node name="Green_Mode" type="Node2D"]
+script = ExtResource("1_jhivi")
+
+[node name="Maze_Generator" parent="." node_paths=PackedStringArray("wall_patterns", "maze_object_patterns") instance=ExtResource("1_ql1b5")]
+wall_patterns = NodePath("../green_walls")
+maze_object_patterns = NodePath("../green_objects")
+mode = 1
+
+[node name="green_objects" parent="." instance=ExtResource("2_2y7qd")]
+tile_map_data = PackedByteArray()
+
+[node name="green_walls" parent="." instance=ExtResource("1_ocduj")]
+tile_map_data = PackedByteArray()
+
+[node name="Player" parent="." instance=ExtResource("7_vvuvv")]
+collision_layer = 1
+
+[node name="EnemySpawner" parent="Player" node_paths=PackedStringArray("world") instance=ExtResource("6_1rtf3")]
+scale = Vector2(2, 2)
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+position_smoothing_speed = 12.0
+world = NodePath("../..")
+enemy_types = Array[SubResource("GDScript_x310u")]([SubResource("Resource_ny8ty")])
+
+[node name="game_hud_pause" parent="." node_paths=PackedStringArray("spawner") instance=ExtResource("6_8w3i6")]
+spawner = NodePath("../Player/EnemySpawner")
+
+[node name="timer_label" parent="game_hud_pause/Control/MarginContainer/HBoxContainer" index="0"]
+size_flags_vertical = 0
+
+[node name="loading_screen" parent="." instance=ExtResource("5_01dn4")]
+
+[node name="Label" parent="loading_screen/Control/Panel/VBoxContainer" index="0"]
+text = "
+Tip: Follow one wall to find your way out!"
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_tt6st")
+bus = &"Music"
+parameters/looping = true
+
+[node name="click_sound" parent="." instance=ExtResource("10_ytskn")]
+
+[node name="portal_success_sound" parent="." instance=ExtResource("10_k3wix")]
+
+[node name="green_portal" parent="." instance=ExtResource("12_e83j0")]
+z_index = 100
+scale = Vector2(1e-05, 1e-05)
+script = ExtResource("13_jldfc")
+
+[node name="CollisionShape2D" parent="green_portal/Area2D" index="0"]
+disabled = true
+
+[node name="game_over" parent="." instance=ExtResource("11_u1e0f")]
+visible = false
+
+[node name="game_complete" parent="." instance=ExtResource("17_fjcdd")]
+visible = false
+script = ExtResource("18_hv3y7")
+
+[connection signal="last_index" from="Maze_Generator" to="green_portal" method="_on_maze_generator_last_index"]
+[connection signal="map_loaded" from="Maze_Generator" to="loading_screen" method="_on_maze_generator_map_loaded"]
+[connection signal="pressed" from="game_hud_pause/Control/MarginContainer/HBoxContainer/pause" to="game_hud_pause" method="_on_button_pressed"]
+[connection signal="timeout" from="game_hud_pause/Timer" to="green_portal" method="_on_timer_timeout"]
+[connection signal="body_entered" from="green_portal/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="pressed" from="game_over/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/restart" to="game_over" method="_on_restart_pressed"]
+[connection signal="pressed" from="game_over/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/quit" to="game_over" method="_on_quit_pressed"]
+[connection signal="pressed" from="game_complete/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/restart" to="game_complete" method="_on_restart_pressed"]
+[connection signal="pressed" from="game_complete/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/next_level" to="game_complete" method="_on_next_level_pressed"]
+[connection signal="pressed" from="game_complete/Control/MarginContainer/Panel/PanelContainer/VBoxContainer/HBoxContainer/quit" to="game_complete" method="_on_quit_pressed"]
+
+[editable path="Player"]
+[editable path="Player/Item_Magnet"]
+[editable path="game_hud_pause"]
+[editable path="loading_screen"]
+[editable path="green_portal"]
+[editable path="game_over"]
+[editable path="game_complete"]

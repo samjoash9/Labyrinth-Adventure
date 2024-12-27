@@ -21,7 +21,6 @@ enum weaponTypes {
 @export var knockBack: float
 @export var weaponNode : PackedScene
 
-
 func activate():
 	pass
 
@@ -33,13 +32,15 @@ func is_upgradable() ->bool:
 func upgrade_item():
 	if not is_upgradable():
 		return
-	upgradeFunction()
-
-func upgradeFunction():
 	var upgrade = upgrades[level-1]
 	attackPower += upgrade.attackPower
 	coolDown += upgrade.coolDown
 	attackSpeed += upgrade.attackSpeed
+	upgradeFunction()
 	level+= 1
+	
+
+func upgradeFunction():
+	pass
 	
 	

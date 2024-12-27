@@ -41,6 +41,6 @@ animations = [{
 
 [resource]
 script = ExtResource("1_tvbq2")
-xpAmount = 1.0
+xpAmount = 5.0
 name = "Exp-5"
 sprite = SubResource("SpriteFrames_ivsmv")

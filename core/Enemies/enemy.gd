@@ -46,8 +46,8 @@ func check_separation():
 	separation = (target.global_position - global_position).length()
 	if separation < target.nearest_enemy_distance: 
 		target.nearest_enemy = self
-	#if separation >= 600:
-		#queue_free()
+	if separation >= 600:
+		queue_free()
 
 func _ready() -> void:
 	set_process(false)

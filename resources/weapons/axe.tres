@@ -1,37 +1,14 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=8 format=3 uid="uid://cd3fyi6rcsdq7"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=5 format=3 uid="uid://cd3fyi6rcsdq7"]
 
 [ext_resource type="Texture2D" uid="uid://baasc0rn4n1hs" path="res://imgs/SpellIcons/fire_spell.png" id="1_dcxd4"]
 [ext_resource type="Script" path="res://resources/scripts/weapon.gd" id="2_qnkx8"]
 [ext_resource type="Script" path="res://resources/scripts/upgrade.gd" id="3_g5hov"]
 [ext_resource type="PackedScene" uid="uid://c1c86iwbcpif7" path="res://core/Weapons/axe/axe.tscn" id="4_ax4cl"]
 
-[sub_resource type="Resource" id="Resource_hr703"]
-script = ExtResource("3_g5hov")
-attackPower = 10.0
-coolDown = 0.5
-attackSpeed = 10.0
-description = "Swing Axe .Feel Good!
-"
-
-[sub_resource type="Resource" id="Resource_o5thi"]
-script = ExtResource("3_g5hov")
-attackPower = 10.0
-coolDown = 0.1
-attackSpeed = 12.0
-description = "Up Good!
-"
-
-[sub_resource type="Resource" id="Resource_db3pq"]
-script = ExtResource("3_g5hov")
-attackPower = 0.0
-coolDown = -1.0
-attackSpeed = 0.0
-description = "-1s Cooldown"
-
 [resource]
 script = ExtResource("2_qnkx8")
 weaponType = 0
-upgrades = Array[ExtResource("3_g5hov")]([SubResource("Resource_hr703"), SubResource("Resource_o5thi"), SubResource("Resource_db3pq")])
+upgrades = Array[ExtResource("3_g5hov")]([])
 attackPower = 10.0
 attackSpeed = 10.0
 coolDown = 0.5

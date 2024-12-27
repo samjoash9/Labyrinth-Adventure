@@ -1,48 +1,48 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvmyknegvutvs"]
+[gd_scene load_steps=8 format=3 uid="uid://dhlimbkoioqpc"]
 
 [ext_resource type="Script" path="res://core/Weapons/icespike/ice_spike.gd" id="1_ath8y"]
 [ext_resource type="Texture2D" uid="uid://cm0qffktqqx08" path="res://assets/Characters/combat FX/Projectile/PlantSpike.png" id="2_fdisb"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1xwam"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyx7m"]
 atlas = ExtResource("2_fdisb")
 region = Rect2(0, 0, 24, 20)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0p50f"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jq7u6"]
 atlas = ExtResource("2_fdisb")
 region = Rect2(24, 0, 24, 20)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rkrjt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4hay"]
 atlas = ExtResource("2_fdisb")
 region = Rect2(48, 0, 24, 20)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tlhyn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kossy"]
 atlas = ExtResource("2_fdisb")
 region = Rect2(72, 0, 24, 20)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_xgjuo"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_b0tlr"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1xwam")
+"texture": SubResource("AtlasTexture_kyx7m")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0p50f")
+"texture": SubResource("AtlasTexture_jq7u6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rkrjt")
+"texture": SubResource("AtlasTexture_i4hay")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tlhyn")
+"texture": SubResource("AtlasTexture_kossy")
 }],
 "loop": true,
 "name": &"default",
 "speed": 12.0
 }]
 
-[node name="plant_spike" type="Node2D"]
+[node name="Plant Spike" type="Node2D"]
 script = ExtResource("1_ath8y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_xgjuo")
+sprite_frames = SubResource("SpriteFrames_b0tlr")
 autoplay = "default"
-frame_progress = 0.211563
+frame_progress = 0.876668

@@ -1,16 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://cku3vifs68idm"]
+[gd_scene load_steps=4 format=3 uid="uid://cku3vifs68idm"]
 
-[ext_resource type="Script" path="res://core/Weapons/kunai/kunai_projectile.gd" id="1_ug432"]
-[ext_resource type="Texture2D" uid="uid://d3todiiqwf2xt" path="res://assets/Ninja Adventure - Asset Pack/Ui/Kunai.png" id="2_0m0u1"]
+[ext_resource type="Script" path="res://core/Weapons/kunai/kunai_projectile.gd" id="1_71drc"]
+[ext_resource type="Texture2D" uid="uid://jc1gqrjvrwp8" path="res://assets/Characters/combat FX/Projectile/BigKunai.png" id="2_xo8cm"]
 
-[node name="kunai_projectile" type="Area2D"]
-top_level = true
-script = ExtResource("1_ug432")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylj01"]
+size = Vector2(20, 6)
+
+[node name="KunaiProjectile" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_71drc")
+metadata/_edit_horizontal_guides_ = [-35.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 0.817683
-texture = ExtResource("2_0m0u1")
+scale = Vector2(0.418075, 0.418075)
+texture = ExtResource("2_xo8cm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ylj01")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,52 +1,62 @@
-[gd_scene load_steps=8 format=3 uid="uid://u3wio1r1b8x"]
+[gd_scene load_steps=9 format=3 uid="uid://cbjce5chdtdrt"]
 
-[ext_resource type="Script" path="res://core/Weapons/icespike/ice_spike_projectile.gd" id="1_fu13h"]
+[ext_resource type="Script" path="res://core/Weapons/plant_spike/plant_spike_projectile.gd" id="1_nvro7"]
 [ext_resource type="Texture2D" uid="uid://cm0qffktqqx08" path="res://assets/Characters/combat FX/Projectile/PlantSpike.png" id="2_ujn7p"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dl8e8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0avuo"]
 atlas = ExtResource("2_ujn7p")
 region = Rect2(0, 0, 24, 20)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_at5eq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpnxh"]
 atlas = ExtResource("2_ujn7p")
 region = Rect2(24, 0, 24, 20)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c4uhs"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvmur"]
 atlas = ExtResource("2_ujn7p")
 region = Rect2(48, 0, 24, 20)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o0c4p"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fuuvs"]
 atlas = ExtResource("2_ujn7p")
 region = Rect2(72, 0, 24, 20)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_iwevd"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_dhhog"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dl8e8")
+"texture": SubResource("AtlasTexture_0avuo")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_at5eq")
+"texture": SubResource("AtlasTexture_jpnxh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_c4uhs")
+"texture": SubResource("AtlasTexture_nvmur")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o0c4p")
+"texture": SubResource("AtlasTexture_fuuvs")
 }],
 "loop": true,
 "name": &"default",
 "speed": 12.0
 }]
 
-[node name="plant_spike_projectile" type="Area2D"]
-top_level = true
-script = ExtResource("1_fu13h")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87ejr"]
+size = Vector2(23, 10)
 
-[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+[node name="plant_spike_projectile" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource("1_nvro7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_iwevd")
+sprite_frames = SubResource("SpriteFrames_dhhog")
 autoplay = "default"
 
-[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_87ejr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://gpo24n2hi45r"]
+[gd_scene load_steps=55 format=3 uid="uid://gpo24n2hi45r"]
 
 [ext_resource type="Script" path="res://scripts/game_modes/green_mode.gd" id="1_jhivi"]
 [ext_resource type="PackedScene" uid="uid://dwyhebwkim47x" path="res://scenes/game_modes/tilesets/green.tscn" id="1_ocduj"]
@@ -8,31 +8,197 @@
 [ext_resource type="PackedScene" uid="uid://cdi8d70wpq4ym" path="res://core/enemy_spawner.tscn" id="6_1rtf3"]
 [ext_resource type="PackedScene" uid="uid://d5pmqj0whp4c" path="res://ui/game_hud_pause.tscn" id="6_8w3i6"]
 [ext_resource type="AudioStream" uid="uid://burxw1457iytb" path="res://assets/Musics/26 - Lost Village.ogg" id="6_tt6st"]
-[ext_resource type="Script" path="res://resources/scripts/enemyType.gd" id="7_4m5w6"]
+[ext_resource type="Script" path="res://resources/scripts/enemyType.gd" id="7_5wopu"]
 [ext_resource type="PackedScene" uid="uid://01cq3ethui3i" path="res://characters/baseCharacter/player.tscn" id="7_vvuvv"]
-[ext_resource type="SpriteFrames" uid="uid://kr4ywn5wpfss" path="res://core/Enemies/spriteframes/akaname.tres" id="8_jpwnj"]
+[ext_resource type="SpriteFrames" uid="uid://jgj2mbccub2k" path="res://core/Enemies/spriteframes/slime.tres" id="8_8m3nq"]
+[ext_resource type="SpriteFrames" uid="uid://wxijp1evlvrn" path="res://core/Enemies/spriteframes/orc.tres" id="8_tmuia"]
 [ext_resource type="Resource" uid="uid://c81prapep370t" path="res://resources/pickables/exp-gold.tres" id="9_hwqsi"]
+[ext_resource type="Resource" uid="uid://d2dbnw85yvk2h" path="res://resources/pickables/exp-5.tres" id="9_uh2p6"]
+[ext_resource type="Resource" uid="uid://51y18eak51m3" path="res://resources/pickables/food-10.tres" id="10_blifs"]
 [ext_resource type="PackedScene" path="res://common/fx/portal_success_sound.tscn" id="10_k3wix"]
 [ext_resource type="PackedScene" path="res://common/fx/menu_click_sound.tscn" id="10_ytskn"]
+[ext_resource type="Script" path="res://resources/scripts/AllMagnet.gd" id="11_djx8o"]
 [ext_resource type="PackedScene" uid="uid://oo4g14m4gje0" path="res://ui/game_status.tscn" id="11_u1e0f"]
+[ext_resource type="SpriteFrames" uid="uid://bn0ryw3aa78ff" path="res://core/Enemies/spriteframes/groot.tres" id="12_11wdc"]
 [ext_resource type="PackedScene" uid="uid://dsw2rd3t2lehc" path="res://scenes/portals/green_portal.tscn" id="12_e83j0"]
 [ext_resource type="Script" path="res://scenes/portals/green_portal.gd" id="13_jldfc"]
+[ext_resource type="Resource" uid="uid://cy8ltvcjo8ayd" path="res://resources/pickables/exp-10.tres" id="13_y4gdc"]
+[ext_resource type="Resource" uid="uid://dmkabvkfnefaq" path="res://resources/pickables/exp-20.tres" id="15_hoaps"]
+[ext_resource type="Resource" uid="uid://c73ls6hwsn2gg" path="res://resources/pickables/food-15.tres" id="16_erepr"]
+[ext_resource type="Texture2D" uid="uid://bu31fr3vqcrh" path="res://assets/pickables/Food.png" id="17_0116p"]
 [ext_resource type="PackedScene" uid="uid://bggfmmp107gab" path="res://ui/game_complete.tscn" id="17_fjcdd"]
+[ext_resource type="SpriteFrames" uid="uid://f4w77he57u66" path="res://core/Enemies/spriteframes/leafy.tres" id="18_b6y3p"]
 [ext_resource type="Script" path="res://ui/game_complete.gd" id="18_hv3y7"]
+[ext_resource type="Resource" uid="uid://b6okykroyargf" path="res://resources/pickables/exp-15.tres" id="19_bdpil"]
+[ext_resource type="Resource" uid="uid://ce7msje84xuef" path="res://resources/pickables/food-50.tres" id="21_ccfgp"]
+[ext_resource type="Texture2D" uid="uid://l8qibatb8qp7" path="res://assets/Characters/combat FX/Projectile/SpriteSheetRock.png" id="22_cpgrn"]
+[ext_resource type="Texture2D" uid="uid://bgbn3qtr88ybn" path="res://assets/Arrow.png" id="23_3hfxq"]
+[ext_resource type="Script" path="res://resources/scripts/rangedEnemy.gd" id="24_d42sx"]
+[ext_resource type="SpriteFrames" uid="uid://cyfusqpjo0xa0" path="res://core/Enemies/spriteframes/slime2.tres" id="25_fc5gj"]
+[ext_resource type="Script" path="res://resources/scripts/ExpOrb.gd" id="26_a3f13"]
+[ext_resource type="Resource" uid="uid://fr8tr6ujva02" path="res://resources/pickables/food-30.tres" id="27_qqqhf"]
 
-[sub_resource type="Resource" id="Resource_yaw0h"]
-script = ExtResource("7_4m5w6")
-name = "akaname"
-animation = ExtResource("8_jpwnj")
+[sub_resource type="SpriteFrames" id="SpriteFrames_ykeyv"]
+
+[sub_resource type="Resource" id="Resource_a1wtp"]
+script = ExtResource("11_djx8o")
+name = "All Magnet"
+sprite = SubResource("SpriteFrames_ykeyv")
+
+[sub_resource type="Resource" id="Resource_oeuyc"]
+script = ExtResource("7_5wopu")
+name = "Orc"
+animation = ExtResource("8_tmuia")
 hitPoints = 10.0
-movementSpeed = 100.0
+movementSpeed = 40.0
 damage = 10.0
-attackRadius = 10.0
-attackSpeed = 10.0
+attackRadius = 30.0
+attackSpeed = 1.0
 drops = {
-ExtResource("9_hwqsi"): 100
+ExtResource("9_uh2p6"): 80,
+ExtResource("10_blifs"): 10,
+SubResource("Resource_a1wtp"): 10
 }
-scoreValue = 0
+scoreValue = 10
+attackType = 0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ati0h"]
+
+[sub_resource type="Resource" id="Resource_sq1oi"]
+script = ExtResource("11_djx8o")
+name = "asd"
+sprite = SubResource("SpriteFrames_ati0h")
+
+[sub_resource type="Resource" id="Resource_6bs6x"]
+script = ExtResource("7_5wopu")
+name = "Grrot"
+animation = ExtResource("12_11wdc")
+hitPoints = 60.0
+movementSpeed = 60.0
+damage = 30.0
+attackRadius = 15.0
+attackSpeed = 0.5
+drops = {
+ExtResource("9_uh2p6"): 70,
+ExtResource("13_y4gdc"): 20,
+ExtResource("10_blifs"): 10,
+SubResource("Resource_sq1oi"): 5
+}
+scoreValue = 30
+attackType = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qenng"]
+atlas = ExtResource("17_0116p")
+region = Rect2(80, 96, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0afnn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qenng")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_0orh2"]
+script = ExtResource("11_djx8o")
+name = "all"
+sprite = SubResource("SpriteFrames_0afnn")
+
+[sub_resource type="Resource" id="Resource_g316b"]
+script = ExtResource("7_5wopu")
+name = "Slime"
+animation = ExtResource("8_8m3nq")
+hitPoints = 300.0
+movementSpeed = 80.0
+damage = 50.0
+attackRadius = 30.0
+attackSpeed = 1.0
+drops = {
+ExtResource("9_uh2p6"): 50,
+ExtResource("13_y4gdc"): 30,
+ExtResource("15_hoaps"): 5,
+ExtResource("16_erepr"): 20,
+ExtResource("10_blifs"): 10,
+SubResource("Resource_0orh2"): 5
+}
+scoreValue = 50
+attackType = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3h4cb"]
+atlas = ExtResource("22_cpgrn")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6sdio"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3h4cb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_vdf73"]
+script = ExtResource("11_djx8o")
+name = "123"
+sprite = SubResource("SpriteFrames_6sdio")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgibo"]
+atlas = ExtResource("23_3hfxq")
+region = Rect2(0, 0, 13, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4k65i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgibo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_muv7j"]
+script = ExtResource("24_d42sx")
+projectile = SubResource("SpriteFrames_4k65i")
+projectileSpeed = 100.0
+name = "Leafy"
+animation = ExtResource("18_b6y3p")
+hitPoints = 500.0
+movementSpeed = 300.0
+damage = 60.0
+attackRadius = 200.0
+attackSpeed = 2.0
+drops = {
+ExtResource("9_uh2p6"): 20,
+ExtResource("13_y4gdc"): 30,
+ExtResource("19_bdpil"): 45,
+ExtResource("15_hoaps"): 50,
+ExtResource("9_hwqsi"): 10,
+ExtResource("21_ccfgp"): 20,
+SubResource("Resource_vdf73"): 5
+}
+scoreValue = 60
+attackType = 1
+
+[sub_resource type="Resource" id="Resource_vdl0c"]
+script = ExtResource("7_5wopu")
+name = "BiggerSlime"
+animation = ExtResource("25_fc5gj")
+hitPoints = 700.0
+movementSpeed = 20.0
+damage = 60.0
+attackRadius = 50.0
+attackSpeed = 0.8
+drops = {
+ExtResource("26_a3f13"): 100,
+ExtResource("27_qqqhf"): 20
+}
+scoreValue = 100
 attackType = 0
 
 [node name="Green_Mode" type="Node2D"]
@@ -58,7 +224,7 @@ zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 position_smoothing_speed = 12.0
 world = NodePath("../..")
-enemy_types = Array[ExtResource("7_4m5w6")]([SubResource("Resource_yaw0h")])
+enemy_types = Array[ExtResource("7_5wopu")]([SubResource("Resource_oeuyc"), SubResource("Resource_6bs6x"), SubResource("Resource_g316b"), SubResource("Resource_muv7j"), SubResource("Resource_vdl0c")])
 
 [node name="game_hud_pause" parent="." node_paths=PackedStringArray("spawner") instance=ExtResource("6_8w3i6")]
 spawner = NodePath("../Player/EnemySpawner")

@@ -1,0 +1,76 @@
+[gd_resource type="Resource" script_class="Passives" load_steps=9 format=3 uid="uid://c5b3wsu4b4sry"]
+
+[ext_resource type="Texture2D" uid="uid://bgx5vc6t6p42c" path="res://imgs/passiveUpgradesIcons/mightyMight.jpg" id="1_hb6or"]
+[ext_resource type="Script" path="res://resources/scripts/passiveItem.gd" id="2_nt0o0"]
+[ext_resource type="Script" path="res://resources/scripts/baseStats.gd" id="3_pkwsg"]
+
+[sub_resource type="Resource" id="Resource_7v8fh"]
+script = ExtResource("3_pkwsg")
+description = "Be Mighty, Be Deadly
+Inrease Damage
++2% Damage Multiplier"
+hitPoints = 0.0
+maxHitpoints = 0.0
+moveSpeed = 0.0
+might = 0.02
+armor = 0.0
+magnetArea = 0.0
+areaMultiplier = 0.0
+growth = 0.0
+
+[sub_resource type="Resource" id="Resource_yomt7"]
+script = ExtResource("3_pkwsg")
+description = "+3% Damage Multiplier"
+hitPoints = 0.0
+maxHitpoints = 0.0
+moveSpeed = 0.0
+might = 0.03
+armor = 0.0
+magnetArea = 0.0
+areaMultiplier = 0.0
+growth = 0.0
+
+[sub_resource type="Resource" id="Resource_rftnn"]
+script = ExtResource("3_pkwsg")
+description = "5% Damage Multiplier"
+hitPoints = 0.0
+maxHitpoints = 0.0
+moveSpeed = 0.0
+might = 0.05
+armor = 0.0
+magnetArea = 0.0
+areaMultiplier = 0.0
+growth = 0.0
+
+[sub_resource type="Resource" id="Resource_87fov"]
+script = ExtResource("3_pkwsg")
+description = "10% Damage Multiplier"
+hitPoints = 0.0
+maxHitpoints = 0.0
+moveSpeed = 0.0
+might = 0.1
+armor = 0.0
+magnetArea = 0.0
+areaMultiplier = 0.0
+growth = 0.0
+
+[sub_resource type="Resource" id="Resource_88k65"]
+script = ExtResource("3_pkwsg")
+description = "+30% Damage Multiplier"
+hitPoints = 0.0
+maxHitpoints = 0.0
+moveSpeed = 0.0
+might = 0.3
+armor = 0.0
+magnetArea = 0.0
+areaMultiplier = 0.0
+growth = 0.0
+
+[resource]
+script = ExtResource("2_nt0o0")
+upgrades = Array[ExtResource("3_pkwsg")]([SubResource("Resource_7v8fh"), SubResource("Resource_yomt7"), SubResource("Resource_rftnn"), SubResource("Resource_87fov"), SubResource("Resource_88k65")])
+name = "Mighty Might"
+description = "Be Mighty, Be Deadly
+Inrease Damage"
+icon = ExtResource("1_hb6or")
+level = 1

@@ -1,31 +1,113 @@
-[gd_resource type="Resource" script_class="SingleShot" load_steps=7 format=3 uid="uid://b0esph3vx2kk7"]
+[gd_resource type="Resource" script_class="MultiShot" load_steps=13 format=3 uid="uid://cpy2pfmb7ar2t"]
 
-[ext_resource type="Texture2D" uid="uid://d3todiiqwf2xt" path="res://assets/Ninja Adventure - Asset Pack/Ui/Kunai.png" id="1_f58ws"]
+[ext_resource type="Texture2D" uid="uid://jc1gqrjvrwp8" path="res://assets/Characters/combat FX/Projectile/BigKunai.png" id="1_1wctw"]
 [ext_resource type="PackedScene" uid="uid://cku3vifs68idm" path="res://core/Weapons/kunai/kunai_projectile.tscn" id="2_ssgu3"]
-[ext_resource type="Script" path="res://resources/scripts/weapons/singleShot.gd" id="3_rgw3e"]
+[ext_resource type="Script" path="res://resources/scripts/weapons/multishot.gd" id="3_k81jg"]
 [ext_resource type="Script" path="res://resources/scripts/upgrade.gd" id="4_uq4g3"]
+[ext_resource type="Script" path="res://resources/scripts/multishotupgrade.gd" id="5_6y6tw"]
 [ext_resource type="PackedScene" uid="uid://87sbjw5uemhv" path="res://core/Weapons/kunai/kunai.tscn" id="5_v6eak"]
 
-[sub_resource type="Resource" id="Resource_erfo3"]
-script = ExtResource("4_uq4g3")
+[sub_resource type="Resource" id="Resource_e56f6"]
+script = ExtResource("5_6y6tw")
+projectileCount = 0
+attackPower = 0.0
+coolDown = 0.0
+attackSpeed = 0.0
+critChance = 0.0
+critDamage = 0.0
+knockBack = 0.0
+description = "Multi shot projectile
+Manual Aim
+Dmg : 20
+Spd : 100
+CD : 1s
+Crit Chance: 10 %
+Crit Dmg: 25 %
+Knockback: 20"
+
+[sub_resource type="Resource" id="Resource_2o3d7"]
+script = ExtResource("5_6y6tw")
+projectileCount = 1
+attackPower = 5.0
+coolDown = -0.1
+attackSpeed = 20.0
+critChance = 0.0
+critDamage = 0.0
+knockBack = 0.0
+description = "+1 Projectile
++5 Damage
+- 0.1s Cooldown
++ 20 Projectile Speed"
+
+[sub_resource type="Resource" id="Resource_mcvk2"]
+script = ExtResource("5_6y6tw")
+projectileCount = 0
+attackPower = 0.0
+coolDown = 0.0
+attackSpeed = 0.0
+critChance = 10.0
+critDamage = 10.0
+knockBack = 2.0
+description = "+ 10% Crit Chance
++ 10% Crit Damage
++ 2 Knock back"
+
+[sub_resource type="Resource" id="Resource_66h15"]
+script = ExtResource("5_6y6tw")
+projectileCount = 0
 attackPower = 10.0
-coolDown = 5.0
-attackSpeed = 5.0
-description = ""
+coolDown = 0.0
+attackSpeed = 50.0
+critChance = 0.0
+critDamage = 30.0
+knockBack = 0.0
+description = "+10 Damage
++50 Projectile Speed
++30% Crit Damage
+"
+
+[sub_resource type="Resource" id="Resource_uxmmg"]
+script = ExtResource("5_6y6tw")
+projectileCount = 1
+attackPower = 0.0
+coolDown = -0.2
+attackSpeed = 60.0
+critChance = 25.0
+critDamage = 0.0
+knockBack = 0.0
+description = "+1 Projectile
+-0.2s Cooldown
++60 Projectile Speed
++25% Crit Chance"
+
+[sub_resource type="Resource" id="Resource_41xkg"]
+script = ExtResource("5_6y6tw")
+projectileCount = 1
+attackPower = 10.0
+coolDown = -0.1
+attackSpeed = 0.0
+critChance = 0.0
+critDamage = 0.0
+knockBack = 10.0
+description = "+1 Projectil Count
++10 Damage
+-0.1s Cooldown
++10 Knockback"
 
 [resource]
-script = ExtResource("3_rgw3e")
+script = ExtResource("3_k81jg")
 projectile = ExtResource("2_ssgu3")
+projectileCount = 2
 weaponType = 1
-upgrades = Array[ExtResource("4_uq4g3")]([SubResource("Resource_erfo3")])
-attackPower = 3213.0
-attackSpeed = 23.0
-coolDown = 23.0
-critChance = 2323.0
-critDamage = 23.0
-knockBack = 2.0
+upgrades = Array[ExtResource("4_uq4g3")]([SubResource("Resource_e56f6"), SubResource("Resource_2o3d7"), SubResource("Resource_mcvk2"), SubResource("Resource_66h15"), SubResource("Resource_uxmmg"), SubResource("Resource_41xkg")])
+attackPower = 20.0
+attackSpeed = 100.0
+coolDown = 1.0
+critChance = 10.0
+critDamage = 25.0
+knockBack = 3.0
 weaponNode = ExtResource("5_v6eak")
 name = "Kunai"
-description = "asdasdwqaeasdaw"
-icon = ExtResource("1_f58ws")
+description = "A lightweight throwable weapon designed for quick, precise strikes. While its base damage is modest, its speed and versatility make it a reliable tool for beginners."
+icon = ExtResource("1_1wctw")
 level = 1

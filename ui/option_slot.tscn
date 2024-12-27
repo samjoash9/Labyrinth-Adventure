@@ -65,6 +65,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_aikih")
+theme_override_font_sizes/font_size = 10
 text = "Shoots ice spikes towards the enemy , freezing them and slowing them down by 5%"
 horizontal_alignment = 1
 autowrap_mode = 3

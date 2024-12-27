@@ -1,0 +1,74 @@
+[gd_resource type="Resource" script_class="Passives" load_steps=9 format=3 uid="uid://lcrtp1somvy3"]
+
+[ext_resource type="Texture2D" uid="uid://d0derpiaf8b76" path="res://imgs/passiveUpgradesIcons/wingedboots.jpg" id="1_w1kl6"]
+[ext_resource type="Script" path="res://resources/scripts/passiveItem.gd" id="2_3ay58"]
+[ext_resource type="Script" path="res://resources/scripts/baseStats.gd" id="3_rt3wj"]
+
+[sub_resource type="Resource" id="Resource_yrcj3"]
+script = ExtResource("3_rt3wj")
+description = "Be flash , Be fast
++3 Movement Speed"
+hitPoints = 0.0
+maxHitpoints = 0.0
+moveSpeed = 3.0
+might = 0.0
+armor = 0.0
+magnetArea = 0.0
+areaMultiplier = 0.0
+growth = 0.0
+
+[sub_resource type="Resource" id="Resource_vnbyt"]
+script = ExtResource("3_rt3wj")
+description = "+6 Movement Speed"
+hitPoints = 0.0
+maxHitpoints = 0.0
+moveSpeed = 6.0
+might = 0.0
+armor = 0.0
+magnetArea = 0.0
+areaMultiplier = 0.0
+growth = 0.0
+
+[sub_resource type="Resource" id="Resource_yu6r3"]
+script = ExtResource("3_rt3wj")
+description = "+6 Movement Speed"
+hitPoints = 0.0
+maxHitpoints = 0.0
+moveSpeed = 6.0
+might = 0.0
+armor = 0.0
+magnetArea = 0.0
+areaMultiplier = 0.0
+growth = 0.0
+
+[sub_resource type="Resource" id="Resource_e1f67"]
+script = ExtResource("3_rt3wj")
+description = "+5 Movement Speed"
+hitPoints = 0.0
+maxHitpoints = 0.0
+moveSpeed = 5.0
+might = 0.0
+armor = 0.0
+magnetArea = 0.0
+areaMultiplier = 0.0
+growth = 0.0
+
+[sub_resource type="Resource" id="Resource_cjuby"]
+script = ExtResource("3_rt3wj")
+description = "+10 Movement Speed"
+hitPoints = 0.0
+maxHitpoints = 0.0
+moveSpeed = 10.0
+might = 0.0
+armor = 0.0
+magnetArea = 0.0
+areaMultiplier = 0.0
+growth = 0.0
+
+[resource]
+script = ExtResource("2_3ay58")
+upgrades = Array[ExtResource("3_rt3wj")]([SubResource("Resource_yrcj3"), SubResource("Resource_vnbyt"), SubResource("Resource_yu6r3"), SubResource("Resource_e1f67"), SubResource("Resource_cjuby")])
+name = "Winged Feets"
+description = "Be flash , Be fast"
+icon = ExtResource("1_w1kl6")
+level = 1

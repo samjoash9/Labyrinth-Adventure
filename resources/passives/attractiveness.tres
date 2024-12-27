@@ -1,0 +1,74 @@
+[gd_resource type="Resource" script_class="Passives" load_steps=9 format=3 uid="uid://dcd8skau3i18n"]
+
+[ext_resource type="Texture2D" uid="uid://b4nmbyjio71me" path="res://imgs/passiveUpgradesIcons/attractiveness.jpg" id="1_gwf7u"]
+[ext_resource type="Script" path="res://resources/scripts/passiveItem.gd" id="2_v5wvi"]
+[ext_resource type="Script" path="res://resources/scripts/baseStats.gd" id="3_6r6ox"]
+
+[sub_resource type="Resource" id="Resource_cur43"]
+script = ExtResource("3_6r6ox")
+description = "You Attract More ;)
++ 5 Magnet Area Radius"
+hitPoints = 0.0
+maxHitpoints = 0.0
+moveSpeed = 0.0
+might = 0.0
+armor = 0.0
+magnetArea = 5.0
+areaMultiplier = 0.0
+growth = 0.0
+
+[sub_resource type="Resource" id="Resource_s31ff"]
+script = ExtResource("3_6r6ox")
+description = "+ 10 Magnet Area Radius"
+hitPoints = 0.0
+maxHitpoints = 0.0
+moveSpeed = 0.0
+might = 0.0
+armor = 0.0
+magnetArea = 10.0
+areaMultiplier = 0.0
+growth = 0.0
+
+[sub_resource type="Resource" id="Resource_vo72j"]
+script = ExtResource("3_6r6ox")
+description = "+ 12 Magnet Area Radius"
+hitPoints = 0.0
+maxHitpoints = 0.0
+moveSpeed = 0.0
+might = 0.0
+armor = 0.0
+magnetArea = 12.0
+areaMultiplier = 0.0
+growth = 0.0
+
+[sub_resource type="Resource" id="Resource_2irlx"]
+script = ExtResource("3_6r6ox")
+description = "+ 13 Magnet Area Radius"
+hitPoints = 0.0
+maxHitpoints = 0.0
+moveSpeed = 0.0
+might = 0.0
+armor = 0.0
+magnetArea = 13.0
+areaMultiplier = 0.0
+growth = 0.0
+
+[sub_resource type="Resource" id="Resource_s5ie4"]
+script = ExtResource("3_6r6ox")
+description = "+ 15 Magnet Area Radius"
+hitPoints = 0.0
+maxHitpoints = 0.0
+moveSpeed = 0.0
+might = 0.0
+armor = 0.0
+magnetArea = 15.0
+areaMultiplier = 0.0
+growth = 0.0
+
+[resource]
+script = ExtResource("2_v5wvi")
+upgrades = Array[ExtResource("3_6r6ox")]([SubResource("Resource_cur43"), SubResource("Resource_s31ff"), SubResource("Resource_vo72j"), SubResource("Resource_2irlx"), SubResource("Resource_s5ie4")])
+name = "Attractiveness"
+description = "You Attract More ;)"
+icon = ExtResource("1_gwf7u")
+level = 1
